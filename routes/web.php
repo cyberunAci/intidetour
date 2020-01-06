@@ -12,3 +12,11 @@
 */
 
 Route::resource('/', 'AccueilController');
+
+Route::get('/apropos', function () {
+    return view('apropos');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
