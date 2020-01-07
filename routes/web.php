@@ -11,12 +11,15 @@
 |
 */
 
+/**
+ * Acceuil
+ */
 Route::resource('/', 'AccueilController');
 
 Route::get('/apropos', function () {
-    return view('apropos');
+    return view('clients.apropos');
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('clients.contact');
 });
