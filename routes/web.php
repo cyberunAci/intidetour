@@ -10,16 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/**
+ * Adimin
+ */
+Route::resource('/dashboard', 'AdminController');
 
 /**
  * Acceuil
  */
 Route::resource('/', 'AccueilController');
 
+/**
+ * À propos
+ */
 Route::get('/apropos', function () {
     return view('clients.apropos');
 });
 
+/**
+ * Acceuil
+ */
 Route::get('/contact', function () {
     return view('clients.contact');
 });
