@@ -14,6 +14,9 @@
         <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
       </li>
      
+
+
+      
       <li class="nav-item">
         <a class="nav-link" href="#">Circuits</a>
       </li>
@@ -28,14 +31,14 @@
       </li>
 
       <li class="nav-item">
-          <!-- element cacher en grand ecran uniquement   -->
-        <a class="nav-link  d-none .d-sm-block .d-md-none" href="#">Newsletter</a>
+          <!-- element cacher en grand ecran uniquement et ecran xl  -->
+        <a class="nav-link   d-sm-block d-md-block d-lg-none d-xl-none" href="#">Newsletter</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  d-none .d-sm-block .d-md-none" href="#">Les reseaux</a>
+        <a class="nav-link   d-sm-block d-md-block d-lg-none d-xl-none" href="#">Les reseaux</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  d-none .d-lg-block .d-xl-none" href="#">CGU</a>
+        <a class="nav-link    d-sm-block d-md-block d-lg-none d-xl-none" href="#">CGU</a>
       </li>
     </ul>
 
