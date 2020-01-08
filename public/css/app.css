@@ -4,6 +4,20 @@
   margin: 0;
 }
 
+.col-lg-9,
+.col-lg-3,
+.col-lg-4,
+.col-lg-6,
+.col-lg-8 {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  margin: 0;
+  padding: 0;
+}
+
 section {
   display: -webkit-box;
   display: flex;
@@ -15,7 +29,7 @@ section {
   -webkit-box-align: center;
           align-items: center;
   margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
   margin-left: 5%;
   margin-right: 5%;
   border: 1px solid red;
@@ -36,6 +50,47 @@ section {
 
 .presentationImage {
   width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.video {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.newsletter {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  margin: 5px;
+}
+
+.input {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+  width: 50%;
+}
+
+.centrer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 /* TODO pour la responsivité */
