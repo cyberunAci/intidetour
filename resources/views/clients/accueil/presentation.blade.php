@@ -16,7 +16,7 @@
             </div>
         </section>
     </div>
-    <div class="col-lg-6 text-center presentationImage">
+    <div class="col-lg-6 text-right presentationImage">
         <img src="https://via.placeholder.com/600" alt="" class="img-fluid order1">
     </div>
 </section>

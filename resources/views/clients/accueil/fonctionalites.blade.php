@@ -1,5 +1,7 @@
 <section>
-    <div class="col-lg-3">Fonctionalitées</div>
+    <div class="col-lg-3">
+        <h2>Fonctionalitées</h2>
+    </div>
     <div class="col-lg-9">
         <div class="row">
             <div class="col-lg-3">
