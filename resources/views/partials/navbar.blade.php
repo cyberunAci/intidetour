@@ -14,7 +14,6 @@
         <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
       </li>
      
-
       <li class="nav-item">
         <a class="nav-link" href="#">Circuits</a>
       </li>
@@ -29,7 +28,7 @@
       </li>
 
       <li class="nav-item">
-          <!-- element cacher en grand ecran uniquement  -->
+          <!-- element cacher en grand ecran uniquement   -->
         <a class="nav-link  d-none .d-sm-block .d-md-none" href="#">Newsletter</a>
       </li>
       <li class="nav-item">

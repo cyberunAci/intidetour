@@ -8,7 +8,7 @@
 </p>
 
 ## Intruction 
--** Composer install**
--**npm install **
--** Créer le fichier .env a partir du fichier .env.exemple**
--** Generer des clés avec  php artisan key:generate **
+*composer install
+*npm install 
+*Créer le fichier .env a partir du fichier .env.exemple
+*Generer des clés avec  php artisan key:generate 
