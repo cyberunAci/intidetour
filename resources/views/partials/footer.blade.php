@@ -11,10 +11,11 @@
                     lorem ipsum
                 </li>
                 <li class="nav-item active ">
-                    lorem ipsum
+                    <a href="#">CGU</a>
                 </li>
                 <li class="nav-item active ">
-                    lorem ipsum
+
+                    <a href="#">@copyright 2020</a>
                 </li>
             </ul>
         </div>
@@ -23,22 +24,38 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus officia harum, temporibus cumque quisquam similique voluptas error illum dolorem molestias ea at praesentium distinctio maxime non. Molestias eveniet officiis ab.</p>
         </div>
         <div class="col-md-3 bg-dark">
+            
             <h2> partenaires</h2>
-            <div class="row">
-                <div class="col-4">haha</div>
-                <div class="col-4">haha</div>
-                <div class="col-4">haha</div>
+            <div class="row ">
 
+                <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
+                </div>
+                <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
+                </div>
+                <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
+                </div>
+
+                <div class="col-4">haha</div>
+                <div class="col-4">haha</div>
+                <div class="col-4">haha</div>
+                
+
+                <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
+                </div>
+                <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
+                </div>
+                <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
+                </div>
             </div>
         </div>
         <div class="col-md-3 bg-warning">
 
 
-      
+
             <h2>Inscrivez vous a la newsletter</h2>
 
 
-            
+
             <form>
                 <div class="form-row align-items-center">
                     <div class="col-9">
