@@ -1,3 +1,41 @@
 //
 
-@import "accueil";
+// @import "accueil";
+.row {
+    margin: 0;
+}
+section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border : 1px solid red;
+}
+
+.presentation {
+    display: flex;
+    flex-direction: column;
+}
+
+.presentationBouton {
+    width: 150px;
+    height: auto;
+}
+
+.presentationImage {
+    width: 100%;
+}
+
+
+/* TODO pour la responsivité */
+// .order1 {
+//     order: 1;
+// }
+
+// .order2 {
+//     order: 2;
+// }

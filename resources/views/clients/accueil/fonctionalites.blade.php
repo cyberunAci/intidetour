@@ -1,4 +1,4 @@
-<div class="row">
+<section>
     <div class="col-lg-3">Fonctionalitées</div>
     <div class="col-lg-9">
         <div class="row">
@@ -54,4 +54,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>
