@@ -11,17 +11,17 @@
 |
 */
 /**
- * Adimin
+ * Admin
  */
 Route::resource('/dashboard', 'AdminController');
 
 /**
- * Acceuil
+ * Accueil
  */
 Route::resource('/', 'AccueilController');
 
 /**
- * Circuits
+ * CGU
  */
 Route::get('/cgu', function() {
     return view('clients.cgu');
