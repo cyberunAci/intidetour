@@ -21,6 +21,13 @@ Route::resource('/dashboard', 'AdminController');
 Route::resource('/', 'AccueilController');
 
 /**
+ * Circuits
+ */
+Route::get('/cgu', function() {
+    return view('clients.cgu');
+});
+
+/**
  * À propos
  */
 Route::get('/apropos', function () {
