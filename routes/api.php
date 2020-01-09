@@ -20,9 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /**
  * Admin
  */
-Route::resource('/dashboard', 'AdminController');
+Route::prefix('circuits')->group(function () {
+    Route::post('/add', 'CircuitsController@add');
+});
 
-
-    Route::get('/circuits', function(){
-        return view('admins/ajout_circuits');
-    });

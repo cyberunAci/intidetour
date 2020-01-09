@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/**
+ * Admin
+ */
+Route::resource('/dashboard', 'AdminController');
 
 /**
  * Accueil

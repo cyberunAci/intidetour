@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<form action="" method="post">
+<form method="post" action="/add" >
     <label>
         Nom du circuit
     </label>

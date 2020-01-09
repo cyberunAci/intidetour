@@ -17,7 +17,7 @@ class CreationTableCircuits extends Migration
             $table->bigIncrements('id');
             $table->string('nom',255);
             $table->string('image',255);
-            $table->string('difficulté',255);
+            $table->string('difficulte',255);
             $table->string('description',255);
         });
 
