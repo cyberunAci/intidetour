@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /**
- * Admin
+ * API circuits
  */
 Route::prefix('circuits')->group(function () {
     Route::post('/add', 'CircuitsController@add');
