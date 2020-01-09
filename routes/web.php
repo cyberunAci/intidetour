@@ -10,18 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/**
- * Adimin
- */
-Route::resource('/dashboard', 'AdminController');
 
 /**
- * Acceuil
+ * Accueil
  */
 Route::resource('/', 'AccueilController');
 
 /**
- * Circuits
+ * CGU
  */
 Route::get('/cgu', function() {
     return view('clients.cgu');

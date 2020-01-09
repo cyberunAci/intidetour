@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/**
+ * Admin
+ */
+Route::resource('/dashboard', 'AdminController');
+
+
+    Route::get('/circuits', function(){
+        return view('admins/ajout_circuits');
+    });
