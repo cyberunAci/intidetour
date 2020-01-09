@@ -33,3 +33,7 @@ Route::get('/apropos', function () {
 Route::get('/contact', function () {
     return view('clients.contact');
 });
+
+Route::get('/page_galerie', function () {
+    return view('clients.galerie.pageGalerie');
+});
