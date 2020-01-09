@@ -1,6 +1,7 @@
 //
 
-// @import "accueil";
+@import "accueil";
+
 .row {
   margin: 0;
 }
@@ -39,66 +40,6 @@ section {
   border: 1px solid red;
 }
 
-.presentation {
-  display: flex;
-  flex-direction: column;
-}
-
-.presentationBouton {
-  width: 150px;
-  height: auto;
-}
-
-.presentationImage {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.video {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.newsletter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
-}
-
-.input {
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 10px;
-  width: 50%;
-}
-
-.centrer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btnEquipe {
-  width: 50%;
-  margin-left: 50%;
-}
-.fonctionalitesRow {
-    justify-content: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
-.fonctionalitesBlock {
-    display: flex;
-    align-items: center;
-}
-
-.fonctionalitesTexte {
-    margin: 10px;
-}
 /* TODO pour la responsivité */
 // .order1 {
 //     order: 1;
@@ -107,7 +48,10 @@ section {
 // .order2 {
 //     order: 2;
 // }
+<<<<<<< HEAD
 
 .galery{
   width:100%
 }
+=======
+>>>>>>> 1adf9ed4c5e2b1e1e946eedede0fe5fe17050af0
