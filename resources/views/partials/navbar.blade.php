@@ -16,30 +16,10 @@
      
 
 
-      
-      <li class="nav-item">
-        <a class="nav-link" href="#">Circuits</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Galerie</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">L'equipe</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
-      </li>
 
-      <li class="nav-item">
-          <!-- element cacher en grand ecran uniquement et ecran xl  -->
-        <a class="nav-link   d-sm-block d-md-block d-lg-none d-xl-none" href="#">Newsletter</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link   d-sm-block d-md-block d-lg-none d-xl-none" href="#">Les reseaux</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link    d-sm-block d-md-block d-lg-none d-xl-none" href="#">CGU</a>
-      </li>
+     
+
+     
     </ul>
 
   </div>
