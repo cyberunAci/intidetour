@@ -40,7 +40,16 @@ Route::get('/contact', function () {
     return view('clients.contact');
 });
 
-Route::get('/page_galerie', function () {
+Route::get('/galerie', function () {
     return view('clients.galerie.pageGalerie');
 });
 
+
+Route::get('/circuits', function () {
+
+    //get datas
+  //peut etre utilise un autre ctrl
+
+    
+    return view('clients.circuits');
+});
