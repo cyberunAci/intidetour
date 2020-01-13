@@ -11,6 +11,7 @@
         @include("clients.accueil.galerie")
         @include("clients.accueil.temoignages")
     </div>
+
 </body>
 
 </html>

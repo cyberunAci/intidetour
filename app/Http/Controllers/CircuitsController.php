@@ -5,11 +5,27 @@ namespace App\Http\Controllers;
 use App\CircuitsModel;
 use App\Http\Resources\CircuitsRessource;
 use Illuminate\Http\Request;
-use App\CircuitsModel;
 use Illuminate\Support\Facades\Validator;
 
 class CircuitsController extends Controller
 {
+
+
+    /**
+     *  Function recuperations  de tous les circuits
+    
+     * @return retourne les circuits entré en BDD
+     */
+public function index()
+{
+  //recupere tous les circuit 
+  $circuits = CircuitsModel::all();
+  //Retourne la data cad les circuits 
+  return $circuits;
+}
+
+
+
 
     /**
      * Function ajout de circuit
@@ -40,8 +56,5 @@ class CircuitsController extends Controller
     }
 
 
-    public function delete($id){
-        $delete = CircuitsModel::destroy($id) ? 'ok' : 'nok';
-        return json_encode(['status' => $status]);
-    }
+  
 }
