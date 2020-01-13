@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\CircuitsModel;
 use App\Http\Resources\CircuitsRessource;
 use Illuminate\Http\Request;
-use App\CircuitsModel;
 use Illuminate\Support\Facades\Validator;
 
 class CircuitsController extends Controller
@@ -38,13 +37,18 @@ class CircuitsController extends Controller
         //Retourne le circuit formaté grace à la ressource
         return new CircuitsRessource($circuit);
     }
-<<<<<<< HEAD
 
-
+/**
+ * Function delete pour supprimer un circuit 
+ * 
+ * @param Integer $id l'identifiant du circuit à supprimer 
+ * @return json le status 
+ */
     public function delete($id){
-        $delete = CircuitsModel::destroy($id) ? 'ok' : 'nok';
-        return json_encode(['status' => $status]);
+        $delete = CircuitsModel:: find($id)->delete();
+        if($delete){
+            return "true";
+        }
+
     }
-=======
->>>>>>> 3c8ea62ae13d651c6119b9daa642e19c0af57fed
 }
