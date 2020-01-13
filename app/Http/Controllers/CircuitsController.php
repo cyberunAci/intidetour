@@ -64,11 +64,7 @@ class CircuitsController extends Controller
         //Retourne le circuit formaté grace à la ressource
         return new CircuitsRessource($circuit);
     }
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-=======
     /**
      * Function update de circuit
      * @param Request $request: requete d'entree || $id : id dans l'url
@@ -86,7 +82,6 @@ class CircuitsController extends Controller
                 'description' => 'required',
             ]
         )->validate();
->>>>>>> 685d2a1df0359e5366fe23d0a4ee9b2a8cecd4d4
 
         //Récupération d'un circuit dans la base de donnée en fonction de l'id entrée dans l'url
         $dataCircuit = CircuitsModel::find(1)
@@ -103,7 +98,6 @@ class CircuitsController extends Controller
         $dataCircuit->save();
         return new CircuitsRessource($dataCircuit);
     }
->>>>>>> 2ee13e3b56a6c387922d2ba33d4deb91834cbc92
 
     /**
      * Function delete pour supprimer un circuit 
@@ -113,9 +107,11 @@ class CircuitsController extends Controller
      */
     public function delete($id)
     {
-        $delete = CircuitsModel::find($id)->delete();
-        if ($delete) {
-            return "true";
-        }
+        $status =  CircuitsModel::destroy($id) ? 'ok' : 'nok';
+        return json_encode(['status' => $status]);
     }
 }
+
+
+
+    
