@@ -30,9 +30,8 @@ Route::get('/cgu', function() {
 /**
  * À propos
  */
-Route::get('/apropos', function () {
-    return view('clients.apropos');
-});
+Route::get('/apropos', 'AboutController@index');
+
 
 /**
  * Acceuil
