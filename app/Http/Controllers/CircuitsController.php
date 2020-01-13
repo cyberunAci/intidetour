@@ -64,11 +64,7 @@ class CircuitsController extends Controller
         //Retourne le circuit formaté grace à la ressource
         return new CircuitsRessource($circuit);
     }
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-=======
     /**
      * Function update de circuit
      * @param Request $request: requete d'entree || $id : id dans l'url
@@ -86,7 +82,7 @@ class CircuitsController extends Controller
                 'description' => 'required',
             ]
         )->validate();
->>>>>>> 685d2a1df0359e5366fe23d0a4ee9b2a8cecd4d4
+
 
         //Récupération d'un circuit dans la base de donnée en fonction de l'id entrée dans l'url
         $dataCircuit = CircuitsModel::find(1)
@@ -103,7 +99,6 @@ class CircuitsController extends Controller
         $dataCircuit->save();
         return new CircuitsRessource($dataCircuit);
     }
->>>>>>> 2ee13e3b56a6c387922d2ba33d4deb91834cbc92
 
     /**
      * Function delete pour supprimer un circuit 
@@ -118,4 +113,30 @@ class CircuitsController extends Controller
             return "true";
         }
     }
+
+    public function addTrace(Request $request)
+    {
+         //Validation des données entrées
+        $dataTrace = Validator::make(
+            $request->input(),
+            [
+                'trace' => 'required',
+            ],
+            [
+                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
+            ]
+        )->validate(); 
+    //Ajout en bdd des données validées par le validator
+
+
+//find le circuit grace à l'ID 
+//Ajouter au circuit la trace
+
+
+
+       $trace = CircuitsModel::create($dataTrace );
+       //Retourne la trace formaté grace à la ressource
+       return new CircuitsRessource($trace);
+      
+}
 }

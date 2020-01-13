@@ -10,4 +10,10 @@ class CircuitsModel extends Model
     protected $fillable = ['nom', 'image', 'difficulte', 'description',];
     public $timestamps = false;
 
+
+    function trace(){
+        return $this->hasMany(TracesModel::class,'id_circuits');
+    }
+
+
 }

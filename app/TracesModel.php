@@ -10,4 +10,7 @@ class TracesModel extends Model
     protected $fillable = ['trace',];
     public $timestamps = false;
 
+    function circuit(){
+        return $this->belongsTo(CircuitsModel::class,'id_circuit');
+    }
 }
