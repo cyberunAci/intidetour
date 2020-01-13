@@ -45,23 +45,37 @@ class CircuitsController extends Controller
      */
     public function update(Request $request, $id)
     {
-                
-             $dataUpdate = Validator::make(
-                $request->input(),
-                [
-                    'id' => 'required|numeric',
-                    'nom' => 'required',
-                    'image' => 'required',
-                    'difficulte' => 'required',
-                    'description' => 'required',
-    
-                ]
-            )->validate();
- 
 
-        // $dataCircuit = CircuitsModel::where('id', '=', $request['id'])->get();
+        $dataUpdate = Validator::make(
+            $request->all(),
+            [
+                'nom' => 'required',
+                'image' => 'required',
+                'difficulte' => 'required',
+                'description' => 'required',
 
-        // $dataCircuit->updateOrCreate([$request['data']=>$request['donnee'], [$request['modif'] => $request['donneModif']]]);
-        return ($dataUpdate);
+            ]
+        )->validate();
+        
+        $dataCircuit = CircuitsModel::find(1)
+                    ->where('id', '=', $id)
+                    ->get();
+        $circuit = new CircuitsRessource($dataCircuit[0]);
+        $circuit->nom='changement';
+       return $circuit['nom'];
+    }
+
+    /**
+     * Function delete pour supprimer un circuit 
+     * 
+     * @param Integer $id l'identifiant du circuit à supprimer 
+     * @return json le status 
+     */
+    public function delete($id)
+    {
+        $delete = CircuitsModel::find($id)->delete();
+        if ($delete) {
+            return "true";
+        }
     }
 }

@@ -17,11 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
 /**
  * API circuits
  */
-Route::prefix('circuits')->group(function () {
+    Route::prefix('circuits')->group(function () {
     Route::post('/add', 'CircuitsController@add');
-    Route::put('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
+    Route::post('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
+    Route::delete('/{id}', 'CircuitsController@delete')->where('id', "[0-9]+");
 });
-
