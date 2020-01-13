@@ -11,7 +11,9 @@
         @include("clients.accueil.galerie")
         @include("clients.accueil.temoignages")
     </div>
-
+    <div>
+        {{ csrf_token() }}
+    </div>
 </body>
 
 </html>

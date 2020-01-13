@@ -43,3 +43,4 @@ Route::get('/contact', function () {
 Route::get('/page_galerie', function () {
     return view('clients.galerie.pageGalerie');
 });
+
