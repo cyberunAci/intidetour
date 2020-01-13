@@ -21,8 +21,21 @@ class CircuitsController extends Controller
         //recupere tous les circuit 
         $circuits = CircuitsModel::all();
         //Retourne la data cad les circuits 
-        return $circuits;
+        return  CircuitsRessource::collection($circuits);
     }
+
+
+    /**
+     *  Function recuperation  d un circuit en particulier
+     * @param $id $request requete d'entrée
+     * @return retourne les circuits entré en BDD
+     */
+    public function show($id)
+    {
+        $circuit = CircuitsModel::find($id);
+        return new CircuitsRessource($circuit);
+    }
+
 
     /**
      * Function ajout de circuit
@@ -52,5 +65,18 @@ class CircuitsController extends Controller
         return new CircuitsRessource($circuit);
     }
 
-    
+
+    /**
+     * Function delete pour supprimer un circuit 
+     * 
+     * @param Integer $id l'identifiant du circuit à supprimer 
+     * @return json le status 
+     */
+    public function delete($id)
+    {
+        $delete = CircuitsModel::find($id)->delete();
+        if ($delete) {
+            return "true";
+        }
+    }
 }
