@@ -65,6 +65,35 @@ class CircuitsController extends Controller
         return new CircuitsRessource($circuit);
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * 
+     * @param Request $request: requete d'entree || $id : id dans l'url
+     * @return 
+     */
+    public function update(Request $request, $id)
+    {
+
+        $dataUpdate = Validator::make(
+            $request->all(),
+            [
+                'nom' => 'required',
+                'image' => 'required',
+                'difficulte' => 'required',
+                'description' => 'required',
+
+            ]
+        )->validate();
+        
+        $dataCircuit = CircuitsModel::find(1)
+                    ->where('id', '=', $id)
+                    ->get();
+        $circuit = new CircuitsRessource($dataCircuit[0]);
+        $circuit->nom='changement';
+       return $circuit['nom'];
+    }
+>>>>>>> 2ee13e3b56a6c387922d2ba33d4deb91834cbc92
 
     /**
      * Function delete pour supprimer un circuit 
