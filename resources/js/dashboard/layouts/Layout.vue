@@ -7,12 +7,17 @@
       <v-container fluid>
         <router-view></router-view>
       </v-container>
+      
     </v-content>
+    
+        <footer></footer>
+      
   </v-app>
 </template>
 
 <script>
 import Navbar from "../navigation/Navbar";
+import Footer from "../footer/Footer";
 export default {
   components: { Navbar }
 };
