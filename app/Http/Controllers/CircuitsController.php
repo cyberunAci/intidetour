@@ -53,13 +53,13 @@ class CircuitsController extends Controller
     }
 
     /**
-     * 
+     * Function update de circuit
      * @param Request $request: requete d'entree || $id : id dans l'url
-     * @return 
+     * @return Retourne le circuit avec sa modification 
      */
     public function update(Request $request, $id)
     {
-
+        //Validation des données entrantes
         $dataUpdate = Validator::make(
             $request->all(),
             [
@@ -67,16 +67,23 @@ class CircuitsController extends Controller
                 'image' => 'required',
                 'difficulte' => 'required',
                 'description' => 'required',
-
             ]
         )->validate();
-        
+
+        //Récupération d'un circuit dans la base de donnée en fonction de l'id entrée dans l'url
         $dataCircuit = CircuitsModel::find(1)
-                    ->where('id', '=', $id)
-                    ->get();
-        $circuit = new CircuitsRessource($dataCircuit[0]);
-        $circuit->nom='changement';
-       return $circuit['nom'];
+            ->where('id', '=', $id)
+            ->first();
+
+        //Mise en relation des inputs et des colonnes pour la modification
+        $dataCircuit->nom = $dataUpdate['nom'];
+        $dataCircuit->image = $dataUpdate['image'];
+        $dataCircuit->difficulte = $dataUpdate['difficulte'];
+        $dataCircuit->description = $dataUpdate['description'];
+
+        //Sauvegarde des données entrées en base de donnée
+        $dataCircuit->save();
+        return new CircuitsRessource($dataCircuit);
     }
 
     /**
