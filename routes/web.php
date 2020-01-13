@@ -39,3 +39,8 @@ Route::get('/apropos', 'AboutController@index');
 Route::get('/contact', function () {
     return view('clients.contact');
 });
+
+Route::get('/page_galerie', function () {
+    return view('clients.galerie.pageGalerie');
+});
+

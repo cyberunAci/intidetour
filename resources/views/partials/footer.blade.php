@@ -30,7 +30,7 @@
 
                 <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
                 </div>
-                <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
+                <div class="col-4"><img width="64px" src=" {{ asset('images/logotb.png') }}" alt="">
                 </div>
                 <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
                 </div>
@@ -39,6 +39,8 @@
                 <div class="col-4">haha</div>
                 <div class="col-4">haha</div>
                 
+
+               
 
                 <div class="col-4"><img width="64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYHgmoQJxfAu7_lqlHj7VLb2YBANvScGACLcXasHSS03YKuyod&sz" alt="">
                 </div>
