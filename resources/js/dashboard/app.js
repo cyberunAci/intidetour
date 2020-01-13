@@ -13,5 +13,3 @@ const app = new Vue({
 })
 
 export default new Vuetify(app);
-
-console.log("test");
