@@ -85,12 +85,6 @@ class CircuitsController extends Controller
 
         //Récupération d'un circuit dans la base de donnée en fonction de l'id entrée dans l'url
         $dataCircuit = CircuitsModel::find(1)
-                    ->where('id', '=', $id)
-                    ->get();
-        $circuit = new CircuitsRessource($dataCircuit[0]);
-        $circuit->nom='changement';
-        return $circuit['nom'];
-=======
             ->where('id', '=', $id)
             ->first();
 
