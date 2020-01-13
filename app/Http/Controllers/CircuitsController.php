@@ -51,4 +51,6 @@ class CircuitsController extends Controller
         //Retourne le circuit formaté grace à la ressource
         return new CircuitsRessource($circuit);
     }
+
+    
 }
