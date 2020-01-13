@@ -9,16 +9,19 @@
       </v-container>
       
     </v-content>
-    
-        <footer></footer>
-      
+    <v-container>
+      <DashboardFooter />
+    </v-container>
   </v-app>
 </template>
 
 <script>
 import Navbar from "../navigation/Navbar";
-import Footer from "../footer/Footer";
+import Footer from "../navigation/Footer";
 export default {
-  components: { Navbar }
+  components: { 
+    Navbar,
+    "DashboardFooter" : Footer
+  }
 };
 </script>
