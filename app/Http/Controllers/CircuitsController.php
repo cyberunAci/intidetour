@@ -65,8 +65,6 @@ class CircuitsController extends Controller
         return new CircuitsRessource($circuit);
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Function update de circuit
      * @param Request $request: requete d'entree || $id : id dans l'url
@@ -100,7 +98,6 @@ class CircuitsController extends Controller
         $dataCircuit->save();
         return new CircuitsRessource($dataCircuit);
     }
->>>>>>> 2ee13e3b56a6c387922d2ba33d4deb91834cbc92
 
     /**
      * Function delete pour supprimer un circuit 
@@ -110,9 +107,11 @@ class CircuitsController extends Controller
      */
     public function delete($id)
     {
-        $delete = CircuitsModel::find($id)->delete();
-        if ($delete) {
-            return "true";
-        }
+        $status =  CircuitsModel::destroy($id) ? 'ok' : 'nok';
+        return json_encode(['status' => $status]);
     }
 }
+
+
+
+    
