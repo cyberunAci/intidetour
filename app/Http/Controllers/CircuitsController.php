@@ -76,7 +76,7 @@ class CircuitsController extends Controller
                     ->get();
         $circuit = new CircuitsRessource($dataCircuit[0]);
         $circuit->nom='changement';
-       return $circuit['nom'];
+        return $circuit['nom'];
     }
 
     /**
@@ -87,9 +87,11 @@ class CircuitsController extends Controller
      */
     public function delete($id)
     {
-        $delete = CircuitsModel::find($id)->delete();
-        if ($delete) {
-            return "true";
-        }
+        $status =  CircuitsModel::destroy($id) ? 'ok' : 'nok';
+        return json_encode(['status' => $status]);
     }
 }
+
+
+
+    
