@@ -22,5 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  */
 Route::prefix('circuits')->group(function () {
     Route::post('/add', 'CircuitsController@add');
+    Route::put('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
 });
 

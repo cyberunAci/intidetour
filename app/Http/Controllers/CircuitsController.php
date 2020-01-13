@@ -37,4 +37,31 @@ class CircuitsController extends Controller
         //Retourne le circuit formaté grace à la ressource
         return new CircuitsRessource($circuit);
     }
+
+    /**
+     * 
+     * @param Request $request: requete d'entree || $id : id dans l'url
+     * @return 
+     */
+    public function update(Request $request, $id)
+    {
+                
+             $dataUpdate = Validator::make(
+                $request->input(),
+                [
+                    'id' => 'required|numeric',
+                    'nom' => 'required',
+                    'image' => 'required',
+                    'difficulte' => 'required',
+                    'description' => 'required',
+    
+                ]
+            )->validate();
+ 
+
+        // $dataCircuit = CircuitsModel::where('id', '=', $request['id'])->get();
+
+        // $dataCircuit->updateOrCreate([$request['data']=>$request['donnee'], [$request['modif'] => $request['donneModif']]]);
+        return ($dataUpdate);
+    }
 }
