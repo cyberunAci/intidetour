@@ -17,10 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
 /**
  * Admin
  */
 Route::prefix('circuits')->group(function () {
     Route::post('/add', 'CircuitsController@add');
+    Route::delete('/{id}', 'CircuitController@delete')->where('id', "[0-9]+");
 });
 

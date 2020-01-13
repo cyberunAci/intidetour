@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\CircuitsModel;
 use Illuminate\Support\Facades\Validator;
 
 class CircuitsController extends Controller
@@ -28,4 +29,9 @@ class CircuitsController extends Controller
         return json_encode($dataCircuit);
     }
 
+
+    public function delete($id){
+        $delete = CircuitsModel::destroy($id) ? 'ok' : 'nok';
+        return json_encode(['status' => $status]);
+    }
 }
