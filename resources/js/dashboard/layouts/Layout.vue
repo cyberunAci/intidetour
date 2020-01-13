@@ -7,6 +7,7 @@
       <v-container fluid>
         <router-view></router-view>
       </v-container>
+      
     </v-content>
     <v-container>
       <DashboardFooter />
