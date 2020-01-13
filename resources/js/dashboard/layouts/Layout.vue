@@ -7,11 +7,8 @@
       <v-container fluid>
         <router-view></router-view>
       </v-container>
-      
     </v-content>
-    <v-container>
-      <DashboardFooter />
-    </v-container>
+    <DashboardFooter />
   </v-app>
 </template>
 
@@ -19,9 +16,20 @@
 import Navbar from "../navigation/Navbar";
 import Footer from "../navigation/Footer";
 export default {
-  components: { 
+  components: {
     Navbar,
-    "DashboardFooter" : Footer
+    DashboardFooter: Footer
   }
 };
 </script>
+
+<style>
+html {
+  height: 100%;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+</style>
