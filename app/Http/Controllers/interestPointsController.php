@@ -6,5 +6,12 @@ use Illuminate\Http\Request;
 
 class interestPointsController extends Controller
 {
-    //
+    /**
+     * Function qui affiche les points d'intérêt important 
+     * @param 
+     * @return 
+     */
+    public function showInterestPoints(){
+        
+    }
 }
