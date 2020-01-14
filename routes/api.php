@@ -45,4 +45,15 @@ Route::prefix('users')->group(function () {
  */
 Route::prefix('success')->group(function () {
     Route::post('/', 'SuccessController@store');
+    Route::post('/{id}', 'SuccessController@update');
+    Route::delete('/{id}', 'SuccessController@destroy');
+});
+
+
+/**
+ * API Interest points
+ */
+Route::prefix('interestpoints')->group(function () {
+    Route::get('/', 'InterestPointsController@index');
+    Route::get('/', 'InterestPointsController@interestsPointsTypes');
 });
