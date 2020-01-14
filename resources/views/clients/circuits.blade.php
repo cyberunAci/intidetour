@@ -23,8 +23,10 @@
         </div>
     </div>
 
+    @foreach($circuits as $circuit)
+    {{$circuit->nom}}
+    @endforeach
 
-       
 </div>
 
 </html>

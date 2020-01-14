@@ -10,9 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 /**
  * Admin
  */
+
+use App\CircuitsModel;
+use App\Http\Controllers\CircuitsController;
+
 Route::resource('/dashboard', 'AdminController');
 
 /**
@@ -23,7 +28,7 @@ Route::resource('/', 'AccueilController');
 /**
  * CGU
  */
-Route::get('/cgu', function() {
+Route::get('/cgu', function () {
     return view('clients.cgu');
 });
 
@@ -45,11 +50,12 @@ Route::get('/galerie', function () {
 });
 
 
+
+
+
+
 Route::get('/circuits', function () {
-
-    //get datas
-  //peut etre utilise un autre ctrl
-
-    
-    return view('clients.circuits');
+    $ctrl = new CircuitsController();
+    $circuits = $ctrl->index();
+    return view('clients.circuits', ['circuits' => $circuits]);
 });

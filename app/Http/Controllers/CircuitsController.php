@@ -16,12 +16,16 @@ class CircuitsController extends Controller
     
      * @return retourne les circuits entré en BDD
      */
-    public function index()
+    public   function index()
     {
         //recupere tous les circuit 
         $circuits = CircuitsModel::all();
         //Retourne la data cad les circuits 
         return  CircuitsRessource::collection($circuits);
+
+
+
+        
     }
 
 
