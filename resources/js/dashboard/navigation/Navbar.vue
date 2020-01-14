@@ -5,6 +5,7 @@
         <h2 class="d-flex marginL">Intidetour</h2>
         <div class="marginR">
           <v-btn class="padding d-flex" text to="/dashboard">Home</v-btn>
+          <v-btn class="padding" text to="/dashboard/success">Succes</v-btn>
           <v-btn class="padding" text to="/">Retour au site</v-btn>
         </div>
       </v-card>
@@ -30,7 +31,7 @@ body{
 }
 .marginR {
   margin-right : 5%;
-  width: 10%;
+  width: 20%;
 }
 .padding {
   padding-right : 5%;
