@@ -21,21 +21,9 @@ class CircuitsController extends Controller
     {
         //recupere tous les circuit
         $circuits = CircuitsModel::all();
-<<<<<<< HEAD
+
         //Retourne la data cad les circuits 
         return  CircuitsRessource::collection($circuits);
-=======
-
-        //Retourne la data cad les circuits
-        return CircuitsRessource::collection($circuits);
-
-
-
-
-
-        
-
->>>>>>> dbe5eed2f645179d302b9ebc50169e74f358fe8a
     }
 
     /**
@@ -147,13 +135,26 @@ class CircuitsController extends Controller
             //Ajouter au circuit la trace
             $trace = $circuitModel->traces()->create($dataTrace);
             //Retourne la trace formaté grace à la ressource
-            return new TracesRessource($trace);
-        } else {
-            return json_encode('error');
+            /**
+             * find le circuit grace à l'ID
+             * **/
+            $circuitModel = CircuitsModel::find($id);
+            if (isset($circuitModel)) {
+
+                /*
+*Ajouter au circuit la trace
+**/
+                $trace = $circuitModel->traces()->create($dataTrace);
+                /*
+*Retourne la trace formaté grace à la ressource
+**/
+                return new TracesRessource($trace);
+            } else {
+                return json_encode('error');
+            }
         }
     }
 
-    
     /**
      * Function qui retourne les traces en fonction de l'id d'un circuit
      * @param Request $request: requete d'entree || $id : id dans l'url
