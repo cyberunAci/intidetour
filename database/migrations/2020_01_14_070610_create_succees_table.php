@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSuccessTable extends Migration
+class CreateSucceesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -39,13 +39,11 @@ class CreateSuccessTable extends Migration
     {
         Schema::table('users_success', function (Blueprint $table) {
             Schema::disableForeignKeyConstraints();
-            $table->dropForeign(['id_success']);
-            $table->dropIfExists('id_success');
-            $table->dropForeign(['id_user']);
-            $table->dropIfExists('id_user');
+            $table->dropForeign('users_success_id_success_foreign');
+            $table->drop('id_success');
+            Schema::enableForeignKeyConstraints();
         });
 
         Schema::dropIfExists('success');
-        Schema::dropIfExists('users_success');
     }
 }

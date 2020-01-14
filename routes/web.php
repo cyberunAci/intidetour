@@ -49,11 +49,9 @@ Route::get('/galerie', function () {
     return view('clients.galerie.pageGalerie');
 });
 
-
-
-
-
-
+/**
+ * Circuits
+ */
 Route::get('/circuits', function () {
     $ctrl = new CircuitsController();
     $circuits = $ctrl->index();
