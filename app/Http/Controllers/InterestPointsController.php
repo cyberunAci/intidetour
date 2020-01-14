@@ -11,9 +11,8 @@ class InterestPointsController extends Controller
      * @param 
      * @return 
      */
-    public function showInterestPoints(){
+    public function interestsPointsTypes()
+    {
         
     }
-    
-
 }
