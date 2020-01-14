@@ -16,12 +16,21 @@ class CircuitsController extends Controller
 
      * @return retourne les circuits entré en BDD
      */
-    public function index()
+    public   function index()
     {
         //recupere tous les circuit
         $circuits = CircuitsModel::all();
+<<<<<<< HEAD
         //Retourne la data cad les circuits
         return CircuitsRessource::collection($circuits);
+=======
+        //Retourne la data cad les circuits 
+        return  CircuitsRessource::collection($circuits);
+
+
+
+        
+>>>>>>> 5914e6c95b3a1df9fb42c2f1d0a2988e51475f9a
     }
 
     /**
@@ -105,10 +114,8 @@ class CircuitsController extends Controller
      */
     public function delete($id)
     {
-        $delete = CircuitsModel::find($id)->delete();
-        if ($delete) {
-            return "true";
-        }
+        $status =  CircuitsModel::destroy($id) ? 'ok' : 'nok';
+        return json_encode(['status' => $status]);
     }
 
     /**
@@ -143,3 +150,7 @@ class CircuitsController extends Controller
 
     }
 }
+
+
+
+    
