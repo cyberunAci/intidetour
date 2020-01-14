@@ -21,8 +21,21 @@ class CircuitsController extends Controller
     {
         //recupere tous les circuit
         $circuits = CircuitsModel::all();
+<<<<<<< HEAD
         //Retourne la data cad les circuits 
         return  CircuitsRessource::collection($circuits);
+=======
+
+        //Retourne la data cad les circuits
+        return CircuitsRessource::collection($circuits);
+
+
+
+
+
+        
+
+>>>>>>> dbe5eed2f645179d302b9ebc50169e74f358fe8a
     }
 
     /**
