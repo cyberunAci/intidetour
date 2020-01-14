@@ -25,21 +25,24 @@ Route::prefix('circuits')->group(function () {
     Route::post('/add', 'CircuitsController@add');
     Route::post('/{id}/trace/', 'CircuitsController@addTrace')->where('id', "[0-9]+");
     Route::get('/{id}', 'CircuitsController@show')->where('id', "[0-9]+");
-    Route::post('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
+    Route::put('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
     Route::delete('/{id}', 'CircuitsController@delete')->where('id', "[0-9]+");
     Route::get('/{id}/trace/', 'CircuitsController@showTrace')->where('id', "[0-9]+");
+    
    
 });
 
+/**
+ * API Utilisateurs
+ */
 Route::prefix('users')->group(function () {
+    Route::get('/', 'AdminController@getUsers');
     Route::delete('/{id}', 'ClientsController@delete')->where('id', "[0-9]+");
 });
 
 /**
- * API success
+ * API Success
  */
 Route::prefix('success')->group(function () {
     Route::post('/', 'SuccessController@store');
-    Route::post('/{id}', 'SuccessController@update');
-    Route::delete('/{id}', 'SuccessController@destroy');
 });
