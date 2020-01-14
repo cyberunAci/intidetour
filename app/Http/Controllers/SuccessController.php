@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SuccessResource;
+use App\SuccessModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SuccessController extends Controller
 {
@@ -34,7 +37,23 @@ class SuccessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validation des données entrées
+        $dataSuccess = Validator::make(
+            $request->input(),
+            [
+                'nom' => 'required',
+                'image' => 'required',
+                'description' => 'required',
+
+            ],
+            [
+                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
+            ]
+        )->validate();
+        //Ajout en bdd des données validées par le validator
+        $success = SuccessModel::create($dataSuccess);
+        //Retourne le circuit formaté grace à la ressource
+        return new SuccessResource($success);
     }
 
     /**
@@ -68,17 +87,40 @@ class SuccessController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validation des données entrantes
+        $dataUpdate = Validator::make(
+            $request->all(),
+            [
+                'nom' => 'required',
+                'image' => 'required',
+                'description' => 'required',
+            ]
+        )->validate();
+
+        //Récupération d'un circuit dans la base de donnée en fonction de l'id entrée dans l'url
+        $dataSuccess = SuccessModel::find(1)
+            ->where('id', '=', $id)
+            ->first();
+
+        //Mise en relation des inputs et des colonnes pour la modification
+        $dataSuccess->nom = $dataUpdate['nom'];
+        $dataSuccess->image = $dataUpdate['image'];
+        $dataSuccess->description = $dataUpdate['description'];
+
+        //Sauvegarde des données entrées en base de donnée
+        $dataSuccess->save();
+        return new SuccessResource($dataSuccess);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprimer la ressource visé avec l'id
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $status =  SuccessModel::destroy($id) ? 'ok' : 'nok';
+        return json_encode(['status' => $status]);
     }
 }
