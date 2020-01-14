@@ -32,10 +32,17 @@ Route::prefix('circuits')->group(function () {
    
 });
 
+/**
+ * API Utilisateurs
+ */
 Route::prefix('users')->group(function () {
+    Route::get('/', 'AdminController@getUsers');
     Route::delete('/{id}', 'ClientsController@delete')->where('id', "[0-9]+");
 });
 
+/**
+ * API Success
+ */
 Route::prefix('success')->group(function () {
     Route::post('/', 'SuccessController@store');
 });

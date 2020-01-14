@@ -16,9 +16,9 @@
  */
 
 use App\CircuitsModel;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CircuitsController;
 
-Route::resource('/dashboard', 'AdminController');
 
 /**
  * Accueil
@@ -58,4 +58,16 @@ Route::get('/circuits', function () {
     $ctrl = new CircuitsController();
     $circuits = $ctrl->index();
     return view('clients.circuits', ['circuits' => $circuits]);
+});
+
+
+
+
+/**
+ * laisser en bas
+ */
+
+Route::prefix('/dashboard')->group (function() {
+    Route::get('/', 'AdminController@index');
+    Route::get('/{any}', 'AdminController@index')->where('any', '.*');
 });
