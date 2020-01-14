@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\CircuitsModel;
 use App\Http\Resources\CircuitsRessource;
 use App\Http\Resources\TracesRessource;
-use App\TracesModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,14 +20,8 @@ class CircuitsController extends Controller
     {
         //recupere tous les circuit
         $circuits = CircuitsModel::all();
-<<<<<<< HEAD
         //Retourne la data cad les circuits
         return CircuitsRessource::collection($circuits);
-=======
-
-        //Retourne la data cad les circuits 
-        return  CircuitsRessource::collection($circuits);
->>>>>>> 63197e5eab75a2ddb2394fad21919382f52f6e7f
     }
 
     /**
@@ -133,45 +126,29 @@ class CircuitsController extends Controller
         )->validate();
         //Ajout en bdd des données validées par le validator
 
-        //find le circuit grace à l'ID
+/**
+ * find le circuit grace à l'ID
+ * **/
         $circuitModel = CircuitsModel::find($id);
         if (isset($circuitModel)) {
 
-            //Ajouter au circuit la trace
-            $trace = $circuitModel->traces()->create($dataTrace);
-            //Retourne la trace formaté grace à la ressource
-            /**
-             * find le circuit grace à l'ID
-             * **/
-            $circuitModel = CircuitsModel::find($id);
-            if (isset($circuitModel)) {
-
-                /*
+/*
 *Ajouter au circuit la trace
 **/
-                $trace = $circuitModel->traces()->create($dataTrace);
-                /*
+            $trace = $circuitModel->traces()->create($dataTrace);
+/*
 *Retourne la trace formaté grace à la ressource
 **/
-                return new TracesRessource($trace);
-            } else {
-                return json_encode('error');
-            }
+            return new TracesRessource($trace);
         }
-    }
+        else{
+            return json_encode('error');
+        }
 
-    /**
-     * Function qui retourne les traces en fonction de l'id d'un circuit
-     * @param Request $request: requete d'entree || $id : id dans l'url
-     * @return Retourne la trace formatée 
-     */
-    public function showTrace(Request $request, $id)
-    {
-        //Récupération de la trace en fonction de $id
-        $dataTrace = TracesModel::where('id_circuit', '=', $id)
-            ->get();
-
-        //formatage des données renvoyées 
-        return TracesRessource::collection($dataTrace);
     }
 }
+
+
+
+
+    
