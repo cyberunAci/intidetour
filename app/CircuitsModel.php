@@ -11,8 +11,8 @@ class CircuitsModel extends Model
     public $timestamps = false;
 
 
-    function trace(){
-        return $this->hasMany(TracesModel::class,'id_circuits');
+    function traces(){
+        return $this->hasMany(TracesModel::class,'id_circuit');
     }
 
 
