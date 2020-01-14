@@ -29,6 +29,7 @@ Route::prefix('circuits')->group(function () {
     Route::get('/{id}', 'CircuitsController@show')->where('id', "[0-9]+");
     Route::post('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
     Route::delete('/{id}', 'CircuitsController@delete')->where('id', "[0-9]+");
+    Route::get('/{id}/trace/', 'CircuitsController@showTrace')->where('id', "[0-9]+");
    
 });
 
