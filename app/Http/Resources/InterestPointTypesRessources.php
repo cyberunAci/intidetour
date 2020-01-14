@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TracesRessource extends JsonResource
+class InterestPointTypesRessources extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,7 @@ class TracesRessource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'trace'=>$this->trace,
-            
+            'type'=>$this->type,
         ];
     }
 }

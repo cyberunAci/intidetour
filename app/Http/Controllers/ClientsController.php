@@ -8,24 +8,25 @@ use Illuminate\Http\Request;
 class ClientsController extends Controller
 {
     /**
-     * @param Integer $id l'identifiant de l'utilisateur à supprimer 
+     * @param Integer $id l'identifiant de l'utilisateur à supprimer
      * @return  Retourne le status "ok" ou "nok"
      */
 
-     public function delete($id) {
-         $status = User::destroy($id) ? "ok" : "nok";
-             return json_encode(['status' => $status]);
-         
-     }
+    public function delete($id)
+    {
+        $status = User::destroy($id) ? "ok" : "nok";
+        return json_encode(['status' => $status]);
 
-     /**
+    }
+
+    /**
      * Mise à jour users
      */
-    function update($id)
+    public function update($id)
     {
         /*
-        * Validation des inputs
-        */
+         * Validation des inputs
+         */
         $login = Validator::make(
             $request->all(),
             [
@@ -35,37 +36,36 @@ class ClientsController extends Controller
                 'tel' => 'required',
                 'password' => 'required',
                 'date_naissance' => 'required',
-                'photo' => 'required'    
+                'photo' => 'required',
             ],
             [
                 'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreure
             ]
         )->validate();
-    
+
         /**
          * Vérifier que la data existe
          */
 
-        if ($array = User::find($id)){  
+        if ($array = User::find($id)) {
             $array->nom = 'nom';
             $array->prenom = 'prenom';
             $array->email = 'email';
             $array->tel = 'tel';
             $array->password = 'password';
             $array->date_naissance = 'date_naissance';
-            $array->photo = 'photo';   
-            $array->save(); //save
-        } 
+            $array->photo = 'photo';
+            $out = $array->save(); //save
+        }
 
         /**
          * Vérifier si data identique au model
          */
-        
+        return isset($out) ? new UsersRessource($out) : 'error';
     }
 
-     /**
-      *  @param Request $request: requete d'entree || $id : id dans l'url
-      */
+    /**
+     *  @param Request $request: requete d'entree || $id : id dans l'url
+     */
 
-      
 }
