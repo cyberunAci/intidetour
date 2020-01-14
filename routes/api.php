@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('circuits')->group(function () {
     Route::get('/', 'CircuitsController@index');
     Route::post('/add', 'CircuitsController@add');
-    Route::post('/{id}/trace/add', 'CircuitsController@addTrace')->where('id', "[0-9]+");
+    Route::post('/{id}/trace/', 'CircuitsController@addTrace')->where('id', "[0-9]+");
     Route::get('/{id}', 'CircuitsController@show')->where('id', "[0-9]+");
     Route::post('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
     Route::delete('/{id}', 'CircuitsController@delete')->where('id', "[0-9]+");
