@@ -113,7 +113,7 @@ class SuccessController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprimer la ressource visé avec l'id
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

@@ -34,8 +34,11 @@ Route::prefix('users')->group(function () {
     Route::delete('/{id}', 'ClientsController@delete')->where('id', "[0-9]+");
 });
 
+/**
+ * API success
+ */
 Route::prefix('success')->group(function () {
     Route::post('/', 'SuccessController@store');
     Route::post('/{id}', 'SuccessController@update');
-    Route::delete('/{id}/destroy', 'SuccessController@destroy');
+    Route::delete('/{id}', 'SuccessController@destroy');
 });
