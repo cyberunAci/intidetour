@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class interestPointsController extends Controller
+class InterestPointsController extends Controller
 {
     /**
      * Function qui affiche les points d'intérêt important 
@@ -14,4 +14,6 @@ class interestPointsController extends Controller
     public function showInterestPoints(){
         
     }
+    
+
 }
