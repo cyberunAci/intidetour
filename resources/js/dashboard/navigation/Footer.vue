@@ -1,5 +1,5 @@
 <template>
-      <v-footer class="adminFooter">
+      <v-footer class="adminFooter blue-grey">
         <div class="adminFooterTexte">© INTIDETOUR 2018-2020</div>
       </v-footer>
 </template>
@@ -10,7 +10,7 @@
   flex-flow: row;
   justify-content: flex-end;
   align-items: center;
-  background-color: lightgrey;
+  background-color: darkgrey;
   height: 50px;
   position: fixed;
   bottom: 0;
