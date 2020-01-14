@@ -52,5 +52,6 @@ Route::prefix('success')->group(function () {
 
 
 Route::prefix('interestpoints')->group(function () {
-    Route::get('/', 'interestPointsController@index');
+    Route::get('/', 'InterestPointsController@index');
+    Route::get('/', 'InterestPointsController@interestsPointsTypes');
 });
