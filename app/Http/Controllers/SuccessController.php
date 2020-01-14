@@ -16,7 +16,11 @@ class SuccessController extends Controller
      */
     public function index()
     {
-        //
+        //recupere tous les circuit
+        $success = SuccessModel::all();
+
+        //Retourne la data cad les circuits 
+        return  SuccessResource::collection($success);
     }
 
     /**

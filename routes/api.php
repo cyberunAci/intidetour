@@ -44,16 +44,8 @@ Route::prefix('users')->group(function () {
  * API Success
  */
 Route::prefix('success')->group(function () {
+    Route::get('/', 'SuccessController@index');
     Route::post('/', 'SuccessController@store');
     Route::post('/{id}', 'SuccessController@update');
     Route::delete('/{id}', 'SuccessController@destroy');
-});
-
-
-/**
- * API Interest points
- */
-Route::prefix('interestpoints')->group(function () {
-    Route::get('/', 'InterestPointsController@index');
-    Route::get('/', 'InterestPointsController@interestsPointsTypes');
 });
