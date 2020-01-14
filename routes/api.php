@@ -17,8 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-
 /**
  * API circuits
  */
@@ -29,6 +27,8 @@ Route::prefix('circuits')->group(function () {
     Route::get('/{id}', 'CircuitsController@show')->where('id', "[0-9]+");
     Route::post('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
     Route::delete('/{id}', 'CircuitsController@delete')->where('id', "[0-9]+");
+    Route::get('/{id}/trace/', 'CircuitsController@showTrace')->where('id', "[0-9]+");
+    
    
 });
 
@@ -36,6 +36,17 @@ Route::prefix('users')->group(function () {
     Route::delete('/{id}', 'ClientsController@delete')->where('id', "[0-9]+");
 });
 
+/**
+ * API success
+ */
 Route::prefix('success')->group(function () {
     Route::post('/', 'SuccessController@store');
+    Route::post('/{id}', 'SuccessController@update');
+    Route::delete('/{id}', 'SuccessController@destroy');
+});
+
+
+
+Route::prefix('interestpoints')->group(function () {
+    Route::get('/', 'interestPointsController@index');
 });

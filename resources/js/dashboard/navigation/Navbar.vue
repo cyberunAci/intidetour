@@ -1,8 +1,5 @@
 <template>
   <v-row>
-    <!-- <v-toolbar-title>Intidetour</v-toolbar-title>
-    <v-btn text to="/dashboard">Home</v-btn>
-    <v-btn text to="/">Retour au site</v-btn>-->
     <v-col>
       <v-card class="pa-2 adminNavbar" outlined tile>
         <h2 class="d-flex marginL">Intidetour</h2>
