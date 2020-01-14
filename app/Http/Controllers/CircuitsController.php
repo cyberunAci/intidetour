@@ -20,17 +20,8 @@ class CircuitsController extends Controller
     {
         //recupere tous les circuit
         $circuits = CircuitsModel::all();
-<<<<<<< HEAD
         //Retourne la data cad les circuits
         return CircuitsRessource::collection($circuits);
-=======
-        //Retourne la data cad les circuits 
-        return  CircuitsRessource::collection($circuits);
-
-
-
-        
->>>>>>> 5914e6c95b3a1df9fb42c2f1d0a2988e51475f9a
     }
 
     /**
@@ -135,13 +126,19 @@ class CircuitsController extends Controller
         )->validate();
         //Ajout en bdd des données validées par le validator
 
-//find le circuit grace à l'ID
+/**
+ * find le circuit grace à l'ID
+ * **/
         $circuitModel = CircuitsModel::find($id);
         if (isset($circuitModel)) {
 
-//Ajouter au circuit la trace
+/*
+*Ajouter au circuit la trace
+**/
             $trace = $circuitModel->traces()->create($dataTrace);
-//Retourne la trace formaté grace à la ressource
+/*
+*Retourne la trace formaté grace à la ressource
+**/
             return new TracesRessource($trace);
         }
         else{
