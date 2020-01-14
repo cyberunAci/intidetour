@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TracesRessource extends JsonResource
+class UsersRessource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,10 +14,16 @@ class TracesRessource extends JsonResource
      */
     public function toArray($request)
     {
+        //Formatage des données
         return [
             'id'=>$this->id,
-            'trace'=>$this->trace,
-            
+            'nom'=>$this->nom,
+            'prenom'=>$this->prenom,
+            'email'=>$this->email,
+            'date_naissance'=>$this->date_naissance,
+            'tel'=>$this->tel,
+            'password'=>$this->password,
+            'photo'=>$this->photo
         ];
     }
 }

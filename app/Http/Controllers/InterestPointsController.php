@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class InterestPointsController extends Controller
 {
+<<<<<<< HEAD
    
     /**
      * Function recuperations de tous les InterestPoints
@@ -57,3 +58,15 @@ class InterestPointsController extends Controller
 
 
 
+=======
+    /**
+     * Function qui affiche les points d'intérêt important 
+     * @param 
+     * @return 
+     */
+    public function interestsPointsTypes()
+    {
+        
+    }
+}
+>>>>>>> 0f1923715aadb26cc9f63a50d4cdd53c8cc5f30b
