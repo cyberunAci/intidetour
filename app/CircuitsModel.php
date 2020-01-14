@@ -16,4 +16,9 @@ class CircuitsModel extends Model
     }
 
 
+    function photosCircuits(){
+        return $this->belongsTo(PhotosCircuitsModel::class);
+    }
+
+
 }
