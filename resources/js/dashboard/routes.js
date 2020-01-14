@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import Home from './views/Home';
 import Success from './views/Success';
+import Users from './views/Users';
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,13 @@ const router = new VueRouter({
             name: 'success',
             component: Success
         },
+        {
+            path: '/dashboard/users',
+            name: 'users',
+            component: Users
+        }
+
+
     ]
 })
 
