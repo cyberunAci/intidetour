@@ -33,15 +33,15 @@ Route::prefix('circuits')->group(function () {
 });
 
 /**
- * API Users
+ * API Utilisateurs
  */
 Route::prefix('users')->group(function () {
-    Route::put('/{id}', 'ClientsController@update')->where('id', "[0-9]+");
+    Route::get('/', 'AdminController@getUsers');
     Route::delete('/{id}', 'ClientsController@delete')->where('id', "[0-9]+");
 });
 
 /**
- * API success
+ * API Success
  */
 Route::prefix('success')->group(function () {
     Route::post('/', 'SuccessController@store');
@@ -50,7 +50,9 @@ Route::prefix('success')->group(function () {
 });
 
 
-
+/**
+ * API Interest points
+ */
 Route::prefix('interestpoints')->group(function () {
     Route::get('/', 'InterestPointsController@index');
     Route::get('/', 'InterestPointsController@interestsPointsTypes');

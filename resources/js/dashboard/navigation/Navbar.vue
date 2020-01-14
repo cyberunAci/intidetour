@@ -5,6 +5,7 @@
         <h2 class="d-flex marginL">Intidetour</h2>
         <div class="marginR">
           <v-btn class="padding d-flex" text to="/dashboard">Home</v-btn>
+          <v-btn class="padding d-flex" text to="/dashboard/users">Clients</v-btn>
           <v-btn class="padding" text to="/">Retour au site</v-btn>
         </div>
       </v-card>
