@@ -2013,21 +2013,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       valid: true,
       nomSuccess: "",
-      nameRules: [function (v) {
-        return !!v || "Name is required";
+      nomRules: [function (v) {
+        return !!v || "Le champs est requis";
       }, function (v) {
-        return v && v.length <= 10 || "Name must be less than 10 characters";
+        return v && v.length <= 25 || "Le champs doit faire moins de 25 caracteres";
       }],
-      email: "",
-      emailRules: [function (v) {
-        return !!v || "E-mail is required";
+      descriptionSuccess: "",
+      descriptionRules: [function (v) {
+        return !!v || "Le champs est requis";
       }, function (v) {
-        return /.+@.+\..+/.test(v) || "E-mail must be valid";
+        return v && v.length <= 255 || "Le champs doit faire moins de 255 caracteres";
       }],
       select: null,
       gradesSuccess: ["Bronze", "Argent", "Or", "Platine"],
@@ -2036,15 +2043,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     validate: function validate() {
-      if (this.$refs.form.validate()) {
+      if (this.$refs.form.valid()) {
         this.snackbar = true;
       }
-    },
-    reset: function reset() {
-      this.$refs.form.reset();
-    },
-    resetValidation: function resetValidation() {
-      this.$refs.form.resetValidation();
     }
   }
 });
@@ -20835,7 +20836,7 @@ var render = function() {
             [
               _c(
                 "v-col",
-                { attrs: { cols: "12", md: "4" } },
+                { attrs: { cols: "12", md: "6" } },
                 [
                   _c("v-text-field", {
                     attrs: {
@@ -20858,30 +20859,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "v-col",
-                { attrs: { cols: "12", md: "4" } },
-                [
-                  _c("v-text-field", {
-                    attrs: {
-                      counter: 255,
-                      rules: _vm.descriptionRules,
-                      label: "Description",
-                      required: ""
-                    },
-                    model: {
-                      value: _vm.descriptionSuccess,
-                      callback: function($$v) {
-                        _vm.descriptionSuccess = $$v
-                      },
-                      expression: "descriptionSuccess"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-col",
-                { attrs: { cols: "12", md: "4" } },
+                { attrs: { cols: "12", md: "6" } },
                 [
                   _c("v-select", {
                     attrs: {
@@ -20902,6 +20880,51 @@ var render = function() {
                       expression: "select"
                     }
                   })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-row",
+            [
+              _c("v-text-field", {
+                attrs: {
+                  counter: 255,
+                  rules: _vm.descriptionRules,
+                  label: "Description",
+                  required: ""
+                },
+                model: {
+                  value: _vm.descriptionSuccess,
+                  callback: function($$v) {
+                    _vm.descriptionSuccess = $$v
+                  },
+                  expression: "descriptionSuccess"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-row",
+            [
+              _c(
+                "v-col",
+                { staticClass: "centrer" },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "mr-4 tailleMax",
+                      attrs: { color: "success" },
+                      on: { click: _vm.validate }
+                    },
+                    [_vm._v("\n      Valider\n    ")]
+                  )
                 ],
                 1
               )

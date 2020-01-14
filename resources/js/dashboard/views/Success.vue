@@ -2,21 +2,10 @@
   <v-form v-model="valid">
     <v-container>
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-text-field v-model="nomSuccess" :counter="25" :rules="nomRules" label="Nom" required></v-text-field>
         </v-col>
-
-        <v-col cols="12" md="4">
-          <v-text-field
-            v-model="descriptionSuccess"
-            :counter="255"
-            :rules="descriptionRules"
-            label="Description"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-select
             v-model="select"
             :items="gradesSuccess"
@@ -25,6 +14,24 @@
             required
           ></v-select>
         </v-col>
+      </v-row>
+      <v-row>
+        <v-text-field
+          v-model="descriptionSuccess"
+          :counter="255"
+          :rules="descriptionRules"
+          label="Description"
+          required
+        ></v-text-field>
+      </v-row>
+      <v-row>
+        <v-col class="centrer"><v-btn
+        color="success"
+        class="mr-4 tailleMax"
+        @click="validate"
+      >
+        Valider
+      </v-btn></v-col>
       </v-row>
     </v-container>
   </v-form>
@@ -48,14 +55,14 @@ export default {
   data: () => ({
     valid: true,
     nomSuccess: "",
-    nameRules: [
-      v => !!v || "Name is required",
-      v => (v && v.length <= 10) || "Name must be less than 10 characters"
+    nomRules: [
+      v => !!v || "Le champs est requis",
+      v => (v && v.length <= 25) || "Le champs doit faire moins de 25 caracteres"
     ],
-    email: "",
-    emailRules: [
-      v => !!v || "E-mail is required",
-      v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+    descriptionSuccess: "",
+    descriptionRules: [
+      v => !!v || "Le champs est requis",
+      v => (v && v.length <= 255) || "Le champs doit faire moins de 255 caracteres"
     ],
     select: null,
     gradesSuccess: ["Bronze", "Argent", "Or", "Platine"],
@@ -64,15 +71,9 @@ export default {
 
   methods: {
     validate() {
-      if (this.$refs.form.validate()) {
+      if (this.$refs.form.valid()) {
         this.snackbar = true;
       }
-    },
-    reset() {
-      this.$refs.form.reset();
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation();
     }
   }
 };
