@@ -15,8 +15,8 @@ class CreateSuccessTable extends Migration
     {
         Schema::create('success', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->varchar('nom');
-            $table->varchar('image');
+            $table->string('nom');
+            $table->string('image');
             $table->longtext('description');
             $table->timestamps();
         });

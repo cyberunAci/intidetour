@@ -35,3 +35,7 @@ Route::prefix('circuits')->group(function () {
 Route::prefix('users')->group(function () {
     Route::delete('/{id}', 'ClientsController@delete')->where('id', "[0-9]+");
 });
+
+Route::prefix('success')->group(function () {
+    Route::post('/', 'SuccessController@store');
+});
