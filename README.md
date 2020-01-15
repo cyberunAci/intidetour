@@ -19,6 +19,6 @@
 
 ## Intructions en cours de developpements
 * faire run watch pour actualiser le code quand on le modifie
-* a chaque fois qu'on ajoute un nouvel element(ex vue) refaire un npm install
-* 
+* à chaque fois qu'on ajoute un nouvel element(ex vue) refaire un npm install
+* faire un "php artisan migrate:fresh --seed" 
 
