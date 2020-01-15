@@ -24,6 +24,11 @@ const router = new VueRouter({
             path: '/dashboard/users',
             name: 'users',
             component: Users
+        },
+        {
+            path: '/dashboard/catalogue',
+            name: 'catalogue',
+            component: Catalogue
         }
 
 
