@@ -78398,8 +78398,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /home/cyberun-8/Bureau/projetLaravel/intidetour/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /home/cyberun-8/Bureau/projetLaravel/intidetour/resources/sass/client/app.scss */"./resources/sass/client/app.scss");
+=======
+__webpack_require__(/*! /home/cyberun-4/Bureau/PROJET/projetLaravel/intidetour/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/cyberun-4/Bureau/PROJET/projetLaravel/intidetour/resources/sass/client/app.scss */"./resources/sass/client/app.scss");
+>>>>>>> d5450f51cd6926754cbb16c7ffa264c19c65244e
 
 
 /***/ })
