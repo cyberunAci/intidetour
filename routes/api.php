@@ -28,7 +28,7 @@ Route::prefix('circuits')->group(function () {
     Route::put('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
     Route::delete('/{id}', 'CircuitsController@delete')->where('id', "[0-9]+");
     Route::get('/{id}/trace/', 'CircuitsController@showTrace')->where('id', "[0-9]+");
-    
+    Route::post('/{id}/photos/', 'CircuitsController@addPhoto')->where('id', "[0-9]+");
    
 });
 
@@ -57,4 +57,5 @@ Route::prefix('success')->group(function () {
 Route::prefix('interestpoints')->group(function () {
     Route::get('/', 'InterestPointsController@index');
     Route::get('/types', 'InterestPointsController@getTypes');
+    Route::post('/', 'InterestPointsController@add');
 });
