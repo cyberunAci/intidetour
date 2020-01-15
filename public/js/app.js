@@ -1948,6 +1948,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2055,10 +2059,36 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./resources/js/dashboard/components/ShowCircuits.js?vue&type=script&lang=js& ***!
   \******************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      circuits: []
+    };
+  },
+  methods: {
+    getDatas: function getDatas() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/circuits').then(function (_ref) {
+        var data = _ref.data;
+        data.data.forEach(function (circuit) {
+          _this.circuits.push(circuit);
+        });
+      })["catch"]();
+    }
+  },
+  created: function created() {
+    this.getDatas();
+  }
+});
 
 /***/ }),
 
@@ -20607,7 +20637,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-container", { attrs: { fluid: "" } })
+  return _c(
+    "v-container",
+    [
+      _c(
+        "v-row",
+        _vm._l(_vm.circuits, function(circuit, key) {
+          return _c(
+            "v-card",
+            {
+              key: key,
+              staticClass: "mx-auto my-5",
+              attrs: { "max-width": "500" }
+            },
+            [
+              _c(
+                "v-container",
+                { attrs: { fluid: "" } },
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { dense: "" } },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: 12 } },
+                        [
+                          _c("v-img", {
+                            staticClass: "white--text align-end",
+                            attrs: {
+                              src: circuit.image,
+                              gradient:
+                                "to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)",
+                              height: "200px"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-actions",
+                            [
+                              _c("v-card-title", {
+                                domProps: { textContent: _vm._s(circuit.nom) }
+                              }),
+                              _vm._v(" "),
+                              _c("v-spacer"),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                { attrs: { icon: "" } },
+                                [_c("v-icon", [_vm._v("mdi-pencil")])],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                { attrs: { icon: "" } },
+                                [_c("v-icon", [_vm._v("mdi-delete")])],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        }),
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20738,6 +20846,14 @@ var render = function() {
   return _c(
     "v-app",
     [
+      _c("link", {
+        attrs: {
+          href:
+            "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css",
+          rel: "stylesheet"
+        }
+      }),
+      _vm._v(" "),
       _c("v-container", [_c("navbar")], 1),
       _vm._v(" "),
       _c(
@@ -77325,15 +77441,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*!************************************************************************************!*\
   !*** ./resources/js/dashboard/components/ShowCircuits.js?vue&type=script&lang=js& ***!
   \************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!./ShowCircuits.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./resources/js/dashboard/components/ShowCircuits.js?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -77341,15 +77455,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************!*\
   !*** ./resources/js/dashboard/components/ShowCircuits.vue ***!
   \************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ShowCircuits_vue_vue_type_template_id_53659eb7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowCircuits.vue?vue&type=template&id=53659eb7& */ "./resources/js/dashboard/components/ShowCircuits.vue?vue&type=template&id=53659eb7&");
 /* harmony import */ var _ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ShowCircuits.js?vue&type=script&lang=js& */ "./resources/js/dashboard/components/ShowCircuits.js?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ShowCircuits_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
