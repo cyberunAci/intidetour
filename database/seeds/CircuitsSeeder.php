@@ -16,14 +16,14 @@ class CircuitsSeeder extends Seeder
             [
                 "id" => 1,
                 "nom" => "test 1",
-                "image" => "lien img",
+                "image" => "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg",
                 "difficulte" => "facile",
                 "description" => "Description du circuit"
             ],
             [
                 "id" => 2,
                 "nom" => "test 2",
-                "image" => "lien img",
+                "image" => "https://media.gettyimages.com/photos/cropped-image-of-person-eye-picture-id942369796?s=612x612",
                 "difficulte" => "moyen",
                 "description" => "Description du circuit"
             ]

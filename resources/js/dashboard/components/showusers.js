@@ -10,35 +10,35 @@ export default {
 
   data() {
     return {
-        users: [],
+      users: [],
 
-        formTitle: 'LISTE DES UTILISATEURS',
+      formTitle: 'LISTE DES UTILISATEURS',
 
-        titleUser: "",
+      titleUser: "",
     }
   },
   methods: {
-      getDatas() {
-        this.error = this.users = null;
-        this.loading = true;
-          this.users = [];
-          this.titleUser = [];
-          axios.get('/api/users/')
-          .then(({ data }) => {
-            this.titleUser = [
-              data.data[0].id
-            ]
-             data.data.forEach(_user => {
-                this.users.push(_user)
-          } )
+    getDatas() {
+      this.error = this.users = null;
+      this.loading = true;
+      this.users = [];
+      this.titleUser = [];
+      axios.get('/api/users/')
+        .then(({ data }) => {
+          this.titleUser = [
+            data.data[0].id
+          ]
+          data.data.forEach(_user => {
+            this.users.push(_user)
           })
-          .catch(error => {
-            console.log(error);
+        })
+        .catch(error => {
+          console.log(error);
         });
-      },
+    },
   },
   created() {
     this.getDatas();
-},
+  },
 
 };
