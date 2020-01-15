@@ -28,31 +28,30 @@ class InterestPointsController extends Controller
      }
 
 
-
-    /**
-     * Function ajout d'un InterestPoints
-     *
-     * @param Request $request requete d'entrée
-     * @return retourne le interestpoints entré en BDD
-     */
-    public function add(Request $request)
-    {
-        //Validation des données entrées
-        $dataInterestPoints = Validator::make(
-            $request->input(),
-            [
-                'nom' => 'required',
-                'coordonnees' => 'required',
-            ],
-            [
-                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
-            ]
-        )->validate();
-        //Ajout en bdd des données validées par le validator
-        $interestPoints = InterestPointsModel::create($dataInterestPoints);
-        //Retourne l'interestpoints formaté grace à la ressource
-        return new InterestPointsRessource($interestPoints);
-    }
+    // /**
+    //  * Function ajout d'un InterestPoints
+    //  *
+    //  * @param Request $request requete d'entrée
+    //  * @return retourne le interestpoints entré en BDD
+    //  */
+    // public function add(Request $request)
+    // {
+    //     //Validation des données entrées
+    //     $dataInterestPoints = Validator::make(
+    //         $request->input(),
+    //         [
+    //             'nom' => 'required',
+    //             'coordonnees' => 'required',
+    //         ],
+    //         [
+    //             'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
+    //         ]
+    //     )->validate();
+    //     //Ajout en bdd des données validées par le validator
+    //     $interestPoints = InterestPointsModel::create($dataInterestPoints);
+    //     //Retourne l'interestpoints formaté grace à la ressource
+    //     return new InterestPointsRessource($interestPoints);
+    // }
 
     /**
      * Function qui affiche les points d'intérêt important 
