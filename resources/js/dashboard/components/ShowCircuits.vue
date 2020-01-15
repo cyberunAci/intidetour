@@ -1,6 +1,7 @@
 <template>
- <v-container>
-sdoidhs
- </v-container>
+  <v-container fluid>
+ss
+  </v-container>
 </template>
+
 <script src="./ShowCircuits.js"></script>

@@ -1,6 +1,7 @@
 <template>
-  <v-container>
-      <showcircuits></showcircuits>
+  <v-container fluid>
+      <ShowCircuits></ShowCircuits>
   </v-container>
 </template>
+
 <script src="./Catalogue.js"></script>
