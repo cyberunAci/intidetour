@@ -2081,8 +2081,6 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         data.data.forEach(function (_user) {
           _this.users.push(_user);
-
-          console.log(_user);
         });
       })["catch"](function (error) {
         console.log(error);

@@ -18,7 +18,6 @@ export default {
           .then(({ data }) => {
             data.data.forEach(_user => {
                 this.users.push(_user)
-                console.log(_user)
           })
           })
           .catch(error => {
