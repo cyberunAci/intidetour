@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\CircuitsModel;
 use App\Http\Resources\CircuitsRessource;
+
+use App\Http\Resources\PhotosCircuitRessource;
 use App\Http\Resources\TracesRessource;
+use App\PhotosCircuitModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -126,29 +129,54 @@ class CircuitsController extends Controller
         )->validate();
         //Ajout en bdd des données validées par le validator
 
-/**
- * find le circuit grace à l'ID
- * **/
+        /**
+         * find le circuit grace à l'ID
+         * **/
         $circuitModel = CircuitsModel::find($id);
         if (isset($circuitModel)) {
 
-/*
+            /*
 *Ajouter au circuit la trace
 **/
             $trace = $circuitModel->traces()->create($dataTrace);
-/*
+            /*
 *Retourne la trace formaté grace à la ressource
 **/
             return new TracesRessource($trace);
-        }
-        else{
+        } else {
             return json_encode('error');
         }
+    }
 
+
+    /**
+     * ajouter une photo a un circuit
+     */
+    public function  addPhoto(Request $request, $id)
+    {
+        //Validation des données entrées
+        $dataPhoto = Validator::make(
+            $request->input(),
+            [
+                'photos' => 'required',
+            ],
+            [
+                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
+            ]
+        )->validate();
+
+
+        //find le circuit grace à l'ID
+        $circuitModel = CircuitsModel::find($id);
+        if (isset($circuitModel)) {
+
+            //Ajouter au circuit la trace
+            $photo = $circuitModel->photos()->create($dataPhoto);
+
+            //Retourne la photo formaté grace à la ressource
+            return new PhotosCircuitRessource($photo);
+        } else {
+            return json_encode('error');
+        }
     }
 }
-
-
-
-
-    
