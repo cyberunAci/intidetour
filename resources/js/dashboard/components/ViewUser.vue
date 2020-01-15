@@ -1,14 +1,14 @@
 <template>
-  <v-dialog v-model="dialog" scrollable max-width="300px">
+  <v-dialog v-model="dialog" max-width="300px">
     <template v-slot:activator="{ on }">
       <v-btn  dark v-on="on">Information</v-btn>
-    </template>
+    </template> 
     <v-card >
       <v-divider></v-divider>
       <div class="text-right">
         <v-btn color="blue darken-1" text @click="dialog = false">X</v-btn>
       </div>
-      <v-card-text class="text-center" style="height: 300px;">
+      <v-card-text class="text-center">
         <v-list-item-avatar color="grey" size="90"></v-list-item-avatar>
         <p>{{user.nom}}</p>
         <p>{{user.prenom}}</p>

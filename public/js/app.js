@@ -20815,28 +20815,6 @@ var render = function() {
                   )
                 ],
                 1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-card-actions",
-                [
-                  _c("v-spacer"),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    { attrs: { icon: "" } },
-                    [_c("v-icon", [_vm._v("mdi-heart")])],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    { attrs: { icon: "" } },
-                    [_c("v-icon", [_vm._v("mdi-share-variant")])],
-                    1
-                  )
-                ],
-                1
               )
             ],
             1
@@ -20873,7 +20851,7 @@ var render = function() {
   return _c(
     "v-dialog",
     {
-      attrs: { scrollable: "", "max-width": "300px" },
+      attrs: { "max-width": "300px" },
       scopedSlots: _vm._u([
         {
           key: "activator",
@@ -20924,7 +20902,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-card-text",
-            { staticClass: "text-center", staticStyle: { height: "300px" } },
+            { staticClass: "text-center" },
             [
               _c("v-list-item-avatar", {
                 attrs: { color: "grey", size: "90" }
