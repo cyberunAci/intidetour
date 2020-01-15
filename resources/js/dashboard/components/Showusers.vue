@@ -5,7 +5,7 @@
     <v-row>
       <v-card class="mx-auto my-5 text-center" v-for="(user,key) in users" :key="key">
         <v-list-item>
-          <v-btn text color="deep-purple accent-4 text-right">Supprimer</v-btn>
+          <v-btn text color="deep-purple accent-4 text-right"><v-icon>mdi-delete</v-icon></v-btn>
         </v-list-item>
         <v-list-item-avatar color="grey" size="90"></v-list-item-avatar>
         <v-list-item>

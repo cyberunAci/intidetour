@@ -20743,7 +20743,8 @@ var render = function() {
                         color: "deep-purple accent-4 text-right"
                       }
                     },
-                    [_vm._v("Supprimer")]
+                    [_c("v-icon", [_vm._v("mdi-delete")])],
+                    1
                   )
                 ],
                 1
