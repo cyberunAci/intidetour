@@ -4,8 +4,7 @@ import VueRouter from 'vue-router';
 import Home from './views/Home';
 import Success from './views/Success';
 import Users from './views/Users';
-import Catalogue from './views/Catalogue';
-
+import Catalogue from './views/Catalogue.vue';
 
 Vue.use(VueRouter);
 
