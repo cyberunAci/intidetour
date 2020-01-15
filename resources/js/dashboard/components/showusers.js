@@ -1,12 +1,20 @@
+import ViewUser from "./ViewUser.vue";
 import axios from 'axios';
 
+
 export default {
+  components: {
+    ViewUser,
+  },
+
 
   data() {
     return {
         users: [],
 
-        formTitle: 'LISTE DES UTILISATEURS'
+        formTitle: 'LISTE DES UTILISATEURS',
+
+        titleUser: "",
     }
   },
   methods: {
@@ -14,20 +22,20 @@ export default {
         this.error = this.users = null;
         this.loading = true;
           this.users = [];
+          this.titleUser = [];
           axios.get('/api/users/')
           .then(({ data }) => {
-            data.data.forEach(_user => {
+            this.titleUser = [
+              data.data[0].id
+            ]
+             data.data.forEach(_user => {
                 this.users.push(_user)
-                console.log(_user)
-          })
+          } )
           })
           .catch(error => {
             console.log(error);
         });
       },
-    //   formData(data) {
-    //       console.log(data);
-    //   }
   },
   created() {
     this.getDatas();
