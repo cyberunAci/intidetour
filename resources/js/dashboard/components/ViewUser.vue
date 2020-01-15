@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" scrollable max-width="300px">
     <template v-slot:activator="{ on }">
-      <v-btn  dark v-on="on">Information</v-btn>
+      <v-btn  icon v-on="on"><v-icon>mdi-pencil</v-icon></v-btn>
     </template>
     <v-card >
       <v-divider></v-divider>
@@ -10,7 +10,7 @@
       </div>
       <v-card-text class="text-center" style="height: 300px;">
         <v-list-item-avatar color="grey" size="90"></v-list-item-avatar>
-        <p>{{user.nom}}</p>
+        <p>{{user.nom}} <v-btn icon><v-icon>mdi-pencil</v-icon></v-btn></p>
         <p>{{user.prenom}}</p>
         <p>{{user.email}}</p>
         <p>{{user.date_naissance}}</p>

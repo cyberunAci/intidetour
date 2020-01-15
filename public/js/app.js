@@ -20769,13 +20769,8 @@ var render = function() {
         _vm._l(_vm.users, function(user, key) {
           return _c(
             "v-card",
-            _vm._g(
-              { key: key, staticClass: "mx-auto my-5 text-center" },
-              _vm.on
-            ),
+            { key: key, staticClass: "mx-auto my-5 text-center" },
             [
-              _c("viewUser", { attrs: { user: user } }),
-              _vm._v(" "),
               _c(
                 "v-list-item",
                 [
@@ -20822,19 +20817,7 @@ var render = function() {
                 [
                   _c("v-spacer"),
                   _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    { attrs: { icon: "" } },
-                    [_c("v-icon", [_vm._v("mdi-heart")])],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    { attrs: { icon: "" } },
-                    [_c("v-icon", [_vm._v("mdi-share-variant")])],
-                    1
-                  )
+                  _c("viewUser", { attrs: { user: user } })
                 ],
                 1
               )
@@ -20880,9 +20863,12 @@ var render = function() {
           fn: function(ref) {
             var on = ref.on
             return [
-              _c("v-btn", _vm._g({ attrs: { dark: "" } }, on), [
-                _vm._v("Information")
-              ])
+              _c(
+                "v-btn",
+                _vm._g({ attrs: { icon: "" } }, on),
+                [_c("v-icon", [_vm._v("mdi-pencil")])],
+                1
+              )
             ]
           }
         }
@@ -20930,7 +20916,19 @@ var render = function() {
                 attrs: { color: "grey", size: "90" }
               }),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.user.nom))]),
+              _c(
+                "p",
+                [
+                  _vm._v(_vm._s(_vm.user.nom) + " "),
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "" } },
+                    [_c("v-icon", [_vm._v("mdi-pencil")])],
+                    1
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("p", [_vm._v(_vm._s(_vm.user.prenom))]),
               _vm._v(" "),
