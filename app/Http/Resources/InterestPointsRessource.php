@@ -14,10 +14,14 @@ class InterestPointsRessource extends JsonResource
      */
     public function toArray($request)
     {
+        
+        $type = new InterestPointTypesRessource($this->type); // Ici nous utilisons cette méthode pour envoyer un seul "array"
+
         return [
             'id'=>$this->id,
             'nom'=>$this->nom,
             'coordonnees'=>$this->coordonnees,
+            'types'=>$type,
         ];
     }
 }
