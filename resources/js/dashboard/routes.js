@@ -5,6 +5,7 @@ import Home from './views/Home';
 import Success from './views/Success';
 import Users from './views/Users';
 import Catalogue from './views/Catalogue.vue';
+import Upload_file from './views/Upload_file.vue';
 
 Vue.use(VueRouter);
 
@@ -30,7 +31,14 @@ const router = new VueRouter({
             path: '/dashboard/catalogue',
             name: 'catalogue',
             component: Catalogue
+        },
+
+        {
+            path: '/dashboard/uploadFile',
+            name: 'Upload_file',
+            component: Upload_file
         }
+     
 
 
     ]
