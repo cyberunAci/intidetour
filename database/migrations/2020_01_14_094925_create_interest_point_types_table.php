@@ -43,7 +43,8 @@ class CreateInterestPointTypesTable extends Migration
             $table->dropIfExists('id_type');
         });
 
-        Schema::dropIfExists('interest_points_types');
+        Schema::dropIfExists('interest_point_types');
 
+        
     }
 }

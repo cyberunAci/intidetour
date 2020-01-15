@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import Home from './views/Home';
 import Success from './views/Success';
 import Users from './views/Users';
+import Catalogue from './views/Catalogue.vue';
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,11 @@ const router = new VueRouter({
             path: '/dashboard/users',
             name: 'users',
             component: Users
+        },
+        {
+            path: '/dashboard/catalogue',
+            name: 'catalogue',
+            component: Catalogue
         }
     ]
 })

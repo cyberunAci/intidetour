@@ -7,6 +7,7 @@
           <v-btn class="padding d-flex" text to="/dashboard">Home</v-btn>
           <v-btn class="padding d-flex" text to="/dashboard/success">Succes</v-btn>
           <v-btn class="padding d-flex" text to="/dashboard/users">Clients</v-btn>
+          <v-btn class="padding d-flex" text to="/dashboard/catalogue">Catalogue</v-btn>
           <v-btn class="padding d-flex" text to="/">Retour au site</v-btn>
         </div>
       </v-card>
@@ -15,7 +16,7 @@
 </template>
 
 <style scoped>
-body{
+body {
   margin: 0;
   padding: 0;
 }
@@ -26,13 +27,13 @@ body{
   align-items: center;
 }
 .marginL {
-  margin-left : 2%;
+  margin-left: 2%;
 }
 .marginR {
   width: 20%;
 }
 .padding {
-  padding-right : 5%;
-  padding-left : 5%; 
+  padding-right: 5%;
+  padding-left: 5%;
 }
 </style>
