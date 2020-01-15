@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\InterestPointTypesModel;
 use App\Http\Resources\InterestPointsRessource;
+use App\Http\Resources\InterestPointTypesRessources;
 use App\InterestPointsModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 
 class InterestPointsController extends Controller
@@ -23,7 +26,6 @@ class InterestPointsController extends Controller
         //Retourne les InterestPoints
         return InterestPointsRessource::collection($interestPoints);
      }
-
 
 
     // /**
@@ -51,9 +53,15 @@ class InterestPointsController extends Controller
     //     return new InterestPointsRessource($interestPoints);
     // }
 
-
+    /**
+     * Function qui affiche les points d'intérêt important 
+     * @param Request : les requêtes envoyées 
+     * @return Retourne tout les types de points d'intérêts 
+     */
+    public function getTypes(Request $request)
+    {
+        $dataType = InterestPointTypesModel::all();
+        //retourne les données formatées
+        return InterestPointTypesRessources::collection($dataType);
     }
-
-
-
-
+}
