@@ -15,9 +15,9 @@ class CreatePhotosCircuitTable extends Migration
     {
         Schema::create('photosCircuit', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('photos');
-            $table->unsignedBigInteger('id_circuit');
-            $table->foreign('id_circuit')->references('id')->on('circuits');
+            $table->string('photos');
+         
+           
         });
     }
 
