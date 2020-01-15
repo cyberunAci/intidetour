@@ -1,7 +1,16 @@
 <template>
   <v-card max-width="344" class="mx-auto my-5 text-center">
+    
     <v-list-item>
     <v-btn text color="deep-purple accent-4 text-right">Supprimer</v-btn>
+
+    <v-dialog v-model="dialog" scrollable max-width="300px">
+    
+    <template v-slot:activator="{ on }">
+    <v-btn text color="blue lighten-2 accent-4 text-right" dark v-on="on">Modifier</v-btn>      
+    </template>
+
+    </v-dialog>
     </v-list-item>
     <v-list-item-avatar color="grey" size="90"></v-list-item-avatar>
     <v-list-item>
@@ -21,5 +30,8 @@
         <v-icon>mdi-share-variant</v-icon>
       </v-btn>
     </v-card-actions>
+
   </v-card>
+  
 </template>
+
