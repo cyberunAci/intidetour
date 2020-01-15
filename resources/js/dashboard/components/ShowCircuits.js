@@ -2,6 +2,8 @@ import axios from 'axios';
 export default {
     data: () => ({
         circuits: [],
+        dialog: false,
+
     }),
     methods: {
         getDatas() {

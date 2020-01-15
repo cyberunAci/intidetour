@@ -15,13 +15,23 @@
               <v-card-actions>
                 <v-card-title v-text="circuit.nom"></v-card-title>
                 <v-spacer />
-                <v-btn icon>
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                    <v-btn color="primary" icon dark v-on="on">
+                      <v-icon>mdi-pencil</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Editer</span>
+                </v-tooltip>
 
-                <v-btn icon>
-                  <v-icon>mdi-delete</v-icon>
-                </v-btn>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                    <v-btn color="red accent-4" icon dark v-on="on">
+                      <v-icon>mdi-delete</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Supprimer</span>
+                </v-tooltip>
               </v-card-actions>
             </v-col>
           </v-row>
