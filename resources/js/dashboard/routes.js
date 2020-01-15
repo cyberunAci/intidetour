@@ -31,8 +31,6 @@ const router = new VueRouter({
             name: 'catalogue',
             component: Catalogue
         }
-
-
     ]
 })
 
