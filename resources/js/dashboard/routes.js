@@ -25,8 +25,6 @@ const router = new VueRouter({
             name: 'users',
             component: Users
         }
-
-
     ]
 })
 

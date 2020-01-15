@@ -1,80 +1,29 @@
 <template>
-  <v-form v-model="valid">
-    <v-container>
-      <v-row>
-        <v-col cols="12" md="6">
-          <v-text-field v-model="nomSuccess" :counter="25" :rules="nomRules" label="Nom" required></v-text-field>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-select
-            v-model="select"
-            :items="gradesSuccess"
-            :rules="[v => !!v || 'Item is required']"
-            label="Grade"
-            required
-          ></v-select>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-text-field
-          v-model="descriptionSuccess"
-          :counter="255"
-          :rules="descriptionRules"
-          label="Description"
-          required
-        ></v-text-field>
-      </v-row>
-      <v-row>
-        <v-col class="centrer"><v-btn
-        color="success"
-        class="mr-4 tailleMax"
-        @click="validate"
-      >
-        Valider
-      </v-btn></v-col>
-      </v-row>
-    </v-container>
-  </v-form>
+  <div class="container">
+    <v-dialog v-model="boiteSuccess" persistent max-width="600px">
+      <template v-slot:activator="{ on }">
+        <v-btn color="secondary lighten-2" v-on="on"><h3>Création de success</h3></v-btn>
+      </template>
+
+      <v-form id="formSuccess" @submit="checkSuccess">
+        <h3>Creation de Succès</h3>
+        <v-text-field v-model="nom" :counter="25" :rules="nomRules" label="Nom" required></v-text-field>
+        <v-text-field v-model="image" :rules="imageRules" label="Image" required></v-text-field>
+        <v-textarea v-model="description" :rules="descriptionRules" label="Description" required></v-textarea>
+        <v-btn type="submit" color="blue darken-1" text @click="boiteSuccess = false">Sauvegarder</v-btn>
+        <v-btn text @click="boiteSuccess = false">Fermer</v-btn>
+      </v-form>
+    </v-dialog>
+  </div>
 </template>
 
+<script src="./Success.js"></script>
+
 <style scoped>
-.adminDonnee {
-  display: flex;
-  flex-flow: row;
-  justify-content: flex-start;
-  height: 50px;
-  padding-right: 5%;
-  padding-left: 5%;
-  padding-top: 15px;
-  margin: 10px;
-}
-</style>
-
-<script>
-export default {
-  data: () => ({
-    valid: true,
-    nomSuccess: "",
-    nomRules: [
-      v => !!v || "Le champs est requis",
-      v => (v && v.length <= 25) || "Le champs doit faire moins de 25 caracteres"
-    ],
-    descriptionSuccess: "",
-    descriptionRules: [
-      v => !!v || "Le champs est requis",
-      v => (v && v.length <= 255) || "Le champs doit faire moins de 255 caracteres"
-    ],
-    select: null,
-    gradesSuccess: ["Bronze", "Argent", "Or", "Platine"],
-    checkbox: false
-  }),
-
-  methods: {
-    validate() {
-      if (this.$refs.form.valid()) {
-        this.snackbar = true;
-      }
-    }
+  #formSuccess {
+    background-color: white;
+    width: 100%;
+    height: auto;
+    padding: 15px;
   }
-};
-</script>
+</style>
