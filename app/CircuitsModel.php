@@ -3,13 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CircuitsModel extends Model
 {
     protected $table = 'circuits';
     protected $fillable = ['nom', 'image', 'difficulte', 'description',];
     public $timestamps = false;
-
+    use SoftDeletes;
 
     function traces(){
         return $this->hasMany(TracesModel::class,'id_circuit');

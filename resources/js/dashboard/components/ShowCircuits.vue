@@ -23,15 +23,7 @@
                   </template>
                   <span>Editer</span>
                 </v-tooltip>
-
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on }">
-                    <v-btn color="red accent-4" icon dark v-on="on">
-                      <v-icon>mdi-delete</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Supprimer</span>
-                </v-tooltip>
+                <deleteCircuit v-bind:circuit="circuit"></deleteCircuit>
               </v-card-actions>
             </v-col>
           </v-row>

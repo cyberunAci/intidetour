@@ -108,7 +108,7 @@ class CircuitsController extends Controller
      */
     public function delete($id)
     {
-        $status =  CircuitsModel::destroy($id) ? 'ok' : 'nok';
+        $status =  CircuitsModel::destroy($id)->withTrashed() ? 'ok' : 'nok';
         return json_encode(['status' => $status]);
     }
 
