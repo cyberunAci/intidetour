@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Success from './Success.js'
+import Success from './Success.vue';
 
 
 export default {

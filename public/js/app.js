@@ -2096,7 +2096,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Success_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Success.js */ "./resources/js/dashboard/views/Success.js");
+/* harmony import */ var _Success_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Success.vue */ "./resources/js/dashboard/views/Success.vue");
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -77994,7 +77994,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _views_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Home */ "./resources/js/dashboard/views/Home.vue");
-/* harmony import */ var _views_Success__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Success */ "./resources/js/dashboard/views/Success.vue");
+/* harmony import */ var _views_Success__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Success */ "./resources/js/dashboard/views/Success.js");
 /* harmony import */ var _views_Users__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Users */ "./resources/js/dashboard/views/Users.vue");
 /* harmony import */ var _views_Catalogue_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Catalogue.vue */ "./resources/js/dashboard/views/Catalogue.vue");
 
@@ -78179,7 +78179,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Success_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Success.js */ "./resources/js/dashboard/views/Success.js");
+/* harmony import */ var _Success_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Success.vue */ "./resources/js/dashboard/views/Success.vue");
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -78395,8 +78395,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/cyberun-4/Bureau/PROJET/projetLaravel/intidetour/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/cyberun-4/Bureau/PROJET/projetLaravel/intidetour/resources/sass/client/app.scss */"./resources/sass/client/app.scss");
+__webpack_require__(/*! /home/cyberun-8/Bureau/projetLaravel/intidetour/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/cyberun-8/Bureau/projetLaravel/intidetour/resources/sass/client/app.scss */"./resources/sass/client/app.scss");
 
 
 /***/ })
