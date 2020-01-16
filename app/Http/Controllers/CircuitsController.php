@@ -24,6 +24,8 @@ class CircuitsController extends Controller
         return CircuitsRessource::collection($circuits);
     }
 
+
+
     /**
      *  Function recuperation  d un circuit en particulier
      * @param $id $request requete d'entrée
