@@ -23,7 +23,6 @@ class CircuitsSeeder extends Seeder
                 "distance" => "2km",
                 "latitude" => "1.545454",
                 "longitude" => "1.545454",
-               "deleted_at" => null,
 
             ],
             [
@@ -36,7 +35,6 @@ class CircuitsSeeder extends Seeder
                 "distance" => "2km",
                 "latitude" => "1.545454",
                 "longitude" => "1.545454",
-               "deleted_at" => null,
             ]
         ];
     
