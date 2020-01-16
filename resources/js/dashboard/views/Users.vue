@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
-      <showusers></showusers>
+      <showUsers></showUsers>
   </v-container>
 </template>
 
-<script src="./users.js"></script>
+<script src="./Users.js"></script>
