@@ -17,7 +17,7 @@
                 <v-spacer />
              
                
-                <editCircuit></editCircuit>
+                <showCircuit></showCircuit>
 
                 <v-btn icon>
                   <v-icon>mdi-delete</v-icon>

@@ -1,4 +1,4 @@
-import EditCircuit from "./EditCircuit";
+import ShowCircuit from "./ShowCircuit";
 import axios from 'axios';
 export default {
     data: () => ({
@@ -17,7 +17,7 @@ export default {
     },
 
     components: { 
-        EditCircuit,
+        ShowCircuit,
       },
 
     created() {
