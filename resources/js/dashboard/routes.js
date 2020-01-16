@@ -5,7 +5,7 @@ import Home from './views/Home';
 import Success from './views/Success';
 import Users from './views/Users';
 import Catalogue from './views/Catalogue.vue';
-import Upload_file from './views/Upload_file.vue';
+import Upload_file from './components/Upload_file.vue';
 
 Vue.use(VueRouter);
 
@@ -38,9 +38,6 @@ const router = new VueRouter({
             name: 'Upload_file',
             component: Upload_file
         }
-     
-
-
     ]
 })
 

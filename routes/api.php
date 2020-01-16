@@ -57,4 +57,5 @@ Route::prefix('success')->group(function () {
 Route::prefix('interestpoints')->group(function () {
     Route::get('/', 'InterestPointsController@index');
     Route::get('/types', 'InterestPointsController@getTypes');
+    Route::post('/', 'InterestPointsController@add');
 });

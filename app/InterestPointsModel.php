@@ -10,7 +10,7 @@ class InterestPointsModel extends Model
     protected $fillable = ['id', 'nom', 'coordonnees'];
     public $timestamps = false;
 
-    function interestPointTypes(){
+    function type(){
 
         return $this->belongsTo(InterestPointTypesModel::class,'id_type');
     }

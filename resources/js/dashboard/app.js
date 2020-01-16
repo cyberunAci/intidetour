@@ -4,6 +4,7 @@ import Routes from './routes.js';
 import Layout from './layouts/Layout';
 import 'vuetify/dist/vuetify.min.css';
 
+
 Vue.use(Vuetify);
 
 const app = new Vue({
