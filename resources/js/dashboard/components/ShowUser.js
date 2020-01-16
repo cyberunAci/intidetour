@@ -5,6 +5,7 @@ export default {
             return {
                   editNom: false,
                   editPrenom: false
+                  
             }
       },
 }

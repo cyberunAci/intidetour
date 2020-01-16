@@ -17,7 +17,7 @@
                 <v-spacer />
              
                
-                <showCircuit></showCircuit>
+                <showCircuit v-bind:circuit="circuit" ></showCircuit>
 
                 <v-btn icon>
                   <v-icon>mdi-delete</v-icon>

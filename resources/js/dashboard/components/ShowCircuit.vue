@@ -1,43 +1,77 @@
 <template>
   <div class="text-center">
-    <v-dialog
-      v-model="dialog"
-      width="500"
-    >
+    <v-dialog v-model="dialog" width="500">
       <template v-slot:activator="{ on }">
-        <v-btn
-          color="red lighten-2"
-          dark
-          v-on="on"
-        >
-          Click Me
+        <v-btn icon v-on="on">
+          <v-icon>mdi-pencil</v-icon>
         </v-btn>
       </template>
 
       <v-card>
-        <v-card-title
-          class="headline grey lighten-2"
-          primary-title
-        >
-          Privacy Policy
+        <v-card-title class="headline grey lighten-2" primary-title>
+          <v-row>{{circuit.nom}}</v-row>
         </v-card-title>
-
+        <v-divider></v-divider>
         <v-card-text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <p>{{circuit.difficulte}}</p>
+          <p>{{circuit.description}}</p>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="dialog = false">I accept</v-btn>
         </v-card-text>
 
-        <v-divider></v-divider>
+        <hr />
+        <!-- ajout d une image -->
+        <v-btn icon v-on="on">
+          <v-icon>mdi-pencil</v-icon>
+        </v-btn>
 
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="dialog = false"
-          >
-            I accept
-          </v-btn>
-        </v-card-actions>
+
+<!-- input pour ajouter une fichier -->
+ <v-file-input
+    v-model="files"
+    color="deep-purple accent-4"
+    counter
+    label="File input"
+    multiple
+    placeholder="Select your files"
+    prepend-icon="mdi-paperclip"
+    outlined
+    :show-size="1000"
+  >
+    <template v-slot:selection="{ index, text }">
+      <v-chip
+        v-if="index < 2"
+        color="deep-purple accent-4"
+        dark
+        label
+        small
+      >
+        {{ text }}
+      </v-chip>
+
+      <span
+        v-else-if="index === 2"
+        class="overline grey--text text--darken-3 mx-2"
+      >
+        +{{ files.length - 2 }} File(s)
+      </span>
+    </template>
+  </v-file-input>
+
+<hr>
+
+<template>
+  <div class="container">
+    <div class="large-12 medium-12 small-12 cell">
+      <label>File
+        <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+      </label>
+        <button v-on:click="submitFile()">Submit</button>
+    </div>
+  </div>
+</template>
+
+
       </v-card>
     </v-dialog>
   </div>

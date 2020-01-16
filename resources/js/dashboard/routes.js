@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from './views/Home';
+import Home from './views/Home.vue';
 import Success from './views/Success.vue';
-import Users from './views/Users';
+import Users from './views/Users.vue';
 import Catalogue from './views/Catalogue.vue';
 import Upload_file from './components/Upload_file.vue';
 

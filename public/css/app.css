@@ -131,6 +131,7 @@ section {
   margin-bottom: 10%;
   margin-left: 5%;
   margin-right: 5%;
+  border: 1px solid red;
 }
 
 /* TODO pour la responsivité */
@@ -139,22 +140,3 @@ section {
   width: 100%;
 }
 
-.section-info-circuit{
-  display: inline-block;
-}
-
-.infos-circuit{
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-flow: row wrap;
-  -webkit-box-pack:  left;
-          justify-content:  left;
-  -webkit-box-align:  left;
-          align-items: left;
-}
-
-#circuit section{
-  margin-bottom: 3rem;
-  margin-top: 3rem;
-}

@@ -2152,9 +2152,16 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    handleFileUpload: function handleFileUpload() {
+      this.file = this.$refs.file.files[0];
+    }
+  },
+  props: ["circuit"],
   data: function data() {
     return {
-      dialog: false
+      dialog: false,
+      file: ''
     };
   }
 });
@@ -20727,8 +20734,9 @@ var render = function() {
                 return [
                   _c(
                     "v-btn",
-                    _vm._g({ attrs: { color: "red lighten-2", dark: "" } }, on),
-                    [_vm._v("\n        Click Me\n      ")]
+                    _vm._g({ attrs: { icon: "" } }, on),
+                    [_c("v-icon", [_vm._v("mdi-pencil")])],
+                    1
                   )
                 ]
               }
@@ -20753,20 +20761,19 @@ var render = function() {
                   staticClass: "headline grey lighten-2",
                   attrs: { "primary-title": "" }
                 },
-                [_vm._v("\n        Privacy Policy\n      ")]
+                [_c("v-row", [_vm._v(_vm._s(_vm.circuit.nom))])],
+                1
               ),
-              _vm._v(" "),
-              _c("v-card-text", [
-                _vm._v(
-                  "\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n      "
-                )
-              ]),
               _vm._v(" "),
               _c("v-divider"),
               _vm._v(" "),
               _c(
-                "v-card-actions",
+                "v-card-text",
                 [
+                  _c("p", [_vm._v(_vm._s(_vm.circuit.difficulte))]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.circuit.description))]),
+                  _vm._v(" "),
                   _c("v-spacer"),
                   _vm._v(" "),
                   _c(
@@ -20779,13 +20786,119 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n          I accept\n        ")]
+                    [_vm._v("I accept")]
                   )
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                _vm._g({ attrs: { icon: "" } }, _vm.on),
+                [_c("v-icon", [_vm._v("mdi-pencil")])],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-file-input", {
+                attrs: {
+                  color: "deep-purple accent-4",
+                  counter: "",
+                  label: "File input",
+                  multiple: "",
+                  placeholder: "Select your files",
+                  "prepend-icon": "mdi-paperclip",
+                  outlined: "",
+                  "show-size": 1000
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "selection",
+                    fn: function(ref) {
+                      var index = ref.index
+                      var text = ref.text
+                      return [
+                        index < 2
+                          ? _c(
+                              "v-chip",
+                              {
+                                attrs: {
+                                  color: "deep-purple accent-4",
+                                  dark: "",
+                                  label: "",
+                                  small: ""
+                                }
+                              },
+                              [_vm._v("\n        " + _vm._s(text) + "\n      ")]
+                            )
+                          : index === 2
+                          ? _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "overline grey--text text--darken-3 mx-2"
+                              },
+                              [
+                                _vm._v(
+                                  "\n        +" +
+                                    _vm._s(_vm.files.length - 2) +
+                                    " File(s)\n      "
+                                )
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    }
+                  }
+                ]),
+                model: {
+                  value: _vm.files,
+                  callback: function($$v) {
+                    _vm.files = $$v
+                  },
+                  expression: "files"
+                }
+              }),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              [
+                _c("div", { staticClass: "container" }, [
+                  _c(
+                    "div",
+                    { staticClass: "large-12 medium-12 small-12 cell" },
+                    [
+                      _c("label", [
+                        _vm._v("File\n        "),
+                        _c("input", {
+                          ref: "file",
+                          attrs: { type: "file", id: "file" },
+                          on: {
+                            change: function($event) {
+                              return _vm.handleFileUpload()
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.submitFile()
+                            }
+                          }
+                        },
+                        [_vm._v("Submit")]
+                      )
+                    ]
+                  )
+                ])
+              ]
             ],
-            1
+            2
           )
         ],
         1
@@ -20861,7 +20974,9 @@ var render = function() {
                               _vm._v(" "),
                               _c("v-spacer"),
                               _vm._v(" "),
-                              _c("showCircuit"),
+                              _c("showCircuit", {
+                                attrs: { circuit: circuit }
+                              }),
                               _vm._v(" "),
                               _c(
                                 "v-btn",
@@ -78583,9 +78698,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _views_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Home */ "./resources/js/dashboard/views/Home.vue");
+/* harmony import */ var _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Home.vue */ "./resources/js/dashboard/views/Home.vue");
 /* harmony import */ var _views_Success_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Success.vue */ "./resources/js/dashboard/views/Success.vue");
-/* harmony import */ var _views_Users__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Users */ "./resources/js/dashboard/views/Users.vue");
+/* harmony import */ var _views_Users_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Users.vue */ "./resources/js/dashboard/views/Users.vue");
 /* harmony import */ var _views_Catalogue_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Catalogue.vue */ "./resources/js/dashboard/views/Catalogue.vue");
 /* harmony import */ var _components_Upload_file_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Upload_file.vue */ "./resources/js/dashboard/components/Upload_file.vue");
 
@@ -78601,7 +78716,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
     path: '/dashboard',
     name: 'home',
-    component: _views_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
     path: '/dashboard/success',
     name: 'success',
@@ -78609,7 +78724,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/dashboard/users',
     name: 'users',
-    component: _views_Users__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _views_Users_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
     path: '/dashboard/catalogue',
     name: 'catalogue',
