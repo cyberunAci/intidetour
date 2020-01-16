@@ -17,11 +17,11 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <viewUser v-bind:user="user"></viewUser>
+          <showUser v-bind:user="user"></showUser>
         </v-card-actions>
       </v-card>
     </v-row>
   </v-container>
 </template>
 
-<script src="./showusers.js"></script>
+<script src="./ShowUsers.js"></script>
