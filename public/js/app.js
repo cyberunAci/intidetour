@@ -1976,19 +1976,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["circuit", "circuits"],
   data: function data() {
     return {
       dialog: false
     };
   },
-  props: ["circuit"],
   methods: {
     valider: function valider() {
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: 'delete',
         url: '../api/circuits/' + this.circuit.id
-      });
+      }).then(function (response) {
+        /* response.forEach(responses => {
+            console.log(responses.id)
+        }); */
+      })["catch"]();
     }
+  },
+  created: function created() {
+    console.log(this.circuits);
   }
 });
 
@@ -20857,7 +20864,10 @@ var render = function() {
                               ),
                               _vm._v(" "),
                               _c("deleteCircuit", {
-                                attrs: { circuit: circuit }
+                                attrs: {
+                                  circuit: circuit,
+                                  circuits: _vm.circuits
+                                }
                               })
                             ],
                             1

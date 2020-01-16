@@ -23,7 +23,7 @@
                   </template>
                   <span>Editer</span>
                 </v-tooltip>
-                <deleteCircuit v-bind:circuit="circuit"></deleteCircuit>
+                <deleteCircuit v-bind:circuit="circuit" v-bind:circuits="circuits"></deleteCircuit>
               </v-card-actions>
             </v-col>
           </v-row>
