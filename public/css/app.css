@@ -132,6 +132,7 @@ section {
   margin-left: 5%;
   margin-right: 5%;
   border: 0 none;
+  border: 1px solid red;
 }
 
 /* TODO pour la responsivité */

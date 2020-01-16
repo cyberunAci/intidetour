@@ -1,7 +1,13 @@
 import axios from 'axios';
+import DeleteCircuit from "./DeleteCircuit.vue";
 export default {
-    data: () => ({
+    components:{
+        DeleteCircuit,
+    },
+    data:() => ({
         circuits: [],
+        dialog: false,
+
     }),
     methods: {
         getDatas() {
