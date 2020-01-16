@@ -131,6 +131,7 @@ section {
   margin-bottom: 10%;
   margin-left: 5%;
   margin-right: 5%;
+  border: 0 none;
 }
 
 /* TODO pour la responsivité */
@@ -155,6 +156,6 @@ section {
 }
 
 #circuit section{
-  margin-bottom: 3rem;
-  margin-top: 3rem;
+  margin-bottom:  inherit;
+  margin-top: inherit;
 }
