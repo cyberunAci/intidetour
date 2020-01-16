@@ -15,9 +15,9 @@
               <v-card-actions>
                 <v-card-title v-text="circuit.nom"></v-card-title>
                 <v-spacer />
-                <v-btn icon>
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
+             
+               
+                <editCircuit></editCircuit>
 
                 <v-btn icon>
                   <v-icon>mdi-delete</v-icon>

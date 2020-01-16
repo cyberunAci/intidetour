@@ -1,3 +1,4 @@
+import EditCircuit from "./EditCircuit";
 import axios from 'axios';
 export default {
     data: () => ({
@@ -14,6 +15,11 @@ export default {
                 .catch();
         }
     },
+
+    components: { 
+        EditCircuit,
+      },
+
     created() {
         this.getDatas();
     }
