@@ -9,16 +9,13 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 /**
  * Admin
  */
 
-use App\CircuitsModel;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CircuitsController;
-
 
 /**
  * Accueil
@@ -37,7 +34,6 @@ Route::get('/cgu', function () {
  */
 Route::get('/apropos', 'AboutController@index');
 
-
 /**
  * Acceuil
  */
@@ -52,20 +48,29 @@ Route::get('/galerie', function () {
 /**
  * Circuits
  */
-Route::get('/circuits', function () {
-    $ctrl = new CircuitsController();
-    $circuits = $ctrl->index();
-    return view('clients.circuits', ['circuits' => $circuits]);
+Route::prefix('/circuits')->group(function () {
+
+    Route::get('/', function () {
+        $ctrl = new CircuitsController();
+        $circuits = $ctrl->index();
+        return view('clients.views.circuits', ['circuits' => $circuits]);
+    });
+
+    Route::get('/{id}', function ($id) {
+        //recupere un circuit en fonction de son id
+        $ctrl = new CircuitsController();
+        $circuit = $ctrl->show($id);
+        return view('clients.views.circuit',['circuit' => $circuit]);
+    
+    })->where('id', "[0-9]+");
+
 });
-
-
-
 
 /**
  * laisser en bas
  */
 
-Route::prefix('/dashboard')->group (function() {
+Route::prefix('/dashboard')->group(function () {
     Route::get('/', 'AdminController@index');
     Route::get('/{any}', 'AdminController@index')->where('any', '.*');
 });

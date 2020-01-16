@@ -27,6 +27,8 @@ class CircuitsController extends Controller
         return CircuitsRessource::collection($circuits);
     }
 
+
+
     /**
      *  Function recuperation  d un circuit en particulier
      * @param $id $request requete d'entrée
@@ -108,7 +110,7 @@ class CircuitsController extends Controller
      */
     public function delete($id)
     {
-        $status =  CircuitsModel::destroy($id) ? 'ok' : 'nok';
+        $status =  CircuitsModel::destroy($id)? 'ok' : 'nok';
         return json_encode(['status' => $status]);
     }
 

@@ -4,9 +4,6 @@
 
     <v-row>
       <v-card class="mx-auto my-5 text-center" v-for="(user,key) in users" :key="key">
-        <v-list-item>
-          <v-btn text color="deep-purple accent-4 text-right"><v-icon>mdi-delete</v-icon></v-btn>
-        </v-list-item>
         <v-list-item-avatar color="grey" size="90"></v-list-item-avatar>
         <v-list-item>
           <v-list-item-content>
@@ -18,6 +15,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <showUser v-bind:user="user"></showUser>
+          <deleteUser v-bind:user="user"></deleteUser>
         </v-card-actions>
       </v-card>
     </v-row>
