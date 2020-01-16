@@ -4,7 +4,7 @@ export default {
       data() {
             return {
                   editNom: false,
-                  editPrenom: false
+                  editPrenom: false,
             }
       },
 }
