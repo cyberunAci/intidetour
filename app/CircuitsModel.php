@@ -16,4 +16,7 @@ class CircuitsModel extends Model
     }
 
 
+    function photos(){
+        return $this->hasMany(PhotosCircuitModel::class,'id_circuit');
+    }
 }
