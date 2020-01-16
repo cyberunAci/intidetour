@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="text-right mb-3">
-                    <a href="#" class="btn btn-primary">Voir plus</a>
+                    <a href="/circuits/{{$circuit->id}}" class="btn btn-primary">Voir plus</a>
                 </div>
 
             </div>
