@@ -9,8 +9,8 @@ class CircuitsModel extends Model
 {
     protected $table = 'circuits';
     protected $fillable = ['nom', 'image', 'difficulte', 'description',];
-    public $timestamps = false;
-    use SoftDeletes;
+    public $timestamps = true;
+
 
     function traces(){
         return $this->hasMany(TracesModel::class,'id_circuit');
