@@ -2115,22 +2115,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["users", "users"],
+  props: ["user", "users"],
   data: function data() {
     return {
-      dialog: false
+      deleteuser: false,
+      snackbar: false,
+      text: '',
+      timeout: 2000
     };
   },
   methods: {
     valider: function valider() {
+      var _this = this;
+
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: 'delete',
-        url: '../api/users/' + this.User.id
+        url: '../api/users/' + this.user.id
       }).then(function (response) {
-        /* response.forEach(responses => {
-            console.log(responses.id)
-        }); */
-      })["catch"]();
+        console.log(response.id);
+
+        if (response.data.status === "ok") {
+          _this.$emit('userToDelete', _this.user.id);
+
+          _this.text = 'Le client ' + _this.user.nom + ' a bien été supprimé';
+        }
+      })["catch"](function (error) {
+        _this.snackbar = true;
+        _this.text = 'Une erreur est survenue';
+      });
     }
   },
   created: function created() {
@@ -2345,6 +2357,11 @@ __webpack_require__.r(__webpack_exports__);
         });
       })["catch"](function (error) {
         console.log(error);
+      });
+    },
+    removeUser: function removeUser(id) {
+      _.remove(this.users, function (_user) {
+        return _user.id == id;
       });
     }
   },
@@ -21224,86 +21241,128 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-dialog",
-    {
-      attrs: { persistent: "", "max-width": "290" },
-      scopedSlots: _vm._u([
-        {
-          key: "activator",
-          fn: function(ref) {
-            var on = ref.on
-            return [
-              _c(
-                "v-btn",
-                _vm._g(
-                  { attrs: { color: "red accent-4", icon: "", dark: "" } },
-                  on
-                ),
-                [_c("v-icon", [_vm._v("mdi-delete")])],
-                1
-              )
-            ]
-          }
-        }
-      ]),
-      model: {
-        value: _vm.dialog,
-        callback: function($$v) {
-          _vm.dialog = $$v
-        },
-        expression: "dialog"
-      }
-    },
+    "div",
     [
-      _vm._v(" "),
       _c(
-        "v-card",
+        "v-dialog",
+        {
+          attrs: { persistent: "", "max-width": "290" },
+          scopedSlots: _vm._u([
+            {
+              key: "activator",
+              fn: function(ref) {
+                var on = ref.on
+                return [
+                  _c(
+                    "v-btn",
+                    _vm._g(
+                      {
+                        attrs: {
+                          color: "deep-purple accent-4",
+                          icon: "",
+                          dark: ""
+                        }
+                      },
+                      on
+                    ),
+                    [_c("v-icon", [_vm._v("mdi-delete")])],
+                    1
+                  )
+                ]
+              }
+            }
+          ]),
+          model: {
+            value: _vm.deleteuser,
+            callback: function($$v) {
+              _vm.deleteuser = $$v
+            },
+            expression: "deleteuser"
+          }
+        },
         [
-          _c("v-card-title", { staticClass: "headline" }, [
-            _vm._v("Supprimer client ?")
-          ]),
-          _vm._v(" "),
-          _c("v-card-text", [
-            _vm._v(
-              "\n      Voulez-vous vraiment supprimer le client\n      " +
-                _vm._s(_vm.User.nom) +
-                "?\n    "
-            )
-          ]),
           _vm._v(" "),
           _c(
-            "v-card-actions",
+            "v-card",
             [
-              _c("v-spacer"),
+              _c("v-card-title", { staticClass: "headline" }, [
+                _vm._v("Supprimer client ?")
+              ]),
+              _vm._v(" "),
+              _c("v-card-text", [
+                _vm._v(
+                  "\n        Voulez-vous vraiment supprimer le client\n        " +
+                    _vm._s(_vm.user.nom) +
+                    "?\n      "
+                )
+              ]),
               _vm._v(" "),
               _c(
-                "v-btn",
-                {
-                  attrs: { color: "red darken-1", text: "" },
-                  on: {
-                    click: function($event) {
-                      _vm.dialog = false
-                    }
-                  }
-                },
-                [_vm._v("Annuler")]
-              ),
-              _vm._v(" "),
-              _c(
-                "v-btn",
-                {
-                  attrs: { color: "green darken-1", text: "" },
-                  on: {
-                    click: function($event) {
-                      _vm.dialog = false
-                      _vm.valider()
-                    }
-                  }
-                },
-                [_vm._v("Continuer")]
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "red darken-1", text: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.deleteuser = false
+                        }
+                      }
+                    },
+                    [_vm._v("Annuler")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "green darken-1", text: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.deleteuser = false
+                          _vm.valider()
+                        }
+                      }
+                    },
+                    [_vm._v("Continuer")]
+                  )
+                ],
+                1
               )
             ],
             1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          attrs: { timeout: _vm.timeout },
+          model: {
+            value: _vm.snackbar,
+            callback: function($$v) {
+              _vm.snackbar = $$v
+            },
+            expression: "snackbar"
+          }
+        },
+        [
+          _vm._v("\n            " + _vm._s(_vm.text) + "\n            "),
+          _c(
+            "v-btn",
+            {
+              attrs: { color: "blue", text: "" },
+              on: {
+                click: function($event) {
+                  _vm.snackbar = false
+                }
+              }
+            },
+            [_vm._v("Close")]
           )
         ],
         1
@@ -21902,7 +21961,14 @@ var render = function() {
                   _vm._v(" "),
                   _c("showUser", { attrs: { user: user } }),
                   _vm._v(" "),
-                  _c("deleteUser", { attrs: { user: user } })
+                  _c("deleteUser", {
+                    attrs: { user: user, users: _vm.users },
+                    on: {
+                      userToDelete: function($event) {
+                        return _vm.users.splice(key, 1)
+                      }
+                    }
+                  })
                 ],
                 1
               )

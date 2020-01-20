@@ -1,10 +1,13 @@
 import Axios from "axios"
 
 export default {
-    props: ["users", "users"],
+    props: ["user", "users"],
     data() {
         return {
-            dialog: false,
+            deleteuser: false,
+            snackbar: false,
+            text: '',
+            timeout: 2000,
         }
     },
    
@@ -13,13 +16,18 @@ export default {
         valider() {
             Axios({
                 method: 'delete',
-                url: '../api/users/' + this.User.id
+                url: '../api/users/' + this.user.id
             }).then(response=>{
-                /* response.forEach(responses => {
-                    console.log(responses.id)
-                }); */
+                    console.log(response.id)
+                    if (response.data.status === "ok") {
+                    this.$emit('userToDelete', this.user.id)
+                    this.text = 'Le client ' +this.user.nom + ' a bien été supprimé'
+                    }
             })
-            .catch()
+            .catch(error=>{
+                this.snackbar =true;
+                this.text = 'Une erreur est survenue'
+            })
         },
 
     },
