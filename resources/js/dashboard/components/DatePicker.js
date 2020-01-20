@@ -1,4 +1,6 @@
   export default {
+
+    props: ["item"],
     data: () => ({
       date: new Date().toISOString().substr(0, 10),
       menu: false,
