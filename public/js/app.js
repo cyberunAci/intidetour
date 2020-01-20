@@ -2402,6 +2402,28 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getId: function getId(e) {
       console.log(e);
+    },
+    valider: function valider() {
+      var _this2 = this;
+
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default()({
+        method: 'delete',
+        url: '../api/success/' + this.success.id
+      }).then(function (response) {
+        console.log(response);
+
+        if (response.data.status === "ok") {
+          _this2.$emit('successToDelete', _this2.success.id);
+
+          _this2.snackbar = true;
+          _this2.text = 'Le success ' + _this2.success.nom + ' a bien été supprimé';
+        }
+      })["catch"](function (error) {
+        _this2.snackbar = true;
+        _this2.text = 'Une erreur est survenue';
+      });
     }
   }
 });
@@ -22060,14 +22082,17 @@ var render = function() {
                 return [
                   _c(
                     "v-btn",
-                    {
-                      staticClass: "ma-1",
-                      on: {
-                        click: function($event) {
-                          return _vm.getId(_vm.success.id)
+                    _vm._g(
+                      {
+                        staticClass: "ma-1",
+                        on: {
+                          click: function($event) {
+                            return _vm.getId(_vm.success.id)
+                          }
                         }
-                      }
-                    },
+                      },
+                      on
+                    ),
                     [_vm._v("Supprimer")]
                   )
                 ]
@@ -22088,12 +22113,14 @@ var render = function() {
             "v-card",
             [
               _c("v-card-title", { staticClass: "headline" }, [
-                _vm._v("Use Google's location service?")
+                _vm._v("Supprimer le succès ?")
               ]),
               _vm._v(" "),
               _c("v-card-text", [
                 _vm._v(
-                  "Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running."
+                  "\n        Voulez-vous vraiment supprimer le succès\n        " +
+                    _vm._s(_vm.success.nom) +
+                    "?\n      "
                 )
               ]),
               _vm._v(" "),
@@ -22105,14 +22132,14 @@ var render = function() {
                   _c(
                     "v-btn",
                     {
-                      attrs: { color: "green darken-1", text: "" },
+                      attrs: { color: "red darken-1", text: "" },
                       on: {
                         click: function($event) {
                           _vm.dialog = false
                         }
                       }
                     },
-                    [_vm._v("Disagree")]
+                    [_vm._v("Annuler")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -22122,10 +22149,11 @@ var render = function() {
                       on: {
                         click: function($event) {
                           _vm.dialog = false
+                          _vm.valider()
                         }
                       }
                     },
-                    [_vm._v("Agree")]
+                    [_vm._v("Continuer")]
                   )
                 ],
                 1
@@ -22210,7 +22238,12 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("deleteSuccess", {
-                attrs: { success: success, successes: _vm.successes }
+                attrs: { success: success, successes: _vm.successes },
+                on: {
+                  successToDelete: function($event) {
+                    return _vm.successes.splice(key, 1)
+                  }
+                }
               })
             ],
             1
