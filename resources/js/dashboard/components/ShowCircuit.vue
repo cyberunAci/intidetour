@@ -60,16 +60,20 @@
 
 <hr>
 
+
 <template>
   <div class="container">
     <div class="large-12 medium-12 small-12 cell">
       <label>File
-        <input type="file" id="file" ref="file" @change="onFileSelected"/>
+        <input type="file" id="file" ref="file" name="file" @change="onFileSelected"/>
       </label>
         <button @click="onUpload">Upload</button>
     </div>
   </div>
 </template>
+
+<hr>
+
 
 
       </v-card>

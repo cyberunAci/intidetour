@@ -75,3 +75,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/', 'AdminController@index');
     Route::get('/{any}', 'AdminController@index')->where('any', '.*');
 });
+
+
+
+
