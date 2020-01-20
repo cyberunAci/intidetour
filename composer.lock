@@ -929,8 +929,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2020-01-16T01:18:13+00:00",
-            "time": "2020-01-15T03:32:39+00:00"
+            "time": "2020-01-16T01:18:13+00:00"
         },
         {
             "name": "league/commonmark-ext-table",
