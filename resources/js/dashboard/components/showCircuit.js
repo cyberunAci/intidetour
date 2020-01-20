@@ -1,11 +1,9 @@
 
-  export default {
+ import axios from 'axios';
+ 
+ export default {
 
-    methods: {
-      handleFileUpload(){
-        this.file = this.$refs.file.files[0];
-      }
-    },
+   
 
 
     props: ["circuit"],
@@ -13,7 +11,18 @@
     data () {
       return {
         dialog: false,
-        file: '',
+       selectedFile:null,
       }
+    },
+
+
+    methods: {
+      onFileSelected(event){
+       console.log(event)    
+       this.selectedFile = event.target.files[0]
+       },
+       onUpload(){
+axios.post();
+       }
     },
   }
