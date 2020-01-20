@@ -2,7 +2,9 @@
 
 namespace App;
 
+use DateTime;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -18,6 +20,8 @@ class User extends Authenticatable
     protected $fillable = [
         'nom', 'prenom', 'email','tel', 'date_naissance', 'password', 'photo',
     ];
+
+    protected $softDelete = true;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -35,5 +39,11 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        
     ];
+
+    use SoftDeletes;
+
+    
+
 }

@@ -1,5 +1,6 @@
 <template>
-  <v-dialog v-model="dialog" max-width="300px">
+  <v-dialog max-width="300px">
+
     <template v-slot:activator="{ on }">
       <v-btn icon v-on="on">
         <v-icon>mdi-pencil</v-icon>
@@ -8,47 +9,33 @@
     <v-card>
       <v-divider></v-divider>
       <div class="text-right">
-        <v-btn color="blue darken-1" text @click="dialog = false">X</v-btn>
+        <!-- <v-btn color="blue darken-1" text @click="dialog = false">X</v-btn> -->
       </div>
       <v-card-text class="text-center">
         <v-list-item-avatar color="grey" size="90"></v-list-item-avatar>
-        <p v-if="editNom">
-          <input v-model="user.nom" class="mb-4"/>
-          <v-btn icon @click="editNom = false" class="mb-4">
-            <v-icon>mdi-close-circle</v-icon>
-          </v-btn>
-          <v-btn icon @click="editNom = false" class="mb-4">
-            <v-icon>mdi-checkbox-marked-outline</v-icon>
-          </v-btn>
-        </p>
-        
-        <p v-else>
-          {{user.nom}}
-          <v-btn icon @click="editNom = true">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-        </p>
-        <p v-if="editPrenom">
-          <input v-model="user.nom" />
-          <v-btn icon @click="editPrenom = false">
-            <v-icon>mdi-close-circle</v-icon>
-          </v-btn>
-          <v-btn icon @click="editPrenom = false">
-            <v-icon>mdi-checkbox-marked-outline</v-icon>
-          </v-btn>
-        </p>
-        <p v-else>
-          {{user.prenom}}
-          <v-btn icon @click="editPrenom = true">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-        </p>
-        <p>{{user.email}}</p>
-        <p>{{user.date_naissance}}</p>
-        <p>{{user.tel}}</p>
-        <p>
-          <v-btn color="primary" dark v-on="on">Mot de passe</v-btn>
-        </p>
+
+        <div v-for="(item,key) in modalUser" :key="key">
+          <v-row v-if="item.editBool" class="mb-4">
+            <input v-if="item.type==='text'" v-model="item.value" />
+
+        <!-- VIF datepicker -->
+        <datePicker v-bind:item="item" v-if="item.type==='date'" v-model="item.value"></datePicker>
+
+            <v-btn icon @click="updateData(item)">
+              <v-icon>mdi-checkbox-marked-outline</v-icon>
+            </v-btn>
+            <v-btn icon @click="item.editBool = false">
+              <v-icon>mdi-close-circle</v-icon>
+            </v-btn>
+          </v-row>
+          <p v-else>
+            {{item.value}}
+            <v-btn icon @click="item.editBool = true">
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
+          </p>
+        </div>
+
       </v-card-text>
       <v-divider></v-divider>
     </v-card>

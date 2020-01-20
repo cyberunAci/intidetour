@@ -37,8 +37,9 @@ Route::get('/apropos', 'AboutController@index');
 /**
  * Acceuil
  */
-Route::get('/contact', function () {
-    return view('clients.contact');
+Route::prefix('/contact')->group (function() {
+    Route::get('/', 'ContactController@index');
+    Route::post('/', 'ContactController@store');
 });
 
 Route::get('/galerie', function () {
