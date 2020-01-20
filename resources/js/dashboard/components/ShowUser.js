@@ -4,8 +4,8 @@ import axios from 'axios';
 export default {
       components: {
             DatePicker,
-          },
-        
+      },
+
       props: ["user"],
 
       data() {
@@ -18,23 +18,23 @@ export default {
                   modalUser: [],
                   _user: {},
                   params: {
-                        nom:{
-                              type:'text'
+                        nom: {
+                              type: 'text'
                         },
                         prenom: {
-                              type:'text'
+                              type: 'text'
                         },
                         email: {
-                              type:'text'
+                              type: 'text'
                         },
                         date_naissance: {
-                              type:'date'
+                              type: 'date'
                         },
                         tel: {
-                              type:'text'
+                              type: 'text'
                         },
                         photo: {
-                              type:'text'
+                              type: 'text'
                         }
                   }
             }
@@ -73,14 +73,16 @@ export default {
             prepareDisplay() {
                   this.modalUser = [];
                   for (const property in this.user) {
-                        if (_.hasOwnProperty(this.params, property) != -1) {
+                        if (this.params.hasOwnProperty(property)) {
                               this.modalUser.push({
                                     key: property,
                                     value: this.user[property],
                                     editBool: false,
+                                    type:this.params[property].type
                               })
                         }
                   }
+                  console.log( this.params)
             },
             prepareLocalUser() {
                   this._user = {};

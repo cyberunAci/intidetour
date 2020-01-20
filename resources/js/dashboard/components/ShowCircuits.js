@@ -1,8 +1,10 @@
+import ShowCircuit from "./ShowCircuit";
 import axios from 'axios';
 import DeleteCircuit from "./DeleteCircuit.vue";
 export default {
     components:{
         DeleteCircuit,
+        ShowCircuit,
     },
     data:() => ({
         circuits: [],
@@ -25,6 +27,9 @@ export default {
             })
         }
     },
+
+    
+
     created() {
         this.getDatas();
     }
