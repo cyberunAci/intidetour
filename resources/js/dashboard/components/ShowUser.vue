@@ -1,5 +1,6 @@
 <template>
   <v-dialog max-width="300px">
+
     <template v-slot:activator="{ on }">
       <v-btn icon v-on="on">
         <v-icon>mdi-pencil</v-icon>
@@ -15,7 +16,11 @@
 
         <div v-for="(item,key) in modalUser" :key="key">
           <v-row v-if="item.editBool" class="mb-4">
-            <input v-model="item.value" />
+            <input v-if="item.type==='text'" v-model="item.value" />
+
+        <!-- VIF datepicker -->
+        <datePicker v-bind:item="item" v-if="item.type==='date'" v-model="item.value"></datePicker>
+
             <v-btn icon @click="updateData(item)">
               <v-icon>mdi-checkbox-marked-outline</v-icon>
             </v-btn>
@@ -31,9 +36,6 @@
           </p>
         </div>
 
-        <p>
-          <!-- <v-btn color="primary" dark v-on="on">Mot de passe</v-btn> -->
-        </p>
       </v-card-text>
       <v-divider></v-divider>
     </v-card>

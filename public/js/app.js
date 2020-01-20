@@ -1973,6 +1973,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["item"],
   data: function data() {
     return {
       date: new Date().toISOString().substr(0, 10),
@@ -2161,14 +2162,17 @@ __webpack_require__.r(__webpack_exports__);
       this.modalUser = [];
 
       for (var property in this.user) {
-        if (_.hasOwnProperty(this.params, property) != -1) {
+        if (this.params.hasOwnProperty(property)) {
           this.modalUser.push({
             key: property,
             value: this.user[property],
-            editBool: false
+            editBool: false,
+            type: this.params[property].type
           });
         }
       }
+
+      console.log(this.params);
     },
     prepareLocalUser: function prepareLocalUser() {
       this._user = {};
@@ -20789,114 +20793,99 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-layout",
-    { attrs: { row: "", wrap: "" } },
+    "v-menu",
+    {
+      ref: "menu",
+      attrs: {
+        "close-on-content-click": false,
+        "return-value": _vm.date,
+        transition: "scale-transition",
+        "offset-y": "",
+        "min-width": "290px"
+      },
+      on: {
+        "update:returnValue": function($event) {
+          _vm.date = $event
+        },
+        "update:return-value": function($event) {
+          _vm.date = $event
+        }
+      },
+      scopedSlots: _vm._u([
+        {
+          key: "activator",
+          fn: function(ref) {
+            var on = ref.on
+            return [
+              _c(
+                "v-text-field",
+                _vm._g(
+                  {
+                    attrs: { readonly: "" },
+                    model: {
+                      value: _vm.item.value,
+                      callback: function($$v) {
+                        _vm.$set(_vm.item, "value", $$v)
+                      },
+                      expression: "item.value"
+                    }
+                  },
+                  on
+                )
+              )
+            ]
+          }
+        }
+      ]),
+      model: {
+        value: _vm.menu,
+        callback: function($$v) {
+          _vm.menu = $$v
+        },
+        expression: "menu"
+      }
+    },
     [
+      _vm._v(" "),
       _c(
-        "v-flex",
-        { attrs: { xs12: "", sm6: "", md4: "" } },
+        "v-date-picker",
+        {
+          attrs: { "no-title": "", scrollable: "" },
+          model: {
+            value: _vm.item.value,
+            callback: function($$v) {
+              _vm.$set(_vm.item, "value", $$v)
+            },
+            expression: "item.value"
+          }
+        },
         [
+          _c("v-spacer"),
+          _vm._v(" "),
           _c(
-            "v-menu",
+            "v-btn",
             {
-              ref: "menu",
-              attrs: {
-                "close-on-content-click": false,
-                "nudge-right": 40,
-                "return-value": _vm.date,
-                transition: "scale-transition",
-                "offset-y": "",
-                "min-width": "290px"
-              },
+              attrs: { color: "primary" },
               on: {
-                "update:returnValue": function($event) {
-                  _vm.date = $event
-                },
-                "update:return-value": function($event) {
-                  _vm.date = $event
+                click: function($event) {
+                  _vm.menu = false
                 }
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "activator",
-                  fn: function(ref) {
-                    var on = ref.on
-                    return [
-                      _c(
-                        "v-text-field",
-                        _vm._g(
-                          {
-                            attrs: { label: "Picker in menu", readonly: "" },
-                            model: {
-                              value: _vm.date,
-                              callback: function($$v) {
-                                _vm.date = $$v
-                              },
-                              expression: "date"
-                            }
-                          },
-                          on
-                        )
-                      )
-                    ]
-                  }
-                }
-              ]),
-              model: {
-                value: _vm.menu,
-                callback: function($$v) {
-                  _vm.menu = $$v
-                },
-                expression: "menu"
               }
             },
-            [
-              _vm._v(" "),
-              _c(
-                "v-date-picker",
-                {
-                  attrs: { "no-title": "", scrollable: "" },
-                  model: {
-                    value: _vm.date,
-                    callback: function($$v) {
-                      _vm.date = $$v
-                    },
-                    expression: "date"
-                  }
-                },
-                [
-                  _c("v-spacer"),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { color: "primary" },
-                      on: {
-                        click: function($event) {
-                          _vm.menu = false
-                        }
-                      }
-                    },
-                    [_vm._v("Cancel")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { color: "primary" },
-                      on: {
-                        click: function($event) {
-                          return _vm.$refs.menu.save(_vm.date)
-                        }
-                      }
-                    },
-                    [_vm._v("OK")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
+            [_vm._v("Cancel")]
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { color: "primary" },
+              on: {
+                click: function($event) {
+                  return _vm.$refs.menu.save(_vm.date)
+                }
+              }
+            },
+            [_vm._v("OK")]
           )
         ],
         1
@@ -21251,25 +21240,44 @@ var render = function() {
                           "v-row",
                           { staticClass: "mb-4" },
                           [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: item.value,
-                                  expression: "item.value"
-                                }
-                              ],
-                              domProps: { value: item.value },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
+                            item.type === "text"
+                              ? _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: item.value,
+                                      expression: "item.value"
+                                    }
+                                  ],
+                                  domProps: { value: item.value },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        item,
+                                        "value",
+                                        $event.target.value
+                                      )
+                                    }
                                   }
-                                  _vm.$set(item, "value", $event.target.value)
-                                }
-                              }
-                            }),
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            item.type === "date"
+                              ? _c("datePicker", {
+                                  attrs: { item: item },
+                                  model: {
+                                    value: item.value,
+                                    callback: function($$v) {
+                                      _vm.$set(item, "value", $$v)
+                                    },
+                                    expression: "item.value"
+                                  }
+                                })
+                              : _vm._e(),
                             _vm._v(" "),
                             _c(
                               "v-btn",
@@ -21332,9 +21340,7 @@ var render = function() {
                   ],
                   1
                 )
-              }),
-              _vm._v(" "),
-              _c("p")
+              })
             ],
             2
           ),
