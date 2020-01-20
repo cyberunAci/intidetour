@@ -60,3 +60,10 @@ Route::prefix('interestpoints')->group(function () {
     Route::get('/types', 'InterestPointsController@getTypes');
     Route::post('/', 'InterestPointsController@add');
 });
+
+/**
+ * API À propos
+ */
+Route::prefix('/contact')->group (function() {
+    Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
+});
