@@ -21497,46 +21497,9 @@ var render = function() {
                               _vm._v(" "),
                               _c("v-spacer"),
                               _vm._v(" "),
-                              _c(
-                                "v-tooltip",
-                                {
-                                  attrs: { bottom: "" },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "activator",
-                                        fn: function(ref) {
-                                          var on = ref.on
-                                          return [
-                                            _c(
-                                              "v-btn",
-                                              _vm._g(
-                                                {
-                                                  attrs: {
-                                                    color: "primary",
-                                                    icon: "",
-                                                    dark: ""
-                                                  }
-                                                },
-                                                on
-                                              ),
-                                              [
-                                                _c("v-icon", [
-                                                  _vm._v("mdi-pencil")
-                                                ])
-                                              ],
-                                              1
-                                            )
-                                          ]
-                                        }
-                                      }
-                                    ],
-                                    null,
-                                    true
-                                  )
-                                },
-                                [_vm._v(" "), _c("span", [_vm._v("Editer")])]
-                              ),
+                              _c("showCircuit", {
+                                attrs: { circuit: circuit }
+                              }),
                               _vm._v(" "),
                               _c("deleteCircuit", {
                                 attrs: {
