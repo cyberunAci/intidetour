@@ -1,7 +1,12 @@
 import axios from 'axios';
+import DeleteSuccess from "./DeleteSuccess.vue";
+
 export default {
+    components: {
+        DeleteSuccess
+    },
     data: () => ({
-        props: ["success", "successes"],
+        // props: ["success", "successes"],
         title: 'Intidetour',
         successes: []
     }),
@@ -21,5 +26,5 @@ export default {
     },
     created() {
         this.getDatas();
-    }
+    },
 }

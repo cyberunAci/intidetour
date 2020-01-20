@@ -14,14 +14,8 @@
               <v-card-actions>
                 <v-card-title v-text="circuit.nom"></v-card-title>
                 <v-spacer />
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on }">
-                    <v-btn color="primary" icon dark v-on="on">
-                      <v-icon>mdi-pencil</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Editer</span>
-                </v-tooltip>
+              
+               <showCircuit v-bind:circuit="circuit" ></showCircuit>
                 <deleteCircuit v-on:circuitToDelete='circuits.splice(key, 1)' v-bind:circuit="circuit" v-bind:circuits="circuits"></deleteCircuit>
               </v-card-actions>
             </v-col>
