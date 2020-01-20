@@ -21314,12 +21314,34 @@ var render = function() {
                   _vm._v(" "),
                   _c("p", [
                     _c("input", {
-                      attrs: { type: "text", name: "", id: "difficulte" }
-                    }),
-                    _vm._v(_vm._s(_vm.circuit.difficulte) + " ")
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.circuit.difficulte,
+                          expression: "circuit.difficulte"
+                        }
+                      ],
+                      attrs: { type: "text", name: "" },
+                      domProps: { value: _vm.circuit.difficulte },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.circuit,
+                            "difficulte",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
                   ]),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.circuit.description))]),
+                  _c("label", [_vm._v("Description du circuit:")]),
+                  _vm._v(" "),
+                  _c("p"),
                   _vm._v(" "),
                   _c("v-spacer"),
                   _vm._v(" "),

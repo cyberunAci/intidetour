@@ -14,8 +14,9 @@
         <v-divider></v-divider>
         <v-card-text>
           <label>Difficulé du circuit:</label>
-          <p><input type="text" name="" id="difficulte">{{circuit.difficulte}} </p>
-          <p>{{circuit.description}}</p>
+          <p><input type="text" name="" v-model="circuit.difficulte"> </p>
+           <label>Description du circuit:</label>
+          <p> </p>
           <v-spacer></v-spacer>
           <v-btn color="primary" text @click="dialog = false">I accept</v-btn>
         </v-card-text>
