@@ -22,3 +22,4 @@
 * à chaque fois qu'on ajoute un nouvel element(ex vue) refaire un npm install
 * faire un "php artisan migrate:fresh --seed" 
 
+
