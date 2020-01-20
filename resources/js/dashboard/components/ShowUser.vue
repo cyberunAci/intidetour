@@ -21,6 +21,7 @@
             <v-icon>mdi-checkbox-marked-outline</v-icon>
           </v-btn>
         </p>
+        
         <p v-else>
           {{user.nom}}
           <v-btn icon @click="editNom = true">
