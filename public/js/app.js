@@ -2225,7 +2225,7 @@ __webpack_require__.r(__webpack_exports__);
         var datas = this.getUpdatedUser(item);
         axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/users/' + this.user.id, datas).then(function (resp) {
           if (_.isObject(resp.data)) {
-            console.log(resp.data.data);
+            // console.log(resp.data.data)
             _this.user[item.key] = resp.data.data[item.key];
           }
 
@@ -2256,9 +2256,8 @@ __webpack_require__.r(__webpack_exports__);
             type: this.params[property].type
           });
         }
-      }
+      } // console.log( this.params)
 
-      console.log(this.params);
     },
     prepareLocalUser: function prepareLocalUser() {
       this._user = {};
