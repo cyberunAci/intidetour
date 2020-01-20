@@ -19,7 +19,7 @@ class ModifyTableDescription extends Migration
             $circuit->string('distance',255);
             $circuit->string('latitude',255);
             $circuit->string('longitude',255);
-            $circuit->timestamp('deleted_at');
+            $circuit->softDeletes();
         });
     }
 

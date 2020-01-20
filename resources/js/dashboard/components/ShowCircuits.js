@@ -1,8 +1,15 @@
 import ShowCircuit from "./ShowCircuit";
 import axios from 'axios';
+import DeleteCircuit from "./DeleteCircuit.vue";
 export default {
-    data: () => ({
+    components:{
+        DeleteCircuit,
+        ShowCircuit,
+    },
+    data:() => ({
         circuits: [],
+        dialog: false,
+
     }),
     methods: {
         getDatas() {
@@ -13,12 +20,15 @@ export default {
                     })
                 })
                 .catch();
+        },
+        removeCircuit(id){
+            _.remove(this.circuits, function (_circuit) {
+                return _circuit.id == id;
+            })
         }
     },
 
-    components: { 
-        ShowCircuit,
-      },
+    
 
     created() {
         this.getDatas();

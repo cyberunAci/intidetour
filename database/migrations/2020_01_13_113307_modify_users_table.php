@@ -19,6 +19,7 @@ class ModifyUsersTable extends Migration
             $table->date('date_naissance');
             $table->string('tel');
             $table->string('photo');
+            $table->softDeletes();
         });
     }
 
