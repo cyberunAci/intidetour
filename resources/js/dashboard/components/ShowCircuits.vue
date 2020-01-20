@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-card class="mx-auto my-5" max-width="500" v-for="(circuit,key) in circuits" :key="key">
+      <v-card v-for="(circuit,key) in circuits" :key="key" class="mx-auto my-5" max-width="500" >
         <v-container fluid>
           <v-row dense>
             <v-col :cols="12">
@@ -11,17 +11,18 @@
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                 height="200px"
               ></v-img>
-
               <v-card-actions>
                 <v-card-title v-text="circuit.nom"></v-card-title>
                 <v-spacer />
-                <v-btn icon>
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-
-                <v-btn icon>
-                  <v-icon>mdi-delete</v-icon>
-                </v-btn>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                    <v-btn color="primary" icon dark v-on="on">
+                      <v-icon>mdi-pencil</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Editer</span>
+                </v-tooltip>
+                <deleteCircuit v-on:circuitToDelete='circuits.splice(key, 1)' v-bind:circuit="circuit" v-bind:circuits="circuits"></deleteCircuit>
               </v-card-actions>
             </v-col>
           </v-row>

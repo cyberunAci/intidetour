@@ -11,12 +11,14 @@
 </head>
 
 <body>
+
     <!-- NAVBAR -->
     @include('partials.navbar')
 
-    <!-- CONTENT -->
-    @yield('content')
-
+    <main {{isset($id)? " id=".$id : ''}}>
+        <!-- CONTENT -->
+        @yield('content')
+    </main>
     <!-- FOOTER -->
     @include('partials.footer')
 

@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 import Home from './views/Home';
 import Success from './views/Success.vue';
-import Users from './views/Users';
+import Users from './views/Users.vue';
 import Catalogue from './views/Catalogue.vue';
 
 Vue.use(VueRouter);

@@ -1,10 +1,12 @@
-import ViewUser from "./ViewUser.vue";
+import ShowUser from "./ShowUser.vue";
+import DeleteUser from "./DeleteUser.vue";
 import axios from 'axios';
 
 
 export default {
   components: {
-    ViewUser,
+    ShowUser,
+    DeleteUser,
   },
 
 

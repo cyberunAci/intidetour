@@ -37,7 +37,8 @@ Route::prefix('circuits')->group(function () {
  */
 Route::prefix('users')->group(function () {
     Route::get('/', 'UsersController@index');
-    Route::delete('/{id}', 'ClientsController@delete')->where('id', "[0-9]+");
+    Route::post('/{id}', 'UsersController@update')->where('id', "[0-9]+");
+    Route::delete('/{id}', 'UsersController@delete')->where('id', "[0-9]+");
 });
 
 /**

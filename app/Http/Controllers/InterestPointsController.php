@@ -56,7 +56,9 @@ class InterestPointsController extends Controller
             $interestPoint = $interestPointsTypeModel->interestPoints()->create($_interestPoint);
 
             return new InterestPointsRessource($interestPoint);
-        } else {
+        } 
+        
+        else {
             return json_encode('error');
         }
     }
