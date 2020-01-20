@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-card v-for="(circuit,key) in circuits" :key="key" class="mx-auto my-5" max-width="500" >
+      <v-card v-for="(circuit,key) in circuits" :key="key" class="mx-auto my-5" max-width="500">
         <v-container fluid>
           <v-row dense>
             <v-col :cols="12">
@@ -22,7 +22,11 @@
                   </template>
                   <span>Editer</span>
                 </v-tooltip>
-                <deleteCircuit v-on:circuitToDelete='circuits.splice(key, 1)' v-bind:circuit="circuit" v-bind:circuits="circuits"></deleteCircuit>
+                  <deleteCircuit
+                    v-on:circuitToDelete="circuits.splice(key, 1)"
+                    v-bind:circuit="circuit"
+                    v-bind:circuits="circuits"
+                  ></deleteCircuit>
               </v-card-actions>
             </v-col>
           </v-row>

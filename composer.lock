@@ -883,7 +883,6 @@
         },
         {
             "name": "league/commonmark",
-<<<<<<< HEAD
             "version": "1.2.2",
             "source": {
                 "type": "git",
@@ -894,18 +893,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/34cf4ddb3892c715ae785c880e6691d839cff88d",
                 "reference": "34cf4ddb3892c715ae785c880e6691d839cff88d",
-=======
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "74e08793c41c72c8ed7a22df803f2ffcaf77efb7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/74e08793c41c72c8ed7a22df803f2ffcaf77efb7",
-                "reference": "74e08793c41c72c8ed7a22df803f2ffcaf77efb7",
->>>>>>> 2d739dc224e5ace6696d0643507ff05c4c880fb7
                 "shasum": ""
             },
             "require": {
@@ -963,11 +950,7 @@
                 "markdown",
                 "parser"
             ],
-<<<<<<< HEAD
             "time": "2020-01-16T01:18:13+00:00"
-=======
-            "time": "2020-01-15T03:32:39+00:00"
->>>>>>> 2d739dc224e5ace6696d0643507ff05c4c880fb7
         },
         {
             "name": "league/commonmark-ext-table",
