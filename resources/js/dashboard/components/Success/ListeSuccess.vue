@@ -10,7 +10,7 @@
       </v-row>
       <v-row class="d-flex justify-end ma-1">
         <v-btn class="ma-1" v-on:click='getId(success.id)'>Éditer</v-btn>
-        <v-btn class="ma-1" v-on:click='getId(success.id)'>Supprimer</v-btn>
+        <deleteSuccess v-on:successToDelete='successes.splice(key, 1)' v-bind:success="success" v-bind:successes="successes"></deleteSuccess>
       </v-row>
     </v-card>
   </v-container>
