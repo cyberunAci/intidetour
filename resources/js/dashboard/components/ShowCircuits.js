@@ -18,6 +18,11 @@ export default {
                     })
                 })
                 .catch();
+        },
+        removeCircuit(id){
+            _.remove(this.circuits, function (_circuit) {
+                return _circuit.id == id;
+            })
         }
     },
     created() {
