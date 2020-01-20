@@ -5,7 +5,6 @@
         <v-btn color="red accent-4" icon dark v-on="on">
           <v-icon>mdi-delete</v-icon>
         </v-btn>
-       
       </template>
       <v-card>
         <v-card-title class="headline">Supprimer le circuit ?</v-card-title>
