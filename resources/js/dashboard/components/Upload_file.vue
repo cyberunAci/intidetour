@@ -1,55 +1,17 @@
 <template>
-  <div class="text-center">
-    <v-dialog
-      v-model="dialog"
-      width="500"
-    >
-      <template v-slot:activator="{ on }">
-        <v-btn
-          color="red lighten-2"
-          dark
-          v-on="on"
-        >
-          Click Me
-        </v-btn>
-      </template>
-
-      <v-card>
-        <v-card-title
-          class="headline grey lighten-2"
-          primary-title
-        >
-          Privacy Policy
-        </v-card-title>
-<!--formulaire d upload-->
-       <template>
-  <v-file-input accept="image/*" label="File input"></v-file-input>
-</template>
-
-        <v-divider></v-divider>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="dialog = false"
-          >
-            I accept
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </div>
+  <v-container>
+    <div v-if="!image">
+      <input type="file" @change="onFileChange" />
+    </div>
+    <div v-else>
+      <img v-bind:src="image" style="width:200px" />
+      <br />
+      <v-btn v-on:click="greet">Telecharger</v-btn>
+      <v-btn v-on:click="removeImg">Supprimer</v-btn>
+    </div>
+  </v-container>
 </template>
 
 
-<script>
-  export default {
-    data () {
-      return {
-        dialog: false,
-      }
-    },
-  }
+<script src="./uploadFile.js">
 </script>

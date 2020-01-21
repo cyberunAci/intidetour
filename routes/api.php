@@ -61,6 +61,7 @@ Route::prefix('interestpoints')->group(function () {
     Route::post('/', 'InterestPointsController@add');
 });
 
+Route::post('saveImg', 'ImageController@saveImg');
 /**
  * API À propos
  */
