@@ -62,3 +62,9 @@ Route::prefix('interestpoints')->group(function () {
 });
 
 Route::post('saveImg', 'ImageController@saveImg');
+/**
+ * API À propos
+ */
+Route::prefix('/contact')->group (function() {
+    Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
+});
