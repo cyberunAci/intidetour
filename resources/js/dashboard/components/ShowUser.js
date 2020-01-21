@@ -51,7 +51,7 @@ export default {
                         axios.post('/api/users/' + this.user.id, datas)
                               .then(resp => {
                                     if (_.isObject(resp.data)) {
-                                          console.log(resp.data.data)
+                                          // console.log(resp.data.data)
                                           this.user[item.key] = resp.data.data[item.key];
                                     }
                                     this.prepareDisplay();
@@ -82,7 +82,7 @@ export default {
                               })
                         }
                   }
-                  console.log( this.params)
+                  // console.log( this.params)
             },
             prepareLocalUser() {
                   this._user = {};
