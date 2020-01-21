@@ -2400,9 +2400,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    getId: function getId(e) {
-      console.log(e);
-    },
+    getId: function getId(e) {},
     valider: function valider() {
       var _this2 = this;
 

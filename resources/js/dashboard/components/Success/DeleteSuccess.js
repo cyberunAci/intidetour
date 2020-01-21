@@ -8,9 +8,7 @@ export default {
         }
     },
     methods: {
-        getId(e) {
-            console.log(e);
-        },
+        getId(e) {},
         valider() {
             let _this = this;
             Axios({
