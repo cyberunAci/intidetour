@@ -6,6 +6,7 @@ import Success from './views/Success.vue';
 import Users from './views/Users.vue';
 import Catalogue from './views/Catalogue.vue';
 import Upload_file from './components/Upload_file.vue';
+import Apropos from './components/apropos/UpdateApropos.vue';
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,11 @@ const router = new VueRouter({
             path: '/dashboard/uploadFile',
             name: 'Upload_file',
             component: Upload_file
+        },
+        {
+            path: '/dashboard/apropos',
+            name: 'apropos',
+            component: Apropos
         }
     ]
 })
