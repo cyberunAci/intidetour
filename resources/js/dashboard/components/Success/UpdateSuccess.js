@@ -5,9 +5,6 @@ export default {
     props: ["success"],
     data() {
         return {
-              editNom: false,
-              editImage: false,
-              editDescription: false,
               modalSuccess: [],
               _success: {},
               params: {

@@ -12,7 +12,7 @@
                 height="200px"
               ></v-img>
               <v-card-actions>
-                <v-card-title v-text="circuit.nom"></v-card-title>
+                <v-card-title>{{circuit.nom}}</v-card-title>
                 <v-spacer />
 
                 <showCircuit v-bind:circuit="circuit"></showCircuit>
@@ -23,6 +23,9 @@
                 ></deleteCircuit>
               </v-card-actions>
             </v-col>
+          </v-row>
+          <v-row>
+            
           </v-row>
         </v-container>
       </v-card>
