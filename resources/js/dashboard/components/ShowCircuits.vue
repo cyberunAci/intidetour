@@ -1,5 +1,8 @@
 <template>
+
   <v-container>
+          <addCircuit></addCircuit>
+
     <v-row>
       <v-card v-for="(circuit,key) in circuits" :key="key" class="mx-auto my-5" max-width="500">
         <v-container fluid>
@@ -26,6 +29,8 @@
           </v-row>
         </v-container>
       </v-card>
+          
+
     </v-row>
   </v-container>
 </template>

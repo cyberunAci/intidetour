@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CircuitsModel extends Model
 {
     protected $table = 'circuits';
-    protected $fillable = ['nom', 'image', 'difficulte', 'description',];
+    protected $fillable = ['nom', 'image', 'difficulte', 'description','duree','distance','longitude','latitude'];
     protected $softDelete = true;
     public $timestamps = false;
     use SoftDeletes;
