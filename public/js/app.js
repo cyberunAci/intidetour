@@ -2352,14 +2352,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-// import UploadFile from './UploadFile.vue';
+/* harmony import */ var _UploadFile_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UploadFile.vue */ "./resources/js/dashboard/components/circuits/UploadFile.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  // components: {
-  //      UploadFile
-  // },
+  components: {
+    UploadFile: _UploadFile_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   props: ["circuit"],
   data: function data() {
     return {
@@ -2369,11 +2370,26 @@ __webpack_require__.r(__webpack_exports__);
         nom: {
           type: 'text'
         },
-        image: {
+        difficulte: {
+          type: 'text'
+        },
+        description: {
+          type: 'text'
+        },
+        duree: {
+          type: 'text'
+        },
+        latitude: {
+          type: 'text'
+        },
+        longitude: {
           type: 'text'
         }
       }
     };
+  },
+  created: function created() {
+    this.prepareDisplay();
   },
   methods: {
     updateData: function updateData(item) {
@@ -2381,14 +2397,16 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.circuit[item.key] != item.value) {
         var datas = this.getUpdatedCircuit(item);
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/circuits' + this.circuit.id, datas).then(function (resp) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/circuits/' + this.circuit.id, datas).then(function (resp) {
           if (_.isObject(resp.data)) {
             console.log(resp.data.data);
             _this.circuit[item.key] = resp.data.data[item.key];
           }
 
           _this.prepareDisplay();
-        })["catch"](function (error) {});
+        })["catch"](function (error) {
+          console.log(error);
+        });
       } else {
         item.editBool = false;
       }
@@ -2445,14 +2463,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["circuit", "circuits"],
+  props: ["circuit"],
   data: function data() {
     return {
       photos: ''
     };
-  },
-  created: function created() {
-    this.prepareDisplay();
   },
   methods: {
     onFileChange: function onFileChange(e) {
@@ -22121,9 +22136,12 @@ var render = function() {
           fn: function(ref) {
             var on = ref.on
             return [
-              _c("v-btn", _vm._g({ staticClass: "ma-1" }, on), [
-                _vm._v("Éditer")
-              ])
+              _c(
+                "v-btn",
+                _vm._g({ attrs: { icon: "" } }, on),
+                [_c("v-icon", [_vm._v("mdi-pencil")])],
+                1
+              )
             ]
           }
         }
@@ -22178,19 +22196,6 @@ var render = function() {
                                         $event.target.value
                                       )
                                     }
-                                  }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            item.type === "date"
-                              ? _c("datePicker", {
-                                  attrs: { item: item },
-                                  model: {
-                                    value: item.value,
-                                    callback: function($$v) {
-                                      _vm.$set(item, "value", $$v)
-                                    },
-                                    expression: "item.value"
                                   }
                                 })
                               : _vm._e(),
@@ -22256,7 +22261,9 @@ var render = function() {
                   ],
                   1
                 )
-              })
+              }),
+              _vm._v(" "),
+              _c("uploadFile", { attrs: { circuit: _vm.circuit } })
             ],
             2
           ),
@@ -22413,9 +22420,19 @@ var render = function() {
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
-            _c("v-btn", { on: { click: _vm.greet } }, [_vm._v("Telecharger")]),
+            _c(
+              "v-btn",
+              { attrs: { icon: "" }, on: { click: _vm.greet } },
+              [_c("v-icon", [_vm._v("mdi-download")])],
+              1
+            ),
             _vm._v(" "),
-            _c("v-btn", { on: { click: _vm.removeImg } }, [_vm._v("Supprimer")])
+            _c(
+              "v-btn",
+              { attrs: { icon: "" }, on: { click: _vm.removeImg } },
+              [_c("v-icon", [_vm._v("mdi-close-circle")])],
+              1
+            )
           ],
           1
         )

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default {
-    props: ["circuit", "circuits"],
+    props: ["circuit"],
     data() {
         return {
             photos: '',
@@ -9,9 +9,6 @@ export default {
         }
     },
 
-    created() {
-        this.prepareDisplay();
-    },
     methods: {
         onFileChange(e) {
             let files = e.target.files || e.dataTransfer.files;

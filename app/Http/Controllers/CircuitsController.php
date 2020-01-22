@@ -83,6 +83,9 @@ class CircuitsController extends Controller
                 'image' => 'required',
                 'difficulte' => 'required',
                 'description' => 'required',
+                'duree' => 'required',
+                'latitude' => 'required',
+                'longitude' => 'required',
             ]
         )->validate();
 
@@ -96,7 +99,9 @@ class CircuitsController extends Controller
         $dataCircuit->image = $dataUpdate['image'];
         $dataCircuit->difficulte = $dataUpdate['difficulte'];
         $dataCircuit->description = $dataUpdate['description'];
-
+        $dataCircuit->duree = $dataUpdate['duree'];
+        $dataCircuit->latitude = $dataUpdate['latitude'];
+        $dataCircuit->longitude = $dataUpdate['longitude'];
         //Sauvegarde des données entrées en base de donnée
         $dataCircuit->save();
         return new CircuitsRessource($dataCircuit);
@@ -110,7 +115,7 @@ class CircuitsController extends Controller
      */
     public function delete($id)
     {
-        $status =  CircuitsModel::destroy($id)? 'ok' : 'nok';
+        $status =  CircuitsModel::destroy($id) ? 'ok' : 'nok';
         return json_encode(['status' => $status]);
     }
 
@@ -157,59 +162,35 @@ class CircuitsController extends Controller
     public function  addPhoto(Request $request, $id)
     {
 
-        // $img = $request->get('photos');
+        $img = $request->get('photos');
 
-        // $exploded = explode(",", $img);
+        $exploded = explode(",", $img);
 
-        // if (str::contains($exploded[0], 'gif')) {
-        //     $ext = 'gif';
-        // } else if (str::contains($exploded[0], 'png')) {
-        //     $ext = 'png';
-        // } else {
-        //     $ext = 'jpg';
-        // }
+        if (str::contains($exploded[0], 'gif')) {
+            $ext = 'gif';
+        } else if (str::contains($exploded[0], 'png')) {
+            $ext = 'png';
+        } else {
+            $ext = 'jpg';
+        }
 
-        // $decode = base64_decode($exploded[1]);
+        $decode = base64_decode($exploded[1]);
 
-        // $filename = str::random() . "." . $ext;
+        $filename = str::random() . "." . $ext;
 
-        // $path = public_path() . "/storage/monDossier/" . $filename;
+        $path = public_path() . "/storage/monDossier/" . $filename;
 
-        // if (file_put_contents($path, $decode)) {
-        //     echo "fichier télécharger: " . $filename;
-        // }
+        if (file_put_contents($path, $decode)) {
+            echo "fichier téléchargé et envoyé dans: " . "/storage/monDossier/" . $filename;
 
-        //Validation des données entrées
-        $dataPhoto = Validator::make(
-            $request->all(),
-            [
-                'nom' => 'required',
-                'image' => 'required',
-                'difficulte' => 'required',
-                'description' => 'required',
-                'duree' => 'required',
-                'latitude' => 'required',
-                'longitude' => 'required',
-            ],
-            [
-                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
-            ]
-        )->validate();
+            $dataPhoto = PhotosCircuitModel::find(1)
+                ->where('id', '=', $id)
+                ->first();
 
+            $dataPhoto->photos = "/storage/monDossier/" . $filename;
+            $dataPhoto->save();
+            return new PhotosCircuitRessource($dataPhoto);
+        }
 
-        //find le circuit grace à l'ID
-        $dataCircuit = CircuitsModel::find(1)
-        ->where('id', '=', $id)
-        ->first();
-        $dataCircuit->nom = $dataPhoto['nom'];
-        $dataCircuit->image = $dataPhoto['image'];
-        $dataCircuit->difficulte = $dataPhoto['difficulte'];
-        $dataCircuit->description = $dataPhoto['description'];
-        $dataCircuit->duree = $dataPhoto['duree'];
-        $dataCircuit->latitude = $dataPhoto['latitude'];
-        $dataCircuit->longitude = $dataPhoto['longitude'];
-        $dataCircuit->save();
-        
-        return new PhotosCircuitRessource($dataCircuit);
     }
 }

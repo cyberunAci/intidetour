@@ -1,8 +1,9 @@
 <template>
   <v-dialog max-width="300px">
-
     <template v-slot:activator="{ on }">
-      <v-btn class="ma-1" v-on="on">Éditer</v-btn>
+      <v-btn icon v-on="on">
+        <v-icon>mdi-pencil</v-icon>
+      </v-btn>
     </template>
     <v-card>
       <v-divider></v-divider>
@@ -16,8 +17,7 @@
           <v-row v-if="item.editBool" class="mb-4">
             <input v-if="item.type==='text'" v-model="item.value" />
 
-        <!-- VIF datepicker -->
-        <datePicker v-bind:item="item" v-if="item.type==='date'" v-model="item.value"></datePicker>
+            <!-- VIF datepicker -->
 
             <v-btn icon @click="updateData(item)">
               <v-icon>mdi-checkbox-marked-outline</v-icon>
@@ -33,13 +33,13 @@
             </v-btn>
           </p>
         </div>
-
+        <uploadFile v-bind:circuit="circuit"></uploadFile>
       </v-card-text>
       <v-divider></v-divider>
     </v-card>
   </v-dialog>
- </template>
+</template>
 
 
 
-<script src="./showCircuit.js">
+<script src="./showCircuit.js"></script>
