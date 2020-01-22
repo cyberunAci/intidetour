@@ -60,3 +60,11 @@ Route::prefix('interestpoints')->group(function () {
     Route::get('/types', 'InterestPointsController@getTypes');
     Route::post('/', 'InterestPointsController@add');
 });
+
+Route::post('saveImg', 'ImageController@saveImg');
+/**
+ * API À propos
+ */
+Route::prefix('/apropos')->group (function() {
+    Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
+});

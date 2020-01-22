@@ -17,6 +17,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/cgu">CGU</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/apropos">A propos</a>
+      </li>
     </ul>
   </div>
 </nav>

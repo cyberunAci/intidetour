@@ -107,12 +107,15 @@ class SuccessController extends Controller
             ->first();
 
         //Mise en relation des inputs et des colonnes pour la modification
+        if (isset($dataSuccess)) {
+
         $dataSuccess->nom = $dataUpdate['nom'];
         $dataSuccess->image = $dataUpdate['image'];
         $dataSuccess->description = $dataUpdate['description'];
 
         //Sauvegarde des données entrées en base de donnée
         $dataSuccess->save();
+        }
         return new SuccessResource($dataSuccess);
     }
 

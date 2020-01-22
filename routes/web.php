@@ -32,7 +32,9 @@ Route::get('/cgu', function () {
 /**
  * À propos
  */
-Route::get('/apropos', 'AboutController@index');
+Route::prefix('/apropos')->group (function() {
+    Route::get('/', 'AboutController@index');
+});
 
 /**
  * Acceuil

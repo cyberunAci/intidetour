@@ -1,9 +1,10 @@
 import axios from 'axios';
 import DeleteSuccess from "./DeleteSuccess.vue";
-
+import UpdateSuccess from "./UpdateSuccess.vue";
 export default {
     components: {
-        DeleteSuccess
+        DeleteSuccess,
+        UpdateSuccess
     },
     data: () => ({
         // props: ["success", "successes"],
