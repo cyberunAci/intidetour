@@ -64,6 +64,6 @@ Route::prefix('interestpoints')->group(function () {
 /**
  * API À propos
  */
-Route::prefix('/contact')->group (function() {
+Route::prefix('/apropos')->group (function() {
     Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
 });
