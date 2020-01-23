@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CircuitsModel;
 use App\Http\Resources\CircuitsRessource;
-
+use Illuminate\Support\Str;
 use App\Http\Resources\PhotosCircuitRessource;
 use App\Http\Resources\TracesRessource;
 use App\PhotosCircuitModel;
@@ -83,6 +83,9 @@ class CircuitsController extends Controller
                 'image' => 'required',
                 'difficulte' => 'required',
                 'description' => 'required',
+                'duree' => 'required',
+                'latitude' => 'required',
+                'longitude' => 'required',
             ]
         )->validate();
 
@@ -96,7 +99,9 @@ class CircuitsController extends Controller
         $dataCircuit->image = $dataUpdate['image'];
         $dataCircuit->difficulte = $dataUpdate['difficulte'];
         $dataCircuit->description = $dataUpdate['description'];
-
+        $dataCircuit->duree = $dataUpdate['duree'];
+        $dataCircuit->latitude = $dataUpdate['latitude'];
+        $dataCircuit->longitude = $dataUpdate['longitude'];
         //Sauvegarde des données entrées en base de donnée
         $dataCircuit->save();
         return new CircuitsRessource($dataCircuit);
@@ -110,7 +115,7 @@ class CircuitsController extends Controller
      */
     public function delete($id)
     {
-        $status =  CircuitsModel::destroy($id)? 'ok' : 'nok';
+        $status =  CircuitsModel::destroy($id) ? 'ok' : 'nok';
         return json_encode(['status' => $status]);
     }
 
@@ -156,29 +161,36 @@ class CircuitsController extends Controller
      */
     public function  addPhoto(Request $request, $id)
     {
-        //Validation des données entrées
-        $dataPhoto = Validator::make(
-            $request->input(),
-            [
-                'photos' => 'required',
-            ],
-            [
-                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
-            ]
-        )->validate();
 
+        $img = $request->get('photos');
 
-        //find le circuit grace à l'ID
-        $circuitModel = CircuitsModel::find($id);
-        if (isset($circuitModel)) {
+        $exploded = explode(",", $img);
 
-            //Ajouter au circuit la trace
-            $photo = $circuitModel->photos()->create($dataPhoto);
-
-            //Retourne la photo formaté grace à la ressource
-            return new PhotosCircuitRessource($photo);
+        if (str::contains($exploded[0], 'gif')) {
+            $ext = 'gif';
+        } else if (str::contains($exploded[0], 'png')) {
+            $ext = 'png';
         } else {
-            return json_encode('error');
+            $ext = 'jpg';
         }
+
+        $decode = base64_decode($exploded[1]);
+
+        $filename = str::random() . "." . $ext;
+
+        $path = public_path() . "/storage/monDossier/" . $filename;
+
+        if (file_put_contents($path, $decode)) {
+            echo "fichier téléchargé et envoyé dans: " . "/storage/monDossier/" . $filename;
+
+            $dataPhoto = PhotosCircuitModel::find(1)
+                ->where('id', '=', $id)
+                ->first();
+
+            $dataPhoto->photos = "/storage/monDossier/" . $filename;
+            $dataPhoto->save();
+            return new PhotosCircuitRessource($dataPhoto);
+        }
+
     }
 }

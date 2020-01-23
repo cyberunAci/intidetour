@@ -5,22 +5,19 @@ export default {
     props: ["success"],
     data() {
         return {
-            editNom: false,
-            editImage: false,
-            editDescription: false,
-            modalSuccess: [],
-            _success: {},
-            params: {
-                nom: {
-                    type: 'text'
-                },
-                image: {
-                    type: 'text'
-                },
-                description: {
-                    type: 'text'
-                }
-            }
+              modalSuccess: [],
+              _success: {},
+              params: {
+                    nom: {
+                          type: 'text'
+                    },
+                    image: {
+                          type: 'text'
+                    },
+                    description: {
+                          type: 'text'
+                    }
+              }
         }
     },
 
