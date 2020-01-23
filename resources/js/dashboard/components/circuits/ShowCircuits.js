@@ -1,12 +1,14 @@
-import ShowCircuit from "./ShowCircuit";
+import ShowCircuit from "./ShowCircuit.vue";
 import axios from 'axios';
 import DeleteCircuit from "./DeleteCircuit.vue";
 import AddCircuit from "./AddCircuit.vue";
+import UploadFile from "./UploadFile.vue";
 export default {
     components:{
         DeleteCircuit,
         ShowCircuit,
         AddCircuit,
+        UploadFile
     },
     data:() => ({
         circuits: [],

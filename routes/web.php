@@ -34,6 +34,8 @@ Route::get('/cgu', function () {
  */
 Route::prefix('/apropos')->group (function() {
     Route::get('/', 'AboutController@index');
+    Route::get('showAbout', 'AboutController@showAbout');
+     
 });
 
 /**

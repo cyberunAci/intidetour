@@ -17,6 +17,10 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <v-snackbar v-model="snackbar" :timeout="timeout">
+      {{ text }}
+      <v-btn color="blue" text @click="snackbar=false;">Close</v-btn>
+    </v-snackbar>
   </v-row>
 </template>
 

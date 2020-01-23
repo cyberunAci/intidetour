@@ -16,11 +16,11 @@ export default {
     methods: {
         valider() {
             let _this = this;
+            
             Axios({
                 method: 'delete',
                 url: '../api/circuits/' + this.circuit.id
             }).then(response => {
-                console.log(response)
                 if (response.data.status === "ok") {
                     this.$emit('circuitToDelete', this.circuit.id)
                     this.snackbar =true;
@@ -33,6 +33,7 @@ export default {
                     this.text = 'Une erreur est survenue'
                 })
         },
+       
 
     },
     created() {

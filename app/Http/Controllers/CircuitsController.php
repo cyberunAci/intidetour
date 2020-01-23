@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CircuitsModel;
 use App\Http\Resources\CircuitsRessource;
-
+use Illuminate\Support\Str;
 use App\Http\Resources\PhotosCircuitRessource;
 use App\Http\Resources\TracesRessource;
 use App\PhotosCircuitModel;
@@ -160,11 +160,40 @@ class CircuitsController extends Controller
      */
     public function  addPhoto(Request $request, $id)
     {
+
+        // $img = $request->get('photos');
+
+        // $exploded = explode(",", $img);
+
+        // if (str::contains($exploded[0], 'gif')) {
+        //     $ext = 'gif';
+        // } else if (str::contains($exploded[0], 'png')) {
+        //     $ext = 'png';
+        // } else {
+        //     $ext = 'jpg';
+        // }
+
+        // $decode = base64_decode($exploded[1]);
+
+        // $filename = str::random() . "." . $ext;
+
+        // $path = public_path() . "/storage/monDossier/" . $filename;
+
+        // if (file_put_contents($path, $decode)) {
+        //     echo "fichier télécharger: " . $filename;
+        // }
+
         //Validation des données entrées
         $dataPhoto = Validator::make(
-            $request->input(),
+            $request->all(),
             [
-                'photos' => 'required',
+                'nom' => 'required',
+                'image' => 'required',
+                'difficulte' => 'required',
+                'description' => 'required',
+                'duree' => 'required',
+                'latitude' => 'required',
+                'longitude' => 'required',
             ],
             [
                 'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
@@ -173,16 +202,18 @@ class CircuitsController extends Controller
 
 
         //find le circuit grace à l'ID
-        $circuitModel = CircuitsModel::find($id);
-        if (isset($circuitModel)) {
-
-            //Ajouter au circuit la trace
-            $photo = $circuitModel->photos()->create($dataPhoto);
-
-            //Retourne la photo formaté grace à la ressource
-            return new PhotosCircuitRessource($photo);
-        } else {
-            return json_encode('error');
-        }
+        $dataCircuit = CircuitsModel::find(1)
+        ->where('id', '=', $id)
+        ->first();
+        $dataCircuit->nom = $dataPhoto['nom'];
+        $dataCircuit->image = $dataPhoto['image'];
+        $dataCircuit->difficulte = $dataPhoto['difficulte'];
+        $dataCircuit->description = $dataPhoto['description'];
+        $dataCircuit->duree = $dataPhoto['duree'];
+        $dataCircuit->latitude = $dataPhoto['latitude'];
+        $dataCircuit->longitude = $dataPhoto['longitude'];
+        $dataCircuit->save();
+        
+        return new PhotosCircuitRessource($dataCircuit);
     }
 }
