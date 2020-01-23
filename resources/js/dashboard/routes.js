@@ -5,7 +5,6 @@ import Home from './views/Home.vue';
 import Success from './views/Success.vue';
 import Users from './views/Users.vue';
 import Catalogue from './views/Catalogue.vue';
-import UploadFile from './components/circuits/UploadFile.vue';
 import Apropos from './components/apropos/UpdateApropos.vue';
 
 Vue.use(VueRouter);
@@ -31,12 +30,6 @@ const router = new VueRouter({
             path: '/dashboard/catalogue',
             name: 'catalogue',
             component: Catalogue
-        },
-
-        {
-            path: '/dashboard/uploadFile',
-            name: 'UploadFile',
-            component: UploadFile
         },
         {
             path: '/dashboard/apropos',

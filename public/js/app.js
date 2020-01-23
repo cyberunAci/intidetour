@@ -23143,15 +23143,6 @@ var render = function() {
                     "v-btn",
                     {
                       staticClass: "padding d-flex",
-                      attrs: { text: "", to: "/dashboard/uploadFile" }
-                    },
-                    [_vm._v("uploadFile")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
-                      staticClass: "padding d-flex",
                       attrs: { text: "", to: "/dashboard/apropos" }
                     },
                     [_vm._v("À propos")]
@@ -80668,9 +80659,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Success_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Success.vue */ "./resources/js/dashboard/views/Success.vue");
 /* harmony import */ var _views_Users_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Users.vue */ "./resources/js/dashboard/views/Users.vue");
 /* harmony import */ var _views_Catalogue_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Catalogue.vue */ "./resources/js/dashboard/views/Catalogue.vue");
-/* harmony import */ var _components_circuits_UploadFile_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/circuits/UploadFile.vue */ "./resources/js/dashboard/components/circuits/UploadFile.vue");
-/* harmony import */ var _components_apropos_UpdateApropos_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/apropos/UpdateApropos.vue */ "./resources/js/dashboard/components/apropos/UpdateApropos.vue");
-
+/* harmony import */ var _components_apropos_UpdateApropos_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/apropos/UpdateApropos.vue */ "./resources/js/dashboard/components/apropos/UpdateApropos.vue");
 
 
 
@@ -80698,13 +80687,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'catalogue',
     component: _views_Catalogue_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {
-    path: '/dashboard/uploadFile',
-    name: 'UploadFile',
-    component: _components_circuits_UploadFile_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }, {
     path: '/dashboard/apropos',
     name: 'apropos',
-    component: _components_apropos_UpdateApropos_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _components_apropos_UpdateApropos_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
