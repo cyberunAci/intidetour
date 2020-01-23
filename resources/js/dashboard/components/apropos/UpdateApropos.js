@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export default {
+    props: ["apropos"],
     data() {
         return {
             editerAPropos: false,
@@ -12,14 +13,17 @@ export default {
     },
     methods: {
         checkApropos(e) {
-            axios.post('/api/apropos', {
+            axios.post('/api/apropos/1', {
                     text: this.text,
                 })
                 .then(({ data }) => {
-                    console.log(data);
+                    console.log(data.data.text);
+                    $("#apropos").append(
+                        "<p>" + data.data.text + "</p>");
                 })
                 .catch(error => {
-                    console.log(error.response)
+                    console.log("error : ");
+                    console.log(error.response);
                 });
         },
     }

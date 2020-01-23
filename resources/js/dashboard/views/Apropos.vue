@@ -1,0 +1,15 @@
+<template>
+  <div>
+    <v-card class="ma-5 pa-3">
+      <v-row class="d-flex">
+        <v-col class="text-center">
+          <h1>Editer le À-propos</h1>
+        </v-col>
+        <UpdateApropos></UpdateApropos>
+      </v-row>
+      <ShowApropos></ShowApropos>
+    </v-card>
+  </div>
+</template>
+
+<script src="./Apropos.js"/>
