@@ -9,7 +9,6 @@ export default {
         UploadSuccess
     },
     data: () => ({
-        // props: ["success", "successes"],
         title: 'Intidetour',
         successes: []
     }),
