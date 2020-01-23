@@ -7,7 +7,6 @@ export default {
         UpdateSuccess
     },
     data: () => ({
-        // props: ["success", "successes"],
         title: 'Intidetour',
         successes: []
     }),

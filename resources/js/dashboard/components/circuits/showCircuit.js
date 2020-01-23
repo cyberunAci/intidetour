@@ -1,11 +1,11 @@
 
-// import UploadFile from './UploadFile.vue';
+import UploadFile from './UploadFile.vue';
 import axios from 'axios';
 
 export default {
-    // components: {
-    //      UploadFile
-    // },
+    components: {
+         UploadFile
+    },
     props: ["circuit"],
 
     data() {
@@ -16,20 +16,34 @@ export default {
                 nom: {
                     type: 'text'
                 },
-                image: {
+                difficulte: {
                     type: 'text'
                 },
+                description: {
+                    type: 'text'
+                },
+                duree: {
+                    type: 'text'
+                },
+                latitude: {
+                    type: 'text'
+                },
+                longitude: {
+                    type: 'text'
+                }
             }
         }
     },
- 
 
+    created() {
+        this.prepareDisplay();
+    },
     methods: {
 
         updateData(item) {
             if (this.circuit[item.key] != item.value) {
                 let datas = this.getUpdatedCircuit(item);
-                axios.post('/api/circuits' + this.circuit.id, datas)
+                axios.post('/api/circuits/' + this.circuit.id, datas)
                     .then(resp => {
                         if (_.isObject(resp.data)) {
                             console.log(resp.data.data)
@@ -37,7 +51,7 @@ export default {
                         }
                         this.prepareDisplay();
                     }).catch(error => {
-
+                        console.log(error);
                     });
 
             } else {
