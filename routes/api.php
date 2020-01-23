@@ -49,6 +49,7 @@ Route::prefix('success')->group(function () {
     Route::post('/', 'SuccessController@store');
     Route::post('/{id}', 'SuccessController@update');
     Route::delete('/{id}', 'SuccessController@destroy');
+    Route::post('/image/{id}', 'SuccessController@addImage')->where('id', "[0-9]+");
 });
 
 

@@ -2,7 +2,7 @@
 
       <v-container>
         <div v-if="!photos">
-          <input name="photos" type="file" v-on:change="onFileChange"/>
+          <input name="photos" type="file" v-on:change="onFileChange" />
         </div>
         <div v-else>
           <img v-bind:src="photos" style="width:200px" />
