@@ -1,20 +1,24 @@
 import Axios from 'axios';
 
 export default {
-    data: () => ({
-        apropos: [],
-    }),
+    data() {
+        return {
+            apropos: [],
+        }
+    },
     methods: {
         getDatas() {
-            Axios.get('/api/apropos/1')
+            this.apropos = [];
+            Axios.get('/api/apropos')
                 .then(({ data }) => {
-                    data.data.forEach(apropos => {
-                        this.push(apropos)
+                    data.data.forEach(_apropos => {
+                        this.apropos.push(_apropos)
                     })
                 })
                 .catch();
         }
     },
+    
     created() {
         this.getDatas();
     }

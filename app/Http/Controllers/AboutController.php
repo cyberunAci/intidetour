@@ -14,9 +14,21 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return view('clients.apropos');
+        $apropos = AproposModel::All();
+        
+        return view('clients.apropos', [
+            'apropos' => $apropos,
+        ]);
     }
 
+    public function addApropos()
+    {
+        //recupere tous les circuit
+        $success = AproposModel::all();
+
+        //Retourne la data cad les circuits 
+        return  AboutRessource::collection($success);
+    }
     public function update(Request $request, $id)
     {
         /*
@@ -25,7 +37,7 @@ class AboutController extends Controller
         $about = Validator::make(
             $request->all(),
             [
-                'text' => 'required',
+                'content' => 'required',
             ],
             [
                 'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreure
@@ -36,13 +48,13 @@ class AboutController extends Controller
         $dataAbout = AproposModel::find(1)
             ->where('id', '=', $id)
             ->first();
+        if (isset($dataAbout)) {
+            $dataAbout->text = $about['content'];
 
-            if (isset($dataAbout)) {
-                $dataAbout->text = $about['text'];
-    
-                $dataAbout->save();
-            }
+            $dataAbout->save();
+        }
 
-            return isset($dataAbout) ? new AboutRessource($dataAbout) : 'error';
+
+        // return isset($dataAbout) ? new AboutRessource($dataAbout) : 'error';
     }
 }
