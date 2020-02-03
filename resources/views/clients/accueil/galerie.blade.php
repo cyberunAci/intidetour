@@ -6,7 +6,15 @@
     </div>
     <div class="row">
         <div class="col-lg-12 container">
-            <h1>CARROUSSEL</h1> <!-- TODO Carroussel OWl -->
+            <div class="owl-carousel">
+                <div> Your Content </div>
+                <div> Your Content </div>
+                <div> Your Content </div>
+                <div> Your Content </div>
+                <div> Your Content </div>
+                <div> Your Content </div>
+                <div> Your Content </div>
+            </div>
         </div>
     </div>
 </section>
