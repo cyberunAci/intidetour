@@ -2,10 +2,10 @@
 @extends('layouts.app',['id'=>'circuit'])
 @section('content')
 
-  
+
 
  <section class="infos-circuit">
-   <div class="section-info-circuit ">
+   <div class="section-info-circuit pl-4">
 
     <h1>{{$circuit['nom']}}</h1><!--Permet de généré le nom d'un circuit depuis la BDD-->
     <span class="badge badge-pill badge-success border-spacing: 5px; p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">Difficultée: {{$circuit['difficulte']}}</span>
@@ -17,19 +17,17 @@
 
 </section>
 
-
-
-
-<section>
-<section class="container flex-row">
+<section class="text-center">
+<section class="container flex-row text">
  
   <section class="media-body col-lg-8 col-md-12 pr-5 mb-5">
   <h1>Ceci est une description</h1>
   {{$circuit['description']}}
 </section>
 
-<section class="container col-lg-4 col-md-12 text-align-center">
-@include("clients.views.map")
+  <section class="container col-lg-4 col-md-12 pr-2 mb-3">
+  <img class="d-block col-lg-12 col-md-5 mb-lg-2 mr-2 mr-lg-0" src='{{$circuit["image"]}}'>
+  @include("clients.components.map")
 </section>
 </section>
 </section>
@@ -39,6 +37,7 @@
 
 <section class=" mb-3">
 
+
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -46,16 +45,16 @@
     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{{$circuit['image']}}" class="d-block" alt="...">
+    <div class="carousel-item active min-height: 500px;">
+      <img src="{{$circuit['image']}}" class="d-block text-center" alt="...">
      
     </div>
-    <div class="carousel-item">
-      <img src="{{$circuit['image']}}" class="d-block" alt="...">
+    <div class="carousel-item min-height: 500px">
+      <img src="{{$circuit['image']}}" class="d-block text-center" alt="...">
      
     </div>
-    <div class="carousel-item">
-      <img src='{{$circuit["image"]}}' class="d-block" alt="...">
+    <div class="carousel-item min-height: 500px;">
+      <img src='{{$circuit["image"]}}' class="d-block text-center" alt="...">
      
     </div>
   </div>
@@ -68,6 +67,9 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+
+
 </section>
 
 
