@@ -2425,7 +2425,7 @@ __webpack_require__.r(__webpack_exports__);
     getDatas: function getDatas() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/circuits').then(function (_ref) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/circuits').then(function (_ref) {
         var data = _ref.data;
         data.data.forEach(function (circuit) {
           _this.circuits.push(circuit);
