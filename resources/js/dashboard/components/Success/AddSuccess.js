@@ -19,7 +19,6 @@ export default {
     }),
     methods: {
         checkSuccess(e) {
-            e.preventDefault();
             axios.post('/api/success', {
                     nom: this.nom,
                     image: this.image,

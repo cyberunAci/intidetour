@@ -1,4 +1,4 @@
-<section>
+<section class="d-flex justify-content-center align-items-center m-5">
     <div class="col-lg-3">
         <h2>Fonctionalitées</h2>
     </div>

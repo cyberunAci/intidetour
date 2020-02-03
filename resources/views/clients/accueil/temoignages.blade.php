@@ -1,9 +1,9 @@
-<section>
+<section class="d-flex flex-column justify-content-center align-items-center m-5">
   <div class="row">
     <h2>Temoignages</h2>
   </div>
   <div class="row">
-    <div id="carouselTemoignages" class="carousel slide carousel-fade" data-ride="carousel">
+    <div id="carouselTemoignages" class="carousel slide carousel-fade col-12" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel labore saepe veritatis, delectus ut similique totam non ducimus enim molestiae doloribus nesciunt quidem blanditiis quia nemo eaque harum. Maiores, hic.</p>

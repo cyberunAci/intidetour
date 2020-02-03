@@ -25,10 +25,10 @@ Route::prefix('circuits')->group(function () {
     Route::post('/add', 'CircuitsController@add');
     Route::post('/{id}/trace/', 'CircuitsController@addTrace')->where('id', "[0-9]+");
     Route::get('/{id}', 'CircuitsController@show')->where('id', "[0-9]+");
-    Route::put('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
+    Route::post('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
     Route::delete('/{id}', 'CircuitsController@delete')->where('id', "[0-9]+");
     Route::get('/{id}/trace/', 'CircuitsController@showTrace')->where('id', "[0-9]+");
-    Route::post('/{id}/photos/', 'CircuitsController@addPhoto')->where('id', "[0-9]+");
+    Route::post('/photos/{id}', 'CircuitsController@addPhoto')->where('id', "[0-9]+");
    
 });
 
@@ -49,6 +49,7 @@ Route::prefix('success')->group(function () {
     Route::post('/', 'SuccessController@store');
     Route::post('/{id}', 'SuccessController@update');
     Route::delete('/{id}', 'SuccessController@destroy');
+    Route::post('/image/{id}', 'SuccessController@addImage')->where('id', "[0-9]+");
 });
 
 
@@ -64,6 +65,7 @@ Route::prefix('interestpoints')->group(function () {
 /**
  * API À propos
  */
-Route::prefix('/contact')->group (function() {
+Route::prefix('/apropos')->group (function() {
+    Route::get('/', 'AboutController@addApropos');
     Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
 });

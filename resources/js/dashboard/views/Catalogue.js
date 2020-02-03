@@ -1,4 +1,4 @@
-import ShowCircuits from "../components/ShowCircuits.vue";
+import ShowCircuits from "../components/circuits/ShowCircuits.vue";
 
 export default {
   components: {

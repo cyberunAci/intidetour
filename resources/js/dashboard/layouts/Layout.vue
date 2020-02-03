@@ -26,14 +26,3 @@ export default {
   }
 };
 </script>
-
-<style>
-html {
-  height: 100%;
-}
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-</style>

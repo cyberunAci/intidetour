@@ -20,7 +20,10 @@ class CircuitsRessource extends JsonResource
             'nom'=>$this->nom,
             'image'=>$this->image,
             'difficulte'=>$this->difficulte,
-            'description'=>$this->description
+            'description'=>$this->description,
+            'duree'=>$this->duree,
+            'latitude'=>$this->latitude,
+            'longitude'=>$this->longitude
         ];
     }
 }
