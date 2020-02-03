@@ -2391,63 +2391,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./resources/js/dashboard/components/circuits/ShowCircuits.js?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./resources/js/dashboard/components/circuits/ShowCircuits.js?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ShowCircuit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowCircuit */ "./resources/js/dashboard/components/circuits/ShowCircuit.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _DeleteCircuit_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteCircuit.vue */ "./resources/js/dashboard/components/circuits/DeleteCircuit.vue");
-/* harmony import */ var _UploadFile_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UploadFile.vue */ "./resources/js/dashboard/components/circuits/UploadFile.vue");
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    DeleteCircuit: _DeleteCircuit_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ShowCircuit: _ShowCircuit__WEBPACK_IMPORTED_MODULE_0__["default"],
-    UploadFile: _UploadFile_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
-  },
-  data: function data() {
-    return {
-      circuits: [],
-      dialog: false
-    };
-  },
-  methods: {
-    getDatas: function getDatas() {
-      var _this = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/circuits').then(function (_ref) {
-        var data = _ref.data;
-        data.data.forEach(function (circuit) {
-          _this.circuits.push(circuit);
-        });
-      })["catch"]();
-    },
-    removeCircuit: function removeCircuit(id) {
-      _.remove(this.circuits, function (_circuit) {
-        return _circuit.id == id;
-      });
-    }
-  },
-  created: function created() {
-    this.getDatas();
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./resources/js/dashboard/components/circuits/showCircuit.js?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./resources/js/dashboard/components/circuits/ShowCircuit.js?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./resources/js/dashboard/components/circuits/showCircuit.js?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./resources/js/dashboard/components/circuits/ShowCircuit.js?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -2544,6 +2490,60 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./resources/js/dashboard/components/circuits/ShowCircuits.js?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./resources/js/dashboard/components/circuits/ShowCircuits.js?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ShowCircuit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowCircuit */ "./resources/js/dashboard/components/circuits/ShowCircuit.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _DeleteCircuit_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteCircuit.vue */ "./resources/js/dashboard/components/circuits/DeleteCircuit.vue");
+/* harmony import */ var _UploadFile_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UploadFile.vue */ "./resources/js/dashboard/components/circuits/UploadFile.vue");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    DeleteCircuit: _DeleteCircuit_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ShowCircuit: _ShowCircuit__WEBPACK_IMPORTED_MODULE_0__["default"],
+    UploadFile: _UploadFile_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  data: function data() {
+    return {
+      circuits: [],
+      dialog: false
+    };
+  },
+  methods: {
+    getDatas: function getDatas() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/circuits').then(function (_ref) {
+        var data = _ref.data;
+        data.data.forEach(function (circuit) {
+          _this.circuits.push(circuit);
+        });
+      })["catch"]();
+    },
+    removeCircuit: function removeCircuit(id) {
+      _.remove(this.circuits, function (_circuit) {
+        return _circuit.id == id;
+      });
+    }
+  },
+  created: function created() {
+    this.getDatas();
   }
 });
 
@@ -80281,6 +80281,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/dashboard/components/circuits/ShowCircuit.js?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/dashboard/components/circuits/ShowCircuit.js?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_ShowCircuit_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!./ShowCircuit.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./resources/js/dashboard/components/circuits/ShowCircuit.js?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_ShowCircuit_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/dashboard/components/circuits/ShowCircuit.vue":
 /*!********************************************************************!*\
   !*** ./resources/js/dashboard/components/circuits/ShowCircuit.vue ***!
@@ -80291,7 +80305,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ShowCircuit_vue_vue_type_template_id_7a03a812___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowCircuit.vue?vue&type=template&id=7a03a812& */ "./resources/js/dashboard/components/circuits/ShowCircuit.vue?vue&type=template&id=7a03a812&");
-/* harmony import */ var _showCircuit_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./showCircuit.js?vue&type=script&lang=js& */ "./resources/js/dashboard/components/circuits/showCircuit.js?vue&type=script&lang=js&");
+/* harmony import */ var _ShowCircuit_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ShowCircuit.js?vue&type=script&lang=js& */ "./resources/js/dashboard/components/circuits/ShowCircuit.js?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -80301,7 +80315,7 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _showCircuit_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ShowCircuit_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ShowCircuit_vue_vue_type_template_id_7a03a812___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ShowCircuit_vue_vue_type_template_id_7a03a812___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -80457,20 +80471,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UploadFile_vue_vue_type_template_id_0cfb40bc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/dashboard/components/circuits/showCircuit.js?vue&type=script&lang=js&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/dashboard/components/circuits/showCircuit.js?vue&type=script&lang=js& ***!
-  \********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_showCircuit_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!./showCircuit.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./resources/js/dashboard/components/circuits/showCircuit.js?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_showCircuit_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

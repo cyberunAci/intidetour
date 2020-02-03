@@ -42,4 +42,4 @@
 
 
 
-<script src="./showCircuit.js"></script>
+<script src="./ShowCircuit.js"></script>
