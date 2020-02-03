@@ -19,20 +19,11 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('clients.apropos');
+        $apropos = AproposModel::all();
+        return AboutRessource::collection($apropos);
     }
 
-    /**
-     * Récupération back end des données de la page a propos
-     * 
-     * @return $data = les données entrées dans la table a propos
-     */
-    public function showAbout()
-    {
-        $data = AproposModel::all();
-        return AboutRessource::collection($data);
-    }
-
+  
     public function update(Request $request, $id)
     {
         /*

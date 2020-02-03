@@ -4,12 +4,13 @@
 <section>
     <h2>À propos</h2>
 
-    <section>
-    <h3>lorem</h3>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis voluptatem dolor cumque nisi est, minus laboriosam? In vero sequi, fugit libero dolorem sint perferendis possimus quisquam placeat? Sunt, quo rerum.</p>
-
-    </section>
-    
+    <div class="card bg-light mb-3" >
+      <div class="card-body">
+        <p class="card-text">@foreach($apropos as $apropos)
+          {{$apropos->text}}
+          @endforeach</p>
+      </div>
+    </div>
 </section>
-<script src="{{ asset('js/app.js') }}"/>
+
 @endsection
