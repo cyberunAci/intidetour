@@ -1,10 +1,12 @@
 import axios from 'axios';
 import DeleteSuccess from "./DeleteSuccess.vue";
 import UpdateSuccess from "./UpdateSuccess.vue";
+import UploadSuccess from "./UploadSuccess.vue";
 export default {
     components: {
         DeleteSuccess,
-        UpdateSuccess
+        UpdateSuccess,
+        UploadSuccess
     },
     data: () => ({
         title: 'Intidetour',

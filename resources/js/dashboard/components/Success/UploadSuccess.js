@@ -1,32 +1,29 @@
-import axios from 'axios';
-
 export default {
-    props: ["circuit"],
+    props: ["success"],
     data() {
         return {
-            photos: '',
-            
+            image: '',
+
         }
     },
-
     methods: {
         onFileChange(e) {
             let files = e.target.files || e.dataTransfer.files;
             this.createImg(files[0]);
         },
         createImg(file) {
-            let photos = new Image;
+            let image = new Image;
             let reader = new FileReader;
 
             reader.onload = (e) => {
-                this.photos = e.target.result;
+                this.image = e.target.result;
             };
             reader.readAsDataURL(file);
         },
 
         greet: function uploadImg() {
-            axios.post('../api/circuits/photos/' + this.circuit.id, {
-                photos: this.photos
+            axios.post('../api/success/image/' + this.success.id, {
+                image: this.image
             })
                 .then(function ({data}) {
                     console.log(data);
@@ -37,9 +34,8 @@ export default {
         },
 
         removeImg() {
-            this.photos = "";
+            this.image = "";
         }
 
     }
-
 }

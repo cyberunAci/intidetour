@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             SuccessSeeder::class,
             TracesSeeder::class,
             UsersSuccessSeeder::class,
-            PhotosCircuitSeeder::class
+            PhotosCircuitSeeder::class,
+            AproposSeeder::class
 
             ]);
     }

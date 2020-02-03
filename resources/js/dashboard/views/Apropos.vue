@@ -5,9 +5,9 @@
         <v-col class="text-center">
           <h1>Editer le À-propos</h1>
         </v-col>
-        <UpdateApropos></UpdateApropos>
+        <updateApropos></UpdateApropos>
       </v-row>
-      <ShowApropos></ShowApropos>
+      <showApropos></showApropos>
     </v-card>
   </div>
 </template>

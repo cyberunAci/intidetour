@@ -4,7 +4,7 @@ import Home from './views/Home.vue';
 import Success from './views/Success.vue';
 import Users from './views/Users.vue';
 import Catalogue from './views/Catalogue.vue';
-import Apropos from './components/apropos/UpdateApropos.vue';
+import Apropos from './views/Apropos.vue';
 
 Vue.use(VueRouter);
 

@@ -46,7 +46,6 @@ export default {
                 axios.post('/api/circuits/' + this.circuit.id, datas)
                     .then(resp => {
                         if (_.isObject(resp.data)) {
-                            console.log(resp.data.data)
                             this.circuit[item.key] = resp.data.data[item.key];
                         }
                         this.prepareDisplay();
@@ -77,7 +76,6 @@ export default {
                     })
                 }
             }
-            console.log(this.params)
         },
 
         prepareLocalCircuit() {

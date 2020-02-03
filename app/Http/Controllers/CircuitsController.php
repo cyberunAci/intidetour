@@ -197,4 +197,19 @@ class CircuitsController extends Controller
         }
 
     }
+
+
+    public function store(Request $request)
+    {
+        // cache the file
+        $file = $request->file('file');
+
+        // generate a new filename. getClientOriginalExtension() for the file extension
+        $filename = 'profile-photo-' . time() . '.' . $file->getClientOriginalExtension();
+
+        // save to storage/app/photos as the new $filename
+        $path = $file->storeAs('photos', $filename);
+
+          
+    }
 }
