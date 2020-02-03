@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\SuccessResource;
 use App\SuccessModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 
 class SuccessController extends Controller
@@ -107,12 +108,15 @@ class SuccessController extends Controller
             ->first();
 
         //Mise en relation des inputs et des colonnes pour la modification
-        $dataSuccess->nom = $dataUpdate['nom'];
-        $dataSuccess->image = $dataUpdate['image'];
-        $dataSuccess->description = $dataUpdate['description'];
+        if (isset($dataSuccess)) {
 
-        //Sauvegarde des données entrées en base de donnée
-        $dataSuccess->save();
+            $dataSuccess->nom = $dataUpdate['nom'];
+            $dataSuccess->image = $dataUpdate['image'];
+            $dataSuccess->description = $dataUpdate['description'];
+
+            //Sauvegarde des données entrées en base de donnée
+            $dataSuccess->save();
+        }
         return new SuccessResource($dataSuccess);
     }
 
@@ -126,5 +130,43 @@ class SuccessController extends Controller
     {
         $status =  SuccessModel::destroy($id) ? 'ok' : 'nok';
         return json_encode(['status' => $status]);
+    }
+
+
+    /**
+     * ajouter une photo a un succès
+     */
+    public function  addImage(Request $request, $id)
+    {
+
+        $img = $request->get('image');
+
+        $exploded = explode(",", $img);
+
+        if (str::contains($exploded[0], 'gif')) {
+            $ext = 'gif';
+        } else if (str::contains($exploded[0], 'png')) {
+            $ext = 'png';
+        } else {
+            $ext = 'jpg';
+        }
+
+        $decode = base64_decode($exploded[1]);
+
+        $filename = str::random() . "." . $ext;
+
+        $path = public_path() . "/storage/monDossier/" . $filename;
+
+        if (file_put_contents($path, $decode)) {
+            echo "fichier téléchargé et envoyé dans: " . "/storage/monDossier/" . $filename;
+
+        $dataPhoto = SuccessModel::find(1)
+            ->where('id', '=', $id)
+            ->first();
+
+        $dataPhoto->image = "/storage/monDossier/" . $filename;
+        $dataPhoto->save();
+        return new SuccessResource($dataPhoto);
+        }
     }
 }

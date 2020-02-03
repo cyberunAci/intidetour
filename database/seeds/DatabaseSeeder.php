@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
             InterestPointsSeeder::class,
             SuccessSeeder::class,
             TracesSeeder::class,
-            UsersSuccessSeeder::class
+            UsersSuccessSeeder::class,
+            PhotosCircuitSeeder::class,
+            AproposSeeder::class
 
             ]);
     }

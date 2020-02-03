@@ -1,4 +1,4 @@
-import ShowUsers from "../components/ShowUsers.vue";
+import ShowUsers from "../components/users/ShowUsers.vue";
 
 
 export default {

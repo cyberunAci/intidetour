@@ -11,7 +11,10 @@
                     lorem ipsum
                 </li>
                 <li class="nav-item active ">
-                    <a href="#">CGU</a>
+                    <a href="/cgu">CGU</a>
+                </li>
+                <li class="nav-item active ">
+                    <a href="/apropos">A propos</a>
                 </li>
                 <li class="nav-item active ">
 

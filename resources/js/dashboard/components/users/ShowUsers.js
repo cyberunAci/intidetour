@@ -38,6 +38,11 @@ export default {
           console.log(error);
         });
     },
+    removeUser(id){
+      _.remove(this.users, function (_user) {
+          return _user.id == id;
+      })
+  }
   },
   created() {
     this.getDatas();

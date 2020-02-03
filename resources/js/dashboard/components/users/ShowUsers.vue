@@ -15,7 +15,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <showUser v-bind:user="user"></showUser>
-          <deleteUser v-bind:user="user"></deleteUser>
+          <deleteUser v-on:userToDelete='users.splice(key, 1)' v-bind:user="user" v-bind:users="users"></deleteUser>
         </v-card-actions>
       </v-card>
     </v-row>

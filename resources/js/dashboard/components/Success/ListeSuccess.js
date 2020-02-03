@@ -1,7 +1,14 @@
 import axios from 'axios';
+import DeleteSuccess from "./DeleteSuccess.vue";
+import UpdateSuccess from "./UpdateSuccess.vue";
+import UploadSuccess from "./UploadSuccess.vue";
 export default {
+    components: {
+        DeleteSuccess,
+        UpdateSuccess,
+        UploadSuccess
+    },
     data: () => ({
-        props: ["success", "successes"],
         title: 'Intidetour',
         successes: []
     }),
@@ -21,5 +28,5 @@ export default {
     },
     created() {
         this.getDatas();
-    }
+    },
 }
