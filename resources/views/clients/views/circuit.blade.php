@@ -2,6 +2,8 @@
 @extends('layouts.app',['id'=>'circuit'])
 @section('content')
 
+  
+
  <section class="infos-circuit">
    <div class="section-info-circuit ">
 
@@ -26,9 +28,8 @@
   {{$circuit['description']}}
 </section>
 
-  <section class="container col-lg-4 col-md-12 text-align-center">
-  <img class="d-block col-lg-12 col-md-5 mb-lg-2 mr-2 mr-lg-0" src='{{$circuit["image"]}}'>
-  <img class="d-block col-lg-12 col-md-5 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0" src='{{$circuit["image"]}}'>
+<section class="container col-lg-4 col-md-12 text-align-center">
+@include("clients.views.map")
 </section>
 </section>
 </section>
@@ -68,5 +69,6 @@
   </a>
 </div>
 </section>
+
 
 @endsection
