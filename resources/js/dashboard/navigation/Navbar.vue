@@ -8,6 +8,7 @@
           <v-btn class="padding d-flex" text to="/dashboard/success">Succes</v-btn>
           <v-btn class="padding d-flex" text to="/dashboard/users">Clients</v-btn>
           <v-btn class="padding d-flex" text to="/dashboard/catalogue">Catalogue</v-btn>
+          <v-btn class="padding d-flex" text to="/dashboard/galerie">Galerie</v-btn>
           <v-btn class="padding d-flex" text to="/dashboard/apropos">À propos</v-btn>
           <v-btn class="padding d-flex" text to="/">Retour au site</v-btn>
         </div>

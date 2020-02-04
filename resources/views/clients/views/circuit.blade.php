@@ -4,6 +4,10 @@
 
 
 
+ <section class="infos-circuit">
+   <div class="section-info-circuit pl-4">
+
+
   <section class="container">
       
  <section class="infos-circuit text-left mb-5">
@@ -23,16 +27,18 @@
     {{$circuit['description']}}
     </div>
 
-    <div class="col-lg-4 col-md-12 text-align-center mt-4">
-    <img class="img-fluid rounded px-lg-0 col-lg-12 mb-3" src='{{$circuit["image"]}}'>
-    <img class="img-fluid rounded px-lg-0 col-lg-12 mb-3" src=https://via.placeholder.com/150/FF0000/FFFFFF>
-    </div>
+  <section class="container col-lg-4 col-md-12 pr-2 mb-3">
+  <img class="d-block col-lg-12 col-md-5 mb-lg-2 mr-2 mr-lg-0 mb-sm-2" src='{{$circuit["image"]}}'>
+  @include("clients.components.map")
+</section>
+</section>
+</section>
 
   </section>
 
 
 
-<section class="mb-3 mt-5">
+<section class="mb-3 mt-5 text-center">
 
 
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -68,5 +74,6 @@
 
 
 </section>
+
 
 @endsection

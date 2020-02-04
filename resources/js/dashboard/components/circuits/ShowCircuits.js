@@ -1,4 +1,4 @@
-import ShowCircuit from "./ShowCircuit";
+import ShowCircuit from "./ShowCircuit.vue";
 import axios from 'axios';
 import DeleteCircuit from "./DeleteCircuit.vue";
 import UploadFile from "./UploadFile.vue";
@@ -15,7 +15,7 @@ export default {
     }),
     methods: {
         getDatas() {
-            axios.get('http://localhost:8000/api/circuits')
+            axios.get('/api/circuits')
                 .then(({ data }) => {
                     data.data.forEach(circuit => {
                         this.circuits.push(circuit)

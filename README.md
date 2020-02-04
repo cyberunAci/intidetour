@@ -21,5 +21,5 @@
 * faire run watch pour actualiser le code quand on le modifie
 * à chaque fois qu'on ajoute un nouvel element(ex vue) refaire un npm install
 * faire un "php artisan migrate:fresh --seed" 
-
+* pour uploader des images il faut lancer la ligne de commande suivante : php artisan storage:link  (cela va creer un dossier storage dans le dossier public, dans ce dossier dossier storage il faudra creer un dossier monDossier )
 
