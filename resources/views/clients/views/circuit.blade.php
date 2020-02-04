@@ -2,38 +2,37 @@
 @extends('layouts.app',['id'=>'circuit'])
 @section('content')
 
- <section class="infos-circuit">
-   <div class="section-info-circuit pl-4">
 
+
+  <section class="container">
+      
+ <section class="infos-circuit text-left mb-5">
     <h1>{{$circuit['nom']}}</h1><!--Permet de généré le nom d'un circuit depuis la BDD-->
-    <span class="badge badge-pill badge-success border-spacing: 5px; p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">Difficultée: {{$circuit['difficulte']}}</span>
-    <span class="badge badge-pill badge-info border-spacing: 5px; p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">Durée: {{$circuit['duree']}}</span>
-    <span class="badge badge-pill badge-dark border-spacing: 5px; p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">Distance: {{$circuit['distance']}}</span>
-    <span class="badge badge-pill badge-danger border-spacing: 5px; p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">Latitude :{{$circuit['latitude']}} longitude: {{$circuit['longitude']}}</span>
-    <div><button type="button" class="btn btn-primary mt-4 mb-3">Téléchargement de la trace</button></div>
-   </div>
-
+    <span class="badge badge-pill badge-success  p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">Difficultée: {{$circuit['difficulte']}}</span>
+    <span class="badge badge-pill badge-info  p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">Durée: {{$circuit['duree']}}</span>
+    <span class="badge badge-pill badge-dark  p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">Distance: {{$circuit['distance']}}</span>
+    <span class="badge badge-pill badge-danger  p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">Latitude :{{$circuit['latitude']}}</span>
+    <span class="badge badge-pill badge-secondary  p-3 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0">longitude: {{$circuit['longitude']}}</span>
+      <div><button type="button" class="btn btn-primary text-align-center mt-3">Téléchargement de la trace</button></div>
+    
 </section>
+    <section class="row">
+  
+    <div class="media-body  px-lg-0 col-lg-8 col-md-12">
+  
+    {{$circuit['description']}}
+    </div>
 
-<section class="text-center">
-<section class="container flex-row text">
- 
-  <section class="media-body col-lg-8 col-md-12 pr-5 mb-5">
-  <h1>Ceci est une description</h1>
-  {{$circuit['description']}}
-</section>
+    <div class="col-lg-4 col-md-12 text-align-center mt-4">
+    <img class="img-fluid rounded px-lg-0 col-lg-12 mb-3" src='{{$circuit["image"]}}'>
+    <img class="img-fluid rounded px-lg-0 col-lg-12 mb-3" src=https://via.placeholder.com/150/FF0000/FFFFFF>
+    </div>
 
-  <section class="container col-lg-4 col-md-12 pr-2 mb-3">
-  <img class="d-block col-lg-12 col-md-5 mb-lg-2 mr-2 mr-lg-0" src='{{$circuit["image"]}}'>
-  <img class="d-block col-lg-12 col-md-5 mb-lg-2 mr-2 mr-lg-0 mt-2 mt-md-0" src=https://via.placeholder.com/150/FF0000/FFFFFF>
-</section>
-</section>
-</section>
+  </section>
 
 
 
-
-<section class=" mb-3">
+<section class="mb-3 mt-5">
 
 
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -44,16 +43,16 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active min-height: 500px;">
-      <img src="{{$circuit['image']}}" class="d-block text-center" alt="...">
-     
+      <img src="{{$circuit['image']}}" class="img-fluid rounded" alt="Responsive image">
+
     </div>
     <div class="carousel-item min-height: 500px">
-      <img src="{{$circuit['image']}}" class="d-block text-center" alt="...">
-     
+      <img src="{{$circuit['image']}}" class="img-fluid rounded" alt="Responsive image">
+
     </div>
     <div class="carousel-item min-height: 500px;">
-      <img src='{{$circuit["image"]}}' class="d-block text-center" alt="...">
-     
+      <img src='{{$circuit["image"]}}' class="img-fluid rounded" alt="Responsive image">
+
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
