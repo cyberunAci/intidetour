@@ -1,5 +1,5 @@
-<footer class="container-fluid h-100 d-flex align-items-end">
-    <div class="row">
+<footer class="container-fluid d-flex align-items-end fixed-bottom  "> 
+    <div class="row ">
         <div class="col-md-3 bg-dark">
             <h2>a propos</h2>
             <ul class="navbar-nav ml-auto ">
@@ -20,7 +20,7 @@
                 </li>
             </ul>
         </div>
-        <div class="col-md-3 bg-warning">
+        <div class="col-md-3 bg-warning ">
             <h2> cyberun</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus officia harum, temporibus cumque quisquam similique voluptas error illum dolorem molestias ea at praesentium distinctio maxime non. Molestias eveniet officiis ab.</p>
         </div>
