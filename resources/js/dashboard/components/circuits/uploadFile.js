@@ -25,7 +25,7 @@ export default {
         },
 
         greet: function uploadImg() {
-            axios.post('../api/circuits/photos/' + this.circuit.id, {
+            axios.post('circuits/photos/' + this.circuit.id, {
                 photos: this.photos
             })
                 .then(function ({data}) {
