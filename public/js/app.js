@@ -1990,8 +1990,6 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         data.data.forEach(function (galerie) {
           _this.photos.push(galerie);
-
-          console.log(data.data[0].photo.photos);
         });
       })["catch"]();
     },
