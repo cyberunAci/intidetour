@@ -16,7 +16,7 @@ class PhotosCircuitRessource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'photo'=>$this->photos,
+            'photo'=>$this->photo,
             'id_circuit'=>$this->id_circuit,
         ];
     }

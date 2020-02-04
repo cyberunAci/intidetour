@@ -4,7 +4,7 @@
       <v-row>
         <v-col>
           <v-card-title>Order : {{ photo.order }}</v-card-title>
-          <v-img :src="photo.photo.photos" aspect-ratio="1.7"></v-img>
+          <v-img :src="photo.photo.photo" aspect-ratio="1.7"></v-img>
         </v-col>
       </v-row>
     </v-card>
