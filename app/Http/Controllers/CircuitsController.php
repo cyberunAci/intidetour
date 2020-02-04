@@ -178,6 +178,7 @@ class CircuitsController extends Controller
 
         $filename = str::random() . "." . $ext;
 
+        
         $path = public_path() . "/storage/monDossier/" . $filename;
 
         if (file_put_contents($path, $decode)) {

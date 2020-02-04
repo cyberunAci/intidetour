@@ -16,6 +16,10 @@ class PhotosCircuitModel extends Model
     function circuit(){
         return $this->belongsTo(CircuitsModel::class,'id_circuit');
     }
+
+    function photos(){
+        return $this->hasMany(GalerieModel::class,'id_photo');
+    }
 }
 
 
