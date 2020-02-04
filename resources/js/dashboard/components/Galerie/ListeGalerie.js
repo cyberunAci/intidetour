@@ -10,6 +10,7 @@ export default {
                 .then(({ data }) => {
                     data.data.forEach(galerie => {
                         this.photos.push(galerie);
+                        console.log(galerie)
                     })
                 })
                 .catch();
