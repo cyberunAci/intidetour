@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PhotosCircuitModel extends Model
 {  
     protected $table = 'photos_circuit';
-    protected $fillable = ['id', 'photos', 'id_circuit',];
+    protected $fillable = ['id', 'photo', 'id_circuit',];
     public $timestamps = false;
 
   
@@ -17,7 +17,7 @@ class PhotosCircuitModel extends Model
         return $this->belongsTo(CircuitsModel::class,'id_circuit');
     }
 
-    function photos(){
+    function photo(){
         return $this->hasMany(GalerieModel::class,'id_photo');
     }
 }

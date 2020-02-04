@@ -79803,22 +79803,16 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'owl.carousel/dist/assets/owl.carousel.css'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'owl.carousel'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./dashboard/app */ "./resources/js/dashboard/app.js");
-
-
-
-$(document).ready(function () {
-  $('.owl-carousel').owlCarousel();
-});
+__webpack_require__(/*! ./dashboard/app */ "./resources/js/dashboard/app.js"); // import 'owl.carousel/dist/assets/owl.carousel.css';
+// import 'owl.carousel';
+// $(document).ready(function(){
+//     $('.owl-carousel').owlCarousel();
+//   });
 
 /***/ }),
 
