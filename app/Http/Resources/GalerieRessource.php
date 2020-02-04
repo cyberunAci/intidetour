@@ -17,11 +17,14 @@ class GalerieRessource extends JsonResource
      */
     public function toArray($request)
     {
+
+        $photo = new PhotosCircuitRessource($this->photo);
+
         //Formatage des données
         return [
             'id' => $this->id,
             'order' => $this->order,
-            'id_photo' => $this->id_photo,
+            'photo' => $photo,
         ];
     }
 }

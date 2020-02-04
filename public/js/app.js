@@ -1990,6 +1990,8 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         data.data.forEach(function (galerie) {
           _this.photos.push(galerie);
+
+          console.log(data.data[0].photo.photos);
         });
       })["catch"]();
     },
@@ -24916,7 +24918,9 @@ var render = function() {
                     _vm._v("Order : " + _vm._s(photo.order))
                   ]),
                   _vm._v(" "),
-                  _c("v-card-text", [_vm._v(_vm._s(photo.id_photo))])
+                  _c("v-img", {
+                    attrs: { src: photo.photo.photos, "aspect-ratio": "1.7" }
+                  })
                 ],
                 1
               )
@@ -85247,8 +85251,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/cyberun-5/Projet/intidetour/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/cyberun-5/Projet/intidetour/resources/sass/client/app.scss */"./resources/sass/client/app.scss");
+__webpack_require__(/*! /home/cyberun-8/Bureau/projet/reprise/intidetour/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/cyberun-8/Bureau/projet/reprise/intidetour/resources/sass/client/app.scss */"./resources/sass/client/app.scss");
 
 
 /***/ })

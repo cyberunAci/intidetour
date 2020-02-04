@@ -12,6 +12,6 @@ class GalerieModel extends Model
 
     function photo()
     {
-        return $this->belongsTo(GalerieModel::class, 'id_photo');
+        return $this->belongsTo(PhotosCircuitModel::class, 'id_photo');
     }
 }
