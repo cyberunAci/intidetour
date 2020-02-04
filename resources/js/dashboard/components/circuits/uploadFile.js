@@ -4,7 +4,7 @@ export default {
     props: ["circuit"],
     data() {
         return {
-            photos: '',
+            photo: '',
             
         }
     },
@@ -15,18 +15,18 @@ export default {
             this.createImg(files[0]);
         },
         createImg(file) {
-            let photos = new Image;
+            let photo = new Image;
             let reader = new FileReader;
 
             reader.onload = (e) => {
-                this.photos = e.target.result;
+                this.photo = e.target.result;
             };
             reader.readAsDataURL(file);
         },
 
         greet: function uploadImg() {
             axios.post('../api/circuits/photos/' + this.circuit.id, {
-                photos: this.photos
+                photo: this.photo
             })
                 .then(function ({data}) {
                     console.log(data);
@@ -37,7 +37,7 @@ export default {
         },
 
         removeImg() {
-            this.photos = "";
+            this.photo = "";
         }
 
     }

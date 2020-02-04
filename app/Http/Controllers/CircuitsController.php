@@ -162,7 +162,7 @@ class CircuitsController extends Controller
     public function  addPhoto(Request $request, $id)
     {
 
-        $img = $request->get('photos');
+        $img = $request->get('photo');
 
         $exploded = explode(",", $img);
 
@@ -188,7 +188,7 @@ class CircuitsController extends Controller
                 ->where('id', '=', $id)
                 ->first();
 
-            $dataPhoto->photos = "/storage/monDossier/" . $filename;
+            $dataPhoto->photo = "/storage/monDossier/" . $filename;
             $dataPhoto->save();
             return new PhotosCircuitRessource($dataPhoto);
         }
@@ -205,7 +205,7 @@ class CircuitsController extends Controller
         $filename = 'profile-photo-' . time() . '.' . $file->getClientOriginalExtension();
 
         // save to storage/app/photos as the new $filename
-        $path = $file->storeAs('photos', $filename);
+        $path = $file->storeAs('photo', $filename);
 
           
     }
