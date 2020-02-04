@@ -2586,7 +2586,7 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     },
     greet: function uploadImg() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('circuits/photos/' + this.circuit.id, {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('../api/circuits/photos/' + this.circuit.id, {
         photos: this.photos
       }).then(function (_ref) {
         var data = _ref.data;
