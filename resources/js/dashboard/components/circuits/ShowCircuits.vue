@@ -14,7 +14,6 @@
               <v-card-actions>
                 <v-card-title>{{circuit.nom}}</v-card-title>
                 <v-spacer />
-
                 <showCircuit v-bind:circuit="circuit"></showCircuit>
                 <deleteCircuit
                   v-on:circuitToDelete="circuits.splice(key, 1)"
@@ -24,9 +23,7 @@
               </v-card-actions>
             </v-col>
           </v-row>
-          <v-row>
-            
-          </v-row>
+          <v-row></v-row>
         </v-container>
       </v-card>
     </v-row>

@@ -1,9 +1,20 @@
 import axios from 'axios';
+import CreateGalerie from './CreateGalerie';
+import RealImage from './RealImage.vue';
+
 export default {
+    components: {
+        CreateGalerie,
+        RealImage
+    },
     data: () => ({
         title: 'Intidetour',
-        photos: []
+        photos: [],
+       
     }),
+    created() {
+        this.getDatas()
+    },
     methods: {
         getDatas() {
             axios.get('../api/galerie')
@@ -17,9 +28,7 @@ export default {
         },
         getId(e) {
             console.log(e);
-        }
-    },
-    created() {
-        this.getDatas();
+        },
+        
     },
 }
