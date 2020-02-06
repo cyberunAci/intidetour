@@ -155,6 +155,15 @@ class CircuitsController extends Controller
         }
     }
 
+    /**
+     * Affichage de la liste des photos du Circuit
+     */
+
+    public function ListePhoto() {
+
+        $dataPhoto = PhotosCircuitModel::all();
+        return PhotosCircuitRessource::collection($dataPhoto);
+    }
 
     /**
      * ajouter une photo a un circuit

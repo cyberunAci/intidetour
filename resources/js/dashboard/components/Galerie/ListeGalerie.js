@@ -1,14 +1,17 @@
 import axios from 'axios';
-import CreateGalerie from './CreateGalerie';
+import CreateGalerie from './CreateGalerie.vue';
 import RealImage from './RealImage.vue';
+import draggable from "vuedraggable";
 
 export default {
     components: {
         CreateGalerie,
-        RealImage
+        RealImage,
+        draggable
     },
     data: () => ({
         title: 'Intidetour',
+        enabled: true,
         photos: [],
        
     }),
@@ -21,7 +24,6 @@ export default {
                 .then(({ data }) => {
                     data.data.forEach(galerie => {
                         this.photos.push(galerie);
-                        console.log(galerie)
                     })
                 })
                 .catch();
