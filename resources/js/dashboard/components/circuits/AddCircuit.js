@@ -8,7 +8,7 @@ export default {
             dialog: false,
             snackbar: false,
             text: '',
-            timeout: 20000,
+            timeout: 3000,
             nom: '',
             nomRules: [
                 v => !!v || 'Un nom de circuit est requis',
@@ -58,7 +58,8 @@ export default {
             }).then(response => {
                 if (response.status == 201) {
                     this.dialog = false;
-                    location.reload(true);
+                    console.log(response.data.data);
+                    this.$emit('addCircuit', response.data.data)
                     this.snackbar = true;
                     this.text = 'Le circuit a bien été ajouté'
                 }

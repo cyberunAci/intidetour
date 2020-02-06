@@ -17,7 +17,7 @@ export default {
     }),
     methods: {
         getDatas() {
-            axios.get('http://localhost:8000/api/circuits')
+            axios.get('/api/circuits')
                 .then(({ data }) => {
                     data.data.forEach(circuit => {
                         this.circuits.push(circuit)

@@ -1,7 +1,7 @@
 <template>
 
   <v-container>
-          <addCircuit></addCircuit>
+          <addCircuit v-on:addCircuit="circuits.push($event)"></addCircuit>
 
     <v-row>
       <v-card v-for="(circuit,key) in circuits" :key="key" class="mx-auto my-5" max-width="500">

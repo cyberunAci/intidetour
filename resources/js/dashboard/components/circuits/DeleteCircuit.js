@@ -7,7 +7,7 @@ export default {
             dialog: false,
             snackbar: false,
             text: '',
-            timeout: 2000,
+            timeout: 3000,
 
         }
     },
