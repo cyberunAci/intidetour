@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
             TracesSeeder::class,
             UsersSuccessSeeder::class,
             PhotosCircuitSeeder::class,
-            AproposSeeder::class
-
+            AproposSeeder::class,
+            GalerieSeeder::class,
             ]);
     }
 }

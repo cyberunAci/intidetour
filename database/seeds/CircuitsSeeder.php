@@ -16,13 +16,13 @@ class CircuitsSeeder extends Seeder
             [
                 "id" => 1,
                 "nom" => "test 1",
-                "image" => "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg",
+                "image" => "https://www.reunion.fr/sites/crt-reunion/files/styles/gallery_lightbox/public/content/images/la_reunion_vue_du_ciel02_-_credit_irt_-_serge_gelabert_dts_12_2019.jpg?itok=q8d2oZi5",
                 "difficulte" => "facile",
-                "description" => "Description du circuit",
+                "description" => "Lorem ipsum dolor sit amet consectetur adipiscing elit Quisque bibendum at est efficitur pharetra Aliquam rutrum tellus volutpat imperdiet ipsum eget vehicula nisl In semper tortor ut leo vulputate eget vestibulum nisl rutrum Phasellus volutpat auctor erat Aenean tellus augue rutrum ac dignissim vitae cursus in erat Cras et lorem felis Curabitur volutpat nibh a ante dignissim dapibus a a enim In hendrerit arcu arcu id convallis ex aliquet tempor Suspendisse potenti Orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus Quisque at faucibus eros Nulla ac consequat tortor Donec vehicula congue tellus non eleifend. Aliquam non elementum nisi Ut mattis gravida justo Nam ac ligula in dolor bibendum viverra elementum quis mi Nulla viverra sem dignissim convallis risus a placerat est Maecenas eu quam felis Ut in sollicitudin nulla Suspendisse volutpat commodo lorem Sed condimentum rutrum fermentum Pellentesque dui sapien varius ut elementum vitae vehicula eget ex Sed pulvinar eros nec nulla cursus varius Donec massa diam pharetra sit amet risus sit amet condimentum porta velit Quisque ac aliquam est quis tempor lorem Curabitur ut neque a mauris mollis convallis Praesent malesuada libero in justo bibendum congue Lorem ipsum dolor sit amet consectetur adipiscing elit Quisque bibendum at est efficitur pharetra Aliquam rutrum tellus volutpat imperdiet ipsum eget vehicula nisl In semper tortor ut leo vulputate eget vestibulum nisl rutrum Phasellus volutpat auctor erat Aenean tellus augue rutrum ac dignissim vitae cursus in erat Cras et lorem felis Curabitur volutpat nibh a ante dignissim dapibus a a enim In hendrerit arcu arcu id convallis ex aliquet tempor Suspendisse potenti Orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus Quisque at faucibus eros Nulla ac consequat tortor Donec vehicula congue tellus non eleifend. Aliquam non elementum nisi Ut mattis gravida justo Nam ac ligula in dolor bibendum viverra elementum quis mi Nulla viverra sem dignissim convallis risus a placerat est Maecenas eu quam felis Ut in sollicitudin nulla Suspendisse volutpat commodo lorem Sed condimentum rutrum fermentum Pellentesque dui sapien varius ut elementum vitae vehicula eget ex Sed pulvinar eros nec nulla cursus varius Donec massa diam pharetra sit amet risus sit amet condimentum porta velit Quisque ac aliquam est quis tempor lorem Curabitur ut neque a mauris mollis convallis Praesent malesuada libero in justo bibendum congue",
                 "duree" => "2h30",
                 "distance" => "2km",
-                "latitude" => "1.545454",
-                "longitude" => "1.545454",
+                "latitude" => "-21,0499",
+                "longitude" => "55,4272",
 
             ],
             [
@@ -30,14 +30,14 @@ class CircuitsSeeder extends Seeder
                 "nom" => "test 2",
                 "image" => "https://media.gettyimages.com/photos/cropped-image-of-person-eye-picture-id942369796?s=612x612",
                 "difficulte" => "moyen",
-                "description" => "Description du circuit",
+                "description" => "Lorem ipsum dolor sit amet consectetur adipiscing elit Quisque bibendum at est efficitur pharetra Aliquam rutrum tellus volutpat imperdiet ipsum eget vehicula nisl In semper tortor ut leo vulputate eget vestibulum nisl rutrum Phasellus volutpat auctor erat Aenean tellus augue rutrum ac dignissim vitae cursus in erat Cras et lorem felis Curabitur volutpat nibh a ante dignissim dapibus a a enim In hendrerit arcu arcu id convallis ex aliquet tempor Suspendisse potenti Orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus Quisque at faucibus eros Nulla ac consequat tortor Donec vehicula congue tellus non eleifend. Aliquam non elementum nisi Ut mattis gravida justo Nam ac ligula in dolor bibendum viverra elementum quis mi Nulla viverra sem dignissim convallis risus a placerat est Maecenas eu quam felis Ut in sollicitudin nulla Suspendisse volutpat commodo lorem Sed condimentum rutrum fermentum Pellentesque dui sapien varius ut elementum vitae vehicula eget ex Sed pulvinar eros nec nulla cursus varius Donec massa diam pharetra sit amet risus sit amet condimentum porta velit Quisque ac aliquam est quis tempor lorem Curabitur ut neque a mauris mollis convallis Praesent malesuada libero in justo bibendum congue Lorem ipsum dolor sit amet consectetur adipiscing elit Quisque bibendum at est efficitur pharetra Aliquam rutrum tellus volutpat imperdiet ipsum eget vehicula nisl In semper tortor ut leo vulputate eget vestibulum nisl rutrum Phasellus volutpat auctor erat Aenean tellus augue rutrum ac dignissim vitae cursus in erat Cras et lorem felis Curabitur volutpat nibh a ante dignissim dapibus a a enim In hendrerit arcu arcu id convallis ex aliquet tempor Suspendisse potenti Orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus Quisque at faucibus eros Nulla ac consequat tortor Donec vehicula congue tellus non eleifend. Aliquam non elementum nisi Ut mattis gravida justo Nam ac ligula in dolor bibendum viverra elementum quis mi Nulla viverra sem dignissim convallis risus a placerat est Maecenas eu quam felis Ut in sollicitudin nulla Suspendisse volutpat commodo lorem Sed condimentum rutrum fermentum Pellentesque dui sapien varius ut elementum vitae vehicula eget ex Sed pulvinar eros nec nulla cursus varius Donec massa diam pharetra sit amet risus sit amet condimentum porta velit Quisque ac aliquam est quis tempor lorem Curabitur ut neque a mauris mollis convallis Praesent malesuada libero in justo bibendum congue",
                 "duree" => "2h30",
                 "distance" => "2km",
                 "latitude" => "1.545454",
                 "longitude" => "1.545454",
-            ]
+            ],
         ];
-    
+
         DB::table('circuits')->insert(
             $array
         );

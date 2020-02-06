@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 <body>
     <div class="container-fluid">
         @include("clients.accueil.presentation")
@@ -11,11 +10,6 @@
         @include("clients.accueil.galerie")
         @include("clients.accueil.temoignages")
     </div>
-    <div>
-        {{ csrf_token() }}
-    </div>
 </body>
-
 </html>
-
 @endsection

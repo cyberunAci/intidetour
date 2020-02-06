@@ -6,7 +6,19 @@
     </div>
     <div class="row">
         <div class="col-lg-12 container">
-            <h1>CARROUSSEL</h1> <!-- TODO Carroussel OWl -->
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        1
+                    </div>
+                    <div class="carousel-item">
+                        2
+                    </div>
+                    <div class="carousel-item">
+                        3
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
