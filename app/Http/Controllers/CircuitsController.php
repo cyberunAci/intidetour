@@ -56,6 +56,10 @@ class CircuitsController extends Controller
                 'image' => 'required',
                 'difficulte' => 'required',
                 'description' => 'required',
+                'duree'=>'required',
+                'distance'=>'required',
+                'latitude'=>'required',
+                'longitude'=>'required'
 
             ],
             [
