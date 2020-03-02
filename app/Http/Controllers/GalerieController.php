@@ -88,7 +88,13 @@ class GalerieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dataUpdate = $request->input();
+
+        $dataGalerie = GalerieModel::find(1)
+        ->where('id', '=', $id)
+        ->first();
+
+        return new GalerieRessource($dataGalerie);
     }
 
     /**
