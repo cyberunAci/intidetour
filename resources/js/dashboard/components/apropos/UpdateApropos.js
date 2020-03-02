@@ -19,6 +19,5 @@ export default {
             })
             console.log(this.text);
         }
-
     }
 };

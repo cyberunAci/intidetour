@@ -15,8 +15,13 @@
  * Admin
  */
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CircuitsController;
+use App\Http\Middleware\Cors;
 
+Route::get('/toto',function(){
+    return "toto";
+})->middleware(Cors::class);
 /**
  * Accueil
  */
@@ -33,7 +38,11 @@ Route::get('/cgu', function () {
  * À propos
  */
 Route::prefix('/apropos')->group (function() {
-    Route::get('/', 'AboutController@index');
+    Route::get('/', function () {
+        $about = new AboutController();
+        $apropos = $about->index();
+        return view('clients.apropos', ['apropos' => $apropos]);
+    });
 });
 
 /**

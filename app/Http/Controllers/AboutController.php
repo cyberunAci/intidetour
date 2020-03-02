@@ -12,13 +12,16 @@ use Illuminate\Support\Facades\Validator;
 
 class AboutController extends Controller
 {
+    /**
+     * Affichage de la page a propos
+     * 
+     * @return la vue de la page a propos
+     */
     public function index()
     {
-        $apropos = AproposModel::All();
-        
-        return view('clients.apropos', [
-            'apropos' => $apropos,
-        ]);
+        $apropos = AproposModel::all();
+        return AboutRessource::collection($apropos);
+   
     }
 
     public function addApropos()

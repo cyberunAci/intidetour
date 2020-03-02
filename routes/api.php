@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\Cors;
 use Illuminate\Http\Request;
 
 /*
@@ -26,6 +27,7 @@ Route::prefix('circuits')->group(function () {
     Route::post('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
     Route::delete('/{id}', 'CircuitsController@delete')->where('id', "[0-9]+");
     Route::get('/{id}/trace/', 'CircuitsController@showTrace')->where('id', "[0-9]+");
+    Route::get('/photos', 'CircuitsController@ListePhoto');
     Route::post('/photos/{id}', 'CircuitsController@addPhoto')->where('id', "[0-9]+");
 });
 
@@ -33,7 +35,7 @@ Route::prefix('circuits')->group(function () {
  * API Utilisateurs
  */
 Route::prefix('users')->group(function () {
-    Route::get('/', 'UsersController@index');
+    Route::get('/', 'UsersController@index')->middleware(Cors::class);
     Route::post('/{id}', 'UsersController@update')->where('id', "[0-9]+");
     Route::delete('/{id}', 'UsersController@delete')->where('id', "[0-9]+");
 });

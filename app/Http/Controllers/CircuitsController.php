@@ -56,6 +56,10 @@ class CircuitsController extends Controller
                 'image' => 'required',
                 'difficulte' => 'required',
                 'description' => 'required',
+                'duree'=>'required',
+                'distance'=>'required',
+                'latitude'=>'required',
+                'longitude'=>'required'
 
             ],
             [
@@ -155,6 +159,15 @@ class CircuitsController extends Controller
         }
     }
 
+    /**
+     * Affichage de la liste des photos du Circuit
+     */
+
+    public function ListePhoto() {
+
+        $dataPhoto = PhotosCircuitModel::all();
+        return PhotosCircuitRessource::collection($dataPhoto);
+    }
 
     /**
      * ajouter une photo a un circuit
