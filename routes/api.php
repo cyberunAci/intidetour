@@ -76,5 +76,5 @@ Route::prefix('/apropos')->group(function () {
 Route::prefix('/galerie')->group(function () {
     Route::get('/', 'GalerieController@index');
     Route::post('/', 'GalerieController@store');
-    Route::post('/update', 'GalerieController@update');
+    Route::post('/', 'GalerieController@update');
 });
