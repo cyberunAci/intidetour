@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-btn @click="onChange"> Save</v-btn>
+    <v-btn @click="saveGalerie"> Save</v-btn>
     <!-- <v-row> -->
     <draggable
       class="row"

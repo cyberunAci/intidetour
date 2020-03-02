@@ -11,6 +11,8 @@
       <v-row >
         <v-card v-for="(image, key) in images" :key="key" max-width="400" class="mb-4 ml-4">
           <v-img height="250" :src="image.photo"></v-img>
+        <v-checkbox v-model="selected" label="click la" value="click la"></v-checkbox>
+      
         </v-card>
       </v-row>
     </v-container>

@@ -37,19 +37,24 @@ export default {
                 })
                 .catch();
         },
-        onChange(e) {
+        saveGalerie(e) {
 
             this.setTmpList();
-let _photosId = JSON.stringify(this.photosId);
-let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
-if(_photosId == _tmpsPhotosList) {
-    console.log('pasmal..');
-} 
+            let _photosId = JSON.stringify(this.photosId);
+            let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
 
-            console.log('initial');
-            console.log(_photosId);
-            console.log('tmp');
-            console.log(_tmpsPhotosList);
+            if (_photosId!=_tmpsPhotosList) {
+
+                axios.post('/api/galerie/update', {
+                    galerie: this.tmpPhotosList
+                }).then(({ data }) => {
+                    console.log(data);
+                })
+            } else {
+
+                alert("error")
+
+            }
         },
         setTmpList() {
             let _this = this;
@@ -57,6 +62,7 @@ if(_photosId == _tmpsPhotosList) {
             this.photos.forEach(function (photo) {
                 _this.tmpPhotosList.push(photo.id);
             })
-        }
-    },
+
+        },
+    }
 }
