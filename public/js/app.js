@@ -2055,6 +2055,7 @@ var id = 1;
 
           _this2.photosId.push(galerie.id);
         });
+        return _this2.photos;
       })["catch"]();
     },
     onChange: function onChange(e) {

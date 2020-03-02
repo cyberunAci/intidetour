@@ -33,7 +33,7 @@ export default {
                         this.photos.push(galerie);
                         this.photosId.push(galerie.id);
                     })
-
+                    return this.photos;
                 })
                 .catch();
         },
@@ -42,6 +42,7 @@ export default {
             this.setTmpList();
 let _photosId = JSON.stringify(this.photosId);
 let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
+
 if(_photosId == _tmpsPhotosList) {
     console.log('pasmal..');
 } 
