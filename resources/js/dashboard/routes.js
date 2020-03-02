@@ -6,6 +6,7 @@ import Users from './views/Users.vue';
 import Catalogue from './views/Catalogue.vue';
 import Apropos from './views/Apropos.vue';
 import Galerie from './views/Galerie.vue';
+import CircuitEdit from './views/CircuitEdit.vue';
 
 Vue.use(VueRouter);
 
@@ -40,7 +41,12 @@ const router = new VueRouter({
             path: '/dashboard/galerie',
             name: 'galerie',
             component: Galerie
-        }
+        },
+        {
+            path: '/dashboard/catalogue/:id',
+            name: 'circuitEdit',
+            component: CircuitEdit
+        },
     ]
 })
 

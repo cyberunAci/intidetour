@@ -17,7 +17,11 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CircuitsController;
+use App\Http\Middleware\Cors;
 
+Route::get('/toto',function(){
+    return "toto";
+})->middleware(Cors::class);
 /**
  * Accueil
  */
