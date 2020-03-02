@@ -7,6 +7,8 @@ import Catalogue from './views/Catalogue.vue';
 import Apropos from './views/Apropos.vue';
 import Galerie from './views/Galerie.vue';
 import CircuitEdit from './views/CircuitEdit.vue';
+import SuccessEdit from './views/SuccessEdit.vue';
+
 
 Vue.use(VueRouter);
 
@@ -47,6 +49,11 @@ const router = new VueRouter({
             name: 'circuitEdit',
             component: CircuitEdit
         },
+        {
+            path: '/dashboard/success/:id',
+            name: 'successEdit',
+            component: SuccessEdit
+        }
     ]
 })
 

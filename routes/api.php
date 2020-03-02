@@ -40,6 +40,10 @@ Route::prefix('users')->group(function () {
     Route::delete('/{id}', 'UsersController@delete')->where('id', "[0-9]+");
 });
 
+
+    
+    
+
 /**
  * API Success
  */
@@ -47,6 +51,7 @@ Route::prefix('success')->group(function () {
     Route::get('/', 'SuccessController@index');
     Route::post('/', 'SuccessController@store');
     Route::post('/{id}', 'SuccessController@update');
+    Route::get('/{id}', 'SuccessController@show')->where('id', "[0-9]+");
     Route::delete('/{id}', 'SuccessController@destroy');
     Route::post('/image/{id}', 'SuccessController@addImage')->where('id', "[0-9]+");
 });

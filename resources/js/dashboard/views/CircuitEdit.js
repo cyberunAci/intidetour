@@ -57,6 +57,7 @@ export default {
                 .then(({ data }) => {
 
                     this.circuit = data.data;
+                   
 
                 })
                 .catch(error => {
