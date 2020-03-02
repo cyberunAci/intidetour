@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\File;
 use App\CircuitsModel;
+use App\TracesModel;
 use App\Http\Resources\CircuitsRessource;
 use Illuminate\Support\Str;
 use App\Http\Resources\PhotosCircuitRessource;
@@ -14,6 +16,8 @@ use Illuminate\Support\Facades\Validator;
 class CircuitsController extends Controller
 {
 
+
+    private $gpxPath;
     /**
      *  Function recuperations  de tous les circuits
 
@@ -128,35 +132,50 @@ class CircuitsController extends Controller
      */
     public function addTrace(Request $request, $id)
     {
-        //Validation des données entrées
-        $dataTrace = Validator::make(
-            $request->input(),
-            [
-                'trace' => 'required',
-            ],
-            [
-                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
-            ]
-        )->validate();
-        //Ajout en bdd des données validées par le validator
+        $error = '';
+        $circuit = CircuitsModel::find($id);
 
-        /**
-         * find le circuit grace à l'ID
-         * **/
-        $circuitModel = CircuitsModel::find($id);
-        if (isset($circuitModel)) {
+        if($circuit){
 
-            /*
-*Ajouter au circuit la trace
-**/
-            $trace = $circuitModel->traces()->create($dataTrace);
-            /*
-*Retourne la trace formaté grace à la ressource
-**/
-            return new TracesRessource($trace);
-        } else {
-            return json_encode('error');
+            $trace = $request->get('trace');
+
+            $exploded = explode(",", $trace);
+    
+            if (str::contains($exploded[0], 'gpx')) {
+
+                $ext = 'gpx';
+
+            $decode = base64_decode($exploded[1]);
+            
+            $filename= str_replace(" ", "", $circuit['nom'] . "." . $ext);
+
+            $path = public_path() . $this->gpxPath  . $filename;
+    
+            if (file_put_contents($path, $decode)) {
+    
+                $dataTrace = TracesModel::updateOrCreate(['id_circuit' => $circuit['id']]);
+            
+                $dataTrace->trace = $filename;
+
+                $dataTrace->save();
+
+            }
+
+
+            }else{
+                
+                $error = "Erreur votre fichier doit être en gpx!"; 
+            }
+    
+        
+        }else{
+            $error = "Erreur le circuit n'existe pas!";
         }
+
+        return response(
+            empty($error)?new TracesRessource($dataTrace):$error,
+            empty($error)?200:400
+    );
     }
 
     /**
@@ -208,18 +227,4 @@ class CircuitsController extends Controller
 
     }
 
-
-    public function store(Request $request)
-    {
-        // cache the file
-        $file = $request->file('file');
-
-        // generate a new filename. getClientOriginalExtension() for the file extension
-        $filename = 'profile-photo-' . time() . '.' . $file->getClientOriginalExtension();
-
-        // save to storage/app/photos as the new $filename
-        $path = $file->storeAs('photo', $filename);
-
-          
-    }
 }

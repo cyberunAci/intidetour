@@ -18,6 +18,7 @@
                 <v-card-title>{{circuit.nom}}</v-card-title>
                 <v-spacer />
                 <showCircuit v-bind:circuit="circuit"></showCircuit>
+                <AddTrace v-bind:circuit="circuit"></AddTrace>
                 <deleteCircuit
                   v-on:circuitToDelete="circuits.splice(key, 1)"
                   v-bind:circuit="circuit"
