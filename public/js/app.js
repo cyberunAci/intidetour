@@ -25436,7 +25436,7 @@ var render = function() {
               "v-card",
               {
                 key: key,
-                staticClass: "mb-4 ml-4",
+                staticClass: "mb-4 ml-3",
                 attrs: { "max-width": "400" }
               },
               [_c("realImage", { attrs: { photo: photo } })],
