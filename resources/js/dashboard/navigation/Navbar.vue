@@ -1,9 +1,9 @@
 <template>
   <v-row>
     <v-col>
-      <v-card class="pa-2 adminNavbar" outlined tile>
-        <h2 class="d-flex marginL">Intidetour</h2>
-        <div class="marginR">
+      <v-card class="pa-5 d-flex flex-row align-items-center" outlined tile>
+        <h2 class="d-flex flex-fill p-2 h-100">Intidetour Dashboard</h2>
+        <div class="d-flex flex-row">
           <v-btn class="padding d-flex" text to="/dashboard">Home</v-btn>
           <v-btn class="padding d-flex" text to="/dashboard/success">Succes</v-btn>
           <v-btn class="padding d-flex" text to="/dashboard/users">Clients</v-btn>
@@ -16,26 +16,3 @@
     </v-col>
   </v-row>
 </template>
-
-<style scoped>
-body {
-  margin: 0;
-  padding: 0;
-}
-.adminNavbar {
-  display: flex;
-  justify-content: row wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-.marginL {
-  margin-left: 2%;
-}
-.marginR {
-  width: 20%;
-}
-.padding {
-  padding-right: 5%;
-  padding-left: 5%;
-}
-</style>

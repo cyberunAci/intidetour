@@ -100,7 +100,7 @@ class GalerieController extends Controller
             $galerie = json_decode($galerie);
             if (is_array($galerie)) {
 
-                $images = [];
+                $images = []; //arret des images venant des circuits
 
                 //boucle vérification des images
                 foreach ($galerie as $order => $idImg) {
