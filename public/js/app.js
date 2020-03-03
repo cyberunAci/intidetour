@@ -2103,7 +2103,8 @@ __webpack_require__.r(__webpack_exports__);
       window: {
         width: 0,
         height: 0
-      }
+      },
+      photoGrand: false
     };
   },
   created: function created() {
@@ -25476,6 +25477,8 @@ var render = function() {
   return _c(
     "v-dialog",
     {
+      staticClass: "d-flex justify-content-center align-content-center",
+      attrs: { "max-width": "80%" },
       scopedSlots: _vm._u([
         {
           key: "activator",
@@ -25492,17 +25495,48 @@ var render = function() {
             ]
           }
         }
-      ])
+      ]),
+      model: {
+        value: _vm.photoGrand,
+        callback: function($$v) {
+          _vm.photoGrand = $$v
+        },
+        expression: "photoGrand"
+      }
     },
     [
       _vm._v(" "),
-      _c("v-img", {
-        attrs: {
-          "max-height": "980",
-          "max-width": _vm.window.width,
-          src: _vm.photo.photo.photo
-        }
-      })
+      _c(
+        "v-img",
+        { attrs: { "aspect-ratio": "1.9", src: _vm.photo.photo.photo } },
+        [
+          _c(
+            "v-btn",
+            {
+              staticClass: "mt-8",
+              attrs: {
+                color: "white",
+                dark: "",
+                small: "",
+                absolute: "",
+                top: "",
+                right: "",
+                fab: ""
+              },
+              on: {
+                click: function($event) {
+                  _vm.photoGrand = false
+                }
+              }
+            },
+            [
+              _c("v-icon", { attrs: { color: "black" } }, [_vm._v("mdi-close")])
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
