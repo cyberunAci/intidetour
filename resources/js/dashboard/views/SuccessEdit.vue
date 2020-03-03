@@ -3,14 +3,11 @@
     <v-row no-gutters>
       <!-- PHOTO -->
       <v-col cols="12" md="4">
-
-
-
-  <div v-if="!photos">
-          <input name="photos" type="file" v-on:change="onFileChange" />
+        <div v-if="!photo">
+          <input name="photo" type="file" v-on:change="onFileChange" />
         </div>
         <div v-else>
-          <img v-bind:src="photos" style="width:200px" />
+          <img v-bind:src="photo" style="width:200px" />
           <br />
           <v-btn icon v-on:click="greet">
             <v-icon>mdi-download</v-icon>
@@ -20,18 +17,11 @@
           </v-btn>
         </div>
 
-
-
-
-
-
-
-   <v-img
+        <v-img
           :src="success.image"
           class="white--text align-end"
           gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
         ></v-img>
-
       </v-col>
       <!-- ENDPHOTO -->
 
@@ -56,7 +46,6 @@
               <v-btn icon @click="item.editBoolean = true">
                 <v-icon>mdi-pencil</v-icon>
               </v-btn>
-              
             </div>
             {{ item.editBoolean}}
           </div>
@@ -80,9 +69,8 @@
               <v-btn icon @click="item.editBoolean = true">
                 <v-icon>mdi-pencil</v-icon>
               </v-btn>
-             
             </div>
-             {{ item.editBoolean}}
+            {{ item.editBoolean}}
           </div>
           <!-- /description -->
         </div>

@@ -3355,7 +3355,7 @@ __webpack_require__.r(__webpack_exports__);
       _circuit: {},
       //recupere l id dans l url
       id: this.$route.params.id,
-      photos: '',
+      photo: '',
       listBoolean: [],
       params: {
         nom: {
@@ -3424,7 +3424,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.success[item.key] != item.value) {
         //on cree  une variable 
         var datas = this.getUpdatedSuccess(item);
-        axios.post('/api/success/' + this.success.id, datas).then(function (resp) {
+        axios.post('/api/success/' + this.id, datas).then(function (resp) {
           if (_.isObject(resp.data)) {
             _this3.success[item.key] = resp.data.data[item.key];
             console.log('toto');
@@ -3474,16 +3474,15 @@ __webpack_require__.r(__webpack_exports__);
       var reader = new FileReader();
 
       reader.onload = function (e) {
-        _this4.photos = e.target.result;
-        console.log(_this4.photos);
+        _this4.photo = e.target.result;
+        console.log(_this4.photo);
       };
 
       reader.readAsDataURL(file);
     },
     greet: function uploadImg() {
-      console.log(this.photos);
-      axios.post('api/success/image/' + this.id, {
-        photos: this.photos
+      axios.post('/api/success/image/' + this.id, {
+        image: this.photo
       }).then(function (_ref3) {
         var data = _ref3.data;
         console.log(data);
@@ -3492,7 +3491,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     removeImg: function removeImg() {
-      this.photos = "";
+      this.photo = "";
     }
   }
 });
@@ -29195,10 +29194,10 @@ var render = function() {
             "v-col",
             { attrs: { cols: "12", md: "4" } },
             [
-              !_vm.photos
+              !_vm.photo
                 ? _c("div", [
                     _c("input", {
-                      attrs: { name: "photos", type: "file" },
+                      attrs: { name: "photo", type: "file" },
                       on: { change: _vm.onFileChange }
                     })
                   ])
@@ -29207,7 +29206,7 @@ var render = function() {
                     [
                       _c("img", {
                         staticStyle: { width: "200px" },
-                        attrs: { src: _vm.photos }
+                        attrs: { src: _vm.photo }
                       }),
                       _vm._v(" "),
                       _c("br"),
@@ -29442,7 +29441,7 @@ var render = function() {
                               1
                             ),
                         _vm._v(
-                          "\n           " +
+                          "\n          " +
                             _vm._s(item.editBoolean) +
                             "\n        "
                         )

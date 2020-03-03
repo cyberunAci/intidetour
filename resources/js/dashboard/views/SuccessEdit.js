@@ -1,7 +1,7 @@
 
 
 export default {
-  
+
     data() {
         return {
 
@@ -10,7 +10,7 @@ export default {
             _circuit: {},
             //recupere l id dans l url
             id: this.$route.params.id,
-            photos: '',
+            photo: '',
             listBoolean: [],
             params: {
 
@@ -27,70 +27,62 @@ export default {
                     type: 'text',
 
                 },
-              
-            }
-
-
 
             }
+
+
+
+        }
+    },
+
+
+    created() {
+        this.getDatas();
+        this.prepareDisplay();
+    },
+
+
+    methods: {
+        getDatas() {
+
+            axios.get('/api/success/' + this.id)
+                .then(({ data }) => {
+                    //console.log('tata');
+                    // console.log(data);
+                    this.success = data.data;
+                    // console.log(this.success);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+
         },
 
+        prepareDisplay() {
 
-        created() {
-            this.getDatas();
-            this.prepareDisplay();
+
+            axios.get('/api/success/' + this.id)
+                .then(({ data }) => {
+                    this.success = data.data;
+                    this.listBoolean = [];
+
+                    for (const property in this.params) {
+
+                        this.listBoolean.push({
+                            key: property,
+                            value: this.success[property],
+                            editBoolean: false,
+                            type: this.params[property].type,
+                        })
+
+                    }
+                    console.log(this.listBoolean);
+
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         },
-
-
-        methods: {
-            getDatas() {
-    
-                axios.get('/api/success/' + this.id)
-                    .then(({ data }) => {
-                        //console.log('tata');
-                       // console.log(data);
-                       this.success = data.data;
-                      // console.log(this.success);
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-                    
-            },
-
-            prepareDisplay() {
-
-
-                axios.get('/api/success/' + this.id)
-                    .then(({ data }) => {
-                        this.success = data.data;
-                        this.listBoolean =[];
-    
-                        for (const property in this.params) {
-    
-                            this.listBoolean.push({
-                                key: property,
-                                value: this.success[property],
-                                editBoolean: false,
-                                type: this.params[property].type,
-                            })
-    
-                        }
-                        console.log(this.listBoolean);
-    
-    
-    
-    
-    
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-
-            },
-
-
-
         /**
          * 
          * @param {*} item 
@@ -99,13 +91,13 @@ export default {
         //on passe l item qui correcspont a un objet qui a une key, une value ,un editBoolean et un type
         updateData(item) {
             console.log(item);
-          //  item.key puet egal a   nom,image,descrpition
+            //  item.key puet egal a   nom,image,descrpition
 
             //si dans l input la valeur est differente du circuit en bdd alors 
             if (this.success[item.key] != item.value) {
                 //on cree  une variable 
                 let datas = this.getUpdatedSuccess(item);
-                axios.post('/api/success/' + this.success.id, datas)
+                axios.post('/api/success/' + this.id, datas)
                     .then(resp => {
                         if (_.isObject(resp.data)) {
                             this.success[item.key] = resp.data.data[item.key];
@@ -124,10 +116,10 @@ export default {
 
         },
 
-         /**
-         * 
-         * @param {*} item 
-         */
+        /**
+        * 
+        * @param {*} item 
+        */
         //on passe l item qui correcspont a un objet qui a une key, une value ,un editBoolean et un type
         getUpdatedSuccess(item) {
             this.prepareLocalSuccess();
@@ -139,7 +131,7 @@ export default {
 
         prepareLocalSuccess() {
             //on recupere un objet vide
-            this._success= {};
+            this._success = {};
             //les propriete de thic circuit sont id,  nom,difficulte,duree,latitude,longitude ou description
             for (const property in this.success) {
                 // sauf pour l'id
@@ -166,20 +158,20 @@ export default {
             let reader = new FileReader;
 
             reader.onload = (e) => {
-                this.photos = e.target.result;
-                console.log( this.photos);
+                this.photo = e.target.result;
+                console.log(this.photo);
 
             };
             reader.readAsDataURL(file);
         },
 
         greet: function uploadImg() {
-            console.log(this.photos);
-              axios.post('api/success/image/' + this.id, {
 
-                photos: this.photos,
+            axios.post('/api/success/image/' + this.id, {
 
-             })
+                image: this.photo,
+
+            })
                 .then(function ({ data }) {
                     console.log(data);
 
@@ -191,7 +183,7 @@ export default {
         },
 
         removeImg() {
-            this.photos = "";
+            this.photo = "";
         },
 
 
@@ -199,4 +191,3 @@ export default {
 
     }
 }
-   
