@@ -2827,11 +2827,12 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     },
     greet: function uploadImg() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('../api/circuits/photos/' + this.circuit.id, {
+      console.log(this.photo);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/circuits/photos/' + this.circuit.id, {
         photo: this.photo
-      }).then(function (_ref) {
+      }).then(function (_ref) {// console.log(data);
+
         var data = _ref.data;
-        console.log(data);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -3135,13 +3136,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_circuits_uploadFile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/circuits/uploadFile */ "./resources/js/dashboard/components/circuits/uploadFile.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       circuit: [],
       _circuit: {},
       id: this.$route.params.id,
-      photos: '',
+      photo: '',
       listboolean: [],
       params: {
         nom: {
@@ -3190,14 +3193,14 @@ __webpack_require__.r(__webpack_exports__);
       var reader = new FileReader();
 
       reader.onload = function (e) {
-        _this2.photos = e.target.result;
+        _this2.photo = e.target.result;
       };
 
       reader.readAsDataURL(file);
     },
     greet: function uploadImg() {
       axios.post('/api/circuits/photos/' + this.id, {
-        photos: this.photos
+        photo: this.photo
       }).then(function (_ref2) {
         var data = _ref2.data;
         console.log(data);
@@ -3206,7 +3209,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     removeImg: function removeImg() {
-      this.photos = "";
+      this.photo = "";
     },
 
     /**
@@ -3272,6 +3275,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/circuits/' + this.id).then(function (_ref3) {
         var data = _ref3.data;
+        _this4.listboolean = [];
         _this4.circuit = data.data;
 
         for (var property in _this4.params) {
@@ -3478,7 +3482,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     greet: function uploadImg() {
       console.log(this.photos);
-      axios.post('../../../api/success/image/' + this.id, {
+      axios.post('api/success/image/' + this.id, {
         photos: this.photos
       }).then(function (_ref3) {
         var data = _ref3.data;
@@ -28397,10 +28401,10 @@ var render = function() {
             "v-col",
             { attrs: { cols: "12", md: "4" } },
             [
-              !_vm.photos
+              !_vm.photo
                 ? _c("div", [
                     _c("input", {
-                      attrs: { name: "photos", type: "file" },
+                      attrs: { name: "photo", type: "file" },
                       on: { change: _vm.onFileChange }
                     })
                   ])
@@ -28409,7 +28413,7 @@ var render = function() {
                     [
                       _c("img", {
                         staticStyle: { width: "200px" },
-                        attrs: { src: _vm.photos }
+                        attrs: { src: _vm.photo }
                       }),
                       _vm._v(" "),
                       _c("br"),
@@ -90013,6 +90017,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UploadFile_vue_vue_type_template_id_0cfb40bc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/circuits/uploadFile.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/dashboard/components/circuits/uploadFile.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["circuit"],
+  data: function data() {
+    return {
+      photo: ''
+    };
+  },
+  methods: {
+    onFileChange: function onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      this.createImg(files[0]);
+    },
+    createImg: function createImg(file) {
+      var _this = this;
+
+      var photo = new Image();
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this.photo = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    greet: function uploadImg() {
+      console.log(this.photo);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/circuits/photos/' + this.circuit.id, {
+        photo: this.photo
+      }).then(function (_ref) {// console.log(data);
+
+        var data = _ref.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    removeImg: function removeImg() {
+      this.photo = "";
+    }
+  }
+});
 
 /***/ }),
 

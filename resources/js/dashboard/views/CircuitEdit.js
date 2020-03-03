@@ -1,4 +1,6 @@
 
+
+import UploadFile from '../components/circuits/uploadFile';
 export default {
 
     
@@ -11,7 +13,7 @@ export default {
             circuit: [],
             _circuit: {},
             id: this.$route.params.id,
-            photos: '',
+            photo: '',
             listboolean: [],
 
             params: {
@@ -76,16 +78,18 @@ export default {
             let reader = new FileReader;
 
             reader.onload = (e) => {
-                this.photos = e.target.result;
+                this.photo = e.target.result;
 
             };
             reader.readAsDataURL(file);
         },
 
         greet: function uploadImg() {
+
+            
             axios.post('/api/circuits/photos/' + this.id, {
 
-                photos: this.photos,
+                photo: this.photo,
 
             })
                 .then(function ({ data }) {
@@ -99,7 +103,7 @@ export default {
         },
 
         removeImg() {
-            this.photos = "";
+            this.photo = "";
         },
 
 
@@ -174,10 +178,13 @@ export default {
 
 
             axios.get('/api/circuits/' + this.id)
+          
                 .then(({ data }) => {
+
+                    this.listboolean = [];
                     this.circuit = data.data;
 
-
+                   
 
 
                     for (const property in this.params) {

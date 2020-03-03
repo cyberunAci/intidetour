@@ -4,11 +4,11 @@
     <v-row no-gutters>
       <!-- PHOTO -->
       <v-col cols="12" md="4">
-        <div v-if="!photos">
-          <input name="photos" type="file" v-on:change="onFileChange" />
+        <div v-if="!photo">
+          <input name="photo" type="file" v-on:change="onFileChange" />
         </div>
         <div v-else>
-          <img v-bind:src="photos" style="width:200px" />
+          <img v-bind:src="photo" style="width:200px" />
           <br />
           <v-btn icon v-on:click="greet">
             <v-icon>mdi-download</v-icon>

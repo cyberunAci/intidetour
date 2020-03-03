@@ -175,7 +175,7 @@ export default {
 
         greet: function uploadImg() {
             console.log(this.photos);
-              axios.post('../../../api/success/image/' + this.id, {
+              axios.post('api/success/image/' + this.id, {
 
                 photos: this.photos,
 
