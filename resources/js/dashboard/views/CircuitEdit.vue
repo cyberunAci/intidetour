@@ -1,6 +1,5 @@
 <template>
   <v-container class="d-flex flex-wrap">
-  
     <v-row no-gutters>
       <!-- PHOTO -->
       <v-col cols="12" md="4">
@@ -27,16 +26,35 @@
       <!-- ENDPHOTO -->
       <!-- INFORMATION -->
       <v-col cols="12" md="8">
-        
-        <v-card-title>
-          
-          <div v-for="(item,key) in listboolean" :key="key">
 
-            
+
+
+
+
+  <v-row >
+              <v-col cols="12" sm="3">
+                <v-card class="pa-2" outlined tile>One of three columns</v-card>
+              </v-col>
+
+              <v-col cols="12" sm="3">
+                <v-card class="pa-2" outlined tile>One of three columns</v-card>
+              </v-col>
+
+              <v-col cols="12" sm="3">
+                <v-card class="pa-2" outlined tile>One of three columns</v-card>
+              </v-col>
+
+              <v-col cols="12" sm="3">
+                <v-card class="pa-2" outlined tile>One of three columns</v-card>
+              </v-col>
+            </v-row>
+
+        <v-card-title>
+          <div v-for="(item,key) in listboolean" :key="key">
+          
             <!-- nom -->
-            
-            <div   v-if="item.key =='nom'">
-              
+
+            <div v-if="item.type =='text'">
               <v-col v-if="item.editBoolean" class="m-4">
                 <input v-if="item.type==='text'" v-model="item.value" />
 
@@ -57,119 +75,12 @@
 
             <!-- /nom -->
 
-
-
-            <!-- difficulte -->
-            <div v-if="item.key =='difficulte'">
-
-
-              <v-col v-if="item.editBoolean" class="m-4">
-                <input v-if="item.type==='text'" v-model="item.value" />
-
-                <v-btn icon @click="updateData(item)">
-                  <v-icon>mdi-checkbox-marked-outline</v-icon>
-                </v-btn>
-                <v-btn icon @click="item.editBoolean = false">
-                  <v-icon>mdi-close-circle</v-icon>
-                </v-btn>
-              </v-col>
-              <div v-else>
-                {{item.value}}
-                <v-btn icon @click="item.editBoolean = true">
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </div>
-            </div>
-            <!-- /difficulte -->
-              <!-- duree -->
-            <div v-if="item.key =='duree'">
-              <v-col v-if="item.editBoolean" class="m-4">
-                <input v-if="item.type==='text'" v-model="item.value" />
-
-                <v-btn icon @click="updateData(item)">
-                  <v-icon>mdi-checkbox-marked-outline</v-icon>
-                </v-btn>
-                <v-btn icon @click="item.editBoolean = false">
-                  <v-icon>mdi-close-circle</v-icon>
-                </v-btn>
-              </v-col>
-              <div v-else>
-                {{item.value}}
-                <v-btn icon @click="item.editBoolean = true">
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </div>
-            </div>
-            <!-- /duree -->
-                <!-- latitude -->
-            <div v-if="item.key =='latitude'">
-              <v-col v-if="item.editBoolean" class="m-4">
-                <input v-if="item.type==='text'" v-model="item.value" />
-
-                <v-btn icon @click="updateData(item)">
-                  <v-icon>mdi-checkbox-marked-outline</v-icon>
-                </v-btn>
-                <v-btn icon @click="item.editBoolean = false">
-                  <v-icon>mdi-close-circle</v-icon>
-                </v-btn>
-              </v-col>
-              <div v-else>
-                {{item.value}}
-                <v-btn icon @click="item.editBoolean = true">
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </div>
-            </div>
-            <!-- /latitude -->
-                <!-- longitude -->
-            <div v-if="item.key =='longitude'">
-              <v-col v-if="item.editBoolean" class="m-4">
-                <input v-if="item.type==='text'" v-model="item.value" />
-
-                <v-btn icon @click="updateData(item)">
-                  <v-icon>mdi-checkbox-marked-outline</v-icon>
-                </v-btn>
-                <v-btn icon @click="item.editBoolean = false">
-                  <v-icon>mdi-close-circle</v-icon>
-                </v-btn>
-              </v-col>
-              <div v-else>
-                {{item.value}}
-                <v-btn icon @click="item.editBoolean = true">
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </div>
-            </div>
-            <!-- /longitude -->
            
-
-              <!-- description -->
-            <div v-if="item.key =='description'">
-              <v-col v-if="item.editBoolean" class="m-4">
-                <input v-if="item.type==='text'" v-model="item.value" />
-
-                <v-btn icon @click="updateData(item)">
-                  <v-icon>mdi-checkbox-marked-outline</v-icon>
-                </v-btn>
-                <v-btn icon @click="item.editBoolean = false">
-                  <v-icon>mdi-close-circle</v-icon>
-                </v-btn>
-              </v-col>
-              <div v-else>
-                {{item.value}}
-                <v-btn icon @click="item.editBoolean = true">
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </div>
-            </div>
-            <!-- /description -->
           </div>
         </v-card-title>
       </v-col>
       <!-- END INFORMATION -->
     </v-row>
-
-    
   </v-container>
 </template>
 
