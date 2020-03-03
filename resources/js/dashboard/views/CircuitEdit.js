@@ -1,7 +1,7 @@
 
 export default {
 
-
+    
 
     data() {
 
@@ -57,7 +57,6 @@ export default {
                 .then(({ data }) => {
 
                     this.circuit = data.data;
-                   
 
                 })
                 .catch(error => {
@@ -127,13 +126,13 @@ export default {
                     }).catch(error => {
                         console.log(error);
                     });
-
+                    
 
             } else {
                 item.listboolean = false;
-
+                
             }
-
+           
         },
 
 
@@ -163,6 +162,7 @@ export default {
                     this._circuit[property] = this.circuit[property];
                 }
             }
+
         },
 
         /**
@@ -172,9 +172,13 @@ export default {
          */
         prepareDisplay() {
 
+
             axios.get('/api/circuits/' + this.id)
                 .then(({ data }) => {
                     this.circuit = data.data;
+
+
+
 
                     for (const property in this.params) {
 
@@ -189,10 +193,28 @@ export default {
                     }
                     console.log(this.listboolean);
 
+
+
+
+
                 })
                 .catch(error => {
                     console.log(error);
                 });
+
+
+
+
+
+
+
+
+
+
         },
+
+
     },
+
+
 }

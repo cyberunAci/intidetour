@@ -3348,9 +3348,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       //objectif eszt de pusher les data dans cette array et recyuper cett array dans la vue pour afficher les data 
       success: [],
+      _circuit: {},
       //recupere l id dans l url
       id: this.$route.params.id,
-      listboolean: [],
+      photos: '',
+      listBoolean: [],
       params: {
         nom: {
           type: 'text'
@@ -3366,6 +3368,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getDatas();
+    this.prepareDisplay();
   },
   methods: {
     getDatas: function getDatas() {
@@ -3373,13 +3376,119 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/success/' + this.id).then(function (_ref) {
         var data = _ref.data;
-        console.log('tata');
-        console.log(data);
-        _this.success = data.data;
-        console.log(_this.success);
+        //console.log('tata');
+        // console.log(data);
+        _this.success = data.data; // console.log(this.success);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    prepareDisplay: function prepareDisplay() {
+      var _this2 = this;
+
+      axios.get('/api/success/' + this.id).then(function (_ref2) {
+        var data = _ref2.data;
+        _this2.success = data.data;
+        _this2.listBoolean = [];
+
+        for (var property in _this2.params) {
+          _this2.listBoolean.push({
+            key: property,
+            value: _this2.success[property],
+            editBoolean: false,
+            type: _this2.params[property].type
+          });
+        }
+
+        console.log(_this2.listBoolean);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+
+    /**
+     * 
+     * @param {*} item 
+     */
+    //on passe l item qui correcspont a un objet qui a une key, une value ,un editBoolean et un type
+    updateData: function updateData(item) {
+      var _this3 = this;
+
+      console.log(item); //  item.key puet egal a   nom,image,descrpition
+      //si dans l input la valeur est differente du circuit en bdd alors 
+
+      if (this.success[item.key] != item.value) {
+        //on cree  une variable 
+        var datas = this.getUpdatedSuccess(item);
+        axios.post('/api/success/' + this.success.id, datas).then(function (resp) {
+          if (_.isObject(resp.data)) {
+            _this3.success[item.key] = resp.data.data[item.key];
+            console.log('toto');
+          }
+
+          _this3.prepareDisplay();
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      } else {
+        item.listBoolean = false;
+      }
+    },
+
+    /**
+    * 
+    * @param {*} item 
+    */
+    //on passe l item qui correcspont a un objet qui a une key, une value ,un editBoolean et un type
+    getUpdatedSuccess: function getUpdatedSuccess(item) {
+      this.prepareLocalSuccess();
+
+      if (this._success.hasOwnProperty(item.key)) {
+        this._success[item.key] = item.value;
+      }
+
+      return this._success;
+    },
+    prepareLocalSuccess: function prepareLocalSuccess() {
+      //on recupere un objet vide
+      this._success = {}; //les propriete de thic circuit sont id,  nom,difficulte,duree,latitude,longitude ou description
+
+      for (var property in this.success) {
+        // sauf pour l'id
+        if (property != 'id') {
+          this._success[property] = this.success[property];
+        }
+      }
+    },
+    onFileChange: function onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      this.createImg(files[0]);
+    },
+    createImg: function createImg(file) {
+      var _this4 = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this4.photos = e.target.result;
+        console.log(_this4.photos);
+      };
+
+      reader.readAsDataURL(file);
+    },
+    greet: function uploadImg() {
+      console.log(this.photos);
+      axios.post('../../../api/success/image/' + this.id, {
+        photos: this.photos
+      }).then(function (_ref3) {
+        var data = _ref3.data;
+        console.log(data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    removeImg: function removeImg() {
+      this.photos = "";
     }
   }
 });
@@ -29070,7 +29179,283 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    toto\n")])
+  return _c(
+    "v-container",
+    { staticClass: "d-flex flex-wrap" },
+    [
+      _c(
+        "v-row",
+        { attrs: { "no-gutters": "" } },
+        [
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "4" } },
+            [
+              !_vm.photos
+                ? _c("div", [
+                    _c("input", {
+                      attrs: { name: "photos", type: "file" },
+                      on: { change: _vm.onFileChange }
+                    })
+                  ])
+                : _c(
+                    "div",
+                    [
+                      _c("img", {
+                        staticStyle: { width: "200px" },
+                        attrs: { src: _vm.photos }
+                      }),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        { attrs: { icon: "" }, on: { click: _vm.greet } },
+                        [_c("v-icon", [_vm._v("mdi-download")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        { attrs: { icon: "" }, on: { click: _vm.removeImg } },
+                        [_c("v-icon", [_vm._v("mdi-close-circle")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+              _vm._v(" "),
+              _c("v-img", {
+                staticClass: "white--text align-end",
+                attrs: {
+                  src: _vm.success.image,
+                  gradient: "to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "8" } },
+            _vm._l(_vm.listBoolean, function(item, key) {
+              return _c("div", { key: key }, [
+                item.key == "nom"
+                  ? _c(
+                      "div",
+                      [
+                        item.editBoolean
+                          ? _c(
+                              "v-col",
+                              { staticClass: "m-4" },
+                              [
+                                item.type === "text"
+                                  ? _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: item.value,
+                                          expression: "item.value"
+                                        }
+                                      ],
+                                      domProps: { value: item.value },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            item,
+                                            "value",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.updateData(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("v-icon", [
+                                      _vm._v("mdi-checkbox-marked-outline")
+                                    ])
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "" },
+                                    on: {
+                                      click: function($event) {
+                                        item.editBoolean = false
+                                      }
+                                    }
+                                  },
+                                  [_c("v-icon", [_vm._v("mdi-close-circle")])],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          : _c(
+                              "div",
+                              [
+                                _vm._v(
+                                  "\n            " +
+                                    _vm._s(item.value) +
+                                    "\n            "
+                                ),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "" },
+                                    on: {
+                                      click: function($event) {
+                                        item.editBoolean = true
+                                      }
+                                    }
+                                  },
+                                  [_c("v-icon", [_vm._v("mdi-pencil")])],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(item.editBoolean) +
+                            "\n        "
+                        )
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                item.key == "description"
+                  ? _c(
+                      "div",
+                      [
+                        item.editBoolean
+                          ? _c(
+                              "v-col",
+                              { staticClass: "m-4" },
+                              [
+                                item.type === "text"
+                                  ? _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: item.value,
+                                          expression: "item.value"
+                                        }
+                                      ],
+                                      domProps: { value: item.value },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            item,
+                                            "value",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.updateData(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("v-icon", [
+                                      _vm._v("mdi-checkbox-marked-outline")
+                                    ])
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "" },
+                                    on: {
+                                      click: function($event) {
+                                        item.editBoolean = false
+                                      }
+                                    }
+                                  },
+                                  [_c("v-icon", [_vm._v("mdi-close-circle")])],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          : _c(
+                              "div",
+                              [
+                                _vm._v(
+                                  "\n            " +
+                                    _vm._s(item.value) +
+                                    "\n            "
+                                ),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "" },
+                                    on: {
+                                      click: function($event) {
+                                        item.editBoolean = true
+                                      }
+                                    }
+                                  },
+                                  [_c("v-icon", [_vm._v("mdi-pencil")])],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                        _vm._v(
+                          "\n           " +
+                            _vm._s(item.editBoolean) +
+                            "\n        "
+                        )
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ])
+            }),
+            0
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
