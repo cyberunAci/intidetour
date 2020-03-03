@@ -12,7 +12,8 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
     mode: 'history',
-    routes: [{
+    routes: [
+        {
             path: '/dashboard',
             name: 'home',
             component: Home
@@ -46,7 +47,7 @@ const router = new VueRouter({
             path: '/dashboard/catalogue/:id',
             name: 'circuitEdit',
             component: CircuitEdit
-        },
+        }
     ]
 })
 

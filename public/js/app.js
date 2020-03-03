@@ -28006,7 +28006,7 @@ var render = function() {
                     "v-btn",
                     {
                       staticClass: "padding d-flex",
-                      attrs: { text: "", to: "/" }
+                      attrs: { text: "", href: "/" }
                     },
                     [_vm._v("Retour au site")]
                   )
