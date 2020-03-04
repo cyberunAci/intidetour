@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\GalerieModel;
 use App\Http\Resources\GalerieRessource;
+use App\PhotosCircuitModel;
+use Error;
+use Hamcrest\Arrays\IsArray;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class GalerieController extends Controller
@@ -86,9 +90,48 @@ class GalerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //recupere les données
+        $galerie = $request->input('galerie');
+
+        if ($galerie) {
+
+            $galerie = json_decode($galerie);
+            if (is_array($galerie)) {
+
+                $images = []; //arret des images venant des circuits
+
+                //boucle vérification des images
+                foreach ($galerie as $order => $idImg) {
+                    $image = PhotosCircuitModel::find($idImg);
+                    if ($image) {
+                        $images[] = $image; //push
+                    } else {
+                        return 'not image + rollback';
+                    }
+                }
+                //supprimer la galerie
+                DB::table('galerie_photos')->truncate(); //supprimer les informations de la table et restart les id
+
+                $imgs = [];
+
+                //boucle mise en place des orders
+                foreach ($images as $order => $image) {
+
+                    $image = $image->galerie()->create([
+                        'order' => $order + 1,
+                    ]);
+                    $imgs[] = $image; //push dans le tableau
+                }
+            } else {
+                return 'not array';
+            }
+        } else {
+            return 'error';
+        }
+
+        return $imgs;
     }
 
     /**

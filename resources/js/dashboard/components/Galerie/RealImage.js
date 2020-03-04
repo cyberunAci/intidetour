@@ -4,7 +4,8 @@ export default {
         window: {
             width: 0,
             height: 0
-        }
+        },
+        photoGrand: false
     }),
     created() {
         window.addEventListener('resize', this.handleResize)
@@ -19,5 +20,4 @@ export default {
             this.window.height = window.innerHeight;
         }
     }
-
 }
