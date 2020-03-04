@@ -18,6 +18,11 @@ export default {
 
             params: {
 
+                nom: {
+                    type: 'text',
+
+                },
+
                 
                 difficulte: {
                     type: 'donne',
@@ -38,10 +43,7 @@ export default {
                 },
              
 
-                nom: {
-                    type: 'text',
-
-                },
+            
 
                 description: {
                     type: 'text',

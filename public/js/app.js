@@ -3149,6 +3149,9 @@ __webpack_require__.r(__webpack_exports__);
       photo: '',
       listboolean: [],
       params: {
+        nom: {
+          type: 'text'
+        },
         difficulte: {
           type: 'donne'
         },
@@ -3160,9 +3163,6 @@ __webpack_require__.r(__webpack_exports__);
         },
         longitude: {
           type: 'donne'
-        },
-        nom: {
-          type: 'text'
         },
         description: {
           type: 'text'
@@ -28387,12 +28387,116 @@ var render = function() {
             { staticClass: "pl-10", attrs: { cols: "12", md: "8" } },
             [
               _c(
-                "v-row",
+                "v-card-title",
                 _vm._l(_vm.listboolean, function(item, key) {
                   return _c(
-                    "v-col",
-                    { key: key, attrs: { cols: "12", sm: "3" } },
+                    "div",
+                    { key: key },
                     [
+                      item.type == "text"
+                        ? _c(
+                            "div",
+                            [
+                              item.editBoolean
+                                ? _c(
+                                    "v-col",
+                                    { staticClass: "m-4" },
+                                    [
+                                      item.type === "text"
+                                        ? _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: item.value,
+                                                expression: "item.value"
+                                              }
+                                            ],
+                                            domProps: { value: item.value },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  item,
+                                                  "value",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: { icon: "" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.updateData(item)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("v-icon", [
+                                            _vm._v(
+                                              "mdi-checkbox-marked-outline"
+                                            )
+                                          ])
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: { icon: "" },
+                                          on: {
+                                            click: function($event) {
+                                              item.editBoolean = false
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("v-icon", [
+                                            _vm._v("mdi-close-circle")
+                                          ])
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                : _c(
+                                    "div",
+                                    [
+                                      _vm._v(
+                                        "\n              " +
+                                          _vm._s(item.value) +
+                                          "\n              "
+                                      ),
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: { icon: "" },
+                                          on: {
+                                            click: function($event) {
+                                              item.editBoolean = true
+                                            }
+                                          }
+                                        },
+                                        [_c("v-icon", [_vm._v("mdi-pencil")])],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
                       item.type == "donne"
                         ? _c(
                             "v-card",
@@ -28476,9 +28580,9 @@ var render = function() {
                                     "div",
                                     [
                                       _vm._v(
-                                        "\n               " +
+                                        "\n              " +
                                           _vm._s(item.value) +
-                                          "\n               "
+                                          "\n              "
                                       ),
                                       _c(
                                         "v-btn",
@@ -28503,116 +28607,6 @@ var render = function() {
                     ],
                     1
                   )
-                }),
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-card-title",
-                _vm._l(_vm.listboolean, function(item, key) {
-                  return _c("div", { key: key }, [
-                    item.type == "text"
-                      ? _c(
-                          "div",
-                          [
-                            item.editBoolean
-                              ? _c(
-                                  "v-col",
-                                  { staticClass: "m-4" },
-                                  [
-                                    item.type === "text"
-                                      ? _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: item.value,
-                                              expression: "item.value"
-                                            }
-                                          ],
-                                          domProps: { value: item.value },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                item,
-                                                "value",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        attrs: { icon: "" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.updateData(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("v-icon", [
-                                          _vm._v("mdi-checkbox-marked-outline")
-                                        ])
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        attrs: { icon: "" },
-                                        on: {
-                                          click: function($event) {
-                                            item.editBoolean = false
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("v-icon", [
-                                          _vm._v("mdi-close-circle")
-                                        ])
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              : _c(
-                                  "div",
-                                  [
-                                    _vm._v(
-                                      "\n               " +
-                                        _vm._s(item.value) +
-                                        "\n               "
-                                    ),
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        attrs: { icon: "" },
-                                        on: {
-                                          click: function($event) {
-                                            item.editBoolean = true
-                                          }
-                                        }
-                                      },
-                                      [_c("v-icon", [_vm._v("mdi-pencil")])],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                          ],
-                          1
-                        )
-                      : _vm._e()
-                  ])
                 }),
                 0
               )
