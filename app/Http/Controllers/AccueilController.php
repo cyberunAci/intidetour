@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\GalerieModel;
+use App\Http\Resources\GalerieRessource;
+
 
 use Illuminate\Http\Request;
 
@@ -12,9 +15,11 @@ class AccueilController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('clients.accueil');
+        $galerie = GalerieModel::with('photo')->get();
+        return view('clients.accueil')->with('galerie',GalerieRessource::collection($galerie) );
+        
     }
 
     /**
