@@ -18,27 +18,31 @@ export default {
 
             params: {
 
-                nom: {
-                    type: 'text',
-
-                },
+                
                 difficulte: {
-                    type: 'text',
+                    type: 'donne',
 
                 },
 
                 duree: {
-                    type: 'text',
+                    type: 'donne',
 
                 },
                 latitude: {
-                    type: 'text',
+                    type: 'donne',
 
                 },
                 longitude: {
+                    type: 'donne',
+
+                },
+             
+
+                nom: {
                     type: 'text',
 
                 },
+
                 description: {
                     type: 'text',
 
@@ -132,10 +136,12 @@ export default {
                     });
                     
 
-            } else {
+            } 
+            
+            
                 item.listboolean = false;
                 
-            }
+            
            
         },
 

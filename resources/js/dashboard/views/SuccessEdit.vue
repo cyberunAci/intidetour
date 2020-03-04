@@ -2,7 +2,13 @@
   <v-container class="d-flex flex-wrap">
     <v-row no-gutters>
       <!-- PHOTO -->
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="4" >
+        <v-img
+          :src="success.image"
+          class="white--text align-end"
+          gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+        ></v-img>
+
         <div v-if="!photo">
           <input name="photo" type="file" v-on:change="onFileChange" />
         </div>
@@ -16,21 +22,15 @@
             <v-icon>mdi-close-circle</v-icon>
           </v-btn>
         </div>
-
-        <v-img
-          :src="success.image"
-          class="white--text align-end"
-          gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-        ></v-img>
       </v-col>
       <!-- ENDPHOTO -->
 
       <!-- INFORMATION -->
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="8" class="pl-10">
         <div v-for="(item,key) in listBoolean" :key="key">
           <!-- nom -->
 
-          <div v-if="item.key =='nom'">
+          <div v-if="item.type =='text'">
             <v-col v-if="item.editBoolean" class="m-4">
               <input v-if="item.type==='text'" v-model="item.value" />
 
@@ -47,32 +47,9 @@
                 <v-icon>mdi-pencil</v-icon>
               </v-btn>
             </div>
-            {{ item.editBoolean}}
           </div>
 
           <!-- /nom -->
-
-          <!-- description -->
-          <div v-if="item.key =='description'">
-            <v-col v-if="item.editBoolean" class="m-4">
-              <input v-if="item.type==='text'" v-model="item.value" />
-
-              <v-btn icon @click="updateData(item)">
-                <v-icon>mdi-checkbox-marked-outline</v-icon>
-              </v-btn>
-              <v-btn icon @click="item.editBoolean = false">
-                <v-icon>mdi-close-circle</v-icon>
-              </v-btn>
-            </v-col>
-            <div v-else>
-              {{item.value}}
-              <v-btn icon @click="item.editBoolean = true">
-                <v-icon>mdi-pencil</v-icon>
-              </v-btn>
-            </div>
-            {{ item.editBoolean}}
-          </div>
-          <!-- /description -->
         </div>
       </v-col>
       <!-- END INFORMATION -->

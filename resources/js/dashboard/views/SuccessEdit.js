@@ -19,7 +19,7 @@ export default {
 
                 },
                 image: {
-                    type: 'text',
+                    type: 'image',
 
                 },
 
@@ -109,10 +109,11 @@ export default {
                     });
 
 
-            } else {
-                item.listBoolean = false;
+            } 
+               
+            item.listboolean = false;
 
-            }
+           
 
         },
 
