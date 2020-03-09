@@ -8,7 +8,7 @@
       @start="dragging = true"
       @end="dragging = false"
     >
-      <v-card max-width="400" class="mb-4 ml-4" v-for="(photo, key) in photos" :key="key">
+      <v-card max-width="400" class="mb-4 ml-3" v-for="(photo, key) in photos" :key="key">
         <realImage v-bind:photo="photo"></realImage>
       </v-card>
 

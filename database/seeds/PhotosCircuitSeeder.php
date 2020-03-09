@@ -54,7 +54,15 @@ class PhotosCircuitSeeder extends Seeder
                 "photo" => "https://www.allibert-trekking.com/iconographie/7b/PA1_2019-la-reunion-thiphaine-briatte.jpg",
                 "id_circuit" => 1
 
-            ]
+            ],
+            [
+                "id" => 8,
+                "photo" => "https://star-aid.fr/wp-content/uploads/2017/03/COMMUNE-DE-3-BASSINS.jpg",
+                "id_circuit" => 2
+
+            ],
+
+
         ];
         DB::table('photos_circuit')->insert(
             $array

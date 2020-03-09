@@ -4,21 +4,19 @@
             <h2>Galerie</h2>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-lg-12 container">
+        <div class="d-flex flex-row w-100">
             <div id="carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
+                    @foreach ($galerie as $galerie)
                     <div class="carousel-item active">
-                        1
+                    <img src="{{$galerie->photo->photo}}" height="200px" width="300px" class="" alt="Responsive image" id="myImg">
                     </div>
-                    <div class="carousel-item">
-                        2
-                    </div>
-                    <div class="carousel-item">
-                        3
-                    </div>
+                    @endforeach  
                 </div>
             </div>
         </div>
     </div>
+
 </section>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid p-2">
         @include("clients.accueil.presentation")
         @include("clients.accueil.equipes")
         @include("clients.accueil.circuits")
