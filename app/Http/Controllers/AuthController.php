@@ -2,35 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $http = new \GuzzleHttp\Client;
+        $user = User::where('email', '=', request('username'))->first();
 
-        try {
-            $response = $http->post('http://localhost:8000/oauth/token', [
-                'form_params' => [
-                    'grant-type' => 'password',
-                    'client_id' => 2,
-                    'client_secret' => "qcwI0Ox6vjwsYsy3aC2vMDi8hblYZYEdeHC4rYsk",
-                    'username' => $request->username,
-                    'password' => $request->password,
-                ]
-            ]);
-            return $response->getBody();
-            
-        } catch (\GuzzleHttp\Exception\BadResponseException $e) {
-            if ($e->getCode() == 400) {
-                return response()->json('Invalid Request. Please enter a username or a password.', $e->getCode());
-            }
-            else if ($e->getCode() == 401) {
-                return response()->json('Yout credentials are Incorect. Please try again', $e->getCode());
-            }
-            return response()->json('Something went wront on the server', $e->getCode());
-            
+        if (!$user) {
+            return response()->json([
+                'message' => 'Erreur 1',
+                'status' => 422
+            ], 422);
         }
+        if (!Hash::check(request('password'), $user->password)) {
+            return response()->json([
+                'message' => 'Erreur 2',
+                'status' => 422
+            ], 422);
+        }
+
+        $client = DB::table('oauth_clients')
+            ->where('password_client', true)
+            ->first();
+
+
+        return json_encode($client) ;
     }
 }
