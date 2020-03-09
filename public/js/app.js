@@ -90843,8 +90843,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/cyberun-2/projet/Projet/intidetour/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/cyberun-2/projet/Projet/intidetour/resources/sass/client/app.scss */"./resources/sass/client/app.scss");
+__webpack_require__(/*! /home/cyberun-2/Bureau/intidetour/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/cyberun-2/Bureau/intidetour/resources/sass/client/app.scss */"./resources/sass/client/app.scss");
 
 
 /***/ })
