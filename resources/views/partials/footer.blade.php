@@ -1,4 +1,4 @@
-<footer class="container-fluid d-flex align-items-end fixed-bottom  "> 
+<footer class="container-fluid d-flex align-items-end"> 
     <div class="row ">
         <div class="col-md-3 bg-dark">
             <h2>a propos</h2>

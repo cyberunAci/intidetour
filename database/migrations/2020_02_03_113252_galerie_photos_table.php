@@ -16,11 +16,8 @@ class GaleriePhotosTable extends Migration
         Schema::create('galerie_photos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('order');
-
             $table->unsignedBigInteger('id_photo');
             $table->foreign('id_photo')->references('id')->on('photos_circuit');
-         
-           
         });
     }
 

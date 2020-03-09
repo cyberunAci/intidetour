@@ -15,6 +15,7 @@
  * Admin
  */
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CircuitsController;
 
 /**
@@ -33,7 +34,11 @@ Route::get('/cgu', function () {
  * À propos
  */
 Route::prefix('/apropos')->group (function() {
-    Route::get('/', 'AboutController@index');
+    Route::get('/', function () {
+        $about = new AboutController();
+        $apropos = $about->index();
+        return view('clients.apropos', ['apropos' => $apropos]);
+    });
 });
 
 /**

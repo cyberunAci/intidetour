@@ -26,8 +26,8 @@ Route::prefix('circuits')->group(function () {
     Route::post('/{id}', 'CircuitsController@update')->where('id', '[0-9]+');
     Route::delete('/{id}', 'CircuitsController@delete')->where('id', "[0-9]+");
     Route::get('/{id}/trace/', 'CircuitsController@showTrace')->where('id', "[0-9]+");
+    Route::get('/photos', 'CircuitsController@ListePhoto');
     Route::post('/photos/{id}', 'CircuitsController@addPhoto')->where('id', "[0-9]+");
-   
 });
 
 /**
@@ -63,7 +63,17 @@ Route::prefix('interestpoints')->group(function () {
 /**
  * API À propos
  */
-Route::prefix('/apropos')->group (function() {
+Route::prefix('/apropos')->group(function () {
     Route::get('/', 'AboutController@addApropos');
     Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
+});
+
+
+/**
+ * API Galerie
+ */
+
+Route::prefix('/galerie')->group(function () {
+    Route::get('/', 'GalerieController@index');
+    Route::post('/', 'GalerieController@store');
 });
