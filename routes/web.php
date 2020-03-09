@@ -23,6 +23,7 @@ use App\Http\Middleware\Cors;
 Route::get('/toto',function(){
     return "toto";
 })->middleware(Cors::class);
+
 /**
  * Accueil
  */

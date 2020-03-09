@@ -9,14 +9,15 @@
         <div class="d-flex flex-row w-100">
             <div id="carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach ($galerie as $galerie)
-                    <div class="carousel-item active">
-                    <img src="{{$galerie->photo->photo}}" height="200px" width="300px" class="" alt="Responsive image" id="myImg">
+                    @foreach ($galerie as $key=>$galerie)
+                    <div class="carousel-item {{$key==0?'active':''}}">
+                        <img src="{{$galerie->photo->photo}}" height="300px" width="400px" class="" alt="Responsive image" id="myImg">
                     </div>
                     @endforeach  
                 </div>
             </div>
         </div>
     </div>
+
 
 </section>
