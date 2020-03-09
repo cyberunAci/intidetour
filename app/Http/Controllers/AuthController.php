@@ -30,7 +30,35 @@ class AuthController extends Controller
             ->where('password_client', true)
             ->first();
 
+        if (!$client) {
+            return response()->json([
+                'message' => 'Laravel passport n\'est pas initialisé.',
+                'status' => 500
+            ],500);
+        }
+        $data = [
+            'grant_type' => 'password',
+            'client_id' => $client->id,
+            'client_secret' => $client->secret,
+            'username' => $user->email,
+            'password' => request('password'),
+        ];
+        $request = Request::create('/oauth/token', 'POST', $data);
+        $response = app()->handle($request);
 
-        return json_encode($client) ;
+        if ($response->getStatusCode() !=200) {
+            return response()->json([
+                'message' => $request,
+                'status' => 422
+            ], 422);
+        }
+        
+        $data = json_decode($response->getContent());
+
+        return response()->json([
+            'token' => $data->access_token,
+            'user' => $user,
+            'status' => 200
+        ]);
     }
 }
