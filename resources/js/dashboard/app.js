@@ -15,5 +15,4 @@ const app = new Vue({
     components: { Layout }
 })
 
-
 export default new Vuetify(app);
