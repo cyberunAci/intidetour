@@ -61,4 +61,12 @@ class AuthController extends Controller
             'status' => 200
         ]);
     }
+
+    public function logout() {
+        auth()->user()->tokens->each(function ($token, $key) {
+            $token->delete();
+        });
+
+        return response()->json('Vous êtes bien deconnecté.', 200);
+    }
 }
