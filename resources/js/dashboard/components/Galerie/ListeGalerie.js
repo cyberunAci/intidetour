@@ -40,7 +40,6 @@ export default {
                 })
                 .catch();
         },
-<<<<<<< HEAD
         saveGalerie(e) {
 
             console.log(this.photos)
@@ -60,22 +59,6 @@ export default {
             //     alert("error")
 
             // }
-=======
-        onChange(e) {
-
-            this.setTmpList();
-let _photosId = JSON.stringify(this.photosId);
-let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
-
-if(_photosId == _tmpsPhotosList) {
-    console.log('pasmal..');
-} 
-
-            console.log('initial');
-            console.log(_photosId);
-            console.log('tmp');
-            console.log(_tmpsPhotosList);
->>>>>>> f29c0d1f4d0d10f6932fa9ed7f5bb11e248af32e
         },
         setTmpList() {
             let _this = this;
