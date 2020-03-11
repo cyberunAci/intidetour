@@ -64,7 +64,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    if (to.fullPath !== "/dashboard/login") {
+    if (to.fullPath !== "/dashboard/login" && !auth.check()) {
         router.push('/dashboard/login').catch(err => {})
     } else {
         next();
