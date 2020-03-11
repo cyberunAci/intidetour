@@ -1,16 +1,19 @@
 import axios from 'axios';
-import CreateGalerie from './CreateGalerie.vue';
+import AddToGalerie from './AddToGalerie.vue';
 import RealImage from './RealImage.vue';
 import draggable from "vuedraggable";
 import _ from 'lodash';
 
 let id = 1;
 export default {
+
+    props: ["image"],
+
     test: "simple",
     display: "Simple",
 
     components: {
-        CreateGalerie,
+        AddToGalerie,
         RealImage,
         draggable
     },
@@ -39,22 +42,23 @@ export default {
         },
         saveGalerie(e) {
 
-            this.setTmpList();
-            let _photosId = JSON.stringify(this.photosId);
-            let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
+            console.log(this.photos)
+            // this.setTmpList();
+            // let _photosId = JSON.stringify(this.photosId);
+            // let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
 
-            if (_photosId!=_tmpsPhotosList) {
+            // if (_photosId!=_tmpsPhotosList) {
 
-                axios.post('/api/galerie/update', {
-                    galerie: this.tmpPhotosList
-                }).then(({ data }) => {
-                    console.log(data);
-                })
-            } else {
+            //     axios.post('/api/galerie/update', {
+            //         galerie: this.tmpPhotosList
+            //     }).then(({ data }) => {
+            //         console.log(data);
+            //     })
+            // } else {
 
-                alert("error")
+            //     alert("error")
 
-            }
+            // }
         },
         setTmpList() {
             let _this = this;
@@ -64,5 +68,11 @@ export default {
             })
 
         },
+        addImage(image) {
+            console.log("image*************************************")
+            this.photos.push(image);
+            console.log( this.photos)
+        }
+
     }
 }

@@ -83,6 +83,12 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/{any}', 'AdminController@index')->where('any', '.*');
 });
 
+/**
+ * Test
+ */
 
+Route::get('/test', function () {
+    return view('admins.test');
+});
 
 

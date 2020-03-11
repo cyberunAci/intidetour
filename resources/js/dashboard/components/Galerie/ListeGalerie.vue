@@ -4,15 +4,17 @@
     <!-- <v-row> -->
     <draggable
       class="row"
-      :list="photos"
+      v-model="photos"
       @start="dragging = true"
       @end="dragging = false"
     >
-      <v-card max-width="400" class="mb-4 ml-4" v-for="(photo, key) in photos" :key="key">
+      <v-card max-width="400" class="mb-4 ml-4 item" 
+      v-for="(photo, key) in photos" :key="key">
         <realImage v-bind:photo="photo"></realImage>
       </v-card>
 
-      <createGalerie></createGalerie>
+      <addToGalerie v-on:addImage="addImage($event)"></addToGalerie>
+      
     </draggable>
   </v-container>
 </template>
