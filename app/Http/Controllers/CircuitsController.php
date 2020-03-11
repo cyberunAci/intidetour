@@ -214,15 +214,22 @@ class CircuitsController extends Controller
         $path = public_path() . "/storage/monDossier/" . $filename;
 
         if (file_put_contents($path, $decode)) {
-            echo "fichier téléchargé et envoyé dans: " . "/storage/monDossier/" . $filename;
+           echo "fichier téléchargé et envoyé dans: " . "/storage/monDossier/" . $filename;
 
-            $dataPhoto = PhotosCircuitModel::find(1)
+            $dataPhoto = CircuitsModel::find(1)
                 ->where('id', '=', $id)
                 ->first();
-            $dataPhoto->photo = "/storage/monDossier/" . $filename;
+                      
+            $dataPhoto->image = "/storage/monDossier/" . $filename;
+       
             $dataPhoto->save();
+            return $dataPhoto;
+         
+            return $dataPhoto;
+
+            return new CircuitsRessource($dataPhoto);
         }
 
-        return new PhotosCircuitRessource($dataPhoto);
+        //return new PhotosCircuitRessource($dataPhoto);
 }
 }

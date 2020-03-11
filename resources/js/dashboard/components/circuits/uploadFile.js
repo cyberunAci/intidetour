@@ -25,11 +25,15 @@ export default {
         },
 
         greet: function uploadImg() {
-            axios.post('../api/circuits/photos/' + this.circuit.id, {
+
+           
+            console.log(this.photo);
+            axios.post('/api/circuits/photos/' + this.circuit.id, {
                 photo: this.photo
+                
             })
                 .then(function ({data}) {
-                    console.log(data);
+                   // console.log(data);
                 })
                 .catch(function (error) {
                     console.log(error);

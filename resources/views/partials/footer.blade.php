@@ -3,17 +3,20 @@
         <div class="col-md-3 bg-dark">
             <h2>a propos</h2>
             <ul class="navbar-nav ml-auto ">
-                <li class="nav-item active ">
+                <li class="nav-item">
                     lorem ipsum
                 </li>
-                <li class="nav-item active ">
+                <li class="nav-item">
                     lorem ipsum
                 </li>
-                <li class="nav-item active ">
+                <li class="nav-item">
                     <a href="/cgu">CGU</a>
                 </li>
-                <li class="nav-item active ">
+                <li class="nav-item">
                     <a href="/apropos">A propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item active ">
                     <a href="#">@copyright 2020</a>

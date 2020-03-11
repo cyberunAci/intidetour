@@ -17,7 +17,7 @@ class PhotosCircuitModel extends Model
         return $this->belongsTo(CircuitsModel::class,'id_circuit');
     }
 
-    function photo(){
+    function galerie(){
         return $this->hasMany(GalerieModel::class,'id_photo');
     }
 }

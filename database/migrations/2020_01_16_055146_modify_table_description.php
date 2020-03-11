@@ -31,7 +31,7 @@ class ModifyTableDescription extends Migration
     public function down()
     {
         Schema::table('circuits', function (Blueprint $circuit) {
-            $circuit->string('description', 255)->change();
+            //$circuit->string('description', 255)->change();
         });
     }
 }
