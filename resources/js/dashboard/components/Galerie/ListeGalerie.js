@@ -44,7 +44,6 @@ export default {
                 .catch();
         },
         saveGalerie(e) {
-
             this.setTmpList();
             let _photosId = JSON.stringify(this.photosId);
             let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
@@ -52,8 +51,10 @@ export default {
             if (_photosId!=_tmpsPhotosList) {
 
                 axios.post('/api/galerie/update', {
-                    galerie: this.tmpPhotosList
+                    galerie: this.photosId
                 }).then(({ data }) => {
+                    console.log(data)
+                    this.photos = [];
                     this.addFomServer(data.data)
                 })
             } else {

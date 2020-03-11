@@ -2091,9 +2091,11 @@ var id = 1;
 
       if (_photosId != _tmpsPhotosList) {
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/galerie/update', {
-          galerie: this.tmpPhotosList
+          galerie: this.photosId
         }).then(function (_ref2) {
           var data = _ref2.data;
+          console.log(data);
+          _this4.photos = [];
 
           _this4.addFomServer(data.data);
         });

@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\GalerieModel;
 use App\Http\Resources\GalerieRessource;
 use App\PhotosCircuitModel;
-use Error;
-use Hamcrest\Arrays\IsArray;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -49,7 +47,7 @@ class GalerieController extends Controller
             $request->input(),
             [
                 'order' => 'required',
-                'id_photo' => 'required'
+                'id_photo' => 'required',
             ],
             [
                 'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
@@ -97,10 +95,11 @@ class GalerieController extends Controller
 
         if ($galerie) {
 
-            $galerie = json_decode($galerie);
+            $galerie = is_array($galerie) ? $galerie : json_decode($galerie);
+
             if (is_array($galerie)) {
 
-                $images = []; //arret des images venant des circuits
+                $images = []; //array images venant des circuits
 
                 //boucle vérification des images
                 foreach ($galerie as $order => $idImg) {
@@ -118,11 +117,9 @@ class GalerieController extends Controller
 
                 //boucle mise en place des orders
                 foreach ($images as $order => $image) {
-
-                    $image = $image->galerie()->create([
+                    $imgs[] = $image->galerie()->create([
                         'order' => $order + 1,
                     ]);
-                    $imgs[] = $image; //push dans le tableau
                 }
             } else {
                 return 'not array';
@@ -131,7 +128,9 @@ class GalerieController extends Controller
             return 'error';
         }
 
-        return $imgs;
+        return GalerieRessource::collection($imgs) ;
+
+        //return des images nous on veux un tableau abec des image a l interieur
     }
 
     /**
