@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\Cors;
 use Illuminate\Http\Request;
 
 /*
@@ -13,7 +14,11 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
+Route::post('/login', 'AuthController@login');
 
 /**
  * API circuits
@@ -34,10 +39,14 @@ Route::prefix('circuits')->group(function () {
  * API Utilisateurs
  */
 Route::prefix('users')->group(function () {
-    Route::get('/', 'UsersController@index');
+    Route::get('/', 'UsersController@index')->middleware(Cors::class);
     Route::post('/{id}', 'UsersController@update')->where('id', "[0-9]+");
     Route::delete('/{id}', 'UsersController@delete')->where('id', "[0-9]+");
 });
+
+
+    
+    
 
 /**
  * API Success
@@ -46,6 +55,7 @@ Route::prefix('success')->group(function () {
     Route::get('/', 'SuccessController@index');
     Route::post('/', 'SuccessController@store');
     Route::post('/{id}', 'SuccessController@update');
+    Route::get('/{id}', 'SuccessController@show')->where('id', "[0-9]+");
     Route::delete('/{id}', 'SuccessController@destroy');
     Route::post('/image/{id}', 'SuccessController@addImage')->where('id', "[0-9]+");
 });
@@ -76,4 +86,5 @@ Route::prefix('/apropos')->group(function () {
 Route::prefix('/galerie')->group(function () {
     Route::get('/', 'GalerieController@index');
     Route::post('/', 'GalerieController@store');
+    Route::post('/', 'GalerieController@update');
 });

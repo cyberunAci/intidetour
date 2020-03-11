@@ -25,6 +25,18 @@ class GalerieSeeder extends Seeder
                 "id_photo" => "2",
 
             ],
+            [
+                "id" => 3,
+                "order" => "3",
+                "id_photo" => "3",
+
+            ],
+            [
+                "id" => 4,
+                "order" => "4",
+                "id_photo" => "4",
+
+            ],
         ];
 
         DB::table('galerie_photos')->insert(

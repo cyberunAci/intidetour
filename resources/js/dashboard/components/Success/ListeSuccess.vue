@@ -9,6 +9,12 @@
         </v-col>
       </v-row>
       <v-row class="d-flex justify-end ma-1">
+
+      
+
+           <v-btn :to="{ path: '/dashboard/success/' + success.id}" class="ma-1">Éditer2</v-btn>
+      
+
         <updateSuccess v-bind:success="success"></updateSuccess>
         <uploadSuccess v-bind:success="success"></uploadSuccess>
         <deleteSuccess v-on:successToDelete='successes.splice(key, 1)' v-bind:success="success" v-bind:successes="successes"></deleteSuccess>

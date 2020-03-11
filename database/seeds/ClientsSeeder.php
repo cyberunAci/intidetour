@@ -19,7 +19,7 @@ class ClientsSeeder extends Seeder
                 "email" => "guiperm@gmail.com",
                 "date_naissance" => "1995-02-09",
                 "tel" => "0692121212",
-                "password" => "123",
+                "password" => bcrypt("123"),
                 "photo" => "lien photo"
             ],
             [
@@ -28,7 +28,7 @@ class ClientsSeeder extends Seeder
                 "email" => "josni@gmail.com",
                 "date_naissance" => "1995-12-10",
                 "tel" => "0692131313",
-                "password" => "456",
+                "password" => bcrypt("456"),
                 "photo" => "lien photo"
             ]
         ];

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 
-class SuccessController extends Controller
+class SuccessController extends Controller                 
 {
     /**
      * Display a listing of the resource.
@@ -24,6 +24,13 @@ class SuccessController extends Controller
         return  SuccessResource::collection($success);
     }
 
+
+
+
+
+
+
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -69,8 +76,12 @@ class SuccessController extends Controller
      */
     public function show($id)
     {
-        //
+        $success = SuccessModel::find($id);
+        return new SuccessResource($success);
     }
+
+
+    
 
     /**
      * Show the form for editing the specified resource.
