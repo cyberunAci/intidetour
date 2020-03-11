@@ -2593,44 +2593,75 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_alertClient_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/alertClient.vue */ "./resources/js/dashboard/components/utils/alertClient.vue");
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    alertClient: _utils_alertClient_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   props: ["circuit"],
   data: function data() {
     return {
-      trace: ''
+      confirm: false,
+      traces: [],
+      trace: '',
+      alert: {
+        text: '',
+        error: true,
+        actif: false
+      }
     };
   },
   methods: {
+    uploadGpx: function uploadGpx() {
+      this.confirm = true;
+    },
+    getTrace: function getTrace() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/circuits/' + this.circuit.id + '/traces/').then(function (datas) {
+        _this.traces = datas.data.trace;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    confirmGpx: function confirmGpx() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/circuits/' + this.circuit.id + '/traces/', {
+        trace: this.trace
+      }).then(function (data) {
+        _this2.alert.text = "Le fichier à bien été enregistrer";
+        _this2.alert.error = false;
+        _this2.alert.actif = true;
+      })["catch"](function (error) {
+        _this2.alert.text = error.response.data;
+        _this2.alert.error = true;
+        _this2.alert.actif = true;
+      });
+    },
     onFileChange: function onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
       this.createGpx(files[0]);
     },
     createGpx: function createGpx(file) {
-      var _this = this;
+      var _this3 = this;
 
       var reader = new FileReader();
 
       reader.onload = function (e) {
-        _this.trace = e.target.result;
+        _this3.trace = e.target.result;
       };
 
       reader.readAsDataURL(file);
     },
-    uploadGpx: function uploadGpx() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('../api/circuits/' + this.circuit.id + '/traces/', {
-        trace: this.trace
-      }).then(function (_ref) {
-        var data = _ref.data;
-        console.log(data);
-      })["catch"](function (error) {
-        console.log('toto');
-        console.log(error);
-      });
-    },
     removeGpx: function removeGpx() {
       this.trace = "";
     }
+  },
+  created: function created() {
+    this.getTrace();
   }
 });
 
@@ -3139,6 +3170,31 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getDatas();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./resources/js/dashboard/components/utils/alertClient.js?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./resources/js/dashboard/components/utils/alertClient.js?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["text", "actif", "error"],
+  data: function data() {
+    return {
+      isActif: this.actif
+    };
+  },
+  watch: {
+    actif: function actif(newVal, oldVal) {
+      this.isActif = true;
+    }
   }
 });
 
@@ -26819,36 +26875,142 @@ var render = function() {
       _c(
         "v-card",
         [
-          _c("v-container", [
-            !_vm.trace
-              ? _c("div", [
-                  _c("input", {
-                    attrs: { name: "trace", type: "file" },
-                    on: { change: _vm.onFileChange }
-                  })
-                ])
-              : _c(
-                  "div",
-                  [
+          _c(
+            "v-container",
+            [
+              !_vm.trace
+                ? _c("div", [
+                    !_vm.traces
+                      ? _c("div", [
+                          _c("h4", [
+                            _vm._v("Aucun fichier gpx upload actuellement")
+                          ])
+                        ])
+                      : _c("div", [
+                          _c("h4", [
+                            _vm._v(
+                              'Le fichier: "' +
+                                _vm._s(_vm.traces) +
+                                '" existe déjà'
+                            )
+                          ])
+                        ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: { name: "trace", type: "file" },
+                      on: { change: _vm.onFileChange }
+                    })
+                  ])
+                : _c("div", [
+                    _c("h4", { staticClass: "text-center" }, [
+                      _vm._v("Cliquez pour confirmer votre upload ou annuler")
+                    ]),
+                    _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
                     _c(
-                      "v-btn",
-                      { attrs: { icon: "" }, on: { click: _vm.uploadGpx } },
-                      [_c("v-icon", [_vm._v("mdi-download")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      { attrs: { icon: "" }, on: { click: _vm.removeGpx } },
-                      [_c("v-icon", [_vm._v("mdi-close-circle")])],
+                      "p",
+                      { staticClass: "text-center" },
+                      [
+                        _c(
+                          "v-btn",
+                          { attrs: { icon: "" }, on: { click: _vm.uploadGpx } },
+                          [_c("v-icon", [_vm._v("mdi-download")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          { attrs: { icon: "" }, on: { click: _vm.removeGpx } },
+                          [_c("v-icon", [_vm._v("mdi-close-circle")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-dialog",
+                          {
+                            attrs: { "max-width": "290" },
+                            model: {
+                              value: _vm.confirm,
+                              callback: function($$v) {
+                                _vm.confirm = $$v
+                              },
+                              expression: "confirm"
+                            }
+                          },
+                          [
+                            _c(
+                              "v-card",
+                              [
+                                _c("h4", [
+                                  _vm._v(
+                                    "Un fichier est sur le point d'être upload, souhaitez-vous continuer?"
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card-actions",
+                                  [
+                                    _c("v-spacer"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          color: "green darken-1",
+                                          text: ""
+                                        },
+                                        on: {
+                                          click: [
+                                            _vm.confirmGpx,
+                                            function($event) {
+                                              _vm.confirm = false
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      [_vm._v("Continuer")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          color: "green darken-1",
+                                          text: ""
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.confirm = false
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Annuler")]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
                       1
                     )
-                  ],
-                  1
-                )
-          ])
+                  ]),
+              _vm._v(" "),
+              _c("alertClient", {
+                attrs: {
+                  text: _vm.alert.text,
+                  actif: _vm.alert.actif,
+                  error: _vm.alert.error
+                }
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -27890,6 +28052,58 @@ var render = function() {
           )
         }),
         1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/dashboard/components/utils/alertClient.vue?vue&type=template&id=143d1549&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/dashboard/components/utils/alertClient.vue?vue&type=template&id=143d1549& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-snackbar",
+    {
+      attrs: { color: _vm.error ? "red" : "green" },
+      model: {
+        value: _vm.isActif,
+        callback: function($$v) {
+          _vm.isActif = $$v
+        },
+        expression: "isActif"
+      }
+    },
+    [
+      _vm._v("\n  " + _vm._s(_vm.text) + "\n  "),
+      _c(
+        "v-btn",
+        {
+          attrs: { text: "" },
+          on: {
+            click: function($event) {
+              _vm.isActif = false
+            }
+          }
+        },
+        [_vm._v("Close")]
       )
     ],
     1
@@ -89155,6 +89369,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowUsers_vue_vue_type_template_id_6557b384___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowUsers_vue_vue_type_template_id_6557b384___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/utils/alertClient.js?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/dashboard/components/utils/alertClient.js?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_alertClient_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!./alertClient.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./resources/js/dashboard/components/utils/alertClient.js?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_alertClient_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/utils/alertClient.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/dashboard/components/utils/alertClient.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _alertClient_vue_vue_type_template_id_143d1549___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./alertClient.vue?vue&type=template&id=143d1549& */ "./resources/js/dashboard/components/utils/alertClient.vue?vue&type=template&id=143d1549&");
+/* harmony import */ var _alertClient_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./alertClient.js?vue&type=script&lang=js& */ "./resources/js/dashboard/components/utils/alertClient.js?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _alertClient_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _alertClient_vue_vue_type_template_id_143d1549___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _alertClient_vue_vue_type_template_id_143d1549___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/dashboard/components/utils/alertClient.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/utils/alertClient.vue?vue&type=template&id=143d1549&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/dashboard/components/utils/alertClient.vue?vue&type=template&id=143d1549& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_alertClient_vue_vue_type_template_id_143d1549___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./alertClient.vue?vue&type=template&id=143d1549& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/dashboard/components/utils/alertClient.vue?vue&type=template&id=143d1549&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_alertClient_vue_vue_type_template_id_143d1549___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_alertClient_vue_vue_type_template_id_143d1549___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

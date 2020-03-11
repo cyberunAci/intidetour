@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\File;
 use App\CircuitsModel;
-use App\TracesModel;
 use App\Http\Resources\CircuitsRessource;
-use Illuminate\Support\Str;
 use App\Http\Resources\PhotosCircuitRessource;
 use App\Http\Resources\TracesRessource;
 use App\PhotosCircuitModel;
+use App\TracesModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CircuitsController extends Controller
 {
-
 
     private $gpxPath;
     /**
@@ -23,16 +21,14 @@ class CircuitsController extends Controller
 
      * @return retourne les circuits entré en BDD
      */
-    public   function index()
+    public function index()
     {
         //recupere tous les circuit
         $circuits = CircuitsModel::all();
         //Retourne la data cad les circuits
         return CircuitsRessource::collection($circuits);
     }
-
-
-
+    
     /**
      *  Function recuperation  d un circuit en particulier
      * @param $id $request requete d'entrée
@@ -42,6 +38,12 @@ class CircuitsController extends Controller
     {
         $circuit = CircuitsModel::find($id);
         return new CircuitsRessource($circuit);
+    }
+
+    public function showTrace($id)
+    {
+        $trace = TracesModel::find($id);
+        return $trace;
     }
 
     /**
@@ -60,10 +62,10 @@ class CircuitsController extends Controller
                 'image' => 'required',
                 'difficulte' => 'required',
                 'description' => 'required',
-                'duree'=>'required',
-                'distance'=>'required',
-                'latitude'=>'required',
-                'longitude'=>'required'
+                'duree' => 'required',
+                'distance' => 'required',
+                'latitude' => 'required',
+                'longitude' => 'required',
 
             ],
             [
@@ -123,7 +125,7 @@ class CircuitsController extends Controller
      */
     public function delete($id)
     {
-        $status =  CircuitsModel::destroy($id) ? 'ok' : 'nok';
+        $status = CircuitsModel::destroy($id) ? 'ok' : 'nok';
         return json_encode(['status' => $status]);
     }
 
@@ -135,54 +137,53 @@ class CircuitsController extends Controller
         $error = '';
         $circuit = CircuitsModel::find($id);
 
-        if($circuit){
+        if ($circuit) {
 
             $trace = $request->get('trace');
 
             $exploded = explode(",", $trace);
-    
+
             if (str::contains($exploded[0], 'gpx')) {
 
                 $ext = 'gpx';
 
-            $decode = base64_decode($exploded[1]);
-            
-            $filename= str_replace(" ", "", $circuit['nom'] . "." . $ext);
+                $decode = base64_decode($exploded[1]);
 
-            $path = public_path() . $this->gpxPath  . $filename;
-    
-            if (file_put_contents($path, $decode)) {
-    
-                $dataTrace = TracesModel::updateOrCreate(['id_circuit' => $circuit['id']]);
-            
-                $dataTrace->trace = $filename;
+                $filename = str_replace(" ", "", $circuit['nom'] . "." . $ext);
 
-                $dataTrace->save();
+                $path = public_path() . $this->gpxPath . $filename;
 
+                if (file_put_contents($path, $decode)) {
+
+                    $dataTrace = TracesModel::updateOrCreate(['id_circuit' => $circuit['id']]);
+
+                    $dataTrace->trace = $filename;
+
+                    $dataTrace->save();
+
+                }
+
+            } else {
+
+                $error = "Erreur votre fichier doit être en gpx!";
             }
 
-
-            }else{
-                
-                $error = "Erreur votre fichier doit être en gpx!"; 
-            }
-    
-        
-        }else{
+        } else {
             $error = "Erreur le circuit n'existe pas!";
         }
 
         return response(
-            empty($error)?new TracesRessource($dataTrace):$error,
-            empty($error)?200:400
-    );
+            empty($error) ? new TracesRessource($dataTrace) : $error,
+            empty($error) ? 200 : 400
+        );
     }
 
     /**
      * Affichage de la liste des photos du Circuit
      */
 
-    public function ListePhoto() {
+    public function ListePhoto()
+    {
 
         $dataPhoto = PhotosCircuitModel::all();
         return PhotosCircuitRessource::collection($dataPhoto);
@@ -191,7 +192,7 @@ class CircuitsController extends Controller
     /**
      * ajouter une photo a un circuit
      */
-    public function  addPhoto(Request $request, $id)
+    public function addPhoto(Request $request, $id)
     {
 
         $img = $request->get('photo');
@@ -210,7 +211,6 @@ class CircuitsController extends Controller
 
         $filename = str::random() . "." . $ext;
 
-        
         $path = public_path() . "/storage/monDossier/" . $filename;
 
         if (file_put_contents($path, $decode)) {
@@ -219,12 +219,10 @@ class CircuitsController extends Controller
             $dataPhoto = PhotosCircuitModel::find(1)
                 ->where('id', '=', $id)
                 ->first();
-
             $dataPhoto->photo = "/storage/monDossier/" . $filename;
             $dataPhoto->save();
-            return new PhotosCircuitRessource($dataPhoto);
         }
 
-    }
-
+        return new PhotosCircuitRessource($dataPhoto);
+}
 }
