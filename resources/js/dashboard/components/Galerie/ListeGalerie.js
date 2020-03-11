@@ -29,36 +29,38 @@ export default {
         this.getDatas()
     },
     methods: {
+        addFomServer(datas){
+            datas.forEach(galerie => {
+                this.photos.push(galerie.photo);
+                this.photosId.push(galerie.id);
+            })
+
+        },
         getDatas() {
             axios.get('../api/galerie')
                 .then(({ data }) => {
-                    data.data.forEach(galerie => {
-                        this.photos.push(galerie);
-                        this.photosId.push(galerie.id);
-                    })
-                    return this.photos;
+                    this.addFomServer(data.data)
                 })
                 .catch();
         },
         saveGalerie(e) {
 
-            console.log(this.photos)
-            // this.setTmpList();
-            // let _photosId = JSON.stringify(this.photosId);
-            // let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
+            this.setTmpList();
+            let _photosId = JSON.stringify(this.photosId);
+            let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
 
-            // if (_photosId!=_tmpsPhotosList) {
+            if (_photosId!=_tmpsPhotosList) {
 
-            //     axios.post('/api/galerie/update', {
-            //         galerie: this.tmpPhotosList
-            //     }).then(({ data }) => {
-            //         console.log(data);
-            //     })
-            // } else {
+                axios.post('/api/galerie/update', {
+                    galerie: this.tmpPhotosList
+                }).then(({ data }) => {
+                    this.addFomServer(data.data)
+                })
+            } else {
 
-            //     alert("error")
+                alert("error")
 
-            // }
+            }
         },
         setTmpList() {
             let _this = this;

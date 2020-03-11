@@ -20,11 +20,7 @@ export default {
                     // console.log(data.data),
                     data.data.forEach(item => {
                         this.images.push(item);
-
-
-                    },
-
-                    )
+                    });
                 })
         },
         validate() {
