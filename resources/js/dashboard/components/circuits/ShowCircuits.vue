@@ -18,6 +18,7 @@
                 <v-spacer />
                 <router-link :to="{ path: '/dashboard/catalogue/' + circuit.id}">EDITER</router-link>
                 <showCircuit v-bind:circuit="circuit"></showCircuit>
+                <AddTrace v-bind:circuit="circuit"></AddTrace>
                 <deleteCircuit
                   v-on:circuitToDelete="circuits.splice(key, 1)"
                   v-bind:circuit="circuit"
