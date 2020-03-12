@@ -2,6 +2,7 @@
   <div class="row">
     <h2>Temoignages</h2>
   </div>
+  
   <div class="row">
     <div id="carouselTemoignages" class="carousel slide carousel-fade col-12" data-ride="carousel">
       <div class="carousel-inner">

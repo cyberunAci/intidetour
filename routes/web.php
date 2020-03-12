@@ -23,6 +23,7 @@ use App\Http\Middleware\Cors;
 Route::get('/toto',function(){
     return "toto";
 })->middleware(Cors::class);
+
 /**
  * Accueil
  */
@@ -88,6 +89,12 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/{any}', 'AdminController@index')->where('any', '.*');
 });
 
+/**
+ * Test
+ */
 
+Route::get('/test', function () {
+    return view('admins.test');
+});
 
 

@@ -63,7 +63,9 @@ export default {
                     this.snackbar = true;
                     this.text = 'Le circuit a bien été ajouté'
                 }
-            }).catch()
+            }).catch(erreur=>{
+                console.log(erreur);
+            })
         },
 
 

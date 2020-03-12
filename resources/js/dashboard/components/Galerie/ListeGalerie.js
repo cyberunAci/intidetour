@@ -1,16 +1,19 @@
 import axios from 'axios';
-import CreateGalerie from './CreateGalerie.vue';
+import AddToGalerie from './AddToGalerie.vue';
 import RealImage from './RealImage.vue';
 import draggable from "vuedraggable";
 import _ from 'lodash';
 
 let id = 1;
 export default {
+
+    props: ["image"],
+
     test: "simple",
     display: "Simple",
 
     components: {
-        CreateGalerie,
+        AddToGalerie,
         RealImage,
         draggable
     },
@@ -26,31 +29,39 @@ export default {
         this.getDatas()
     },
     methods: {
+        addFomServer(datas){
+            datas.forEach(galerie => {
+                this.photos.push(galerie.photo);
+                this.photosId.push(galerie.id);
+            })
+
+        },
         getDatas() {
             axios.get('../api/galerie')
                 .then(({ data }) => {
-                    data.data.forEach(galerie => {
-                        this.photos.push(galerie);
-                        this.photosId.push(galerie.id);
-                    })
-                    return this.photos;
+                    this.addFomServer(data.data)
                 })
                 .catch();
         },
-        onChange(e) {
-
+        saveGalerie(e) {
             this.setTmpList();
-let _photosId = JSON.stringify(this.photosId);
-let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
+            let _photosId = JSON.stringify(this.photosId);
+            let _tmpsPhotosList = JSON.stringify(this.tmpPhotosList);
 
-if(_photosId == _tmpsPhotosList) {
-    console.log('pasmal..');
-} 
+            if (_photosId!=_tmpsPhotosList) {
 
-            console.log('initial');
-            console.log(_photosId);
-            console.log('tmp');
-            console.log(_tmpsPhotosList);
+                axios.post('/api/galerie/update', {
+                    galerie: this.photosId
+                }).then(({ data }) => {
+                    console.log(data)
+                    this.photos = [];
+                    this.addFomServer(data.data)
+                })
+            } else {
+
+                alert("error")
+
+            }
         },
         setTmpList() {
             let _this = this;
@@ -58,6 +69,13 @@ if(_photosId == _tmpsPhotosList) {
             this.photos.forEach(function (photo) {
                 _this.tmpPhotosList.push(photo.id);
             })
+
+        },
+        addImage(image) {
+            console.log("image*************************************")
+            this.photos.push(image);
+            console.log( this.photos)
         }
-    },
+
+    }
 }
