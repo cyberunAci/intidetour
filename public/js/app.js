@@ -28760,6 +28760,10 @@ var render = function() {
           }
         },
         [
+          _c("p", [_vm._v("E-mail : Admin@Admin.com")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Password : 123456789")]),
+          _vm._v(" "),
           _c("v-text-field", {
             attrs: {
               label: "E-mail",
@@ -88883,7 +88887,9 @@ function () {
   }, {
     key: "check",
     value: function check() {
-      return !!this.token;
+      // TODO à modifier pour la mise à production
+      // return !!this.token;
+      return true;
     }
   }]);
 

@@ -19,7 +19,6 @@ export default {
                     .then(({data}) => {
                         auth.login(data.token, data.user);
                         this.$router.push('/dashboard');
-                        
                         console.log(data.token);
                     })
                     .catch(({response}) => {

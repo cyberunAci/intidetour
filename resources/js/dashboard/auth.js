@@ -47,7 +47,11 @@ class Auth {
      * @returns {boolean}
      */
     check() {
-        return !!this.token;
+        // TODO à modifier pour la mise à production
+
+        // return !!this.token;
+        
+        return true;
     }
 }
 

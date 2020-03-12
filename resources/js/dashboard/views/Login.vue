@@ -2,6 +2,8 @@
   <v-container>
     <h2 class="login-heading">Connection</h2>
     <v-form action="#" ref="form" v-model="valid">
+      <p>E-mail : Admin@Admin.com</p>
+      <p>Password : 123456789</p>
       <v-text-field
         v-model="username"
         label="E-mail"

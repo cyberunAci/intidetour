@@ -30,6 +30,15 @@ class ClientsSeeder extends Seeder
                 "tel" => "0692131313",
                 "password" => bcrypt("456"),
                 "photo" => "lien photo"
+            ],
+            [
+                "nom" => "Admin",
+                "prenom" => "Admin",
+                "email" => "Admin@Admin.com",
+                "date_naissance" => "1995-12-10",
+                "tel" => "0692131313",
+                "password" => bcrypt("123456789"),
+                "photo" => "lien photo"
             ]
         ];
 
