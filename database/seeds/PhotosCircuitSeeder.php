@@ -27,37 +27,37 @@ class PhotosCircuitSeeder extends Seeder
             ],
             [
                 "id" => 3,
-                "photo" => "https://www.cartedelareunion.fr/wp-content/uploads/2016/04/Cirque-Cilaos-Reunion-1199x800.jpg",
+                "photo" => "https://freedom.fr/wp-content/uploads/2018/04/RDTponttroisbassinsroutedestamarins-creditirt-emmanuelvirin.jpg",
                 "id_circuit" => 1
 
             ],
             [
                 "id" => 4,
-                "photo" => "https://www.cartedelareunion.fr/wp-content/uploads/2016/05/Village-de-Cilaos-vue-aerienne-centre-cartedelareunion.fr-%C2%A9-Serge-Gelabert-1422x800.jpg",
+                "photo" => "https://www.clicanoo.re/sites/default/files/styles/juicebox_ar/public/image_articles//2016-10/Trois_Bassins.jpg?itok=xjU19mhV",
                 "id_circuit" => 2
 
             ],
             [
                 "id" => 5,
-                "photo" => "https://www.allonslareunion.com/reunion/homescreen.jpg",
+                "photo" => "https://star-aid.fr/wp-content/uploads/2017/03/COMMUNE-DE-3-BASSINS.jpg",
                 "id_circuit" => 1
 
             ],
             [
                 "id" => 6,
-                "photos" => "https://media.oovatu.com/pano-2049/reunion_81949.jpg",
+                "photos" => "https://mapio.net/images-p/8638939.jpg",
                 "id_circuit" => 2
 
             ],
             [
                 "id" => 7,
-                "photo" => "https://www.allibert-trekking.com/iconographie/7b/PA1_2019-la-reunion-thiphaine-briatte.jpg",
+                "photo" => "https://www.ouest-lareunion.com/galerie-wysipage/71/original-71-img20150929-379777816.jpg",
                 "id_circuit" => 1
 
             ],
             [
                 "id" => 8,
-                "photo" => "https://star-aid.fr/wp-content/uploads/2017/03/COMMUNE-DE-3-BASSINS.jpg",
+                "photo" => "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREnxhSfgOJ7O3p2rtdE8hmpvq_ie4SBoM6nkvlj4DrLu846Gsy",
                 "id_circuit" => 2
 
             ],
