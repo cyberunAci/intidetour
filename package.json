@@ -22,8 +22,14 @@
   "dependencies": {
     "axios": "^0.19.1",
     "vue": "^2.6.11",
+<<<<<<< HEAD
     "vue-router": "^3.1.6",
     "vuedraggable": "^2.23.2",
     "vuetify": "^2.2.15"
+=======
+    "vue-router": "^3.1.5",
+    "vuedraggable": "^2.23.2",
+    "vuetify": "^2.2.12"
+>>>>>>> 1936328dc647a774d06c8afd749e057ad04e5c2c
   }
 }
