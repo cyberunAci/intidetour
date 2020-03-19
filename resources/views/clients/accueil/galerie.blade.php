@@ -11,7 +11,7 @@
                 <div class="carousel-inner">
                     @foreach ($galerie as $key=>$galerie)
                     <div class="carousel-item {{$key==0?'active':''}}">
-                        <img src="{{$galerie->photo->photo}}" height="300px" width="400px" class="" alt="Responsive image" id="myImg">
+                        <img src="{{$galerie->photo->photo}}" height="300px" width="400px" class="" alt="" id="myImg">
                     </div>
                     @endforeach  
                 </div>
