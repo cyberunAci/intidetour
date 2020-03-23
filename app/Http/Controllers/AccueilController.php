@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\CircuitsModel;
 use App\GalerieModel;
+use App\Http\Resources\CircuitsRessource;
 use App\Http\Resources\GalerieRessource;
 
 
@@ -18,8 +20,10 @@ class AccueilController extends Controller
     public function index(Request $request)
     {
         $galerie = GalerieModel::with('photo')->get();
-        return view('clients.accueil')->with('galerie',GalerieRessource::collection($galerie) );
-        
+        $circuits = CircuitsModel::take(3)->get();
+
+        return view('clients.accueil',['galerie'=>GalerieRessource::collection($galerie),'circuits'=>CircuitsRessource::collection($circuits)]);
+
     }
 
     /**

@@ -13,17 +13,15 @@
                         <li data-target="#carouselCircuits" data-slide-to="1"></li>
                         <li data-target="#carouselCircuits" data-slide-to="2"></li>
                     </ol>
+
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="https://via.placeholder.com/250x100" alt="First slide">
+                        <?php $__currentLoopData = $circuits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$circuit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="carousel-item <?php echo e($key==0?'active':''); ?>">
+                            <img src="<?php echo e($circuit->image); ?>" height="300px" width="400px" class="" alt="" id="myImg">
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="https://via.placeholder.com/250x100" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="https://via.placeholder.com/250x100" alt="Third slide">
-                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                     </div>
+
                     <a class="carousel-control-prev" href="#carouselCircuits" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
