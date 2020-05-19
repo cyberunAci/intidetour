@@ -3,9 +3,9 @@ import { authenticationService } from "./_services/authentication.service";
 export default {
     data() {
         return {
+            text:'Informations invalide',
             multiLine: true,
             snackbar: false,
-            text: "erruer",
             user: {
                 email: '',
                 password: ''
@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         connection() {
-
+            this.snackbar = true;
             this.loading = true;
             authenticationService.login(this.user).then(
                 user => {
@@ -40,6 +40,6 @@ export default {
                     this.loading = false;
                 }
             )
-        }
-    },
+        },
+    }
 };

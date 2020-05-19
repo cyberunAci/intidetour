@@ -22,6 +22,7 @@ function connected() {
     return !_.isNull(user)
 }
 
+
 function login(user) {
     return fetch(
         `/api/login`,
@@ -29,15 +30,17 @@ function login(user) {
     )
         .then(handleResponse)
         .then(({ data }) => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem("currentUser", JSON.stringify(data));
-            currentUserSubject.next(data);
-            return data;
+            if (!data) {
+                let snak = true;
+                return snak;
+            }
+            else {
+                localStorage.setItem("currentUser", JSON.stringify(data));
+                currentUserSubject.next(data);
+                return data;
+            }
+
         })
-        .catch(
-            location.reload(),
-            localStorage.removeItem("currentUser")
-            )
 }
 
 function logout() {
