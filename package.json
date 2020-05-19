@@ -20,7 +20,10 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+<<<<<<< HEAD
     "rxjs": "^6.5.5",
+=======
+>>>>>>> 28b8488418965da0cfcb41ec8e39cffcf79075af
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "vuedraggable": "^2.23.2",
