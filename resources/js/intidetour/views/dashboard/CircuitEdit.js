@@ -1,6 +1,6 @@
 
 
-import UploadFile from '../components/circuits/uploadFile';
+import UploadFile from '../../components/circuits/uploadFile';
 export default {
 
     

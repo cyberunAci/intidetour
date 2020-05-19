@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from './views/Home.vue';
-import Success from './views/Success.vue';
-import Users from './views/Users.vue';
-import Catalogue from './views/Catalogue.vue';
-import Apropos from './views/Apropos.vue';
-import Galerie from './views/Galerie.vue';
-import CircuitEdit from './views/CircuitEdit.vue';
-import SuccessEdit from './views/SuccessEdit.vue';
+import Home from './views/dashboard/Home.vue';
+import Success from './views/dashboard/Success.vue';
+import Users from './views/dashboard/Users.vue';
+import Catalogue from './views/dashboard/Catalogue.vue';
+import Apropos from './views/dashboard/Apropos.vue';
+import Galerie from './views/dashboard/Galerie.vue';
+import CircuitEdit from './views/dashboard/CircuitEdit.vue';
+import SuccessEdit from './views/dashboard/SuccessEdit.vue';
 import Login from './Login.vue'
 import { Role } from './_helpers/role';
 import { authenticationService } from '../intidetour/_services/authentication.service';
