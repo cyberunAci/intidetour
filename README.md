@@ -13,6 +13,7 @@
 * puis faire sudo apt install php-cli php-mbstring php-xml 
 * puis refaire un composer install]
 * npm install 
+* npm install --save rxjs
 * Créer le fichier .env a partir du fichier .env.exemple
 * Generer des clés avec  php artisan key:generate 
  
