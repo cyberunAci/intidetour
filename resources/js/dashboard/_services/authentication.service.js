@@ -1,5 +1,4 @@
 import { BehaviorSubject } from "rxjs";
-
 import { requestOptions } from "../_helpers/request-options";
 import { handleResponse } from "../_helpers/handle-response";
 
@@ -35,6 +34,10 @@ function login(user) {
             currentUserSubject.next(data);
             return data;
         })
+        .catch(
+            location.reload(),
+            localStorage.removeItem("currentUser")
+            )
 }
 
 function logout() {
