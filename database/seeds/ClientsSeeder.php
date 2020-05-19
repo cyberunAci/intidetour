@@ -16,20 +16,22 @@ class ClientsSeeder extends Seeder
             [
                 "nom" => "TanPerm",
                 "prenom" => "Gui",
-                "email" => "guiperm@gmail.com",
+                "email" => "admin@gmail.com",
                 "date_naissance" => "1995-02-09",
                 "tel" => "0692121212",
-                "password" => bcrypt("123"),
-                "photo" => "lien photo"
+                "password" => bcrypt("admin"),
+                "photo" => "lien photo",
+                "id_role" => 1
             ],
             [
                 "nom" => "Snickers",
                 "prenom" => "Johnny",
-                "email" => "josni@gmail.com",
+                "email" => "user@gmail.com",
                 "date_naissance" => "1995-12-10",
                 "tel" => "0692131313",
-                "password" => bcrypt("456"),
-                "photo" => "lien photo"
+                "password" => bcrypt("user"),
+                "photo" => "lien photo",
+                "id_role" => 2
             ]
         ];
 

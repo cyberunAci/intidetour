@@ -2,11 +2,11 @@
 
 namespace App;
 
-use DateTime;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use RolesSeeder;
 
 class User extends Authenticatable
 {
@@ -43,6 +43,11 @@ class User extends Authenticatable
     ];
 
     use SoftDeletes;
+
+    function roles()
+    {
+        return $this->belongsTo(RolesModel::class, 'id_role');
+    }
 
     
 

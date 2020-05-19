@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             PhotosCircuitSeeder::class,
             AproposSeeder::class,
             GalerieSeeder::class,
+            RolesSeeder::class
             ]);
     }
 }
