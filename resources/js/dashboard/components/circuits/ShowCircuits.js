@@ -3,12 +3,15 @@ import axios from 'axios';
 import DeleteCircuit from "./DeleteCircuit.vue";
 import AddCircuit from "./AddCircuit.vue";
 import UploadFile from "./UploadFile.vue";
+import AddTrace from "./AddTrace.vue";
+
 export default {
     components:{
         DeleteCircuit,
         ShowCircuit,
         AddCircuit,
-        UploadFile
+        UploadFile,
+        AddTrace,
     },
     data:() => ({
         circuits: [],
