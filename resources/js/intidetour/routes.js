@@ -10,7 +10,7 @@ import CircuitEdit from './views/CircuitEdit.vue';
 import SuccessEdit from './views/SuccessEdit.vue';
 import Login from './Login.vue'
 import { Role } from './_helpers/role';
-import { authenticationService } from '../dashboard/_services/authentication.service';
+import { authenticationService } from '../intidetour/_services/authentication.service';
 
 
 Vue.use(VueRouter);

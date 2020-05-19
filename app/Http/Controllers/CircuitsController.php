@@ -142,9 +142,9 @@ class CircuitsController extends Controller
         if ($circuit) {
 
             $trace = $request->get('trace');
-
             $exploded = explode(",", $trace);
 
+            
             if (str::contains($exploded[0], 'gpx')) {
 
                 $ext = 'gpx';
@@ -153,7 +153,7 @@ class CircuitsController extends Controller
 
                 $filename = str_replace(" ", "", $circuit['nom'] . "." . $ext);
 
-                $path = public_path() . $this->gpxPath . $filename;
+                $path = public_path() . "/storage/fichiersGPX/" . $this->gpxPath . $filename;
 
                 if (file_put_contents($path, $decode)) {
 
@@ -213,7 +213,7 @@ class CircuitsController extends Controller
         $filename = str::random() . "." . $ext;
 
         
-        $path = public_path() . "/storage/monDossier/" . $filename;
+        $path = public_path() . "/storage/photosCircuit/" . $filename;
 
         if (file_put_contents($path, $decode)) {
            echo "fichier téléchargé et envoyé dans: " . "/storage/monDossier/" . $filename;
