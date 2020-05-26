@@ -28,7 +28,7 @@ Route::get('/toto',function(){
 /**
  * Accueil
  */
-Route::resource('/', 'AccueilController');
+// Route::resource('/', 'AccueilController');
 
 /**
  * CGU
@@ -85,14 +85,9 @@ Route::prefix('/circuits')->group(function () {
  * laisser en bas
  */
 
-Route::prefix('/dashboard')->group(function () {
+Route::prefix('/')->group(function () {
     Route::get('/', 'AdminController@index');
     Route::get('/{any}', 'AdminController@index')->where('any', '.*');
-});
-
-Route::prefix('/client')->group(function () {
-    Route::get('/', 'ClientsController@index');
-    Route::get('/{any}', 'ClientsController@index')->where('any', '.*');
 });
 
 

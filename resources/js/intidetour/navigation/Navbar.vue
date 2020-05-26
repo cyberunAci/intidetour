@@ -26,7 +26,7 @@ export default {
   methods: {
     logout() {
       authenticationService.logout();
-      router.push("/dashboard/login");
+      router.push("/login");
     }
   }
 };
