@@ -13,7 +13,7 @@
 
 <body>
     
-    <div id="admin">
+    <div id="intidetour">
         <layout></layout>
     </div>
 

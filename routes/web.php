@@ -90,6 +90,12 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/{any}', 'AdminController@index')->where('any', '.*');
 });
 
+Route::prefix('/client')->group(function () {
+    Route::get('/', 'ClientsController@index');
+    Route::get('/{any}', 'ClientsController@index')->where('any', '.*');
+});
+
+
 
 
 
