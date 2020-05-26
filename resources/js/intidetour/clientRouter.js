@@ -7,6 +7,12 @@ const routes = [
         name: 'aproposclient',
         component: AproposClient,
 
+    },
+    {
+        path: '/',
+        name: 'main',
+        component: main,
+
     }
 
 ]

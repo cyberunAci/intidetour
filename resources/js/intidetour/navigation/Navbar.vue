@@ -17,12 +17,23 @@
       <v-list dense>
         <v-list-item link>
           <v-list-item-icon>
+            <v-icon>mdi-login-variant</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title class="font-weight-bold">
+              <router-link :to="{name:'login'}">Se Connecter</router-link>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-icon>
             <v-icon>mdi-home</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
             <v-list-item-title class="font-weight-bold">
-              <router-link :to="{name:'home'}">Accueil</router-link>
+              <router-link :to="{name:'main'}">Accueil</router-link>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
