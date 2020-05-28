@@ -23,15 +23,15 @@ router.beforeEach((to, from, next) => {
     if (authorize && !_.isEmpty(authorize)) {
 
         const currentUser = authenticationService.currentUserValue;
-
+       
         if (!currentUser) {
             // not logged in so redirect to login page with the return url
-            return next({ path: "/dashboard/login", query: { returnUrl: to.path } });
+            return next({ path: "/login", query: { returnUrl: to.path } });
         }
 
         // check if route is restricted by role
         if (authorize.length && !authorize.includes(currentUser.role.role)) {
-            
+
             // role not authorised so redirect to home page
             return window.location.href = "/";
         }

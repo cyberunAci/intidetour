@@ -10,69 +10,72 @@ import { Role } from './_helpers/role';
 import Login from './Login.vue';
 
 
-  const  routes =  [
-        {
-            path: '/login',
-            name: 'login',
-            component: Login,
-        },
-        {
-            path: '/dashboard',
-            name: 'home',
-            component: Home,
-            meta: { authorize: [Role.Admin] },
+const routes = [
+    {
+        path: '/login',
+        name: 'login',
+        component: Login,
+    },
+    {
+        path: '/dashboard',
+        name: 'home',
+        component: Home,
+        meta: { authorize: [Role.Admin] },
 
-        },
-        {
-            path: '/dashboard/success',
-            name: 'success',
-            component: Success,
-            meta: { authorize: [Role.Admin] },
+    },
+    {
+        path: '/dashboard/success',
+        name: 'success',
+        component: Success,
+        meta: { authorize: [Role.Admin] },
 
-        },
-        {
-            path: '/dashboard/users',
-            name: 'users',
-            component: Users,
-            meta: { authorize: [Role.Admin] },
+    },
+    {
+        path: '/dashboard/users',
+        name: 'users',
+        component: Users,
+        meta: { authorize: [Role.Admin] },
 
-        },
-        {
-            path: '/dashboard/catalogue',
-            name: 'catalogue',
-            component: Catalogue,
-            meta: { authorize: [Role.Admin] },
+    },
+    {
+        path: '/dashboard/catalogue',
+        name: 'catalogue',
+        component: Catalogue,
+        meta: { authorize: [Role.Admin] },
 
-        },
-        {
-            path: '/dashboard/apropos',
-            name: 'apropos',
-            component: Apropos,
-            meta: { authorize: [Role.Admin] },
+    },
+    {
+        path: '/dashboard/apropos',
+        name: 'apropos',
+        component: Apropos,
+        meta: { authorize: [Role.Admin] },
 
-        },
-        {
-            path: '/dashboard/galerie',
-            name: 'galerie',
-            component: Galerie,
-            meta: { authorize: [Role.Admin] },
+    },
+    {
+        path: '/dashboard/galerie',
+        name: 'galerie',
+        component: Galerie,
+        meta: { authorize: [Role.Admin] },
 
-        },
-        {
-            path: '/dashboard/catalogue/:id',
-            name: 'circuitEdit',
-            component: CircuitEdit,
-            meta: { authorize: [Role.Admin] },
+    },
+    //TODO Refaire les routes et à mettre dans la navbar
+    {
+        path: '/dashboard/catalogue/:id',
+        name: 'circuitEdit',
+        component: CircuitEdit,
+        meta: { authorize: [Role.Admin] },
 
-        },
-        {
-            path: '/dashboard/success/:id',
-            name: 'successEdit',
-            component: SuccessEdit,
-            meta: { authorize: [Role.Admin] },
+    },
+    //TODO Refaire les routes et à mettre dans la navbar
 
-        }
-    ]
+    {
+        path: '/dashboard/success/:id',
+        name: 'successEdit',
+        component: SuccessEdit,
+        meta: { authorize: [Role.Admin] },
+
+    }
+]
 
 
 export default routes;
