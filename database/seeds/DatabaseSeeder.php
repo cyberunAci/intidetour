@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call([
             CircuitsSeeder::class,
+            RolesSeeder::class,
             ClientsSeeder::class,
             InterestPointTypeSeeder::class,
             InterestPointsSeeder::class,
@@ -23,7 +24,6 @@ class DatabaseSeeder extends Seeder
             PhotosCircuitSeeder::class,
             AproposSeeder::class,
             GalerieSeeder::class,
-            RolesSeeder::class
             ]);
     }
 }
