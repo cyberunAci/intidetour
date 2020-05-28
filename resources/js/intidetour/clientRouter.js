@@ -1,5 +1,5 @@
 import AproposClient from './views/clients/Apropos.vue';
-
+import Accueil from './views/clients/accueil/Accueil.vue';
 const routes = [
 
     {
@@ -9,9 +9,9 @@ const routes = [
 
     },
     {
-        path: '/',
-        name: 'main',
-        component: main,
+        path: '/accueil',
+        name: 'accueil',
+        component: Accueil,
 
     }
 
