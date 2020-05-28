@@ -77,4 +77,11 @@ class UsersController extends Controller
         $status = User::destroy($id) ? "ok" : "nok";
         return json_encode(['status' => $status]);
     }
+
+
+
+    public function profil()
+    {
+      
+    }
 }

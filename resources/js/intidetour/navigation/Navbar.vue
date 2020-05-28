@@ -13,6 +13,7 @@
           <v-btn class="padding d-flex" text to="/dashboard/apropos">À propos</v-btn>
           <v-btn class="padding d-flex" text @click="logout">Se deconnecter</v-btn>
           <v-btn class="padding d-flex" text to="/dashboard/deconnexion">Catalogue</v-btn>
+            <v-btn class="padding d-flex" text to="/profil">Profil</v-btn>
           <v-btn class="padding d-flex" text href="/">Retour au site</v-btn>
         </div>
       </v-card>
