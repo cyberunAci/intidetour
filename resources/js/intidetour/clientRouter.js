@@ -3,13 +3,13 @@ import Accueil from './views/clients/accueil/Accueil.vue';
 const routes = [
 
     {
-        path: '/clients/',
+        path: '/a-propos/',
         name: 'aproposclient',
         component: AproposClient,
 
     },
     {
-        path: '/accueil',
+        path: '/',
         name: 'accueil',
         component: Accueil,
 
