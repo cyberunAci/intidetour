@@ -30,12 +30,6 @@ Route::get('/toto',function(){
  */
 // Route::resource('/', 'AccueilController');
 
-/**
- * CGU
- */
-Route::get('/cgu', function () {
-    return view('clients.cgu');
-});
 
 /**
  * À propos
