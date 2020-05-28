@@ -4,7 +4,7 @@
       <v-row align="center" justify="center">
         <v-col cols="12" sm="8" md="4">
           <v-card class="elevation-12">
-            <v-toolbar color="success" dark flat>
+            <v-toolbar color="blue-grey" dark flat>
               <v-toolbar-title>Identifiez-vous</v-toolbar-title>
               <v-spacer />
             </v-toolbar>
@@ -33,7 +33,7 @@
             <v-card-actions>
               <v-btn
                 outlined
-                color="success"
+                color="blue-grey"
                 :disabled="!valid"
                 @click="connection"
               >Connexion</v-btn>
