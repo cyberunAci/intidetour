@@ -16,7 +16,7 @@ class AuthController extends Controller
             'password' => 'required|string'
         ]);
         if (!Auth::attempt($login)) {
-            
+
             return response(['message' => 'Login Invalide.']);
         }
 
@@ -31,4 +31,6 @@ class AuthController extends Controller
         $accessToken->revoke();
         return response('Vous êtes déconnecté', 200);
     }
+ 
+
 }

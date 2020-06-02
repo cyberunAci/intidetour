@@ -79,6 +79,14 @@ Route::prefix('/apropos')->group(function () {
     Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
 });
 
+/**
+ * API Profil
+ */
+Route::prefix('profil')->group(function () {
+    Route::get('/', 'UserController@getCurrentUser');
+   // Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
+});
+
 
 /**
  * API Galerie

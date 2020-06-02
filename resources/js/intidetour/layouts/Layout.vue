@@ -4,9 +4,7 @@
       href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
       rel="stylesheet"
     />
-    <v-container>
       <navbar></navbar>
-    </v-container>
     <v-content>
       <v-container fluid>
         <router-view></router-view>

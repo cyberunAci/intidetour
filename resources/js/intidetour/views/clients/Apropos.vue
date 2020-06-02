@@ -1,11 +1,16 @@
-<template>
-  <div>
-    <v-card class="ma-5 pa-3">
-      <v-row class="d-flex">
-        <v-col class="text-center">
-          <h1>A propos de InTiDetour</h1>
-        </v-col>
-      </v-row>
-    </v-card>
-  </div>
-</template>
+@extends('layouts.app')
+@section('content')
+
+<section>
+    <h2>À propos</h2>
+
+    <div class="card bg-light mb-3" >
+      <div class="card-body">
+        <p class="card-text">@foreach($apropos as $apropos)
+          {{$apropos->text}}
+          @endforeach</p>
+      </div>
+    </div>
+</section>
+
+@endsection

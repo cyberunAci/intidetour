@@ -35,12 +35,13 @@
                 outlined
                 color="success"
                 :disabled="!valid"
-                @click="connection">Connexion</v-btn>
+                @click="connection"
+              >Connexion</v-btn>
             </v-card-actions>
           </v-card>
-          <v-snackbar v-model="snackbar" :multi-line="multiLine">
+          <v-snackbar v-model="snackbar" >
             {{ text }}
-            <v-btn color="red" text @click="snackbar = false">Close</v-btn>
+            <v-btn color="red" text @click="snackbar=false">Close</v-btn>
           </v-snackbar>
         </v-col>
       </v-row>
