@@ -39,9 +39,8 @@
           </v-btn>
         </v-list-item>
 
-
-<!-- TODO A CACHER SI PAS CONNECTER -->
-              <v-list-item link>
+        <!-- TODO A CACHER SI PAS CONNECTER -->
+        <v-list-item link>
           <v-btn text medium to="/profil" class="white--text">
             <v-list-item-icon>
               <v-icon color="white">mdi-head-question-outline</v-icon>
@@ -76,61 +75,63 @@
               </v-list-item-content>
             </v-btn>
           </template>
-          <v-list-item>
-            <v-btn text small to="/dashboard/success" class="white--text">
-              <v-list-item-icon small>
-                <v-icon color="white">mdi-trophy-outline</v-icon>
-              </v-list-item-icon>
+          <div small class="ml-4">
+            <v-list-item>
+              <v-btn text small to="/dashboard/success" class="white--text">
+                <v-list-item-icon small>
+                  <v-icon small color="white">mdi-trophy-outline</v-icon>
+                </v-list-item-icon>
 
-              <v-list-item-content>
-                <v-list-item-title class="font-weight-bold">Succès</v-list-item-title>
-              </v-list-item-content>
-            </v-btn>
-          </v-list-item>
-          <v-list-item>
-            <v-btn text small to="/dashboard/users" class="white--text">
-              <v-list-item-icon small>
-                <v-icon color="white">mdi-account-outline</v-icon>
-              </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title class="font-weight-bold">Succès</v-list-item-title>
+                </v-list-item-content>
+              </v-btn>
+            </v-list-item>
+            <v-list-item>
+              <v-btn text small to="/dashboard/users" class="white--text">
+                <v-list-item-icon small>
+                  <v-icon small color="white">mdi-account-outline</v-icon>
+                </v-list-item-icon>
 
-              <v-list-item-content>
-                <v-list-item-title class="font-weight-bold">Utilisateurs</v-list-item-title>
-              </v-list-item-content>
-            </v-btn>
-          </v-list-item>
-          <v-list-item>
-            <v-btn text small to="/dashboard/catalogue" class="white--text">
-              <v-list-item-icon small>
-                <v-icon color="white">mdi-book-open-page-variant</v-icon>
-              </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title small class="font-weight-bold">Utilisateurs</v-list-item-title>
+                </v-list-item-content>
+              </v-btn>
+            </v-list-item>
+            <v-list-item>
+              <v-btn text small to="/dashboard/catalogue" class="white--text">
+                <v-list-item-icon small>
+                  <v-icon small color="white">mdi-book-open-page-variant</v-icon>
+                </v-list-item-icon>
 
-              <v-list-item-content>
-                <v-list-item-title class="font-weight-bold">Circuits</v-list-item-title>
-              </v-list-item-content>
-            </v-btn>
-          </v-list-item>
-           <v-list-item>
-            <v-btn text small to="/dashboard/apropos" class="white--text">
-              <v-list-item-icon small>
-                <v-icon color="white">mdi-head-question-outline</v-icon>
-              </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title class="font-weight-bold">Circuits</v-list-item-title>
+                </v-list-item-content>
+              </v-btn>
+            </v-list-item>
+            <v-list-item>
+              <v-btn text small to="/dashboard/apropos" class="white--text">
+                <v-list-item-icon small>
+                  <v-icon small color="white">mdi-head-question-outline</v-icon>
+                </v-list-item-icon>
 
-              <v-list-item-content>
-                <v-list-item-title class="font-weight-bold">A propos</v-list-item-title>
-              </v-list-item-content>
-            </v-btn>
-          </v-list-item>
-          <v-list-item>
-            <v-btn text small to="/dashboard/galerie" class="white--text">
-              <v-list-item-icon small>
-                <v-icon color="white">mdi-image-outline</v-icon>
-              </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title class="font-weight-bold">A propos</v-list-item-title>
+                </v-list-item-content>
+              </v-btn>
+            </v-list-item>
+            <v-list-item>
+              <v-btn text small to="/dashboard/galerie" class="white--text">
+                <v-list-item-icon small>
+                  <v-icon small color="white">mdi-image-outline</v-icon>
+                </v-list-item-icon>
 
-              <v-list-item-content>
-                <v-list-item-title class="font-weight-bold">Galerie</v-list-item-title>
-              </v-list-item-content>
-            </v-btn>
-          </v-list-item>
+                <v-list-item-content>
+                  <v-list-item-title class="font-weight-bold">Galerie</v-list-item-title>
+                </v-list-item-content>
+              </v-btn>
+            </v-list-item>
+          </div>
         </v-list-group>
         <v-list-item link v-if="isChecked">
           <v-btn text medium class="white--text" @click="logout()">

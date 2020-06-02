@@ -32,7 +32,7 @@ export default {
                     this.text = 'Une erreur est survenue'
                 })
         },
-       
+
 
     },
     created() {

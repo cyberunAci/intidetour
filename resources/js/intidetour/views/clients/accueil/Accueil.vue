@@ -1,27 +1,32 @@
 <template>
-  <v-container>
-    <section class="d-flex justify-content-center align-items-center m-5">
-      <div class="col-lg-6 text-left">
-        <h2>C'est quoi Intidetour ?</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo beatae reiciendis, saepe illum velit dignissimos doloremque quis fugiat hic tempore animi rem error possimus nisi repellat soluta laborum. Facilis, consectetur.</p>
-        <section class="d-flex justify-content-center align-items-center m-2">
-          <div class="row">
+  <v-container fluid>
+    <section>
+      <v-row>
+        <v-col>
+          <v-row>
+            <h2>C'est quoi Intidetour ?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo beatae reiciendis, saepe illum velit dignissimos doloremque quis fugiat hic tempore animi rem error possimus nisi repellat soluta laborum. Facilis, consectetur.</p>
+          </v-row>
+          <v-row>
             <h3>Installer Intidetour ?</h3>
-          </div>
-          <div class="row m-3">
-            <div class="col-lg-6 d-flex align-self-center">
-              <v-btn class="m-2">Google Play</v-btn>
-            </div>
-            <div class="col-lg-6 d-flex align-self-center">
-              <v-btn class="m-2">App Store</v-btn>
-            </div>
-          </div>
-        </section>
-      </div>
-      <div class="col-lg-6 text-right">
-        <img src="https://via.placeholder.com/600" alt class="img-fluid" />
-      </div>
+          </v-row>
+          <v-row>
+            <v-col>
+              <v-btn color="primary">Google Play</v-btn>
+            </v-col>
+            <v-col>
+              <v-btn color="primary">App Store</v-btn>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col>
+          <v-responsive :aspect-ratio="16/9">
+            <img src="https://via.placeholder.com/1000x600" alt />
+          </v-responsive>
+        </v-col>
+      </v-row>
     </section>
+
     <equipe></equipe>
     <circuits></circuits>
     <fonctionnalite></fonctionnalite>

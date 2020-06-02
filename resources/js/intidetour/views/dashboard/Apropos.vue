@@ -7,7 +7,7 @@
         </v-col>
         <updateApropos></UpdateApropos>
       </v-row>
-      <showApropos></showApropos>
+      <showApropos v-on:updateApropos="Apropos.push($event)"></showApropos>
     </v-card>
   </div>
 </template>

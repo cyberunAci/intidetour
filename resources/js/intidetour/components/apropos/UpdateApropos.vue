@@ -16,7 +16,7 @@
         ></v-textarea>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="submitComment">Valider</v-btn>
+          <v-btn color="primary" text id="updateApropos" @click="submitComment">Valider</v-btn>
           <v-btn color="primary" text @click="editerAPropos = false">Fermer</v-btn>
         </v-card-actions>
       </v-card>

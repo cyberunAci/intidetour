@@ -11,7 +11,7 @@ export default {
         }
     },
     methods: {
-        getId(e) { },
+        getId(e) {},
         valider() {
             apiServices.delete('/api/success/' + this.success.id).then(response => {
                 console.log(response)
