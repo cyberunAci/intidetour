@@ -1,6 +1,5 @@
 
 import UploadFile from './UploadFile.vue';
-import axios from 'axios';
 import { apiServices } from '../../_services/api.services';
 
 export default {

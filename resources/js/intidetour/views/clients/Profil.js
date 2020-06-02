@@ -18,7 +18,7 @@ export default {
 
         getDatas() {
 
-//apiservice
+//apiServices
             axios.get('/api/profil')
             .then(({ data }) => {
                 data.data.forEach(circuit => {
