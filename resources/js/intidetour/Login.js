@@ -3,7 +3,7 @@ import { authenticationService } from "./_services/authentication.service";
 export default {
     data() {
         return {
-            text:'Informations invalide',
+            text: 'Informations invalide',
             multiLine: true,
             snackbar: false,
             user: {
@@ -30,7 +30,6 @@ export default {
     },
     methods: {
         connection() {
-            this.snackbar = true;
             this.loading = true;
             authenticationService.login(this.user).then(
                 user => {
@@ -38,7 +37,7 @@ export default {
                 },
                 error => {
                     this.loading = false;
-                }
+                },
             )
         },
     }
