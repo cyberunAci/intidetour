@@ -73,13 +73,6 @@ Route::middleware(['auth:api', 'roles:admin'])->group(function () {
     });
 });
 
-// Route::middleware(['auth:api', 'roles:admin|utilisateur'])->group(function () {
-//     Route::prefix('circuits')->group(function () {
-//         Route::get('/{id}', 'CircuitsController@show')->where('id', "[0-9]+"); //utilisateur
-//         Route::get('/{id}/traces/', 'CircuitsController@showTrace')->where('id', "[0-9]+"); //utilisateur
-//     });
-// });
-
 Route::post('/login', 'AuthController@login');
 Route::post('/logout', 'AuthController@logout')->middleware('auth:api');
 

@@ -49,6 +49,15 @@ class User extends Authenticatable
         return $this->belongsTo(RolesModel::class, 'id_role');
     }
 
+    function success()
+    {
+        return $this->belongsToMany('App\SuccessModel', 'users_has_success', 'id_user', 'id_success');
+    }
+
+    function circuit()
+    {
+        return $this->belongsToMany('App\CircuitsModel', 'user_has_circuit', 'id_user', 'id_circuit');
+    }
     
 
 }

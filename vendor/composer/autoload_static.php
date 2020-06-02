@@ -5123,6 +5123,7 @@ class ComposerStaticInit1188b2aaa2eb7148ad20a0ff612bacc3
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'TracesSeeder' => __DIR__ . '/../..' . '/database/seeds/TracesSeeder.php',
+        'UserCircuitSeeder' => __DIR__ . '/../..' . '/database/seeds/UserCircuitSeeder.php',
         'UsersSuccessSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersSuccessSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',

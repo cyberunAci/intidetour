@@ -46,27 +46,6 @@ Route::get('/galerie', function () {
 });
 
 /**
- * Circuits
- */
-// Route::prefix('/circuits')->group(function () {
-
-//     Route::get('/', function () {
-//         $ctrl = new CircuitsController();
-//         $circuits = $ctrl->index();
-//         return view('clients.views.circuits', ['circuits' => $circuits]);
-//     });
-
-//     Route::get('/{id}', function ($id) {
-//         //recupere un circuit en fonction de son id
-//         $ctrl = new CircuitsController();
-//         $circuit = $ctrl->show($id);
-//         return view('clients.views.circuit',['circuit' => $circuit]);
-    
-//     })->where('id', "[0-9]+");
-
-// });
-
-/**
  * laisser en bas
  */
 

@@ -1,40 +1,35 @@
 import { authenticationService } from "./../../_services/authentication.service";
-import {apiServices} from '../../_services/api.services'
-export default { 
+import { apiServices } from '../../_services/api.services'
+export default {
 
     data() {
         return {
-           UserInfo:{},
+            userInfos:[],
         };
     },
 
     created() {
-        // this.getDatas()
-        authenticationService.currentUser.subscribe(x => (this.currentUser = x));
-        console.log(this.currentUser);
+
+        this.getDatas();
     },
 
     methods: {
 
         getDatas() {
+            authenticationService.currentUser.subscribe(x => (this.currentUser = x));
 
-//apiServices
-            apiServices.get('/api/profil')
-            .then(({ data }) => {
-                data.data.forEach(circuit => {
-                    this.circuits.push(circuit)
-                })
+            apiServices.get('/api/users/' + this.currentUser.id + '/infos').then(({data}) => {
+              
+                data.data.forEach(element => {
+                    this.userInfos.push(element)
+                });
+
+                  console.log(this.userInfos)
             })
-            .catch();
 
 
-
-
-
-
-            console.log(this.currentUser);
         },
-        
+
     },
 
 

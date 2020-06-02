@@ -26,4 +26,10 @@ class CircuitsModel extends Model
     {
         return $this->hasMany(PhotosCircuitModel::class, 'id_circuit');
     }
+
+    function user()
+    {
+        return $this->belongsToMany('App\User', 'user_has_circuit', 'id_user', 'id_circuit');
+    }
+
 }

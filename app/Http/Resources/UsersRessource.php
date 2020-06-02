@@ -26,9 +26,17 @@ class UsersRessource extends JsonResource
 
             return [
                 'id' => $this->id,
+                'nom' => $this->nom,
+                'prenom' => $this->prenom,
                 'email' => $this->email,
+                'tel' => $this->tel,
+                'date_naissance' => $this->date_naissance,
+                'photo' => $this->photo,
                 'role'=>$role,
                 'token' => $this->token,
+                'success' => $this->success,
+                'circuit' => $this->circuit
+
             ];
         } else {
             return parent::toArray($request);

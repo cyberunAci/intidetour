@@ -80,5 +80,9 @@ class UsersController extends Controller
     }
 
 
+    public function getInfosUser($id) {
+        $getDatas = User::where('id', '=', $id)->get();
+        return UsersRessource::collection($getDatas);
+    }
 
 }
