@@ -2,6 +2,7 @@ import { apiServices } from '../../_services/api.services';
 
 export default {
     props: ["apropos"],
+
     data() {
         return {
             editerAPropos: false,
@@ -16,8 +17,11 @@ export default {
         submitComment() {
             apiServices.post('/api/apropos/1', {
                 content: this.text        
+            }).then(response => {
+                this.dialog = false;
+                console.log(this.text)
+                this.$emit('updateApropos', this.text)
             })
-            console.log(this.text);
         }
     }
 };

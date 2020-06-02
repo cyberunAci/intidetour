@@ -5,7 +5,7 @@
         <v-col class="text-center">
           <h1>Editer le À-propos</h1>
         </v-col>
-        <updateApropos></UpdateApropos>
+        <updateApropos v-on:updateApropos="text.push($event)"></UpdateApropos>
       </v-row>
       <showApropos></showApropos>
     </v-card>
