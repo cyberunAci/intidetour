@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { apiServices } from '../../_services/api.services'
+import { apiService } from '../../_services/api.services'
 
 export default {
     data() {
@@ -10,7 +10,7 @@ export default {
     methods: {
         getDatas() {
             this.apropos = [];
-            apiServices.get('/api/apropos')
+            apiService.get('/api/apropos')
                 .then(({ data }) => {
                     data.data.forEach(_apropos => {
                         this.apropos.push(_apropos)

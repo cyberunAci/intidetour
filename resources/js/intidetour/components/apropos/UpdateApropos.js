@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiServices } from '../../_services/api.services';
+import { apiService } from '../../_services/api.services';
 
 export default {
     props: ["apropos"],
@@ -15,7 +15,7 @@ export default {
     methods: {
 
         submitComment() {
-            apiServices.post('/api/apropos/1', {
+            apiService.post('/api/apropos/1', {
                 content: this.text        
             })
             console.log(this.text);
