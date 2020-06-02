@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { apiServices } from '../../_services/api.services';
 
 export default {
     data() {
@@ -11,7 +12,7 @@ export default {
     },
     methods: {
         getDatas() {
-            axios.get('../api/circuits/photos')
+            apiServices.get('../api/circuits/photos')
             .then(({data}) => {
                 data.data.forEach(circuit => {
                 this.images.push(circuit);

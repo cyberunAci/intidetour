@@ -1,7 +1,7 @@
 import { authenticationService } from '../_services/authentication.service'
 
 import Axios from "axios"
-
+import { authenticationService } from "./authentication.service"
 
 export const apiService = {
     get(url, params = {}) {

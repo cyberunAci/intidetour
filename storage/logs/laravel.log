@@ -8310,3 +8310,72 @@ Did you mean one of these?
 #7 /home/cyberun-5/Projet/intidetour/server.php(21): require_once('/home/cyberun-5...')
 #8 {main}
 "} 
+[2020-06-02 05:49:11] local.ERROR: Target class [roles] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [roles] does not exist. at /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php:805)
+[stacktrace]
+#0 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(681): Illuminate\\Container\\Container->build('roles')
+#1 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(629): Illuminate\\Container\\Container->resolve('roles', Array)
+#2 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(776): Illuminate\\Container\\Container->make('roles', Array)
+#3 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(209): Illuminate\\Foundation\\Application->make('roles')
+#4 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(183): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#5 /home/morgan/Documents/Projet/intidetour/public/index.php(60): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#6 /home/morgan/Documents/Projet/intidetour/server.php(21): require_once('/home/morgan/Do...')
+#7 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class roles does not exist at /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php:803)
+[stacktrace]
+#0 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(803): ReflectionClass->__construct('roles')
+#1 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(681): Illuminate\\Container\\Container->build('roles')
+#2 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(629): Illuminate\\Container\\Container->resolve('roles', Array)
+#3 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(776): Illuminate\\Container\\Container->make('roles', Array)
+#4 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(209): Illuminate\\Foundation\\Application->make('roles')
+#5 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(183): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#6 /home/morgan/Documents/Projet/intidetour/public/index.php(60): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#7 /home/morgan/Documents/Projet/intidetour/server.php(21): require_once('/home/morgan/Do...')
+#8 {main}
+"} 
+[2020-06-02 05:49:39] local.ERROR: Target class [roles] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [roles] does not exist. at /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php:805)
+[stacktrace]
+#0 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(681): Illuminate\\Container\\Container->build('roles')
+#1 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(629): Illuminate\\Container\\Container->resolve('roles', Array)
+#2 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(776): Illuminate\\Container\\Container->make('roles', Array)
+#3 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(209): Illuminate\\Foundation\\Application->make('roles')
+#4 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(183): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#5 /home/morgan/Documents/Projet/intidetour/public/index.php(60): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#6 /home/morgan/Documents/Projet/intidetour/server.php(21): require_once('/home/morgan/Do...')
+#7 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class roles does not exist at /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php:803)
+[stacktrace]
+#0 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(803): ReflectionClass->__construct('roles')
+#1 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(681): Illuminate\\Container\\Container->build('roles')
+#2 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(629): Illuminate\\Container\\Container->resolve('roles', Array)
+#3 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(776): Illuminate\\Container\\Container->make('roles', Array)
+#4 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(209): Illuminate\\Foundation\\Application->make('roles')
+#5 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(183): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#6 /home/morgan/Documents/Projet/intidetour/public/index.php(60): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#7 /home/morgan/Documents/Projet/intidetour/server.php(21): require_once('/home/morgan/Do...')
+#8 {main}
+"} 
+[2020-06-02 05:58:45] local.ERROR: Target class [roles] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [roles] does not exist. at /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php:805)
+[stacktrace]
+#0 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(681): Illuminate\\Container\\Container->build('roles')
+#1 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(629): Illuminate\\Container\\Container->resolve('roles', Array)
+#2 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(776): Illuminate\\Container\\Container->make('roles', Array)
+#3 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(209): Illuminate\\Foundation\\Application->make('roles')
+#4 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(183): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#5 /home/morgan/Documents/Projet/intidetour/public/index.php(60): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#6 /home/morgan/Documents/Projet/intidetour/server.php(21): require_once('/home/morgan/Do...')
+#7 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class roles does not exist at /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php:803)
+[stacktrace]
+#0 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(803): ReflectionClass->__construct('roles')
+#1 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(681): Illuminate\\Container\\Container->build('roles')
+#2 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Container/Container.php(629): Illuminate\\Container\\Container->resolve('roles', Array)
+#3 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(776): Illuminate\\Container\\Container->make('roles', Array)
+#4 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(209): Illuminate\\Foundation\\Application->make('roles')
+#5 /home/morgan/Documents/Projet/intidetour/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(183): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#6 /home/morgan/Documents/Projet/intidetour/public/index.php(60): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\JsonResponse))
+#7 /home/morgan/Documents/Projet/intidetour/server.php(21): require_once('/home/morgan/Do...')
+#8 {main}
+"} 
