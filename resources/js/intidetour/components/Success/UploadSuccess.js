@@ -1,3 +1,5 @@
+import { apiServices } from "../../_services/api.services";
+
 export default {
     props: ["success"],
     data() {
@@ -22,7 +24,7 @@ export default {
         },
 
         greet: function uploadImg() {
-            axios.post('../api/success/image/' + this.success.id, {
+            apiServices.post('../api/success/image/' + this.success.id, {
                 image: this.image
             })
                 .then(function ({data}) {

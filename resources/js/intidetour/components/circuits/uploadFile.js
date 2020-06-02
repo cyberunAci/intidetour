@@ -1,11 +1,13 @@
-import axios from 'axios';
+import {
+    apiServices
+} from '../../_services/api.services';
 
 export default {
     props: ["circuit"],
     data() {
         return {
             photo: '',
-            
+
         }
     },
 
@@ -26,14 +28,16 @@ export default {
 
         greet: function uploadImg() {
 
-           
+
             console.log(this.photo);
-            axios.post('/api/circuits/photos/' + this.circuit.id, {
-                photo: this.photo
-                
-            })
-                .then(function ({data}) {
-                   // console.log(data);
+            apiServices.post('/api/circuits/photos/' + this.circuit.id, {
+                    photo: this.photo
+
+                })
+                .then(function ({
+                    data
+                }) {
+                    // console.log(data);
                 })
                 .catch(function (error) {
                     console.log(error);

@@ -1,5 +1,5 @@
-import axios from 'axios';
 import alertClient from '../utils/alertClient.vue';
+import { apiServices } from '../../_services/api.services';
 
 
 export default {
@@ -25,7 +25,7 @@ export default {
         },
         
         getTrace() {
-            axios.get('/api/circuits/' + this.circuit.id + '/traces/')
+            apiServices.get('/api/circuits/' + this.circuit.id + '/traces/')
                 .then(datas => {
                     this.traces = datas.data.trace;
                 })
@@ -35,7 +35,7 @@ export default {
         },
 
         confirmGpx(){
-            axios.post('/api/circuits/' + this.circuit.id + '/traces/', {
+            apiServices.post('/api/circuits/' + this.circuit.id + '/traces/', {
                 trace: this.trace, 
             })
             .then(data => {

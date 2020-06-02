@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { apiServices } from '../../_services/api.services';
 
 export default {
 
@@ -29,7 +29,7 @@ export default {
         updateData(item) {
             if (this.success[item.key] != item.value) {
                 let datas = this.getUpdatedSuccess(item);
-                axios.post('/api/success/' + this.success.id, datas)
+                apiServices.post('/api/success/' + this.success.id, datas)
                     .then(resp => {
                         if (_.isObject(resp.data)) {
                             this.success[item.key] = resp.data.data[item.key];

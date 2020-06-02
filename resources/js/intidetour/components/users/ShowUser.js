@@ -1,5 +1,5 @@
 import DatePicker from "./DatePicker.vue";
-import axios from 'axios';
+import { apiServices } from "../../_services/api.services";
 
 export default {
       components: {
@@ -48,7 +48,7 @@ export default {
             updateData(item) {
                   if (this.user[item.key] != item.value) {
                         let datas = this.getUpdatedUser(item);
-                        axios.post('/api/users/' + this.user.id, datas)
+                        apiServices.post('/api/users/' + this.user.id, datas)
                               .then(resp => {
                                     if (_.isObject(resp.data)) {
                                           // console.log(resp.data.data)

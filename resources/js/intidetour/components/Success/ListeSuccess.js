@@ -1,7 +1,7 @@
-import axios from 'axios';
 import DeleteSuccess from "./DeleteSuccess.vue";
 import UpdateSuccess from "./UpdateSuccess.vue";
 import UploadSuccess from "./UploadSuccess.vue";
+import { apiServices } from '../../_services/api.services';
 export default {
     components: {
         DeleteSuccess,
@@ -14,7 +14,7 @@ export default {
     }),
     methods: {
         getDatas() {
-            axios.get('../api/success')
+            apiServices.get('../api/success')
                 .then(({ data }) => {
                     data.data.forEach(success => {
                         this.successes.push(success);

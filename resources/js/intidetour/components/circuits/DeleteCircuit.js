@@ -1,5 +1,4 @@
-import Axios from "axios"
-
+import {apiServices} from '../../_services/api.services'
 export default {
     props: ["circuit", "circuits"],
     data() {
@@ -17,7 +16,7 @@ export default {
         valider() {
             let _this = this;
             
-            Axios({
+            apiServices({
                 method: 'delete',
                 url: '../api/circuits/' + this.circuit.id
             }).then(response => {

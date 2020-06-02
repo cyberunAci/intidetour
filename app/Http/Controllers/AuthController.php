@@ -32,4 +32,5 @@ class AuthController extends Controller
         return response('Vous êtes déconnecté', 200);
     }
  
+
 }

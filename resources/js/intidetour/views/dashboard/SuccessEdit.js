@@ -1,4 +1,4 @@
-
+import {apiServices} from '../../_services/api.services'
 
 export default {
 
@@ -45,7 +45,7 @@ export default {
     methods: {
         getDatas() {
 
-            axios.get('/api/success/' + this.id)
+            apiServices.get('/api/success/' + this.id)
                 .then(({ data }) => {
                     //console.log('tata');
                     // console.log(data);
@@ -61,7 +61,7 @@ export default {
         prepareDisplay() {
 
 
-            axios.get('/api/success/' + this.id)
+            apiServices.get('/api/success/' + this.id)
                 .then(({ data }) => {
                     this.success = data.data;
                     this.listBoolean = [];
@@ -97,7 +97,7 @@ export default {
             if (this.success[item.key] != item.value) {
                 //on cree  une variable 
                 let datas = this.getUpdatedSuccess(item);
-                axios.post('/api/success/' + this.id, datas)
+                apiServices.post('/api/success/' + this.id, datas)
                     .then(resp => {
                         if (_.isObject(resp.data)) {
                             this.success[item.key] = resp.data.data[item.key];
@@ -168,7 +168,7 @@ export default {
 
         greet: function uploadImg() {
 
-            axios.post('/api/success/image/' + this.id, {
+            apiServices.post('/api/success/image/' + this.id, {
 
                 image: this.photo,
 

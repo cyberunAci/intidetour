@@ -1,4 +1,4 @@
-import Axios from "axios"
+import { apiServices } from "../../_services/api.services";
 
 export default {
     props: ["circuits"],
@@ -46,7 +46,7 @@ export default {
     },
     methods: {
         ajout() {
-            axios.post('/api/circuits/add', {
+            apiServices.post('/api/circuits/add', {
                 nom: this.nom,
                 image: this.image,
                 difficulte: this.difficulte,

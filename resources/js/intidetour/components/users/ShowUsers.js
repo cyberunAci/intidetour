@@ -1,6 +1,6 @@
 import ShowUser from "./ShowUser.vue";
 import DeleteUser from "./DeleteUser.vue";
-import axios from 'axios';
+import { apiServices } from "../../_services/api.services";
 
 
 export default {
@@ -25,7 +25,7 @@ export default {
       this.loading = true;
       this.users = [];
       this.titleUser = [];
-      axios.get('/api/users/')
+      apiServices.get('/api/users/')
         .then(({ data }) => {
           this.titleUser = [
             data.data[0].id
