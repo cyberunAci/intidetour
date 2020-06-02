@@ -73,31 +73,37 @@ Route::middleware(['auth:api', 'roles:admin'])->group(function () {
     });
 });
 
+// Route::middleware(['auth:api', 'roles:admin|utilisateur'])->group(function () {
+//     Route::prefix('circuits')->group(function () {
+//         Route::get('/{id}', 'CircuitsController@show')->where('id', "[0-9]+"); //utilisateur
+//         Route::get('/{id}/traces/', 'CircuitsController@showTrace')->where('id', "[0-9]+"); //utilisateur
+//     });
+// });
 
 Route::post('/login', 'AuthController@login');
 Route::post('/logout', 'AuthController@logout')->middleware('auth:api');
 
 
 /**
- * Route non sécurisé
+ * Route non sécurisé // manque encore la separation Visiteur (non connecter) et Utilisateur
  */
 Route::prefix('circuits')->group(function () {
     Route::get('/', 'CircuitsController@index');
-    Route::get('/{id}', 'CircuitsController@show')->where('id', "[0-9]+");
-    Route::get('/{id}/traces/', 'CircuitsController@showTrace')->where('id', "[0-9]+");
+    Route::get('/{id}', 'CircuitsController@show')->where('id', "[0-9]+"); //utilisateur
+    Route::get('/{id}/traces/', 'CircuitsController@showTrace')->where('id', "[0-9]+"); //utilisateur
     Route::get('/photos', 'CircuitsController@ListePhoto');
 });
 
-Route::prefix('users')->group(function () {
+Route::prefix('users')->group(function () { //utilisateur
     Route::get('/', 'UsersController@index')->middleware(Cors::class);
 });
 
-Route::prefix('success')->group(function () {
+Route::prefix('success')->group(function () { //utilisateur
     Route::get('/', 'SuccessController@index');
     Route::get('/{id}', 'SuccessController@show')->where('id', "[0-9]+");
 });
 
-Route::prefix('interestpoints')->group(function () {
+Route::prefix('interestpoints')->group(function () { //utilisateur
     Route::get('/', 'InterestPointsController@index');
     Route::get('/types', 'InterestPointsController@getTypes');
 });
@@ -109,9 +115,9 @@ Route::prefix('/apropos')->group(function () {
 /**
  * API Profil
  */
-Route::prefix('profil')->group(function () {
+Route::prefix('profil')->group(function () { //utilisateur
     Route::get('/', 'UserController@getCurrentUser');
-   // Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
+    // Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
 });
 
 

@@ -26,9 +26,9 @@
         </v-col>
       </v-row>
     </section>
-
     <equipe></equipe>
     <circuits></circuits>
+    <v-divider class="mt-5 mb-5"></v-divider>
     <fonctionnalite></fonctionnalite>
     <Newsletter></Newsletter>
     <temoignages></temoignages>
