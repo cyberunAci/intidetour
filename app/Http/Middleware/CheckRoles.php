@@ -18,6 +18,9 @@ class CheckRoles
     {
         $user =  $request->user();
         $role = RolesModel::find($user->id_role);
+
+        // return response()->json(['error' => $role], 403);
+
         $roles = explode('|', $roles);
         if (!in_array($role->role, $roles)) {
             return response()->json(['error' => 'Unauthorized'], 403);

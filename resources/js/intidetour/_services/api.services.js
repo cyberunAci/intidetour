@@ -9,8 +9,8 @@ export const apiServices = {
             method: 'get',
             url: url,
             headers: headers(),
-            params: params
-        });
+            params: params,
+        })
     },
     post(url, body, params = {}) {
         return Axios({

@@ -1,4 +1,4 @@
-import {apiService} from "../../../_services/api.services";
+import { apiServices } from "../../../_services/api.services";
 
 export default {
     data() {
