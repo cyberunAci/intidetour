@@ -1,5 +1,4 @@
-import Axios from "axios"
-
+import {apiServices} from '../../_services/api.services'
 export default {
     props: ["user", "users"],
     data() {
@@ -14,7 +13,7 @@ export default {
 
     methods: {
         valider() {
-            Axios({
+            apiServices({
                 method: 'delete',
                 url: '../api/users/' + this.user.id
             }).then(response=>{

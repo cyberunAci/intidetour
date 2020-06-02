@@ -1,4 +1,3 @@
-import axios from 'axios';
 import CreateGalerie from './CreateGalerie.vue';
 import RealImage from './RealImage.vue';
 import draggable from "vuedraggable";

@@ -34,11 +34,12 @@ export const apiServices = {
             body: JSON.stringify(body)
         };
     },
-    delete() {
-        return {
+    delete(url) {
+        return Axios({
             method: 'DELETE',
-            ...headers()
-        };
+            url: url,
+            headers: headers(),
+        });
     }
 }
 function headers() {
