@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <h1 class="text-center pb-5">A propos de InTiDetour</h1>
 
     <v-row class="pt-5">
