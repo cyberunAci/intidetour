@@ -17,8 +17,8 @@ export default {
             apiServices.post('/api/apropos/1', {
                 content: this.text        
             }).then(response => {
-                this.dialog = false;
                 console.log(this.text)
+                this.editerAPropos = false
                 this.$emit('updateApropos', this.text)
             })
         }
