@@ -3,6 +3,7 @@ import CreateGalerie from './CreateGalerie.vue';
 import RealImage from './RealImage.vue';
 import draggable from "vuedraggable";
 import _ from 'lodash';
+import { apiServices } from '../../_services/api.services';
 
 let id = 1;
 export default {
@@ -27,7 +28,7 @@ export default {
     },
     methods: {
         getDatas() {
-            axios.get('../api/galerie')
+            apiServices.get('../api/galerie')
                 .then(({ data }) => {
                     data.data.forEach(galerie => {
                         this.photos.push(galerie);
