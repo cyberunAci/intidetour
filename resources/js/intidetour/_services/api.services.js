@@ -7,15 +7,15 @@ export const apiServices = {
             method: 'get',
             url: url,
             headers: headers(),
-            params: params
-        });
+            params: params,
+        })
     },
     post(url, params = {}) {
         return Axios({
             method: 'post',
             url: url,
             headers: headers(),
-        });
+        })
     },
 }
 
