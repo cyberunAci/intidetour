@@ -1,5 +1,5 @@
 
-
+import {apiServices} from '../../_services/api.services'
 import UploadFile from '../../components/circuits/uploadFile';
 export default {
 
@@ -61,7 +61,7 @@ export default {
     methods: {
         getDatas() {
 
-            axios.get('/api/circuits/' + this.id)
+            apiServices.get('/api/circuits/' + this.id)
                 .then(({ data }) => {
 
                     this.circuit = data.data;
@@ -93,7 +93,7 @@ export default {
         greet: function uploadImg() {
 
             
-            axios.post('/api/circuits/photos/' + this.id, {
+            apiServices.post('/api/circuits/photos/' + this.id, {
 
                 photo: this.photo,
 
@@ -127,7 +127,7 @@ export default {
             if (this.circuit[item.key] != item.value) {
                 //on creer  une variable qui ...
                 let datas = this.getUpdatedCircuit(item);
-                axios.post('/api/circuits/' + this.circuit.id, datas)
+                apiServices.post('/api/circuits/' + this.circuit.id, datas)
                     .then(resp => {
                         if (_.isObject(resp.data)) {
                             this.circuit[item.key] = resp.data.data[item.key];
@@ -185,7 +185,7 @@ export default {
         prepareDisplay() {
 
 
-            axios.get('/api/circuits/' + this.id)
+            apiServices.get('/api/circuits/' + this.id)
           
                 .then(({ data }) => {
 

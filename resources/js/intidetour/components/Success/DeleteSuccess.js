@@ -1,8 +1,5 @@
-import Axios from 'axios';
-import {
-    apiServices
-} from '../../_services/api.services';
-
+import {apiServices} from '../../_services/api.services'
+import Axios from 'axios'
 export default {
     props: ["success", "successes"],
     data() {
@@ -16,18 +13,9 @@ export default {
     methods: {
         getId(e) {},
         valider() {
-            apiServices.delete('./api/success/' + this.success.id, {
-
-                }).then(response => {
-                    console.log(response)
-                    if (response.data.status === "ok") {
-                        this.snackbar = true;
-                        this.text = 'Le success a bien été supprimé'
-                        this.$emit('successToDelete', this.success.id)
-                    }
-
-                })
-                .catch(error => {
+            apiServices.delete('/api/success/' + this.success.id).then(response => {
+                console.log(response)
+            }).catch(error => {
                     this.snackbar = true;
                     this.text = 'Une erreur est survenue'
                 })

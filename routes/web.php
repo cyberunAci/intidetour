@@ -21,19 +21,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CircuitsController;
 use App\Http\Middleware\Cors;
 
-Route::get('/toto',function(){
-    return "toto";
-})->middleware(Cors::class);
-
-/**
- * Accueil
- */
-// Route::resource('/', 'AccueilController');
-
-
 /**
  * À propos
  */
+
 Route::prefix('/apropos')->group (function() {
     Route::get('/', function () {
         $about = new AboutController();
@@ -57,23 +48,23 @@ Route::get('/galerie', function () {
 /**
  * Circuits
  */
-Route::prefix('/circuits')->group(function () {
+// Route::prefix('/circuits')->group(function () {
 
-    Route::get('/', function () {
-        $ctrl = new CircuitsController();
-        $circuits = $ctrl->index();
-        return view('clients.views.circuits', ['circuits' => $circuits]);
-    });
+//     Route::get('/', function () {
+//         $ctrl = new CircuitsController();
+//         $circuits = $ctrl->index();
+//         return view('clients.views.circuits', ['circuits' => $circuits]);
+//     });
 
-    Route::get('/{id}', function ($id) {
-        //recupere un circuit en fonction de son id
-        $ctrl = new CircuitsController();
-        $circuit = $ctrl->show($id);
-        return view('clients.views.circuit',['circuit' => $circuit]);
+//     Route::get('/{id}', function ($id) {
+//         //recupere un circuit en fonction de son id
+//         $ctrl = new CircuitsController();
+//         $circuit = $ctrl->show($id);
+//         return view('clients.views.circuit',['circuit' => $circuit]);
     
-    })->where('id', "[0-9]+");
+//     })->where('id', "[0-9]+");
 
-});
+// });
 
 /**
  * laisser en bas
@@ -83,8 +74,3 @@ Route::prefix('/')->group(function () {
     Route::get('/', 'AdminController@index');
     Route::get('/{any}', 'AdminController@index')->where('any', '.*');
 });
-
-
-
-
-

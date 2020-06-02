@@ -1,4 +1,3 @@
-import axios from 'axios';
 import alertClient from '../utils/alertClient.vue';
 import { apiServices } from '../../_services/api.services';
 

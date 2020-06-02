@@ -1,4 +1,3 @@
-import Axios from "axios";
 import { apiServices } from "../../../_services/api.services";
 
 export default {

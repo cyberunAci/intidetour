@@ -1,5 +1,5 @@
 import { authenticationService } from "./../../_services/authentication.service";
-
+import {apiServices} from '../../_services/api.services'
 export default { 
 
     data() {
@@ -19,7 +19,7 @@ export default {
         getDatas() {
 
 //apiServices
-            axios.get('/api/profil')
+            apiServices.get('/api/profil')
             .then(({ data }) => {
                 data.data.forEach(circuit => {
                     this.circuits.push(circuit)

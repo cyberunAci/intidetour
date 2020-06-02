@@ -13,7 +13,6 @@ export default {
         }
     },
     methods: {
-
         submitComment() {
             apiServices.post('/api/apropos/1', {
                 content: this.text        
