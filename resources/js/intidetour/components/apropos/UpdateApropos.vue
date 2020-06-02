@@ -2,7 +2,7 @@
   <v-col class="text-center">
     <v-dialog v-model="editerAPropos" width="75%" height="100%">
       <template v-slot:activator="{ on }">
-        <v-btn color="success" dark v-on="on" width="50%">Èditer</v-btn>
+        <v-btn color="blue-grey" dark v-on="on" width="50%">Èditer</v-btn>
       </template>
       <v-card>
         <v-card-title class="headline grey lighten-2" primary-title>Editer le À-propos</v-card-title>

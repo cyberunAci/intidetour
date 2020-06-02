@@ -16,13 +16,13 @@ class SuccessSeeder extends Seeder
             [
                 "id" => 1,
                 "nom" => "Succes 1",
-                "image" => "lien image",
+                "image" => "/storage/imgs/cookie.jpg",
                 "description" => "description du succes"
             ],
             [
                 "id" => 2,
                 "nom" => "Succes 2",
-                "image" => "lien image",
+                "image" => "/storage/imgs/cookie.jpg",
                 "description" => "description du succes"
             ]
         ];

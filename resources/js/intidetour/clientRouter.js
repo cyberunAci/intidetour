@@ -1,6 +1,7 @@
 import AproposClient from './views/clients/accueil/Apropos.vue';
 import Accueil from './views/clients/accueil/Accueil.vue';
 import Cgu from './views/clients/Cgu.vue';
+import Circuits from './views/clients/accueil/circuits/Circuits.vue'
 const routes = [
 
     {
@@ -19,7 +20,11 @@ const routes = [
         path: '/cgu',
         name: 'cgu',
         component: Cgu,
-
+    },
+    {
+        path: '/circuits',
+        name: 'circuits',
+        component: Circuits,
     }
 
 ]

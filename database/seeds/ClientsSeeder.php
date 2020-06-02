@@ -20,7 +20,7 @@ class ClientsSeeder extends Seeder
                 "date_naissance" => "1995-02-09",
                 "tel" => "0692121212",
                 "password" => bcrypt("admin"),
-                "photo" => "lien photo",
+                "photo" => "https://www.reunion-mafate.com/fileadmin/_processed_/5/4/csm_34-deux-fesses-mafate-sentier-scout-mafate-_20158ff746.jpg",
                 "id_role" => 1
             ],
             [
@@ -30,7 +30,7 @@ class ClientsSeeder extends Seeder
                 "date_naissance" => "1995-12-10",
                 "tel" => "0692131313",
                 "password" => bcrypt("user"),
-                "photo" => "lien photo",
+                "photo" => "https://www.reunion-mafate.com/fileadmin/_processed_/5/4/csm_34-deux-fesses-mafate-sentier-scout-mafate-_20158ff746.jpg",
                 "id_role" => 2
             ]
         ];
