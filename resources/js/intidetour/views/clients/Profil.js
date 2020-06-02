@@ -4,20 +4,30 @@ export default {
 
     data() {
         return {
-            UserInfo: {},
+            userInfos:[],
         };
     },
 
     created() {
 
-       this.getDatas();
+        this.getDatas();
     },
 
     methods: {
 
         getDatas() {
             authenticationService.currentUser.subscribe(x => (this.currentUser = x));
-            console.log(this.currentUser)
+
+            apiServices.get('/api/users/' + this.currentUser.id + '/infos').then(({data}) => {
+              
+                data.data.forEach(element => {
+                    this.userInfos.push(element)
+                });
+
+                  console.log(this.userInfos)
+            })
+
+
         },
 
     },

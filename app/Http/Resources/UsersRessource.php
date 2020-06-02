@@ -34,8 +34,8 @@ class UsersRessource extends JsonResource
                 'photo' => $this->photo,
                 'role'=>$role,
                 'token' => $this->token,
-
-
+                'success' => $this->success,
+                'circuit' => $this->circuit
 
             ];
         } else {

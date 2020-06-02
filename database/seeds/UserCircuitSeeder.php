@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class UsersSuccessSeeder extends Seeder
+class UserCircuitSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +13,15 @@ class UsersSuccessSeeder extends Seeder
     {
         $array = [
             [
-                "id_success" => 1,
+                "id_circuit" => 2,
                 "id_user" => 1
             ],
             [
-                "id_success" => 2,
+                "id_circuit" => 1,
                 "id_user" => 2
             ]
         ];
-        DB::table('users_has_success')->insert(
+        DB::table('user_has_circuit')->insert(
             $array
         );
     }

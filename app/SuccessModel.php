@@ -11,4 +11,9 @@ class SuccessModel extends Model
     protected $fillable = ['nom', 'image', 'description',];
     public $timestamps = false;
     use SoftDeletes;
+
+    function user()
+    {
+        return $this->belongsToMany('App\User', 'users_has_success', 'id_user', 'id_success');
+    }
 }

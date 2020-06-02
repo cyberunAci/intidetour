@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd6d44a472d7f4636b85eeb8651535472
+class ComposerStaticInit92cc1a5f84eded85b679662095c7f93e
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -5123,6 +5123,7 @@ class ComposerStaticInitd6d44a472d7f4636b85eeb8651535472
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'TracesSeeder' => __DIR__ . '/../..' . '/database/seeds/TracesSeeder.php',
+        'UserCircuitSeeder' => __DIR__ . '/../..' . '/database/seeds/UserCircuitSeeder.php',
         'UsersSuccessSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersSuccessSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
@@ -5244,10 +5245,10 @@ class ComposerStaticInitd6d44a472d7f4636b85eeb8651535472
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd6d44a472d7f4636b85eeb8651535472::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd6d44a472d7f4636b85eeb8651535472::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitd6d44a472d7f4636b85eeb8651535472::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitd6d44a472d7f4636b85eeb8651535472::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit92cc1a5f84eded85b679662095c7f93e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit92cc1a5f84eded85b679662095c7f93e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit92cc1a5f84eded85b679662095c7f93e::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit92cc1a5f84eded85b679662095c7f93e::$classMap;
 
         }, null, ClassLoader::class);
     }

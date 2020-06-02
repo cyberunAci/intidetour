@@ -34,6 +34,7 @@ Route::middleware(['auth:api', 'roles:admin'])->group(function () {
      * API Utilisateurs
      */
     Route::prefix('users')->group(function () {
+        Route::get('/{id}/infos', 'UsersController@getInfosUser')->where('id', "[0-9]+");
         Route::post('/{id}', 'UsersController@update')->where('id', "[0-9]+");
         Route::delete('/{id}', 'UsersController@delete')->where('id', "[0-9]+");
     });

@@ -21,7 +21,7 @@ class CreateSucceesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('users_success', function (Blueprint $table) {
+        Schema::create('users_has_success', function (Blueprint $table) {
             $table->unsignedBigInteger('id_success');
             $table->foreign('id_success')->references('id')->on('success');
 
@@ -37,13 +37,9 @@ class CreateSucceesTable extends Migration
      */
     public function down()
     {
-        Schema::table('users_success', function (Blueprint $table) {
-            Schema::disableForeignKeyConstraints();
-            $table->dropForeign('users_success_id_success_foreign');
-            $table->drop('id_success');
-            Schema::enableForeignKeyConstraints();
-        });
-
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('users_has_success');
         Schema::dropIfExists('success');
+        Schema::enableForeignKeyConstraints();
     }
 }
