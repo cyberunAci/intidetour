@@ -16,7 +16,6 @@
 * npm install --save rxjs
 * Créer le fichier .env a partir du fichier .env.exemple
 * Generer des clés avec  php artisan key:generate
-* systéme d'authentication : npm install --save rxjs
  
 
 ## Intructions en cours de developpements

@@ -18,8 +18,20 @@ export default {
 
         getDatas() {
 
+//apiservice
+            axios.get('/api/profil')
+            .then(({ data }) => {
+                data.data.forEach(circuit => {
+                    this.circuits.push(circuit)
+                })
+            })
+            .catch();
 
-            
+
+
+
+
+
             console.log(this.currentUser);
         },
         
