@@ -1,5 +1,7 @@
+import { authenticationService } from '../_services/authentication.service'
+
 import Axios from "axios"
-import { authenticationService } from "./authentication.service"
+
 
 export const apiServices = {
     get(url, params = {}) {
@@ -10,15 +12,35 @@ export const apiServices = {
             params: params,
         })
     },
-    post(url, params = {}) {
+    post(url, body, params = {}) {
         return Axios({
-            method: 'post',
+            method: 'POST',
             url: url,
             headers: headers(),
-        })
+            data: JSON.stringify(body)
+        });
     },
+    patch(body) {
+        return {
+            method: 'PATCH',
+            ...headers(),
+            body: JSON.stringify(body)
+        };
+    },
+    put(body) {
+        return {
+            method: 'PUT',
+            ...headers(),
+            body: JSON.stringify(body)
+        };
+    },
+    delete() {
+        return {
+            method: 'DELETE',
+            ...headers()
+        };
+    }
 }
-
 function headers() {
     const currentUser = authenticationService.currentUserValue || {};
     const authHeader = currentUser.token ? { 'Authorization': 'Bearer ' + currentUser.token } : {}

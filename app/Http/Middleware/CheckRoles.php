@@ -23,8 +23,8 @@ class CheckRoles
 
         $roles = explode('|', $roles);
 
-        if (!in_array($role->name, $roles)) {
-            return response()->json(['error' => 'Unauthorized'], 403);
+        if (!in_array($role->role, $roles)) {
+            return response()->json(['error' => $role], 403);
         }
         return $next($request);
     }

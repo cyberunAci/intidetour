@@ -39,6 +39,20 @@
           </v-btn>
         </v-list-item>
 
+
+<!-- TODO A CACHER SI PAS CONNECTER -->
+              <v-list-item link>
+          <v-btn text medium to="/profil" class="white--text">
+            <v-list-item-icon>
+              <v-icon color="white">mdi-head-question-outline</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title class="font-weight-bold">Profil</v-list-item-title>
+            </v-list-item-content>
+          </v-btn>
+        </v-list-item>
+
         <v-list-item link v-if="!isChecked">
           <v-btn text medium to="/login" class="white--text">
             <v-list-item-icon>
@@ -161,6 +175,7 @@ export default {
   },
   created() {
     authenticationService.currentUser.subscribe(x => (this.currentUser = x));
+    console.log(this.currentUser)
   },
   methods: {
     logout() {

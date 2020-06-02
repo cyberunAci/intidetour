@@ -1,5 +1,4 @@
 import ShowCircuit from "./ShowCircuit.vue";
-import axios from 'axios';
 import DeleteCircuit from "./DeleteCircuit.vue";
 import AddCircuit from "./AddCircuit.vue";
 import UploadFile from "./UploadFile.vue";

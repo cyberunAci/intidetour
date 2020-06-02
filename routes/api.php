@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware(['auth:api', 'roles:admin'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
@@ -105,6 +105,19 @@ Route::prefix('interestpoints')->group(function () {
 Route::prefix('/apropos')->group(function () {
     Route::get('/', 'AboutController@addApropos');
 });
+
+/**
+ * API Profil
+ */
+Route::prefix('profil')->group(function () {
+    Route::get('/', 'UserController@getCurrentUser');
+   // Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
+});
+
+
+/**
+ * API Galerie
+ */
 
 Route::prefix('/galerie')->group(function () {
     Route::get('/', 'GalerieController@index');
