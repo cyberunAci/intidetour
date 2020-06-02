@@ -31,8 +31,8 @@ function login(user) {
         .then(handleResponse)
         .then(({ data }) => {
             if (!data) {
-                let snak = true;
-                return snak;
+                let snakbar = true;
+                return snakbar;
             }
             else {
                 localStorage.setItem("currentUser", JSON.stringify(data));
