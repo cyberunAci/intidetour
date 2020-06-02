@@ -1,3 +1,5 @@
+import { apiServices } from "../../_services/api.services";
+
 export default {
     data() {
         return {
@@ -8,7 +10,7 @@ export default {
 
     methods: {
         getDatas() {
-            axios.get('/api/circuits')
+            apiServices.get('/api/circuits')
                 .then(({ data }) => {
                     data.data.forEach(circuit => {
                         this.circuits.push(circuit)

@@ -4,6 +4,7 @@ import DeleteCircuit from "./DeleteCircuit.vue";
 import AddCircuit from "./AddCircuit.vue";
 import UploadFile from "./UploadFile.vue";
 import AddTrace from "./AddTrace.vue";
+import { apiServices } from "../../_services/api.services";
 
 export default {
     components:{
@@ -20,7 +21,7 @@ export default {
     }),
     methods: {
         getDatas() {
-            axios.get('/api/circuits')
+            apiServices.get('/api/circuits')
                 .then(({ data }) => {
                     data.data.forEach(circuit => {
                         this.circuits.push(circuit)

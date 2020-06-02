@@ -1,6 +1,7 @@
 
 import UploadFile from './UploadFile.vue';
 import axios from 'axios';
+import { apiServices } from '../../_services/api.services';
 
 export default {
     components: {
@@ -43,7 +44,7 @@ export default {
         updateData(item) {
             if (this.circuit[item.key] != item.value) {
                 let datas = this.getUpdatedCircuit(item);
-                axios.post('/api/circuits/' + this.circuit.id, datas)
+                apiServices.post('/api/circuits/' + this.circuit.id, datas)
                     .then(resp => {
                         if (_.isObject(resp.data)) {
                             this.circuit[item.key] = resp.data.data[item.key];
