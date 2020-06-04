@@ -1,17 +1,22 @@
 <template>
-  <section class="m-5 pt-5">
-    <v-row >
-      <h2>Temoignages</h2>
-    </v-row>
+  <v-container>
+    <h2>Temoignages</h2>
     <v-row>
-      <v-carousel :show-arrows="false" hide-delimiter-background :interval="5000" :cycle="true">
+      <v-carousel
+        height="auto"
+        :show-arrows="false"
+        hide-delimiter-background
+        :interval="5000"
+        :cycle="true"
+        class="pa-3"
+      >
         <v-carousel-item v-for="(item,i) in items" :key="i">
-          <p>{{item.src}}</p>
+          <v-card-text>{{item.src}}</v-card-text>
+          <v-card-subtitle>Utilisateur : {{item.user}}</v-card-subtitle>
         </v-carousel-item>
       </v-carousel>
     </v-row>
-
-  </section>
+  </v-container>
 </template>
 
 <script src="./temoignages.js">

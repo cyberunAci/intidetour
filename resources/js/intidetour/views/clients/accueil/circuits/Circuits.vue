@@ -25,10 +25,9 @@
                     <small class="text-muted">mots cles</small>
                   </v-card-text>
                 </div>
- <!--
-                <div class="text-right mb-3">
+                <!-- <div class="text-right mb-3">
                   <a href="/circuits/{{$circuit->id}}" class="btn btn-primary">Voir plus</a>
-                </div>-->
+                </div> -->
               </v-col> 
             </v-row>
           </v-card>
