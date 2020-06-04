@@ -1,7 +1,7 @@
 <template>
   <v-container class="grey mb-8">
     <v-row v-for="(info, key) in userInfos" :key="key">
-      <v-col cols="12" md="3">
+      <v-col cols="12" md="12">
         <v-card>
           <div class="text-center">
             <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
@@ -10,94 +10,81 @@
               </v-avatar>
             </v-img>
 
-            <v-card-title class="justify-center">{{info.prenom}} {{info.nom}}</v-card-title>
+            <!-- image profil -->
+            <v-row class="pa-2">
+              <v-col cols="6" sm="6" md="6" class="d-flex align-center mb-6">
+                <v-file-input multiple label="File input"></v-file-input>modifier image de profil
+              </v-col>
+            </v-row>
+            <!-- /image profil -->
+
+            <!-- image Background -->
+            <v-row class="pa-2">
+              <v-col cols="6" sm="6" md="6" class="d-flex align-center mb-6">
+                <v-file-input multiple label="File input"></v-file-input>modifier image de fond
+              </v-col>
+            </v-row>
+            <!-- /image Background -->
+
+            <v-row class="pa-2">
+              <v-col cols="12" sm="6" md="6">
+                <v-text-field label="Nom" outlined></v-text-field>
+              </v-col>
+
+              <v-col cols="12" sm="6" md="6">
+                <v-text-field label="Prenom" outlined></v-text-field>
+              </v-col>
+
+              <v-col cols="12" sm="12" md="12">
+                <v-text-field label="Titre" outlined></v-text-field>
+              </v-col>
+
+              <v-col cols="12" sm="12" md="12">
+                <v-textarea
+                  v-model="desc"
+                  label="Description"
+                  counter
+                  maxlength="120"
+                  full-width
+                  single-line
+                ></v-textarea>
+              </v-col>
+
+              <v-col cols="12" sm="12" md="12">
+                <v-text-field label="Email" outlined></v-text-field>
+              </v-col>
+
+              <v-col cols="12" sm="6" md="6">
+                <v-text-field label="Password" outlined></v-text-field>
+              </v-col>
+
+              <v-col cols="12" sm="6" md="6">
+                <v-text-field label="Verifie Password" outlined></v-text-field>
+              </v-col>
+
+              <v-col cols="12" sm="12" md="12">
+                <v-text-field label="adresse" outlined></v-text-field>
+               
+              </v-col>
+
+              <v-col cols="12" sm="12" md="12">
+      
+                <v-text-field label="complement d' adresse" outlined></v-text-field>
+              </v-col>
+
+              <v-col cols="12" sm="6" md="6" class="ma-0">
+                <v-text-field label="Ville" outlined></v-text-field>
+              </v-col>
+
+              <v-col cols="12" sm="6" md="6">
+                <v-text-field label="Verifie Code Postal" outlined></v-text-field>
+              </v-col>
+            </v-row>
 
             <v-card-text>
-              <div>accro de rando</div>
+              <v-btn small color="primary">Valider</v-btn>
             </v-card-text>
           </div>
-        </v-card>
-
-        <!-- a propos de moi  -->
-        <v-card class="mt-3">
-          <div class="text-center">
-            <v-card-title class="justify-center primary">mes informations  <v-spacer/>
-            <v-btn to="/editprofil" >modifier</v-btn>
-            </v-card-title> 
-          </div>
-          <v-divider></v-divider>
-          <v-expansion-panels>
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon>mdi-folder</v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>mon historique</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content
-                v-for="(infoCircuit, index) in info.circuit"
-                :key="index"
-              >{{infoCircuit.nom}}</v-expansion-panel-content>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon>mdi-folder</v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>mes succès</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content
-                v-for="(infoSucces, index) in info.success"
-                :key="index"
-              >{{infoSucces.nom}}</v-expansion-panel-content>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon>mdi-folder</v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>mes infos personnelles</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>Nom: {{info.nom}}</v-expansion-panel-content> 
-              <v-expansion-panel-content>Prenom: {{info.prenom}}</v-expansion-panel-content>
-              <v-expansion-panel-content>Email: {{info.email}}</v-expansion-panel-content>
-              <v-expansion-panel-content>Tel: {{info.tel}}</v-expansion-panel-content>
-              <v-expansion-panel-content>Date De Naissance: {{info.date_naissance}}</v-expansion-panel-content>
-                 
-            </v-expansion-panel>
-          </v-expansion-panels>
-
-          
-        </v-card>
-      </v-col>
-
-      <!-- carte droite -->
-      <v-col cols="12" md="9">
-        <v-card height="100%">
-          <!-- ligne de buttons -->
-
-          <div>
-            <v-btn small color="primary" class="ma-2">Primary</v-btn>
-
-            <v-btn small color="primary" class="ma-2">Primary</v-btn>
-
-            <v-btn small color="primary" class="ma-2">Primary</v-btn>
-          </div>
-          <v-divider></v-divider>
         </v-card>
       </v-col>
     </v-row>
