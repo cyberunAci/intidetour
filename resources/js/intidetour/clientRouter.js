@@ -22,7 +22,7 @@ const routes = [
         path: '/profil',
         name: 'profil',
         component: Profil,
-        meta: { authorize: [Role.Client] },
+        meta: { authorize: [Role.User] },
     },
 
     {

@@ -20,11 +20,15 @@ export default {
 
             apiServices.get('/api/users/' + this.currentUser.id + '/infos').then(({data}) => {
               
-                data.data.forEach(element => {
-                    this.userInfos.push(element)
-                });
+data.data.forEach(element => {
+    sole.log(this.element)
+});
 
-                  console.log(this.userInfos)
+                // data.data.fo(element => {
+                //     this.userInfos.push(element)
+                // });
+                // //console.log(data)
+                //  console.log(this.userInfos)
             })
 
 
