@@ -17,16 +17,7 @@ export default {
 
         getDatas() {
             authenticationService.currentUser.subscribe(x => (this.currentUser = x));
-
-            apiServices.get('/api/users/' + this.currentUser.id + '/infos').then(({data}) => {
-              
-                data.data.forEach(element => {
-                    this.userInfos.push(element)
-                });
-
-                  console.log(this.userInfos)
-            })
-
+            this.userInfos.push(this.currentUser)
 
         },
 

@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 |
 */
 
+
+
 Route::middleware(['auth:api', 'roles:admin'])->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -36,6 +38,8 @@ Route::middleware(['auth:api', 'roles:admin'])->group(function () {
     Route::prefix('users')->group(function () {
         Route::post('/{id}', 'UsersController@update')->where('id', "[0-9]+");
         Route::delete('/{id}', 'UsersController@delete')->where('id', "[0-9]+");
+
+   
     });
 
     /**
