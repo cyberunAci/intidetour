@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h2>Temoignages</h2>
+    <v-card-title class="mt-4">Temoignages</v-card-title>
     <v-row>
       <v-carousel
         height="auto"

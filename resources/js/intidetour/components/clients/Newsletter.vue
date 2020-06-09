@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="ma-0 pa-0">
-    <v-card-title>Être au courant des dernieres news ?</v-card-title>
+    <v-card-title class="mt-4">Être au courant des dernieres news ?</v-card-title>
     <v-row class="ml-5 mr-5 pa-0">
       <v-col cols="12" sm="8" class="ma-0 pa-0">
         <v-text-field
