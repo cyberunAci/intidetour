@@ -1,8 +1,6 @@
 <template>
-  <v-container>
-    <v-row>
-      <h2 class="mb-5">Fonctionalitées</h2>
-    </v-row>
+  <v-container fluid class="ma-0 pa-0">
+      <v-card-title>Fonctionalitées</v-card-title>
     <v-row>
       <v-card class="mx-auto mb-2" max-width="344" outlined>
         <v-list-item three-line>

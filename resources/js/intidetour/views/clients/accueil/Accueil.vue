@@ -36,7 +36,7 @@
     <circuits></circuits>
     <fonctionnalite></fonctionnalite>
     <Newsletter></Newsletter>
-    <section class="d-flex flex-column justify-center ma-2">
+    <section class="d-flex flex-column justify-center mt-4 mb-2 mr-2 ml-2">
       <hr />
     </section>
     <temoignages></temoignages>
