@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid>
+  <v-container fluid  class="ma-0 pa-0">
     <v-row>
-      <v-col cols="12" md="7" class="mx-3">
+      <v-col cols="12" md="7" class="ma-0 pa-0">
         <iframe
           width="100%"
           height="300px"
