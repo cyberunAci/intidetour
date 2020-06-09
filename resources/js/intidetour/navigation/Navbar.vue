@@ -2,7 +2,8 @@
   <div>
     <v-app-bar color="blue-grey">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="white--text">Intidétour</v-toolbar-title>
+      <!-- <v-toolbar-title class="white--text">Intidétour</v-toolbar-title> -->
+      <v-img src=""></v-img>
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-navigation-drawer class="blue-grey" v-model="drawer" absolute temporary>
