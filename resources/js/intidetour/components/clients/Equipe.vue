@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid  class="ma-0 pa-0">
+  <v-container fluid  class="my-10 pa-0">
     <v-row>
       <v-col cols="12" md="9" class="ma-0 pa-0">
         <iframe

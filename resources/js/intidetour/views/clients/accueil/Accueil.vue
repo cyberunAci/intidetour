@@ -5,7 +5,7 @@
         <v-img
           src="/storage/img/INTIDETOUR-photo-1.jpg"
           alt
-          class="align-center mb-2 pa-1"
+          class="align-center mb-2 pa-1 elevation-6"
           width="auto"
           height="750px"
         >
@@ -31,13 +31,13 @@
     </v-row>
     <equipe></equipe>
     <section class="d-flex flex-column justify-center ma-2">
-      <hr />
+      <hr class="ma-10" />
     </section>
     <circuits></circuits>
     <fonctionnalite></fonctionnalite>
     <Newsletter></Newsletter>
     <section class="d-flex flex-column justify-center mt-4 mb-2 mr-2 ml-2">
-      <hr />
+      <hr class="ma-10" />
     </section>
     <temoignages></temoignages>
   </v-container>
