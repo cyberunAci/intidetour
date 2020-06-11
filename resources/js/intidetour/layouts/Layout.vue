@@ -6,7 +6,7 @@
     />
       <navbar></navbar>
     <v-content class="ma-0 pa-0">
-      <v-container fluid class="ma-0 pa-0 blue lighten-5 text-center" >
+      <v-container fluid class="ma-0 pa-0 blue lighten-5 text-center" min-width="100%">
         <router-view></router-view>
       </v-container>
     </v-content>

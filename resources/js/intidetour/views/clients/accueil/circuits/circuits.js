@@ -3,7 +3,7 @@ import Axios from "axios";
 export default {
     data() {
         return {
-            circuits: []
+            circuits: [],
         }
     },
 
