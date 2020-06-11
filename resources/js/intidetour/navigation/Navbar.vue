@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <v-app-bar color="blue-grey">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <!-- <v-toolbar-title class="white--text">Intidétour</v-toolbar-title> -->
-      <v-img src=""></v-img>
+  <div class="ma-0 pa-0">
+
+    <v-app-bar color="blue-grey" height="75px" class="justify-space-around">
+      <v-img src="/storage/img/INTIDETOUR.png" height="70px" contain aspect-ratio="1.7" position="start"></v-img>
       <v-spacer></v-spacer>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-navigation-drawer class="blue-grey" v-model="drawer" absolute temporary>
+
+    <v-navigation-drawer class="blue-grey" v-model="drawer" absolute temporary right>
       <v-list-item>
         <v-list-item-content color="white">
-          <v-list-item-title class="font-weight-bold white--text">Intidétour</v-list-item-title>
+           <v-img src="/storage/img/INTIDETOUR.png" height="70px" contain aspect-ratio="1.7" position="start"></v-img>
         </v-list-item-content>
       </v-list-item>
 

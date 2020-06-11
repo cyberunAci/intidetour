@@ -3,7 +3,7 @@
     <v-row class="ma-0 pa-0">
       <v-col class="ma-0 pa-0">
         <v-img
-          src="https://via.placeholder.com/1000x450"
+          src="/storage/img/INTIDETOUR-photo-1.jpg"
           alt
           class="align-center mb-2 pa-1"
           width="auto"
