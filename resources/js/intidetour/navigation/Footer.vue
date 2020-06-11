@@ -1,6 +1,6 @@
 <template>
   <v-footer dark padless>
-    <v-card flat tile class="blue-grey white--text text-center">
+    <v-card flat tile class=" grey darken-3 white--text text-center">
       <v-card-text></v-card-text>
       <v-card-text class="white--text pt-0">
         Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum.
