@@ -1,15 +1,48 @@
 <template>
-  <div>
-    <v-app-bar color="blue-grey">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <!-- <v-toolbar-title class="white--text">Intidétour</v-toolbar-title> -->
-      <v-img src=""></v-img>
+  <div class="ma-0 pa-0">
+    <v-app-bar height="75px" class="justify-space-around grey darken-3">
+      <v-img
+        src="/storage/img/INTIDETOUR.png"
+        height="70px"
+        contain
+        aspect-ratio="1.7"
+        position="start"
+      ></v-img>
       <v-spacer></v-spacer>
+
+      <!-- TODO Manque responsive -->
+      <v-btn text medium to="/" class="white--text">
+        <v-list-item-icon>
+          <v-icon color="white">mdi-home-outline</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title class="font-weight-bold">Accueil</v-list-item-title>
+        </v-list-item-content>
+      </v-btn>
+      <v-btn text medium to="/a-propos" class="white--text">
+        <v-list-item-icon>
+          <v-icon color="white">mdi-head-question-outline</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title class="font-weight-bold">A propos</v-list-item-title>
+        </v-list-item-content>
+      </v-btn>
+
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="white--text"></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-navigation-drawer class="blue-grey" v-model="drawer" absolute temporary>
+
+    <v-navigation-drawer class="grey darken-3" v-model="drawer" absolute temporary right>
       <v-list-item>
         <v-list-item-content color="white">
-          <v-list-item-title class="font-weight-bold white--text">Intidétour</v-list-item-title>
+          <v-img
+            src="/storage/img/INTIDETOUR.png"
+            height="70px"
+            contain
+            aspect-ratio="1.7"
+            position="start"
+          ></v-img>
         </v-list-item-content>
       </v-list-item>
 
