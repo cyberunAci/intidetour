@@ -97,7 +97,7 @@ class UsersController extends Controller
                  'prenom' => 'required',
                 'email' => 'required',
                 'telephone' => 'required',
-                // 'date_naissance' => 'required',
+                 'dateNaissance' => 'required',
                 // 'photo' => 'required',
             ],
             [
@@ -123,6 +123,7 @@ class UsersController extends Controller
                 $dataClient->prenom = $donneUser['prenom'];
                 $dataClient->email = $donneUser['email'];
                 $dataClient->tel = $donneUser['telephone'];
+                $dataClient->date_naissance = $donneUser['dateNaissance'];
                $dataClient->save();
                $dataClient = User::find($id);
 
