@@ -118,6 +118,7 @@ Route::prefix('profil')->group(function () { //utilisateur
       // Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
 });
 
+//route pour l update du  profil de l utilisateur
 Route::post('/user/{id}/profil', 'UsersController@updtateCurrentUserInfo');
 
 /**

@@ -94,9 +94,9 @@ class UsersController extends Controller
             $request->all(),
             [
                 'nom' => 'required',
-                // 'prenom' => 'required',
-                // 'email' => 'required',
-                // 'tel' => 'required',
+                 'prenom' => 'required',
+                'email' => 'required',
+                'telephone' => 'required',
                 // 'date_naissance' => 'required',
                 // 'photo' => 'required',
             ],
@@ -120,6 +120,9 @@ class UsersController extends Controller
 
         
                 $dataClient->nom = $donneUser['nom'];
+                $dataClient->prenom = $donneUser['prenom'];
+                $dataClient->email = $donneUser['email'];
+                $dataClient->tel = $donneUser['telephone'];
                $dataClient->save();
                $dataClient = User::find($id);
 
