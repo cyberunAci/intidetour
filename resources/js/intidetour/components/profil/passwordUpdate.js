@@ -12,18 +12,18 @@ export default{
     mixins: [validationMixin],
 
     validations: {
-        mdp: { required, maxLength: maxLength(10) },
-        newmdp:{ required, maxLength: maxLength(10) },
-        newmdpConfirmation:{ required, maxLength: maxLength(10),  sameAsPassword: sameAs('newmdp')  },
+        password: { required, maxLength: maxLength(10) },
+        newPassword:{ required, maxLength: maxLength(10) ,  sameAsNewPasswordConfirmation: sameAs('newPasswordConfirmation') },
+        newPasswordConfirmation:{ required, maxLength: maxLength(10),  sameAsNewPassword: sameAs('newPassword')  },
     },
 
   
     data() {
         return {
              //3
-             mdp: '',
-             newmdp:'',
-             newmdpConfirmation:'',
+             password: '',
+             newPassword:'',
+             newPasswordConfirmation:'',
         }
     },
    
@@ -31,28 +31,30 @@ export default{
     computed: {
      
       
-        mdpErrors() {
+        passwordErrors() {
             const errors = []
-            if (!this.$v.mdp.$dirty) return errors
-            !this.$v.mdp.maxLength && errors.push('Le mdp doit comporte maximun 10 lettres')
-            !this.$v.mdp.required && errors.push('Le champs mdp est requis.')
+            console.log(this.$v)
+            if (!this.$v.password.$dirty) return errors
+            !this.$v.password.maxLength && errors.push('Le mdp doit comporte maximun 10 lettres')
+            !this.$v.password.required && errors.push('Le champs mdp est requis.')
             return errors
         },
 
-        newmdpErrors() {
+        newPasswordErrors() {
             const errors = []
-            if (!this.$v.newmdp.$dirty) return errors
-            !this.$v.newmdp.maxLength && errors.push('Le newmdp doit comporte maximun 10 lettres')
-            !this.$v.newmdp.required && errors.push('Le champs newmdp est requis.')
+            if (!this.$v.newPassword.$dirty) return errors
+            !this.$v.newPassword.maxLength && errors.push('Le newPassword doit comporte maximun 10 lettres')
+            !this.$v.newPassword.required && errors.push('Le champs newPassword est requis.')
+            !this.$v.newPassword.sameAsNewPasswordConfirmation && errors.push('Le champs newPassword doit etre egal a newPasswordConfirmation')
             return errors
         },
 
-        newmdpConfirmationErrors() {
+        newPasswordConfirmationErrors() {
             const errors = []
-            if (!this.$v.newmdpConfirmation.$dirty) return errors
-            !this.$v.newmdpConfirmation.maxLength && errors.push('Le newmdpConfirmation doit comporte maximun 10 lettres')
-            !this.$v.newmdpConfirmation.required && errors.push('Le champs newmdpConfirmation est requis.')
-            !this.$v.newmdpConfirmation.sameAsPassword && errors.push('Le champs newmdpConfirmation doit etre egal a password')
+            if (!this.$v.newPasswordConfirmation.$dirty) return errors
+            !this.$v.newPasswordConfirmation.maxLength && errors.push('Le newPasswordConfirmation doit comporte maximun 10 lettres')
+            !this.$v.newPasswordConfirmation.required && errors.push('Le champs newPasswordConfirmation est requis.')
+            !this.$v.newPasswordConfirmation.sameAsNewPassword && errors.push('Le champs newPasswordConfirmation doit etre egal a newPassword')
             return errors
         },
     },
