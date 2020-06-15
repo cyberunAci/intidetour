@@ -530,6 +530,7 @@ return array(
     'Egulias\\EmailValidator\\Warning\\QuotedString' => $vendorDir . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
     'Egulias\\EmailValidator\\Warning\\TLD' => $vendorDir . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
     'Egulias\\EmailValidator\\Warning\\Warning' => $vendorDir . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
+    'EvenementsSeeder' => $baseDir . '/database/seeds/EvenementsSeeder.php',
     'Facade\\FlareClient\\Api' => $vendorDir . '/facade/flare-client-php/src/Api.php',
     'Facade\\FlareClient\\Concerns\\HasContext' => $vendorDir . '/facade/flare-client-php/src/Concerns/HasContext.php',
     'Facade\\FlareClient\\Concerns\\UsesTime' => $vendorDir . '/facade/flare-client-php/src/Concerns/UsesTime.php',

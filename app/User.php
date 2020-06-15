@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nom', 'prenom', 'email','tel', 'date_naissance', 'password', 'photo',
+        'nom', 'prenom', 'email','tel', 'date_naissance', 'password', 'photo', 'id_role',
     ];
 
     protected $softDelete = true;

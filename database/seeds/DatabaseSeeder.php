@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             InterestPointTypeSeeder::class,
             InterestPointsSeeder::class,
             SuccessSeeder::class,
+            EvenementsSeeder::class,
             TracesSeeder::class,
             UsersSuccessSeeder::class,
             PhotosCircuitSeeder::class,

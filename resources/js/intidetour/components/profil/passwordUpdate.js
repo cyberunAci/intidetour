@@ -5,14 +5,14 @@ import { apiServices } from '../../_services/api.services'
 // 0  importer le pakage suite a l installation 
 // npm install vuelidate --save
 import { validationMixin } from 'vuelidate'
-import { required, maxLength, email,sameAs  } from 'vuelidate/lib/validators'
+import { required, maxLength, minLength, email,sameAs  } from 'vuelidate/lib/validators'
 
 export default{
 
     mixins: [validationMixin],
 
     validations: {
-        password: { required, maxLength: maxLength(10) },
+        password: { required, maxLength: maxLength(10), minLength: minLength(6),  },
         newPassword:{ required, maxLength: maxLength(10) ,  sameAsNewPasswordConfirmation: sameAs('newPasswordConfirmation') },
         newPasswordConfirmation:{ required, maxLength: maxLength(10),  sameAsNewPassword: sameAs('newPassword')  },
     },

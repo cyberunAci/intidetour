@@ -120,6 +120,7 @@ Route::prefix('profil')->group(function () { //utilisateur
 
 //route pour l update du  profil de l utilisateur
 Route::post('/user/{id}/profil', 'UsersController@updtateCurrentUserInfo');
+Route::post('/register', 'AuthController@register');
 
 /**
  * API Galerie
