@@ -9,13 +9,15 @@
           width="auto"
           height="750px"
         >
-          <v-col cols="12" md="5" sm="12" class="align-center">
+          <v-col cols="12" md="5" sm="12">
             <v-row>
-              <h2>C'est quoi Intidetour ?</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo beatae reiciendis, saepe illum velit dignissimos doloremque quis fugiat hic tempore animi rem error possimus nisi repellat soluta laborum. Facilis, consectetur.</p>
+              <h1 style="
+            font-family: 'Anton', sans-serif">C'est quoi Intidetour ?</h1>
+              <p style="font-family: 'Asap', sans-serif;" class="test--start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo beatae reiciendis, saepe illum velit dignissimos doloremque quis fugiat hic tempore animi rem error possimus nisi repellat soluta laborum. Facilis, consectetur.</p>
             </v-row>
             <v-row>
-              <h3>Installer Intidetour ?</h3>
+              <h3 style="
+            font-family: 'Anton', sans-serif">Installer Intidetour ?</h3>
             </v-row>
             <v-row>
               <v-col>

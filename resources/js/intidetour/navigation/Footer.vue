@@ -88,21 +88,21 @@
               src="/storage/img/sponsor/UE.png"
               aspect-ratio="1"
               max-width="150px"
-              max-height="auto"
+              min-height="100%"
               class="grey lighten-2 ma-1"
             ></v-img>
             <v-img
               src="/storage/img/sponsor/LEADER.png"
               aspect-ratio="1"
               max-width="150px"
-              max-height="auto"
+              min-height="100%"
               class="grey lighten-2 ma-1"
             ></v-img>
             <v-img
               src="/storage/img/sponsor/Departement.jpeg"
               aspect-ratio="1"
               max-width="150px"
-              max-height="auto"
+              min-height="100%"
               class="grey lighten-2 ma-1"
             ></v-img>
           </v-row>
@@ -111,21 +111,21 @@
               src="/storage/img/sponsor/Region.png"
               aspect-ratio="1"
               max-width="150px"
-              max-height="auto"
+              min-height="100%"
               class="grey lighten-2 ma-1"
             ></v-img>
             <v-img
               src="/storage/img/sponsor/PREFET.jpg"
               aspect-ratio="1"
               max-width="150px"
-              max-height="auto"
+              min-height="100%"
               class="grey lighten-2 ma-1"
             ></v-img>
             <v-img
               src="/storage/img/sponsor/TroisBassins.png"
               aspect-ratio="1"
               max-width="150px"
-              max-height="auto"
+              min-height="100%"
               class="grey lighten-2 ma-1"
             ></v-img>
           </v-row>
@@ -134,14 +134,14 @@
               src="/storage/img/sponsor/TCO.png"
               aspect-ratio="1"
               max-width="150px"
-              max-height="auto"
+              min-height="100%"
               class="grey lighten-2 ma-1"
             ></v-img>
             <v-img
               src="/storage/img/sponsor/TERGAL.png"
               aspect-ratio="1"
               max-width="150px"
-              max-height="auto"
+              min-height="100%"
               class="grey lighten-2 ma-1"
             ></v-img>
           </v-row>

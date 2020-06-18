@@ -1,11 +1,11 @@
 <template>
-  <v-container fluid  class="my-10 pa-0">
+  <v-container fluid class="my-10 pa-0">
     <v-row>
       <v-col cols="12" md="9" class="ma-0 pa-0">
         <iframe
           width="100%"
           height="450px"
-          src="https://www.youtube.com/embed/9ugzTTvNvkM"
+          src="https://www.youtube.com/embed/REFT7BUtr0I"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen

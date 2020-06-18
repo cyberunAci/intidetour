@@ -10,7 +10,7 @@
           v-for="(_apropos,key) in apropos"
           :key="key"
         >
-          <v-card-text class="font-weight-medium mt-12 text-center subtitle-1">{{ _apropos.text }}</v-card-text>
+          <v-card-text class="font-weight-medium mt-12 text-center subtitle-1"  style="font-family: 'Asap', sans-serif;">{{ _apropos.text }}</v-card-text>
         </v-card>
       </v-hover>
     </v-row>
