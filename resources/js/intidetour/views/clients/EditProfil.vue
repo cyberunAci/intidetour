@@ -1,106 +1,113 @@
 <template>
   <v-container class="grey mb-8">
-    <v-row v-for="(info, key) in userInfos" :key="key">
-      <v-col cols="12" md="3">
-        <v-card>
-          <div class="text-center">
-            <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
-              <v-avatar class="profile mx-auto my-6" color="grey" size="164">
-                <v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
-              </v-avatar>
-            </v-img>
+    <form>
+      <v-row v-for="(info, key) in userInfos" :key="key">
+        <v-col cols="12" md="12">
+          <v-card>
+            <div class="text-center">
+              <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
+                <v-avatar class="profile mx-auto my-6" color="grey" size="164">
+                  <v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
+                </v-avatar>
+              </v-img>
 
-            <v-card-title class="justify-center">{{info.prenom}} {{info.nom}}</v-card-title>
+              <form class="mx-2">
+                <!-- nom -->
+                <v-text-field
+                  v-model="name"
+                  :error-messages="nameErrors"
+                  :counter="10"
+                  label="Nom"
+                  required
+                  @input="$v.name.$touch()"
+                  @blur="$v.name.$touch()"
+                ></v-text-field>
+                <!-- /nom -->
 
-            <v-card-text>
-              <div>accro de rando</div>
-            </v-card-text>
-          </div>
-        </v-card>
+                <!-- prenom -->
+                <v-text-field
+                  v-model="prenom"
+                  :error-messages="prenameErrors"
+                  :counter="10"
+                  label="Prenom"
+                  required
+                  @input="$v.prenom.$touch()"
+                  @blur="$v.prenom.$touch()"
+                ></v-text-field>
+                <!-- /prenom -->
 
-        <!-- a propos de moi  -->
-        <v-card class="mt-3">
-          <div class="text-center">
-            <v-card-title class="justify-center primary">mes informations  <v-spacer/>
-            <v-btn to="/editprofil" >modifier</v-btn>
-            </v-card-title> 
-          </div>
-          <v-divider></v-divider>
-          <v-expansion-panels>
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon>mdi-folder</v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>mon historique</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content
-                v-for="(infoCircuit, index) in info.circuit"
-                :key="index"
-              >{{infoCircuit.nom}}</v-expansion-panel-content>
-            </v-expansion-panel>
+                <!-- email -->
+                <v-text-field
+                  v-model="email"
+                  :error-messages="emailErrors"
+                  :counter="30"
+                  label="email"
+                  required
+                  @input="$v.email.$touch()"
+                  @blur="$v.email.$touch()"
+                ></v-text-field>
 
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon>mdi-folder</v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>mes succès</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content
-                v-for="(infoSucces, index) in info.success"
-                :key="index"
-              >{{infoSucces.nom}}</v-expansion-panel-content>
-            </v-expansion-panel>
+                <!-- /email -->
 
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon>mdi-folder</v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>mes infos personnelles</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>Nom: {{info.nom}}</v-expansion-panel-content> 
-              <v-expansion-panel-content>Prenom: {{info.prenom}}</v-expansion-panel-content>
-              <v-expansion-panel-content>Email: {{info.email}}</v-expansion-panel-content>
-              <v-expansion-panel-content>Tel: {{info.tel}}</v-expansion-panel-content>
-              <v-expansion-panel-content>Date De Naissance: {{info.date_naissance}}</v-expansion-panel-content>
-                 
-            </v-expansion-panel>
-          </v-expansion-panels>
+                <!-- telephone -->
+                <v-text-field
+                  v-model="telephone"
+                  :error-messages="telephoneErrors"
+                  :counter="10"
+                  label="telephone"
+                  required
+                  @input="$v.telephone.$touch()"
+                  @blur="$v.telephone.$touch()"
+                ></v-text-field>
+                <!-- /telephone -->
 
-          
-        </v-card>
-      </v-col>
+                <!-- MDP -->
+                <!-- <v-text-field
+                  v-model="mdp"
+                  :error-messages="mdpErrors"
+                  :counter="10"
+                  label="mot de passe"
+                  required
+                  @input="$v.mdp.$touch()"
+                  @blur="$v.mdp.$touch()"
+                ></v-text-field> -->
+                <!-- /MDP -->
 
-      <!-- carte droite -->
-      <v-col cols="12" md="9">
-        <v-card height="100%">
-          <!-- ligne de buttons -->
 
-          <div>
-            <v-btn small color="primary" class="ma-2">Primary</v-btn>
+                 <!-- date -->
+                <v-col cols="12" sm="6" md="4">
+                  <v-menu
+                    v-model="menu2"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    transition="scale-transition"
+                    offset-y
+                    min-width="290px"
+                  >
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-text-field
+                        v-model="date"
+                        label="Date de naissance"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                      ></v-text-field>
+                    </template>
+                    <v-date-picker v-model="date" @input="savedate"></v-date-picker>
+                  </v-menu>
+                </v-col>
+                 <!-- /date -->
+                
+                <v-btn class="mr-4" @click="submit">submit</v-btn>
+                <v-btn @click="clear">clear</v-btn>
+              </form>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </form>
 
-            <v-btn small color="primary" class="ma-2">Primary</v-btn>
-
-            <v-btn small color="primary" class="ma-2">Primary</v-btn>
-          </div>
-          <v-divider></v-divider>
-        </v-card>
-      </v-col>
-    </v-row>
+    <passwordUpdate></passwordUpdate>
   </v-container>
 </template>
 

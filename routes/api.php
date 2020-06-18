@@ -113,10 +113,14 @@ Route::prefix('/apropos')->group(function () {
  * API Profil
  */
 Route::prefix('profil')->group(function () { //utilisateur
-    Route::get('/', 'UserController@getCurrentUser');
-    // Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
+    Route::get('/', 'UsersController@getCurrentUser');
+  
+      // Route::post('/{id}', 'AboutController@update')->where('id', "[0-9]+");
 });
 
+//route pour l update du  profil de l utilisateur
+Route::post('/user/{id}/profil', 'UsersController@updtateCurrentUserInfo');
+Route::post('/register', 'AuthController@register');
 
 /**
  * API Galerie

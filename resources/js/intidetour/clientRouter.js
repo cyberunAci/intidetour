@@ -4,6 +4,7 @@ import Profil from './views/clients/Profil.vue';
 import Cgu from './views/clients/Cgu.vue';
 import Circuits from './views/clients/accueil/circuits/Circuits.vue'
 import EditProfil from './views/clients/EditProfil.vue'
+import Register from './Register.vue'
 
 import { Role } from './_helpers/role';
 const routes = [
@@ -40,6 +41,11 @@ const routes = [
         path: '/circuits',
         name: 'circuits',
         component: Circuits,
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register,
     }
 
 ]

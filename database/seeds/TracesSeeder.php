@@ -15,11 +15,13 @@ class TracesSeeder extends Seeder
         $array = [
             [
                 "trace" => "trace 1",
-                "id_circuit" => 1
+                "id_circuit" => 1,
+                "id_evenement" => 1
             ],
             [
                 "trace" => "trace 2",
-                "id_circuit" => 2
+                "id_circuit" => 2,
+                "id_evenement" => 2
             ]
         ];
         DB::table('traces')->insert(

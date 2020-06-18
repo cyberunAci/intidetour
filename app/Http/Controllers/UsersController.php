@@ -85,4 +85,58 @@ class UsersController extends Controller
         return UsersRessource::collection($getDatas);
     }
 
+    public function  updtateCurrentUserInfo(Request $request, $id) {
+
+
+
+
+        $donneUser = Validator::make(
+            $request->all(),
+            [
+                'nom' => 'required',
+                 'prenom' => 'required',
+                'email' => 'required',
+                'telephone' => 'required',
+                 'dateNaissance' => 'required',
+                // 'photo' => 'required',
+            ],
+            [
+                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreure
+            ]
+        )->validate();
+
+
+
+        $dataClient = User::find($id);
+
+      
+
+            // $dataClient = User::find(1)
+            //         ->where('id', '=', $id)
+            //         ->first();
+           
+            // $dataClient   = User::where('id', '=', $id)->first();
+
+
+        
+                $dataClient->nom = $donneUser['nom'];
+                $dataClient->prenom = $donneUser['prenom'];
+                $dataClient->email = $donneUser['email'];
+                $dataClient->tel = $donneUser['telephone'];
+                $dataClient->date_naissance = $donneUser['dateNaissance'];
+               $dataClient->save();
+               $dataClient = User::find($id);
+
+            //    $user =  $request->user();
+               
+              //  dd($dataClient->save());
+
+
+            return   $dataClient;
+            return   $request;
+            return   $id;
+    }
+
+   
+
 }

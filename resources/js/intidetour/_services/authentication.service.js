@@ -48,3 +48,12 @@ function logout() {
     localStorage.removeItem("currentUser");
     currentUserSubject.next(null);
 }
+
+
+function update() {
+    // update user from local storage 
+
+    //get user depuis controller 
+    localStorage.removeItem("currentUser");
+    currentUserSubject.next(null);
+}
