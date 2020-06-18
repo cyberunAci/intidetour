@@ -10,24 +10,6 @@
       ></v-img>
       <v-spacer></v-spacer>
 
-      <!-- TODO Manque responsive -->
-      <!-- <v-btn text medium to="/" class="white--text mx-1">
-        <v-list-item-icon>
-          <v-icon color="white">mdi-home-outline</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title class="font-weight-bold">Accueil</v-list-item-title>
-        </v-list-item-content>
-      </v-btn>
-      <v-btn text medium to="/a-propos" class="white--text mx-1">
-        <v-list-item-icon>
-          <v-icon color="white">mdi-head-question-outline</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title class="font-weight-bold">A propos</v-list-item-title>
-        </v-list-item-content>
-      </v-btn> -->
-
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="white--text"></v-app-bar-nav-icon>
     </v-app-bar>
 
