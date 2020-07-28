@@ -1,0 +1,86 @@
+                    Formulaire de connexion 
+
+
+input e-mail :
+- lettres + @ + lettres + . + lettres -> accepter
+
+input mot de passe : 
+lettres, chiffres et caractères spéciaux -> accepter
+
+
+                    Formulaire de succès 
+
+
+input nom : 
+- lettres uniquement -> accepter
+
+input Image :
+- /storage/images/ + lettres + png -> accepter
+- /storage/images/ + lettres + jpg -> accepter
+
+input description : 
+- paragraphe -> accepter
+
+
+                    Formulaire de modification des utilisateurs  
+
+
+input nom :
+- lettres uniquement -> accepter
+
+input prénom :
+- lettres uniquement -> accepter
+
+input e-mail demandant :
+- lettres + @ + lettres + . + lettres -> accepter
+
+input numéro de telephone : 
+- chiffres uniquement -> accepter
+
+input date de naissance : 
+4 chiffres (année) + - + 2 chiffres (mois) + - + 2 chiffres (jour)
+
+input image :
+- lien image -> accepter
+- /storage/images/ + lettres + png -> accepter
+- /storage/images/ + lettres + jpg -> accepter
+
+
+                    Formulaire ajout d'un circuit 
+
+
+Input nom : 
+- lettres uniquement -> accepter
+
+Input image :
+- /storage/images/ + lettres + png -> accepter
+- /storage/images/ + lettres + jpg -> accepter
+
+Input difficulté : 
+- lettres uniquement -> accepter
+
+Input Description : 
+- paragraphe -> accepter
+
+Input Durée : 
+- Chiffres + minutes -> accepter
+- Chiffres + heures + chiffres + minutes -> accepter
+
+Input distance : 
+- chiffres + unité de distance -> accepter
+
+Input lattitude :
+- lattitude -> accepter
+
+Input longitude : 
+- longitude -> accepter
+
+
+                    Formulaire à propos 
+
+
+Input à propos :
+- paragraphes -> accepter
+
+
+
